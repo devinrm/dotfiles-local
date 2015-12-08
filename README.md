@@ -1,3 +1,3 @@
 ## Dotfiles
 ```
-* dotfiles for vim, spacemacs, zsh, and bash
+* dotfiles for vim, spacemacs, tmux, zsh, and bash
