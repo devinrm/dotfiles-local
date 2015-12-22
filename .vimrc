@@ -16,6 +16,11 @@ Plug 'chrisbra/csv.vim'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-tbone'
 Plug 'rking/ag.vim'
+Plug 'tpope/vim-endwise'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'pangloss/vim-javascript'
+Plug 'ashisha/image.vim'
+Plug 'floobits/floobits-neovim'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -39,6 +44,8 @@ imap jk <esc>
 imap kj <esc>
 
 imap <C-s> <esc>:w<cr>
+
+map <silent> <F5> :!open %<cr>
 
 set nocompatible                " Don't maintain compatibilty with Vi.
 set lazyredraw                  " Don't update while executing macros
@@ -169,3 +176,6 @@ function! s:PrettyJSON()
   set filetype=json
 endfunction
 command! PrettyJSON :call <sid>PrettyJSON()
+
+" copy paste to clipboard
+set clipboard=unnamed
