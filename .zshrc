@@ -63,9 +63,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR='nvim'
 # else
-#   export EDITOR='emacs'
+#   export EDITOR='vim'
 # fi
 
 # Compilation flags
@@ -90,3 +90,13 @@ export NVM_DIR="/Users/gandalf/.nvm"
 DEFAULT_USER='gandalf'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(rbenv init -)"
+
+# tab completion for lunchy gem
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+  if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
+    . $LUNCHY_DIR/lunchy-completion.zsh
+  fi
+
+stty -ixon

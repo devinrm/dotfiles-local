@@ -21,9 +21,16 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'pangloss/vim-javascript'
 Plug 'ashisha/image.vim'
 Plug 'floobits/floobits-neovim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'tpope/rbenv-ctags'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'scrooloose/nerdtree'
 " Add plugins to &runtimepath
 call plug#end()
 
+runtime macros/matchit.vim
 
 " Use the space key as our leader.
 let mapleader = "\<Space>"
@@ -105,6 +112,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+let g:ctrlp_working_path_mode = ""
+
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
@@ -179,3 +188,11 @@ command! PrettyJSON :call <sid>PrettyJSON()
 
 " copy paste to clipboard
 set clipboard=unnamed
+
+set rtp+=/usr/local/opt/fzf
+
+" Nerdtree stuff
+map <C-n> :NERDTreeToggle<CR>
+
+" Enable mouse cause I like scrolling
+:set mouse=a
