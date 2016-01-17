@@ -1,0 +1,29 @@
+" Map Ctrl-s to write the file
+nmap <C-s> :w<cr>
+imap <C-s> <esc>:w<cr>
+
+" Map Ctrl-t to open new tab
+map <C-t> <esc>:tabnew<CR>
+
+" Source (reload) your vimrc. Type space, s, o in sequence to trigger
+nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+" copy paste to clipboard
+set clipboard=unnamed
+
+" Nerdtree stuff
+map <C-n> :NERDTreeToggle<CR>
+
+" Enable mouse cause I like scrolling
+:set mouse=a
+
+" Open .html pages from vim in browser
+map <silent> <F10> :!open %<cr>
+
+" Ignore stuff that can't be opened
+set wildignore+=tmp/**
+
+" Make it more obvious which paren I'm on
+hi MatchParen cterm=none ctermbg=black ctermfg=yellow

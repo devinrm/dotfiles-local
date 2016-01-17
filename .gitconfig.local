@@ -1,0 +1,14 @@
+[alias]
+  l = log --pretty=colored
+[pretty]
+  colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
+  coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
+[user]
+  name = Devin Morgestern
+  email = devin.morgenstern@gmail.com
+[github]
+  user = devinrm
+[hub]
+  protocol = ssh
+[help]
+  autocorrect = 1

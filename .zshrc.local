@@ -1,0 +1,5 @@
+stty -ixon
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.node/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
