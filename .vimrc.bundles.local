@@ -1,1 +1,5 @@
 Plug 'scrooloose/nerdtree'
+Plug 'nanotech/jellybeans.vim'
+Plug 'rking/ag.vim'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'christoomey/vim-tmux-navigator'
