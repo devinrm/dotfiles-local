@@ -5,10 +5,6 @@ imap <C-s> <esc>:w<cr>
 " Map Ctrl-t to open new tab
 map <C-t> <esc>:tabnew<CR>
 
-" Toggle tabs
-nnoremap <silent> <C-l> :tabn<CR>
-vnoremap <silent> <C-l> :tabn<CR>
-
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source $MYVIMRC<cr>
 nmap <leader>vr :sp $MYVIMRC<cr>
@@ -16,9 +12,6 @@ nmap <leader>so :source $MYVIMRC<cr>
 
 " copy paste to clipboard
 set clipboard=unnamed
-
-" Nerdtree stuff
-map <C-n> :NERDTreeToggle<CR>
 
 " Enable mouse cause I like scrolling
 :set mouse=a
@@ -45,7 +38,7 @@ vnoremap <C-Space> <Esc>gV
 onoremap <C-Space> <Esc>
 cnoremap <C-Space> <C-c>
 inoremap <C-Space> <Esc>`^
-" Terminal sees <C-@> as <C-space> WTF, but ok
+" oTerminal sees <C-@> as <C-space> WTF, but ok
 nnoremap <C-@> <Esc>:noh<CR>
 vnoremap <C-@> <Esc>gV
 onoremap <C-@> <Esc>
@@ -54,6 +47,24 @@ inoremap <C-@> <Esc>`^
 
 " Add haml support for syntastic
 let g:syntastic_haml_checkers = ['haml_lint']
+
+let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,angularui,angularuirouter,react,flux,handlebars'
+
+" Pre-populate a split command with the current directory
+nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+
+" Copy the entire buffer into the system register
+nmap <leader>co ggVG*y
+
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
+
+" Easy access to the start of the line
+nmap 0 ^
+
+" Edit the db/schema.rb Rails file in a split
+nmap <leader>sc :split db/schema.rb<cr>
 
 " This statement has to come late in order to work
 highlight Comment cterm=italic
