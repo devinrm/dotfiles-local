@@ -1,1 +1,1 @@
-Pry.config.editor = 'nvim'
+Pry.config.editor = 'vim'
