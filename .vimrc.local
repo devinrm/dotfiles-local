@@ -22,17 +22,17 @@ map <silent> <F10> :!open %<cr>
 " Ignore stuff that can't be opened
 set wildignore+=tmp/**
 
-" Make it more obvious which paren I'm on
+" Make it more obvious which paren I'm on (from @r00k)
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
 " Use this colorscheme
 colorscheme jellybeans
 
-" Comment/un-comment like Sublime
+" Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
 vnoremap <C-\> :TComment<CR>
 
-" Use C-Space to Esc out of any mode
+" Use C-Space to Esc out of any mode (from @christoomey)
 nnoremap <C-Space> <Esc>:noh<CR>
 vnoremap <C-Space> <Esc>gV
 onoremap <C-Space> <Esc>
@@ -47,8 +47,6 @@ inoremap <C-@> <Esc>`^
 
 " Add haml support for syntastic
 let g:syntastic_haml_checkers = ['haml_lint']
-
-let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,angularui,angularuirouter,react,flux,handlebars'
 
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
@@ -66,6 +64,29 @@ nmap 0 ^
 " Edit the db/schema.rb Rails file in a split
 nmap <leader>sc :split db/schema.rb<cr>
 
-" This statement has to come late in order to work
+" Set paste so paste works properly
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+" Toggle spell checking on and off
+nmap <silent> <leader>, :set spell!<CR>
+
+" View commits in fzf
+nmap <Leader>c :Commits<cr>
+
+" Search with fzf
+map <C-p> :Files<cr>
+nmap <C-p> :Files<cr>
+
+" Set region to US English
+set spelllang=en_us
+
+" Complete from open tmux panes (from @junegunn)
+inoremap <expr> <C-x><C-t> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
+inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
+
+" Don't load ctrlp
+let g:loaded_ctrlp = 1
+
+" This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
 

@@ -1,5 +1,16 @@
-stty -ixon
+# Disable flow control commands (keeps C-s from freezing everything)
+stty start undef
+stty stop undef
+
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# node
 export PATH="$HOME/.node/bin:$PATH"
+
+# fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
