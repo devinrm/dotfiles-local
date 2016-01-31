@@ -1,0 +1,2 @@
+# keybinding for gitsh
+bind-key g split-window -h -p 50 gitsh
