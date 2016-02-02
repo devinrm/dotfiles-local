@@ -52,7 +52,7 @@ let g:syntastic_haml_checkers = ['haml_lint']
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Copy the entire buffer into the system register
-nmap <leader>co ggVG*y
+nmap <leader>co ggVGy
 
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
@@ -62,7 +62,7 @@ nmap k gk
 nmap 0 ^
 
 " Edit the db/schema.rb Rails file in a split
-nmap <leader>sc :split db/schema.rb<cr>
+nmap <Leader>sc :split db/schema.rb<cr>
 
 " Set paste so paste works properly
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
@@ -77,6 +77,9 @@ nmap <Leader>c :Commits<cr>
 map <C-p> :Files<cr>
 nmap <C-p> :Files<cr>
 
+" Search words with Ag
+nmap <Leader>s :Ag
+
 " Set region to US English
 set spelllang=en_us
 
@@ -86,6 +89,12 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
 " Don't load ctrlp
 let g:loaded_ctrlp = 1
+
+" Mappings to move lines
+nnoremap <C-f> :m-2<CR>
+nnoremap <C-g> :m+<CR>
+inoremap <C-f> <Esc>:m-2<CR>
+inoremap <C-g> <Esc>:m+<CR>
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
