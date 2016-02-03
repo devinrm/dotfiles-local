@@ -78,7 +78,7 @@ map <C-p> :Files<cr>
 nmap <C-p> :Files<cr>
 
 " Search words with Ag
-nmap <Leader>s :Ag
+nmap <Leader>s :Ag 
 
 " Set region to US English
 set spelllang=en_us
