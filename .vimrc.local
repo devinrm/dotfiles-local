@@ -26,7 +26,8 @@ set wildignore+=tmp/**
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
 " Use this colorscheme
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme onedark
 
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
@@ -98,4 +99,3 @@ inoremap <C-g> <Esc>:m+<CR>
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
-

@@ -10,3 +10,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'henrik/vim-indexed-search'
+Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+Plug 'Valloric/YouCompleteMe'
+Plug 'joshdick/onedark.vim'
