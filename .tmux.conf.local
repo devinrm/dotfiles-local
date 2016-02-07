@@ -4,9 +4,6 @@ bind-key g split-window -h -p 50 gitsh
 # trackpad support
 set-option -g mouse on
 
-# Start copy mode when scrolling up
-#bind -n WheelUpPane copy-mode
-
 # Easy reloading of the tmux.conf configuration file
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
