@@ -28,6 +28,8 @@ hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 " Use this colorscheme
 "colorscheme jellybeans
 colorscheme onedark
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=1
 
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
@@ -50,10 +52,13 @@ inoremap <C-@> <Esc>`^
 let g:syntastic_haml_checkers = ['haml_lint']
 
 " Pre-populate a split command with the current directory
-nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
-" Copy the entire buffer into the system register
-nmap <leader>co ggVGy
+" Copy the entire buffer into the system register (from @R00k)
+nmap <Leader>co mmggVG"*y`m
+
+" Indent guides toggle
+nmap <Leader>ig :IndentLinesToggle<cr>
 
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
@@ -74,12 +79,15 @@ nmap <silent> <leader>, :set spell!<CR>
 " View commits in fzf
 nmap <Leader>c :Commits<cr>
 
+" Require pry (from @R00k)
+map <Leader>d obinding.pry<esc>:w<cr>
+
 " Search with fzf
 map <C-p> :Files<cr>
 nmap <C-p> :Files<cr>
 
 " Search words with Ag
-nmap <Leader>s :Ag 
+nmap <Leader>s :Ag
 
 " Set region to US English
 set spelllang=en_us
