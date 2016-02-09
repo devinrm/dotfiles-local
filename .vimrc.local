@@ -80,7 +80,7 @@ nmap <silent> <leader>, :set spell!<CR>
 nmap <Leader>c :Commits<cr>
 
 " Require pry (from @R00k)
-map <Leader>d obinding.pry<esc>:w<cr>
+map <Leader>b obinding.pry<esc>:w<cr>
 
 " Search with fzf
 map <C-p> :Files<cr>
