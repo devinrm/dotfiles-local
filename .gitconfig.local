@@ -12,3 +12,20 @@
   protocol = ssh
 [help]
   autocorrect = 1
+[color]
+  ui = always
+[color "diff"]
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
+[core]
+  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-highlight | diff-so-fancy | less --tabs=1,5 -RFX
