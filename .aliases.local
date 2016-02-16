@@ -1,4 +1,4 @@
 alias brewu="brew update && brew upgrade"
 alias npmu="npm outdated -g --depth=0 && npm update -g"
 alias gemu="gem update"
-
+alias n="nvim"
