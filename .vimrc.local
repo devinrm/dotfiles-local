@@ -1,1 +1,109 @@
-.vimrc.local
+" Don't load ctrlp
+let g:loaded_ctrlp = 1
+
+" copy paste to clipboard
+set clipboard=unnamed
+
+" Enable mouse cause I like scrolling
+:set mouse=a
+
+" Ignore stuff that can't be opened
+set wildignore+=tmp/**
+
+" Set region to US English
+set spelllang=en_us
+
+" Make it more obvious which paren I'm on (from @r00k)
+hi MatchParen cterm=none ctermbg=black ctermfg=yellow
+
+" Use this colorscheme
+colorscheme jellybeans
+"colorscheme onedark
+"let g:onedark_termcolors=256
+"let g:onedark_terminal_italics=1
+
+" Add haml support for syntastic
+let g:syntastic_haml_checkers = ['haml_lint']
+
+" Map Ctrl-s to write the file
+nmap <C-s> :w<cr>
+imap <C-s> <esc>:w<cr>
+
+" Map Ctrl-t to open new tab
+map <C-t> <esc>:tabnew<CR>
+
+" Source (reload) your vimrc. Type space, s, o in sequence to trigger
+nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+" Pre-populate a split command with the current directory
+nmap <Leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+
+" Copy the entire buffer into the system register (from @R00k)
+nmap <Leader>co mmggVG"*y`m
+
+" Indent guides toggle
+nmap <Leader>ig :IndentLinesToggle<cr>
+
+" Edit the db/schema.rb Rails file in a split
+nmap <Leader>sc :split db/schema.rb<cr>
+
+" Set paste so paste works properly
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+" Toggle spell checking on and off
+nmap <silent> <leader>, :set spell!<CR>
+
+" View commits in fzf
+nmap <Leader>c :Commits<cr>
+
+" Require pry (from @R00k)
+map <Leader>b obinding.pry<esc>:w<cr>
+
+" Search words with Ag
+nmap <Leader>s :Ag 
+
+" Open .html pages from vim in browser
+map <silent> <F10> :!open %<cr>
+
+" Comment/un-comment like Sublime (from @geoffharcourt)
+nnoremap <C-\> :TComment<CR>
+vnoremap <C-\> :TComment<CR>
+
+" Use C-Space to Esc out of any mode (from @christoomey)
+nnoremap <C-Space> <Esc>:noh<CR>
+vnoremap <C-Space> <Esc>gV
+onoremap <C-Space> <Esc>
+cnoremap <C-Space> <C-c>
+inoremap <C-Space> <Esc>`^
+" oTerminal sees <C-@> as <C-space> WTF, but ok
+nnoremap <C-@> <Esc>:noh<CR>
+vnoremap <C-@> <Esc>gV
+onoremap <C-@> <Esc>
+cnoremap <C-@> <C-c>
+inoremap <C-@> <Esc>`^
+
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
+
+" Easy access to the start of the line
+nmap 0 ^
+
+" Search with fzf
+map <C-p> :Files<cr>
+nmap <C-p> :Files<cr>
+
+" Complete from open tmux panes (from @junegunn)
+inoremap <expr> <C-x><C-t> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
+inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
+
+" Mappings to move lines
+nnoremap <C-f> :m-2<CR>
+nnoremap <C-g> :m+<CR>
+inoremap <C-f> <Esc>:m-2<CR>
+inoremap <C-g> <Esc>:m+<CR>
+
+" This statement has to come late in order to work (from @geoffharcourt)
+highlight Comment cterm=italic
