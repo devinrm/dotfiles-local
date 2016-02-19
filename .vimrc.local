@@ -62,7 +62,7 @@ nmap <Leader>c :Commits<cr>
 map <Leader>b obinding.pry<esc>:w<cr>
 
 " Search words with Ag
-nmap <Leader>s :Ag 
+nmap <Leader>g :Ag 
 
 " Open .html pages from vim in browser
 map <silent> <F10> :!open %<cr>
@@ -107,3 +107,9 @@ inoremap <C-g> <Esc>:m+<CR>
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
