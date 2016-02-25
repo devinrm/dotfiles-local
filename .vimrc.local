@@ -13,6 +13,12 @@ set wildignore+=tmp/**
 " Set region to US English
 set spelllang=en_us
 
+" Window size
+set winwidth=84
+set winheight=10
+set winminheight=10
+set winheight=999
+
 " Make it more obvious which paren I'm on (from @r00k)
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
@@ -108,6 +114,9 @@ highlight Comment cterm=italic
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
+
+" Enable true color for neovim
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
