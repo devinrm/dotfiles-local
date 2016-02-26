@@ -115,8 +115,5 @@ highlight Comment cterm=italic
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
-" Enable true color for neovim
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
