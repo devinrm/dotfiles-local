@@ -19,6 +19,15 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
+" Replace all matches on a line instead of just the first
+set gdefault
+
+" Pull from keywords in the current file and from the current tags file
+set complete=.,b,u,]
+
+" Shows menu and any addition tips
+set completeopt=menu,preview
+
 " Make it more obvious which paren I'm on (from @r00k)
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
@@ -68,6 +77,9 @@ map <Leader>b obinding.pry<esc>:w<cr>
 " Search words with Ag
 nmap <Leader>g :Ag 
 
+" additional vim-rspec mapping
+nnoremap <Leader>a :call RunAllSpecs()<CR>
+
 " Open .html pages from vim in browser
 map <silent> <F10> :!open %<cr>
 
@@ -109,11 +121,14 @@ nnoremap <C-g> :m+<CR>
 inoremap <C-f> <Esc>:m-2<CR>
 inoremap <C-g> <Esc>:m+<CR>
 
-" This statement has to come late in order to work (from @geoffharcourt)
-highlight Comment cterm=italic
+" Vim Dispatch
+"let g:rspec_command = "Dispatch rspec {spec}"
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
 " Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
+autocmd VimLeave * silent !stty -ixon
+
+" This statement has to come late in order to work (from @geoffharcourt)
+highlight Comment cterm=italic
