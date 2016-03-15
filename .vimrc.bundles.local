@@ -18,3 +18,5 @@ Plug 'Yggdroot/indentLine'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'tpope/vim-dispatch'
+Plug 'ashisha/image.vim'
+Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
