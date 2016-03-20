@@ -14,7 +14,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-haml',  { 'for': 'haml' }
 Plug 'henrik/vim-indexed-search'
 Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
-Plug 'Yggdroot/indentLine'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'tpope/vim-dispatch'
