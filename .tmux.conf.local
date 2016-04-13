@@ -42,3 +42,12 @@ bind -n C-Up resize-pane -U 5
 
 # Easily swap a pane (targeted by pane number) with the current pane
 bind-key s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
+
+# Allow the session name in status left to display up to 50 characters
+set-option -g status-left-length 50
+
+# More useful status-right with battery percentage and nicely formated datetime
+set -g status-right "#(battery -t -g black)  #(date '+%a, %b %d - %I:%M') "
+
+# bind s to choose session instead of choose-tree by default
+bind-key s choose-session
