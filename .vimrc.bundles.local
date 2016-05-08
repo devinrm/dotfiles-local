@@ -11,11 +11,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-pseudocl' | Plug 'junegunn/vim-oblique'
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-haml',  { 'for': 'haml' }
 Plug 'henrik/vim-indexed-search'
 Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'tpope/vim-dispatch'
-Plug 'ashisha/image.vim'
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
