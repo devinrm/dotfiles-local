@@ -18,3 +18,4 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'tpope/vim-dispatch'
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
+Plug 'szw/vim-maximizer'
