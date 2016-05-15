@@ -54,7 +54,7 @@ nmap <C-s> :w<cr>
 imap <C-s> <esc>:w<cr>
 
 " Map Ctrl-t to open new tab
-map <C-t> <esc>:tabnew<CR>
+ map <C-t> <esc>:tabnew<CR>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source $MYVIMRC<cr>
@@ -83,8 +83,19 @@ nmap <silent> <leader>, :set spell!<CR>
 " View commits in fzf
 nmap <Leader>c :Commits<cr>
 
-" Require pry (from @R00k)
-map <Leader>b obinding.pry<esc>:w<cr>
+" Require pry (from @christoomey)
+nmap <leader>b orequire 'pry'; binding.pry<esc>^
+
+" Have tmux-runner open pry session
+nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
+
+" Vim-tmux-runner
+nnoremap <leader>fr :VtrFocusRunner<CR>
+nnoremap <leader>sr :VtrSendLinesToRunner<CR>
+nnoremap <leader>ap :VtrAttachToPane<CR>
+nnoremap <leader>se :VtrSendCommand<CR>
+nnoremap <leader>sf :VtrSendFile<CR>
+nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
 
 " Search words with Ag
 nmap <Leader>g :Ag 
@@ -119,10 +130,26 @@ nmap 0 ^
 " Search with fzf
 map <C-p> :Files<cr>
 nmap <C-p> :Files<cr>
+map <C-o> :BLines<cr>
+nmap <C-o> :BLines<cr>
 
 " Complete from open tmux panes (from @junegunn)
-inoremap <expr> <C-x><C-t> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
+inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " Mappings to move lines
 nnoremap <C-f> :m-2<CR>
@@ -135,6 +162,27 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 
 " Remap V to v
 nnoremap v V
+
+" Remap esc to ii
+imap ii <esc>
+
+"Vim-tmux-navigator mappings
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+let g:tmux_navigator_save_on_switch = 1
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon

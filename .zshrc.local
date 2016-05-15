@@ -21,5 +21,18 @@ export PATH="$PATH:/path/to/elixir/bin"
 export PATH="$HOME/.bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+eval "$(thefuck --alias)"
+
+# Neovim true color support
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+# Auto-attach new shell sessions in tmux
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
+
+ensure_tmux_is_running
