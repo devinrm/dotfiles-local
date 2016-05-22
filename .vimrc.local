@@ -151,11 +151,14 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
-" Mappings to move lines
-nnoremap <C-f> :m-2<CR>
-nnoremap <C-g> :m+<CR>
-inoremap <C-f> <Esc>:m-2<CR>
-inoremap <C-g> <Esc>:m+<CR>
+" Mappings to move lines. Symbols represent 'alt' because macs are insane
+" http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
+nnoremap ˚ :m .+1<CR>==
+nnoremap ∆ :m .-2<CR>==
+inoremap ˚ <Esc>:m .+1<CR>==gi
+inoremap ∆ <Esc>:m .-2<CR>==gi
+vnoremap ˚ :m '>+1<CR>gv=gv
+vnoremap ∆ :m '<-2<CR>gv=gv
 
 " Make yank behave like yank should
 vnoremap <expr>y "my\"" . v:register . "y`y"
@@ -173,7 +176,7 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 let g:tmux_navigator_save_on_switch = 1
 
@@ -207,6 +210,18 @@ autocmd VimLeave * silent !stty ixon
 " let g:terminal_color_13 = '#ad7fa8'
 " let g:terminal_color_14 = '#00f5e9'
 " let g:terminal_color_15 = '#eeeeec'
+
+" Make n N nicer
+function! s:nice_next(cmd)
+  let view = winsaveview()
+  execute "normal! " . a:cmd
+  if view.topline != winsaveview().topline
+    normal! zz
+  endif
+endfunction
+
+nnoremap <silent> n :call <SID>nice_next('n')<cr>
+nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
