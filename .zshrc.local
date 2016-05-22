@@ -15,6 +15,9 @@ export PATH="$HOME/.node/bin:$PATH"
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# zsh auto-suggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # elixir
 export PATH="$PATH:/path/to/elixir/bin"
 
@@ -36,3 +39,6 @@ ensure_tmux_is_running() {
 }
 
 ensure_tmux_is_running
+
+# Don't load default ranger config
+export RANGER_LOAD_DEFAULT_RC=FALSE
