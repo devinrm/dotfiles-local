@@ -14,8 +14,11 @@ set clipboard=unnamed
 " highlight search results
 set hlsearch 
 
-" Enable mouse cause I like scrolling
-":set mouse=a
+" case insensitive pattern matching
+set ignorecase
+
+" overrides ignorecase if pattern contains upcase
+set smartcase
 
 " Ignore stuff that can't be opened
 set wildignore+=tmp/**
@@ -38,9 +41,15 @@ set complete=.,b,u,]
 " Shows menu and any addition tips
 set completeopt=menu,preview
 
+" Get the best of both worlds with set number and relativenumber
+set relativenumber 
+set number
+autocmd InsertEnter * :set number norelativenumber
+autocmd InsertLeave * :set relativenumber
+
 " Use this colorscheme
-colorscheme onedark
-"colorscheme jellybeans
+" colorscheme onedark
+colorscheme jellybeans
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -67,14 +76,15 @@ nmap <Leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " Copy the entire buffer into the system register (from @R00k)
 nmap <Leader>co mmggVG"*y`m
 
-" Indent guides toggle
-nmap <Leader>ig :IndentLinesToggle<cr>
-
 " Edit the db/schema.rb Rails file in a split
 nmap <Leader>sc :split db/schema.rb<cr>
 
+" Indent the whole file
+map <Leader>i mmgg=G`m
+
 " Set paste so paste works properly
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+" map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
 nnoremap <C-a> :set invpaste paste?<CR>
 
 " Toggle spell checking on and off
