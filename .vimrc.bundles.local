@@ -1,10 +1,11 @@
 Plug 'nanotech/jellybeans.vim'
 Plug 'geoffharcourt/one-dark.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'rking/ag.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'geoffharcourt/vim-coloresque'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -19,3 +20,5 @@ Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'tpope/vim-dispatch'
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 Plug 'szw/vim-maximizer'
+Plug 'skwp/greplace.vim'
+Plug 'ck3g/vim-change-hash-syntax', { 'for' : 'ruby' }
