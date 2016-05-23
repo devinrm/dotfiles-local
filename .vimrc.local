@@ -63,7 +63,7 @@ nmap <C-s> :w<cr>
 imap <C-s> <esc>:w<cr>
 
 " Map Ctrl-t to open new tab
- map <C-t> <esc>:tabnew<CR>
+map <C-t> <esc>:tabnew<CR>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source $MYVIMRC<cr>
@@ -83,9 +83,11 @@ nmap <Leader>sc :split db/schema.rb<cr>
 map <Leader>i mmgg=G`m
 
 " Set paste so paste works properly
-" map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
 nnoremap <C-a> :set invpaste paste?<CR>
+
+" Run vimscript functions
+map <Leader>x :exec getline(".")<cr>
 
 " Toggle spell checking on and off
 nmap <silent> <leader>, :set spell!<CR>
@@ -163,12 +165,12 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
 " http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
-nnoremap ˚ :m .+1<CR>==
-nnoremap ∆ :m .-2<CR>==
-inoremap ˚ <Esc>:m .+1<CR>==gi
-inoremap ∆ <Esc>:m .-2<CR>==gi
-vnoremap ˚ :m '>+1<CR>gv=gv
-vnoremap ∆ :m '<-2<CR>gv=gv
+nnoremap ˚ :m .-2<CR>==
+nnoremap ∆ :m .+1<CR>==
+inoremap ˚ <Esc>:m .-2<CR>==gi
+inoremap ∆ <Esc>:m .+1<CR>==gi
+vnoremap ˚ :m '>-2<CR>gv=gv
+vnoremap ∆ :m '<+1<CR>gv=gv
 
 " Make yank behave like yank should
 vnoremap <expr>y "my\"" . v:register . "y`y"
