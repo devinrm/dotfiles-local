@@ -21,4 +21,4 @@ Plug 'tpope/vim-dispatch'
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 Plug 'szw/vim-maximizer'
 Plug 'skwp/greplace.vim'
-Plug 'ck3g/vim-change-hash-syntax', { 'for' : 'ruby' }
+Plug 'derekprior/vim-trimmer'

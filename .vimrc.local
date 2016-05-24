@@ -104,6 +104,9 @@ nmap <leader>b orequire 'pry'; binding.pry<esc>^
 " Have tmux-runner open pry session
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
 
+" Convert Ruby 1.8 to 1.9 Hash Syntax
+map <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
+
 " Vim-tmux-runner
 nnoremap <leader>fr :VtrFocusRunner<CR>
 nnoremap <leader>sr :VtrSendLinesToRunner<CR>
