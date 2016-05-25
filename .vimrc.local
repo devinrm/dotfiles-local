@@ -12,7 +12,7 @@ set undofile
 set clipboard=unnamed
 
 " highlight search results
-set hlsearch 
+set hlsearch
 
 " case insensitive pattern matching
 set ignorecase
@@ -42,7 +42,7 @@ set complete=.,b,u,]
 set completeopt=menu,preview
 
 " Get the best of both worlds with set number and relativenumber
-set relativenumber 
+set relativenumber
 set number
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
@@ -116,7 +116,7 @@ nnoremap <leader>sf :VtrSendFile<CR>
 nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
 
 " Search words with Ag
-nmap <Leader>g :Ag 
+nmap <Leader>g :Ag
 
 " Open .html pages from vim in browser
 map <silent> <F10> :!open '%'<cr>

@@ -43,6 +43,3 @@ prompt pure
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# zsh auto-suggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
