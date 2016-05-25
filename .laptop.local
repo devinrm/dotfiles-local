@@ -53,7 +53,6 @@ brew install ghostscript
 brew install giflib
 brew install git
 brew install git-lfs
-brew install git-standup
 brew install gitsh
 brew install glib
 brew install gmp
