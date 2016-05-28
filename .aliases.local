@@ -12,4 +12,4 @@ alias da="dasht"
 alias help="run-help"
 alias ra="ranger"
 alias ru="rubocop"
-alias colors_ls='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
+alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
