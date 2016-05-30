@@ -185,7 +185,7 @@ nnoremap <leader>sf :VtrSendFile<CR>
 nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
 
 " Search words with Ag
-nmap <Leader>g :Ag
+nmap <Leader>g :Ag<space>
 
 " Open .html pages from vim in browser
 map <silent> <F10> :!open '%'<cr>
@@ -295,4 +295,3 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
-highlight Comment ctermfg=darkblue
