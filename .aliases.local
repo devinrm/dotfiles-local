@@ -14,3 +14,7 @@ alias help="run-help"
 alias ra="ranger"
 alias ru="rubocop"
 alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
+alias cr="man . ~/code/notes/ruby.txt"
+alias cg="man . ~/code/notes/git.txt"
+alias ct="man . ~/code/notes/tmux.txt"
+alias cv="man . ~/code/notes/vim.txt"
