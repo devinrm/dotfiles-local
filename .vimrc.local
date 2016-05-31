@@ -173,8 +173,14 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 " Convert Ruby 1.8 to 1.9 Hash Syntax
 map <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 
-"Replace with register
+" Replace with register
 nmap <leader>gr "*gr<cr>
+
+" Code notes
+map <Leader>cr :sp ~/code/notes/ruby.txt<cr>
+map <Leader>ct :sp ~/code/notes/tmux.txt<cr>
+map <Leader>cv :sp ~/code/notes/vim.txt<cr>
+map <Leader>cg :sp ~/code/notes/git.txt<cr>
 
 " Vim-tmux-runner
 nnoremap <leader>fr :VtrFocusRunner<CR>
