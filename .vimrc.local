@@ -281,6 +281,9 @@ autocmd VimResized * :wincmd =
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
+" map <ctrl>c to quit
+map <c-c> :q<cr>
+
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
