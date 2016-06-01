@@ -177,10 +177,7 @@ map <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 nmap <leader>gr "*gr<cr>
 
 " Code notes
-map <Leader>cr :sp ~/Google\ Drive/notes/ruby.txt<cr>
-map <Leader>ct :sp ~/Google\ Drive/notes/tmux.txt<cr>
-map <Leader>cv :sp ~/Google\ Drive/notes/vim.txt<cr>
-map <Leader>cg :sp ~/Google\ Drive/notes/git.txt<cr>
+map <Leader>cn :Sex ~/code/notes/<cr>
 
 " Vim-tmux-runner
 nnoremap <leader>fr :VtrFocusRunner<CR>
