@@ -299,5 +299,8 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
+"Make it clear where 80 columns is.
+highlight ColorColumn ctermbg=104
+
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic

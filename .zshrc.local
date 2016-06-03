@@ -21,6 +21,13 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # elixir
 export PATH="$PATH:/path/to/elixir/bin"
 
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+
+gpip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
 # the f*ck - fix your f*ckups
 eval "$(thefuck --alias)"
 
