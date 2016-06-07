@@ -135,9 +135,9 @@ imap <C-s> <esc>:w<cr>
 map <C-t> <esc>:tabnew<CR>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
-nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>re :source $MYVIMRC<cr>
 nmap <leader>vr :sp $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
+nmap <leader>re :source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
 nmap <Leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
