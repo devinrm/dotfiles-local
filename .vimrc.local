@@ -49,7 +49,7 @@ autocmd InsertLeave * :set relativenumber
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -140,7 +140,8 @@ nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>re :source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
-nmap <Leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Copy the entire buffer into the system register (from @R00k)
 nmap <Leader>co mmggVG"*y`m
@@ -299,8 +300,15 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
-"Make it clear where 80 columns is.
-highlight ColorColumn ctermbg=104
+" Make it clear where 80 columns is.
+highlight ColorColumn ctermbg=105
+
+" This changes the color of the comments.
+highlight Comment ctermfg=104
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
+
+" This gets rid of the jet black reflective background
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
