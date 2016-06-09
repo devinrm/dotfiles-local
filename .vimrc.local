@@ -242,6 +242,9 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
+" Fzf tags
+map <leader>tg :Tags<cr>
+
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
 " 'j' = '∆' and 'k' = '˚'
 " http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
