@@ -128,8 +128,8 @@ let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "dispatch"
 
 " Map Ctrl-s to write the file
-nmap <C-s> :w<cr>
-imap <C-s> <esc>:w<cr>
+nmap <C-a> :w<cr>
+imap <C-a> <esc>:w<cr>
 
 " Map Ctrl-t to open new tab
 map <C-t> <esc>:tabnew<CR>
@@ -304,14 +304,16 @@ nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " Make it clear where 80 columns is.
-highlight ColorColumn ctermbg=105
+highlight ColorColumn ctermbg=237
 
 " This changes the color of the comments.
 highlight Comment ctermfg=104
 
-" This statement has to come late in order to work (from @geoffharcourt)
-highlight Comment cterm=italic
-
 " This gets rid of the jet black reflective background
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+
+" This statement has to come late in order to work (from @geoffharcourt)
+highlight Comment cterm=italic
+
+let g:syntastic_haml_checkers = ['haml_lint']
