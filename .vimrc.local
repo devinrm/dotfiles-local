@@ -154,7 +154,6 @@ map <Leader>i mmgg=G`m
 
 " Set paste so paste works properly
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
-nnoremap <C-a> :set invpaste paste?<CR>
 
 " Run vimscript functions
 map <Leader>x :exec getline(".")<cr>
