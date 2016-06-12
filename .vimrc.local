@@ -118,7 +118,7 @@ function! LightLineModified()
   endif
 endfunction
 
-colorscheme onedark
+colorscheme blues
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -306,13 +306,17 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 highlight ColorColumn ctermbg=237
 
 " This changes the color of the comments.
-highlight Comment ctermfg=104
+" highlight Comment ctermfg=104
 
 " This gets rid of the jet black reflective background
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
+" This changes the Visual line color
+highlight visual ctermfg=1
+
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
+" highlight Comment ctermfg=147
 
 let g:syntastic_haml_checkers = ['haml_lint']
