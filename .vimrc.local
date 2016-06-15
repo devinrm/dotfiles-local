@@ -284,6 +284,9 @@ nnoremap <leader>= :wincmd =<cr>
 " map <ctrl>c to quit
 map <c-c> :q<cr>
 
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 
@@ -317,6 +320,5 @@ highlight visual ctermfg=1
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
-" highlight Comment ctermfg=147
 
 let g:syntastic_haml_checkers = ['haml_lint']

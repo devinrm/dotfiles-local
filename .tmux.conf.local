@@ -5,9 +5,6 @@ set -g prefix C-s
 # Use emacs instead of vi keybindings for prompt
 set-option -g status-keys "emacs"
 
-# keybinding for gitsh
-bind-key g split-window -h -p 50 gitsh
-
 # Easy reloading of the tmux.conf configuration file
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
@@ -54,7 +51,7 @@ set -g status-left "#S ❯❯ "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "#(battery -t -g '#303030')  #(date '+%a, %b %d - %H:%M') "
+set -g status-right "#(battery -t -g '#7E9DE4')  #(date '+%a, %b %d - %H:%M') "
 
 # Change pane border color
 set -g pane-border-fg '#3942AE'
@@ -81,6 +78,9 @@ bind C-l send-keys 'C-l'
 
 # Quickly view system & process info in htop
 bind-key h split-window -h "htop"
+
+# keybinding for gitsh
+bind-key g split-window -h -p 50 gitsh
 
 # Break out of session without exiting current session
 bind-key C-b send-keys 'tat && exit' 'C-m'
