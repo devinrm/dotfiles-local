@@ -14,6 +14,9 @@ set clipboard=unnamed
 " highlight search results
 set hlsearch
 
+" Speed up escape after (){} chars
+set matchtime=0
+
 " case insensitive pattern matching
 set ignorecase
 
@@ -257,8 +260,9 @@ vnoremap ∆ :m '<+1<CR>gv=gv
 " Make yank behave like yank should
 vnoremap <expr>y "my\"" . v:register . "y`y"
 
-" Remap V to v
-nnoremap v V
+" map visual-block to v
+nnoremap v <c-v>e
+nnoremap V <c-v>b
 
 " Remap esc to ii
 imap ii <esc>
@@ -266,6 +270,10 @@ imap ii <esc>
 "Vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
 
+" To use c-h in neovim on OS X
+" (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
+" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+" tic $TERM.ti
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
@@ -307,18 +315,17 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " Make it clear where 80 columns is.
 highlight ColorColumn ctermbg=237
-
-" This changes the color of the comments.
-" highlight Comment ctermfg=104
-
-" This gets rid of the jet black reflective background
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+" neovim
+highlight ColorColumn guibg=#2a2a2a
 
 " This changes the Visual line color
 highlight visual ctermfg=1
+" neovim
+highlight visual guifg=#D73435
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
+" neovim
+highlight Comment gui=underline
 
 let g:syntastic_haml_checkers = ['haml_lint']
