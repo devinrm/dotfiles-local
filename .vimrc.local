@@ -296,10 +296,10 @@ map <c-c> :q<cr>
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
-silent !stty -ixon
+" silent !stty -ixon
 
 " Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
+" autocmd VimLeave * silent !stty ixon
 
 " Make n N nicer
 function! s:nice_next(cmd)
@@ -317,6 +317,9 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 highlight ColorColumn ctermbg=237
 " neovim
 highlight ColorColumn guibg=#2a2a2a
+
+highlight VertSplit guibg=#4873D5
+highlight VertSplit guifg=#2D2D2D
 
 " This changes the Visual line color
 highlight visual ctermfg=1
