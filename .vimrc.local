@@ -261,8 +261,7 @@ vnoremap ∆ :m '<+1<CR>gv=gv
 vnoremap <expr>y "my\"" . v:register . "y`y"
 
 " map visual-block to v
-nnoremap v <c-v>e
-nnoremap V <c-v>b
+map v <c-v>e
 
 " Remap esc to ii
 imap ii <esc>
