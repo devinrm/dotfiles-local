@@ -1,5 +1,6 @@
 " Don't load ctrlp
 let g:loaded_ctrlp = 1
+let g:loaded_syntastic = 1
 
 " Enables a menu at the bottom of the vim window.
 set wildmenu
@@ -49,6 +50,12 @@ set relativenumber
 set number
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
+
+" Neomake
+autocmd! BufWritePost,BufEnter * Neomake
+let g:neomake_serialize = 0
+let g:neomake_verbose = 0
+let g:neomake_list_height = 20
 
 " Colorscheme and lightline config
 let g:lightline = {
@@ -129,6 +136,10 @@ let g:marked_app = 'Markoff'
 " Vim Dispatch
 let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "dispatch"
+
+" Neomake
+map <leader>o :lopen<cr>
+map <leader>oo :lclose<cr>
 
 " Map Ctrl-s to write the file
 nmap <C-a> :w<cr>

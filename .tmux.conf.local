@@ -47,7 +47,7 @@ bind-key s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
 bind-key b break-pane -d
 
 # Allow the session name in status left to display up to 50 characters
-set -g status-left "#S ❯❯ "
+set -g status-left " #S ❯❯ "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
