@@ -323,6 +323,9 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
+" Vim-Conflicted
+set stl+=%{ConflictedVersion()}
+
 " Make it clear where 80 columns is.
 highlight ColorColumn ctermbg=237
 " neovim

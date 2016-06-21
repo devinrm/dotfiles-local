@@ -4,7 +4,12 @@
   glog = log -E -i --grep
   car = commit --amend --no-edit
   unstage = reset
-  uncommit = git reset --soft HEAD^
+  uncommit = reset --soft HEAD^
+  mg = merge --ff-only
+  cm = commit -m
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+  fall = fetch --all
+  mup = !git checkout master && git pull && git checkout -
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
   coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
@@ -26,6 +31,8 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[diff]
+  compactionHeuristic
 [color "diff-highlight"]
   oldNormal = red bold
   oldHighlight = "red bold 52"
@@ -34,3 +41,4 @@
 [core]
   pager = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX
+  editor = nvim
