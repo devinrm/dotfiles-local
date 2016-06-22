@@ -1,6 +1,5 @@
 " Don't load ctrlp
 let g:loaded_ctrlp = 1
-let g:loaded_syntastic = 1
 
 " Enables a menu at the bottom of the vim window.
 set wildmenu
@@ -59,7 +58,7 @@ let g:neomake_list_height = 20
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -128,7 +127,7 @@ function! LightLineModified()
   endif
 endfunction
 
-colorscheme blues
+colorscheme jellybeans
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -311,6 +310,10 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " Restore default behaviour when leaving Vim.
 " autocmd VimLeave * silent !stty ixon
 
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+setlocal omnifunc=htmlcomplete#CompleteTags
+
 " Make n N nicer
 function! s:nice_next(cmd)
   let view = winsaveview()
@@ -325,6 +328,20 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " Vim-Conflicted
 set stl+=%{ConflictedVersion()}
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_scss_checkers = ['scss_lint', 'sass-lint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
+let g:syntastic_slim_checkers = ['slim_lint']
 
 " Make it clear where 80 columns is.
 highlight ColorColumn ctermbg=237
@@ -341,7 +358,3 @@ highlight visual guifg=#D73435
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
-" neovim
-highlight Comment gui=underline
-
-let g:syntastic_haml_checkers = ['haml_lint']
