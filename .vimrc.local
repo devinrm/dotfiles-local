@@ -5,6 +5,9 @@ let g:loaded_ctrlp = 1
 set wildmenu
 set wildmode=longest:full,full
 
+" Turn mouse off in NeoVim
+set mouse=
+
 set undodir=$HOME/.undodir
 set undofile
 
@@ -58,7 +61,7 @@ let g:neomake_list_height = 20
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -127,7 +130,8 @@ function! LightLineModified()
   endif
 endfunction
 
-colorscheme jellybeans
+set background=dark
+colorscheme blues
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -146,6 +150,9 @@ imap <C-a> <esc>:w<cr>
 
 " Map Ctrl-t to open new tab
 map <C-t> <esc>:tabnew<CR>
+
+" Open terminal in NeoVim
+map <leader>r :sp<cr> :terminal<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>re :source $MYVIMRC<cr>

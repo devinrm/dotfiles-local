@@ -1,5 +1,7 @@
 Plug 'shirataki/lightline-onedark'
-Plug 'lifepillar/vim-wwdc16-theme'
+Plug 'nanotech/jellybeans.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'freeo/vim-kalisi'
 Plug 'limadm/vim-blues'
 Plug 'geoffharcourt/one-dark.vim'
 Plug 'geoffharcourt/vim-coloresque'
