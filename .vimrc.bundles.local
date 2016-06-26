@@ -26,7 +26,6 @@ Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
-Plug 'szw/vim-maximizer'
 Plug 'skwp/greplace.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'vim-scripts/ReplaceWithRegister'

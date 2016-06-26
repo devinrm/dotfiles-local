@@ -1,5 +1,6 @@
 " Don't load ctrlp
 let g:loaded_ctrlp = 1
+let g:loaded_syntastic = 1
 
 " Enables a menu at the bottom of the vim window.
 set wildmenu
@@ -52,12 +53,6 @@ set relativenumber
 set number
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
-
-" Neomake
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_serialize = 0
-let g:neomake_verbose = 0
-let g:neomake_list_height = 20
 
 " Colorscheme and lightline config
 let g:lightline = {
@@ -137,12 +132,8 @@ colorscheme blues
 let g:marked_app = 'Markoff'
 
 " Vim Dispatch
-let g:rspec_command = "Dispatch rspec {spec}"
-let test#strategy = "dispatch"
-
-" Neomake
-map <leader>o :lopen<cr>
-map <leader>oo :lclose<cr>
+" let g:rspec_command = "Dispatch rspec {spec}"
+let test#strategy = "neovim"
 
 " Map Ctrl-s to write the file
 nmap <C-a> :w<cr>
@@ -152,7 +143,7 @@ imap <C-a> <esc>:w<cr>
 map <C-t> <esc>:tabnew<CR>
 
 " Open terminal in NeoVim
-map <leader>r :sp<cr> :terminal<cr>
+map <leader>r :sp<cr>:terminal<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>re :source $MYVIMRC<cr>
@@ -337,18 +328,38 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 set stl+=%{ConflictedVersion()}
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" map <leader>o :Errors<cr>
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_haml_checkers = ['haml_lint']
-let g:syntastic_scss_checkers = ['scss_lint', 'sass-lint']
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
-let g:syntastic_slim_checkers = ['slim_lint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_error_symbol = '✗'
+" let g:syntastic_warning_symbol = '⚠'
+" let g:syntastic_loc_list_height = 3
+
+" let g:syntastic_haml_checkers = ['haml_lint', 'haml']
+" let g:syntastic_html_checkers = ['jshint']
+" let g:syntastic_scss_checkers = ['scss_lint', 'sass-lint']
+" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+" let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
+" let g:syntastic_slim_checkers = ['slim_lint']
+
+" Neomake
+map <leader>o :lopen<cr>
+map <leader>oo :lclose<cr>
+autocmd! BufWritePost,BufEnter * Neomake
+
+let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
+let g:neomake_scss_enabled_makers = ['scsslint']
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'rubylint']
+let g:neomake_html_enabled_makers = ['htmlhint']
+let g:neomake_haml_enabled_makers = ['hamllint']
+let g:neomake_elixir_enabled_makers = ['elixir']
 
 " Make it clear where 80 columns is.
 highlight ColorColumn ctermbg=237
@@ -365,3 +376,21 @@ highlight visual guifg=#D73435
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
+
+" NeoVim term colors
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#cc0000'
+let g:terminal_color_2  = '#4e9a06'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#3465a4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#ef2929'
+let g:terminal_color_10 = '#8ae234'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#729fcf'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'
