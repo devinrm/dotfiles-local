@@ -43,7 +43,8 @@ set winheight=999
 set gdefault
 
 " Pull from keywords in the current file and from the current tags file
-set complete=.,b,u,]
+set complete=.,b,u,w,t,]
+set complete+=k~/.vim/keywords.txt
 
 " Shows menu and any addition tips
 set completeopt=menu,preview
@@ -307,10 +308,6 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Restore default behaviour when leaving Vim.
 " autocmd VimLeave * silent !stty ixon
-
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-setlocal omnifunc=htmlcomplete#CompleteTags
 
 " Make n N nicer
 function! s:nice_next(cmd)
