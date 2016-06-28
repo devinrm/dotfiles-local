@@ -2,7 +2,9 @@ alias brewu="brew update && brew upgrade"
 alias npmu="npm outdated -g --depth=0 && npm update -g"
 alias gemu="gem update"
 alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 alias n="nvim"
+alias vimdiff="nvim -d"
 alias z=". ~/.zshrc"
 alias p="pry"
 alias i="irb"
@@ -14,10 +16,11 @@ alias help="run-help"
 alias ra="ranger"
 alias ru="rubocop"
 alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
-alias cr="less ~/Google\ Drive/notes/ruby.txt"
-alias cg="less ~/Google\ Drive/notes/git.txt"
-alias ct="less ~/Google\ Drive/notes/tmux.txt"
-alias cv="less ~/Google\ Drive/notes/vim-learn.txt"
+alias cr="less ~/code/notes/ruby.txt"
+alias cg="less ~/code/notes/git.txt"
+alias ct="less ~/code/notes/tmux.txt"
+alias cv="less ~/code/notes/vim-learn.txt"
+alias cpry="less ~/code/notes/pry.txt"
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -26,3 +29,4 @@ alias ......='cd ../../../../../'
 alias ta='tmux attach-session -t'
 alias tl='tmux list-sessions'
 alias tn='tmux new -s'
+alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"
