@@ -2,6 +2,9 @@
 let g:loaded_ctrlp = 1
 let g:loaded_syntastic = 1
 
+" nvim gui colors
+" set termguicolors
+
 " Enables a menu at the bottom of the vim window.
 set wildmenu
 set wildmode=longest:full,full
@@ -44,7 +47,17 @@ set gdefault
 
 " Pull from keywords in the current file and from the current tags file
 set complete=.,b,u,w,t,]
-set complete+=k~/.vim/keywords.txt
+set complete+=k~/.vim/dictionaries/array_methods.txt
+set complete+=k~/.vim/dictionaries/float_methods.txt
+set complete+=k~/.vim/dictionaries/hash_methods.txt
+set complete+=k~/.vim/dictionaries/integer_methods.txt
+set complete+=k~/.vim/dictionaries/string_methods.txt
+set complete+=k~/.vim/dictionaries/rails_controller_completions.txt
+set complete+=k~/.vim/dictionaries/rails_mailer_completions.txt
+set complete+=k~/.vim/dictionaries/rails_migration_completions.txt
+set complete+=k~/.vim/dictionaries/rails_model_completions.txt
+set complete+=k~/.vim/dictionaries/rails_spec_completions.txt
+set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 
 " Shows menu and any addition tips
 set completeopt=menu,preview
