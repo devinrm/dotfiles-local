@@ -9,9 +9,6 @@ let g:loaded_syntastic = 1
 set wildmenu
 set wildmode=longest:full,full
 
-" Turn mouse off in NeoVim
-set mouse=
-
 set undodir=$HOME/.undodir
 set undofile
 
@@ -58,6 +55,7 @@ set complete+=k~/.vim/dictionaries/rails_migration_completions.txt
 set complete+=k~/.vim/dictionaries/rails_model_completions.txt
 set complete+=k~/.vim/dictionaries/rails_spec_completions.txt
 set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
+set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 
 " Shows menu and any addition tips
 set completeopt=menu,preview
@@ -149,9 +147,18 @@ let g:marked_app = 'Markoff'
 " let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "neovim"
 
+:tnoremap <C-h> <C-\><C-n><C-w>h
+:tnoremap <C-j> <C-\><C-n><C-w>j
+:tnoremap <C-k> <C-\><C-n><C-w>k
+:tnoremap <C-l> <C-\><C-n><C-w>l
+:nnoremap <C-h> <C-w>h
+:nnoremap <C-j> <C-w>j
+:nnoremap <C-k> <C-w>k
+:nnoremap <C-l> <C-w>l
+
 " Map Ctrl-s to write the file
-nmap <C-a> :w<cr>
-imap <C-a> <esc>:w<cr>
+nmap <C-s> :w<cr>
+imap <C-s> <esc>:w<cr>
 
 " Map Ctrl-t to open new tab
 map <C-t> <esc>:tabnew<CR>
