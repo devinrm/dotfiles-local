@@ -147,18 +147,20 @@ let g:marked_app = 'Markoff'
 " let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "neovim"
 
-:tnoremap <C-h> <C-\><C-n><C-w>h
-:tnoremap <C-j> <C-\><C-n><C-w>j
-:tnoremap <C-k> <C-\><C-n><C-w>k
-:tnoremap <C-l> <C-\><C-n><C-w>l
-:nnoremap <C-h> <C-w>h
-:nnoremap <C-j> <C-w>j
-:nnoremap <C-k> <C-w>k
-:nnoremap <C-l> <C-w>l
+let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
+
+" Neovim terminal mappings for easy navigation
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Map Ctrl-s to write the file
-nmap <C-s> :w<cr>
-imap <C-s> <esc>:w<cr>
+nmap <leader>w :w<cr>
 
 " Map Ctrl-t to open new tab
 map <C-t> <esc>:tabnew<CR>
