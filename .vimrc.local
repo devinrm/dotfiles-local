@@ -1,9 +1,8 @@
 " Don't load ctrlp
 let g:loaded_ctrlp = 1
-let g:loaded_syntastic = 1
 
 " nvim gui colors
-" set termguicolors
+set termguicolors
 
 " Enables a menu at the bottom of the vim window.
 set wildmenu
@@ -68,26 +67,25 @@ autocmd InsertLeave * :set relativenumber
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'Tomorrow_Night',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
-      \             ['fugitive', 'readonly', 'filename', 'modified']
+      \             ['fugitive', 'readonly', 'myfilename', 'modified']
       \           ]
       \ },
       \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \   'readonly': '%{(&filetype!="help" && &readonly) ? emoji#for("lock") : ""}',
       \ },
       \ 'component_function': {
-      \   'modified': 'LightLineModified',
-      \   'fugitive': 'LightLineFugitive',
-      \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'mode': 'LightLineMode'
+      \   'myfilename': 'LightLineFilename',
       \ },
-  \}
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ }
+\ }
 
 function! LightLineFilename()
   let git_root = fnamemodify(fugitive#extract_git_dir(expand("%:p")), ":h")
@@ -101,44 +99,8 @@ function! LightLineFilename()
   endif
 endfunction
 
-function! LightLineFugitive()
-  if exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? _ : ''
-  endif
-  return ''
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightLineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
 set background=dark
-colorscheme blues
+colorscheme Tomorrow-Night
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -325,12 +287,6 @@ map <c-c> :q<cr>
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-" Allow us to use Ctrl-s and Ctrl-q as keybinds
-" silent !stty -ixon
-
-" Restore default behaviour when leaving Vim.
-" autocmd VimLeave * silent !stty ixon
-
 " Make n N nicer
 function! s:nice_next(cmd)
   let view = winsaveview()
@@ -347,45 +303,36 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 set stl+=%{ConflictedVersion()}
 
 " Syntastic
-" map <leader>o :Errors<cr>
+map <leader>o :Errors<cr>
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_aggregate_errors = 1
-" let g:syntastic_error_symbol = '✗'
-" let g:syntastic_warning_symbol = '⚠'
-" let g:syntastic_loc_list_height = 3
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_loc_list_height = 3
 
-" let g:syntastic_haml_checkers = ['haml_lint', 'haml']
-" let g:syntastic_html_checkers = ['jshint']
-" let g:syntastic_scss_checkers = ['scss_lint', 'sass-lint']
-" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-" let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
-" let g:syntastic_slim_checkers = ['slim_lint']
-
-" Neomake
-map <leader>o :lopen<cr>
-map <leader>oo :lclose<cr>
-autocmd! BufWritePost,BufEnter * Neomake
-
-let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
-let g:neomake_scss_enabled_makers = ['scsslint']
-let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'rubylint']
-let g:neomake_html_enabled_makers = ['htmlhint']
-let g:neomake_haml_enabled_makers = ['hamllint']
-let g:neomake_elixir_enabled_makers = ['elixir']
+let g:syntastic_haml_checkers = ['haml_lint', 'haml']
+let g:syntastic_html_checkers = ['jshint']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
+let g:syntastic_slim_checkers = ['slim_lint']
+let g:syntastic_elixir_checkers = ['elixir']
 
 " Make it clear where 80 columns is.
 highlight ColorColumn ctermbg=237
 " neovim
 highlight ColorColumn guibg=#2a2a2a
 
-highlight VertSplit guibg=#4873D5
+highlight VertSplit guibg=#709798
 highlight VertSplit guifg=#2D2D2D
 
 " This changes the Visual line color
