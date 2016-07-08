@@ -31,3 +31,4 @@ Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 Plug 'skwp/greplace.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'neomake/neomake'
