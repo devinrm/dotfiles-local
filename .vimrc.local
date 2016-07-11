@@ -5,6 +5,9 @@ let g:loaded_syntastic = 1
 " nvim gui colors
 set termguicolors
 
+" have cursor stay in the middle while scrolling
+set scrolloff=999
+
 " Enables a menu at the bottom of the vim window.
 set wildmenu
 set wildmode=longest:full,full
@@ -77,7 +80,7 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \   'readonly': '%{(&filetype!="help" && &readonly) ? emoji#for("lock") : ""}',
+      \   'readonly': '%{(&filetype!="help" && &readonly) ""}',
       \ },
       \ 'component_function': {
       \   'myfilename': 'LightLineFilename',
@@ -123,58 +126,59 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Map Ctrl-s to write the file
-nmap <leader>w :w<cr>
+nnoremap <leader>w :w<cr>
 
 " Map Ctrl-t to open new tab
-map <C-t> <esc>:tabnew<CR>
+nnoremap <C-t> <esc>:tabnew<CR>
 
 " Open terminal in NeoVim
-map <leader>r :sp<cr>:terminal<cr>
+nnoremap <leader>r :sp<cr>:terminal<cr>
+nnoremap <leader>tv :vsp<cr>:terminal<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
-nmap <leader>re :source $MYVIMRC<cr>
-nmap <leader>vr :sp $MYVIMRC<cr>
-nmap <leader>re :source $MYVIMRC<cr>
+nnoremap <leader>re :source $MYVIMRC<cr>
+nnoremap <leader>vr :sp $MYVIMRC<cr>
+nnoremap <leader>re :source $MYVIMRC<cr>
 
 " Pre-populate a split command with the current directory
-nmap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Copy the entire buffer into the system register (from @R00k)
-nmap <Leader>co mmggVG"*y`m
+nnoremap <Leader>co mmggVG"*y`m
 
 " Edit the db/schema.rb Rails file in a split
-nmap <Leader>sc :split db/schema.rb<cr>
+nnoremap <Leader>sc :split db/schema.rb<cr>
 
 " Indent the whole file
-map <Leader>i mmgg=G`m
+nnoremap <Leader>i mmgg=G`m
 
 " Set paste so paste works properly
-map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
+nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
 
 " Run vimscript functions
-map <Leader>x :exec getline(".")<cr>
+nnoremap <Leader>x :exec getline(".")<cr>
 
 " Toggle spell checking on and off
-nmap <silent> <leader>, :set spell!<CR>
+nnoremap <silent> <leader>, :set spell!<CR>
 
 " View commits in fzf
-nmap <Leader>c :Commits<cr>
+nnoremap <Leader>c :Commits<cr>
 
 " Require pry (from @christoomey)
-nmap <leader>b orequire 'pry'; binding.pry<esc>^
+nnoremap <leader>b orequire 'pry'; binding.pry<esc>^
 
 " Have tmux-runner open pry session
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
 
 " Convert Ruby 1.8 to 1.9 Hash Syntax
-map <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
+nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 
 " Replace with register
-nmap <leader>gr "*gr<cr>
+nnoremap <leader>gr "*gr<cr>
 
 " Code notes
-map <Leader>cn :Sex ~/code/notes/<cr>
+nnoremap <Leader>cn :Sex ~/code/notes/<cr>
 
 " Vim-tmux-runner
 nnoremap <leader>fr :VtrFocusRunner<CR>
@@ -185,10 +189,10 @@ nnoremap <leader>sf :VtrSendFile<CR>
 nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
 
 " Search words with Ag
-nmap <Leader>g :Ag<space>
+nnoremap <Leader>g :Ag<space>
 
 " Open .html pages from vim in browser
-map <silent> <F10> :!open '%'<cr>
+nnoremap <silent> <F10> :!open '%'<cr>
 
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
@@ -208,17 +212,17 @@ cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>`^
 
 " Move up and down by visible lines if current line is wrapped
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
 
 " Easy access to the start of the line
-nmap 0 ^
+nnoremap 0 ^
 
 " Search with fzf
-map <C-p> :Files<cr>
-nmap <C-p> :Files<cr>
-map <C-o> :BLines<cr>
-nmap <C-o> :BLines<cr>
+nnoremap <C-p> :Files<cr>
+nnoremap <C-p> :Files<cr>
+nnoremap <C-o> :BLines<cr>
+nnoremap <C-o> :BLines<cr>
 
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
@@ -239,7 +243,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " Fzf tags
-map <leader>tg :Tags<cr>
+nnoremap <leader>tg :Tags<cr>
 
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
 " 'j' = '∆' and 'k' = '˚'
@@ -255,10 +259,10 @@ vnoremap ∆ :m '<+1<CR>gv=gv
 vnoremap <expr>y "my\"" . v:register . "y`y"
 
 " map visual-block to v
-map v <c-v>e
+nnoremap v <c-v>e
 
 " Remap esc to ii
-imap ii <esc>
+inoremap ii <esc>
 
 "Vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
@@ -283,7 +287,7 @@ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
 " map <ctrl>c to quit
-map <c-c> :q<cr>
+nnoremap <c-c> :q<cr>
 
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
@@ -304,7 +308,7 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 set stl+=%{ConflictedVersion()}
 
 " Syntastic
-" map <leader>o :Errors<cr>
+" nnoremap <leader>o :Errors<cr>
 "
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -329,8 +333,8 @@ set stl+=%{ConflictedVersion()}
 " let g:syntastic_elixir_checkers = ['elixir']
 
 " Neomake
-map <leader>o :lopen<cr>
-map <leader>oo :lclose<cr>
+nnoremap <leader>o :lopen<cr>
+nnoremap <leader>oo :lclose<cr>
 autocmd! BufWritePost,BufEnter * Neomake
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
