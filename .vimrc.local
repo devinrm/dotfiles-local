@@ -314,7 +314,7 @@ nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " omnicompletion
-inoremap <c-i> <c-x><c-o>
+inoremap <leader>c <c-x><c-o>
 
 " Vim-Conflicted
 set stl+=%{ConflictedVersion()}
