@@ -6,7 +6,7 @@ let g:loaded_syntastic = 1
 set termguicolors
 
 " have cursor stay in the middle while scrolling
-set scrolloff=999
+" set scrolloff=999
 
 " Enables a menu at the bottom of the vim window.
 set wildmenu
@@ -26,6 +26,9 @@ set matchtime=0
 
 " case insensitive pattern matching
 set ignorecase
+
+" Fast timeout
+set ttimeout
 
 " overrides ignorecase if pattern contains upcase
 set smartcase
@@ -89,7 +92,7 @@ let g:lightline = {
       \   'readonly': '(&filetype!="help"&& &readonly)',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }
-\ }
+      \ }
 
 function! LightLineFilename()
   let git_root = fnamemodify(fugitive#extract_git_dir(expand("%:p")), ":h")
@@ -105,15 +108,24 @@ endfunction
 
 set background=dark
 colorscheme Tomorrow-Night
+" highlight SignColumn guibg=opaque
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
+
+" Integrate limelight and goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " Vim Dispatch
 " let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "neovim"
 
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
+
+" vcoolor
+let g:vcoolor_lowercase = 1
+let g:vcoolor_disable_mappings = 1
 
 " Neovim terminal mappings for easy navigation
 tnoremap <C-h> <C-\><C-n><C-w>h
@@ -133,7 +145,7 @@ nnoremap <C-t> <esc>:tabnew<CR>
 
 " Open terminal in NeoVim
 nnoremap <leader>r :sp<cr>:terminal<cr>
-nnoremap <leader>tv :vsp<cr>:terminal<cr>
+nnoremap <leader>rv :vsp<cr>:terminal<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nnoremap <leader>re :source $MYVIMRC<cr>
@@ -178,7 +190,7 @@ nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 nnoremap <leader>gr "*gr<cr>
 
 " Code notes
-nnoremap <Leader>cn :Sex ~/code/notes/<cr>
+nnoremap <Leader>cn :Files ~/code/notes/<cr>
 
 " Vim-tmux-runner
 nnoremap <leader>fr :VtrFocusRunner<CR>
@@ -260,9 +272,6 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 
 " map visual-block to v
 nnoremap v <c-v>e
-
-" Remap esc to ii
-inoremap ii <esc>
 
 "Vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
@@ -347,13 +356,8 @@ let g:neomake_haml_enabled_makers = ['hamllint']
 let g:neomake_slim_enabled_makers = ['slimlint']
 let g:neomake_elixir_enabled_makers = ['elixir']
 
-" Make it clear where 80 columns is.
-highlight ColorColumn ctermbg=237
-" neovim
-highlight ColorColumn guibg=#2a2a2a
-
-highlight VertSplit guibg=#709798
-highlight VertSplit guifg=#2D2D2D
+highlight VertSplit guibg=#699493
+highlight VertSplit guifg=#699493
 
 " This changes the Visual line color
 highlight visual ctermfg=1
@@ -364,19 +368,19 @@ highlight visual guifg=#D73435
 highlight Comment cterm=italic
 
 " NeoVim term colors
-let g:terminal_color_0  = '#2e3436'
-let g:terminal_color_1  = '#cc0000'
-let g:terminal_color_2  = '#4e9a06'
-let g:terminal_color_3  = '#c4a000'
-let g:terminal_color_4  = '#3465a4'
-let g:terminal_color_5  = '#75507b'
-let g:terminal_color_6  = '#0b939b'
-let g:terminal_color_7  = '#d3d7cf'
-let g:terminal_color_8  = '#555753'
-let g:terminal_color_9  = '#ef2929'
-let g:terminal_color_10 = '#8ae234'
-let g:terminal_color_11 = '#fce94f'
-let g:terminal_color_12 = '#729fcf'
-let g:terminal_color_13 = '#ad7fa8'
-let g:terminal_color_14 = '#00f5e9'
-let g:terminal_color_15 = '#eeeeec'
+let g:terminal_color_0  = '#073642' " black
+let g:terminal_color_1  = '#d30102' " red
+let g:terminal_color_2  = '#859900' " green
+let g:terminal_color_3  = '#b58900' " yellow
+let g:terminal_color_4  = '#268bd2' " blue
+let g:terminal_color_5  = '#d33682' " magenta
+let g:terminal_color_6  = '#2aa198' " cyan
+let g:terminal_color_7  = '#eee8d5' " white
+let g:terminal_color_8  = '#002b36' " brblack
+let g:terminal_color_9  = '#cb4b16' " brred
+let g:terminal_color_10 = '#586e75' " brgreen
+let g:terminal_color_11 = '#657b83' " bryellow
+let g:terminal_color_12 = '#839496' " brblue
+let g:terminal_color_13 = '#6c71c4' " brmagenta
+let g:terminal_color_14 = '#93a1a1' " brcyan
+let g:terminal_color_15 = '#fdf6e3' " brwhite
