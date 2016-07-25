@@ -1,0 +1,5 @@
+<Shift><Cursor Up>: \033[1;2A
+<Ctrl><Cursor Up>: \033[1;5A
+
+<Shift><Cursor Down>: \033[1;2B
+<Ctrl><Cursor Down>: \033[1;5B
