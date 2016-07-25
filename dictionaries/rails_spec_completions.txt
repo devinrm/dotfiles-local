@@ -31,3 +31,4 @@ specify
 stub_model
 subject
 violated
+rails_helper

@@ -1,124 +1,47 @@
-!
- !=
- !~
- %
- *
- **
- +
- +@
- -
- -@
- /
- <
- <=
- <=>
- ==
- ===
- =~
- >
- >=
- __binding__
- __id__
- __send__
- abs
- abs2
- angle
- arg
- between?
- ceil
- class
- clone
- coerce
- conj
- conjugate
- define_singleton_method
- denominator
- display
- div
- divmod
- dup
- enum_for
- eql?
- equal?
- extend
- fdiv
- finite?
- floor
- freeze
- frozen?
- hash
- i
- imag
- imaginary
- infinite?
- inspect
- instance_eval
- instance_exec
- instance_of?
- instance_variable_defined?
- instance_variable_get
- instance_variable_set
- instance_variables
- integer?
- is_a?
- itself
- kind_of?
- magnitude
- method
- methods
- modulo
- nan?
- negative?
- next_float
- nil?
- nil?
- nonzero?
- numerator
- object_id
- phase
- polar
- positive?
- pretty_inspect
- pretty_print
- pretty_print_cycle
- pretty_print_inspect
- pretty_print_instance_variables
- prev_float
- private_methods
- protected_methods
- pry
- public_method
- public_methods
- public_send
- quo
- rationalize
- real
- real?
- rect
- rectangular
- remainder
- remove_instance_variable
- respond_to?
- round
- send
- singleton_class
- singleton_method
- singleton_method_added
- singleton_methods
- step
- taint
- tainted?
- tap
- to_c
- to_enum
- to_f
- to_i
- to_int
- to_r
- to_s
- truncate
- trust
- untaint
- untrust
- untrusted?
- zero?
+%
+*
+**
++
+-
+-@
+/
+<
+<=
+<=>
+==
+===
+>
+>=
+abs
+angle
+arg
+ceil
+coerce
+denominator
+divmod
+eql?
+fdiv
+finite?
+floor
+hash
+infinite?
+inspect
+magnitude
+modulo
+nan?
+negative?
+next_float
+numerator
+phase
+positive?
+prev_float
+quo
+rationalize
+round
+to_f
+to_i
+to_int
+to_r
+to_s
+truncate
+zero?
