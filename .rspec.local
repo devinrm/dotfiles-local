@@ -1,4 +1,4 @@
 --colour
 --order random
---format documentation
+--format Fuubar
 --require spec_helper

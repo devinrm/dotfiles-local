@@ -127,6 +127,13 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 let g:vcoolor_lowercase = 1
 let g:vcoolor_disable_mappings = 1
 
+" youcompleteme
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+
 " Neovim terminal mappings for easy navigation
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
@@ -199,9 +206,6 @@ nnoremap <leader>ap :VtrAttachToPane<CR>
 nnoremap <leader>se :VtrSendCommand<CR>
 nnoremap <leader>sf :VtrSendFile<CR>
 nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
-
-" Search words with Ag
-nnoremap <Leader>g :Ag<space>
 
 " Open .html pages from vim in browser
 nnoremap <silent> <F10> :!open '%'<cr>
@@ -313,8 +317,10 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
+inoremap jk <esc>
+
 " omnicompletion
-inoremap <leader>c <c-x><c-o>
+inoremap <c-c> <c-x><c-o>
 
 " Vim-Conflicted
 set stl+=%{ConflictedVersion()}
@@ -363,8 +369,8 @@ let g:neomake_haml_enabled_makers = ['hamllint']
 let g:neomake_slim_enabled_makers = ['slimlint']
 let g:neomake_elixir_enabled_makers = ['elixir']
 
-highlight VertSplit guibg=#699493
-highlight VertSplit guifg=#699493
+highlight VertSplit guibg=#242424
+highlight VertSplit guifg=#75a0a0
 
 " This changes the Visual line color
 highlight visual ctermfg=1

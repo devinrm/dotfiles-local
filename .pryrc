@@ -25,5 +25,3 @@ if defined? Rails
     "(#{colored_environment_name}) #{obj}:#{nest_level}> "
   end
 end
-
-eval(File.open(".irbrc").read)
