@@ -373,7 +373,7 @@ let g:neomake_slim_enabled_makers = ['slimlint']
 let g:neomake_elixir_enabled_makers = ['elixir']
 
 highlight VertSplit guibg=#242424
-highlight VertSplit guifg=#75a0a0
+highlight VertSplit guifg=#139cff
 
 " This changes the Visual line color
 highlight visual ctermfg=1
