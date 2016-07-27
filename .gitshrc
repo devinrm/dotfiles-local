@@ -1,1 +1,1 @@
-:set core.editor /usr/bin/vim
+:set core.editor /usr/local/bin/nvim
