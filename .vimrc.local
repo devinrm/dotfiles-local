@@ -77,7 +77,7 @@ autocmd InsertLeave * :set relativenumber
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -110,7 +110,7 @@ function! LightLineFilename()
 endfunction
 
 set background=dark
-colorscheme deep-space
+colorscheme onedark
 highlight SignColumn guibg=opaque
 
 " Use thoughtbot's Markoff for markdown previews
