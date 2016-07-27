@@ -354,6 +354,10 @@ set stl+=%{ConflictedVersion()}
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+" supertab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+
 " Neomake
 nnoremap <leader>o :lopen<cr>
 nnoremap <leader>oo :lclose<cr>
