@@ -34,6 +34,11 @@ export PATH="$PATH:/path/to/elixir/bin"
 # the f*ck - fix your f*ckups
 eval "$(thefuck --alias)"
 
+# travis gem
+[ -f /Users/gandalf/.travis/travis.sh ] && source /Users/gandalf/.travis/travis.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # Auto-attach new shell sessions in tmux
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
