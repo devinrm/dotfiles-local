@@ -2,9 +2,6 @@
 let g:loaded_ctrlp = 1
 let g:loaded_syntastic = 1
 
-let b:vcm_tab_complete = 'user, omni, vim, dict'
-let g:vcm_direction = 'p'
-
 " nvim gui colors
 set termguicolors
 
