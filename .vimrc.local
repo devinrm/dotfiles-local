@@ -108,7 +108,8 @@ endfunction
 
 set background=dark
 colorscheme onedark
-highlight SignColumn guibg=opaque
+" highlight SignColumn guibg=opaque
+highlight ColorColumn guibg=#464646
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
