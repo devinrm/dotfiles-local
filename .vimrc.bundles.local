@@ -3,12 +3,13 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'joshdick/onedark.vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'chrisbra/Colorizer'
+" Plug 'geoffharcourt/vim-coloresque'
 Plug 'itchyny/lightline.vim'
 Plug 'rking/ag.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -24,7 +25,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-haml'
 Plug 'henrik/vim-indexed-search'
-Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
