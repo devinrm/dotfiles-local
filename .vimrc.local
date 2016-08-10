@@ -1,6 +1,9 @@
 " Don't load
 let g:loaded_ctrlp = 1
-let g:loaded_syntastic = 1
+" let g:loaded_syntastic = 1
+let g:syntastic_javascript_checkers = ['standard']
+" autocmd bufwritepost *.js silent !standard-format -w %
+" set autoread
 
 " nvim gui colors
 set termguicolors
@@ -352,9 +355,9 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " supertab
-" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabDefaultCompletionType    = '<C-n>'
+" let g:SuperTabDefaultCompletionType    = '<C-n>'
 
 " Neomake
 nnoremap <leader>o :lopen<cr>
