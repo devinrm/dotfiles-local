@@ -1,9 +1,13 @@
 # Disable flow control commands (keeps C-s from freezing everything)
-stty start undef
-stty stop undef
+# stty start undef
+# stty stop undef
 
-setopt auto_cd
-cdpath=($HOME/code $HOME/code/spree $HOME/code/rails)
+# By default, ^S freezes terminal output and ^Q resumes it. Disable that so
+# that those keys can be used for other things.
+unsetopt flowcontrol
+
+# setopt auto_cd
+# cdpath=($HOME/code $HOME/code/spree $HOME/code/rails)
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
