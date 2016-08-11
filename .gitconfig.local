@@ -1,3 +1,12 @@
+[user]
+  name = devinrm
+  email = devin.morgenstern@gmail.com
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[push]
+  default = simple
 [alias]
   l = log --pretty=colored
   sla = log --oneline --decorate --graph --all
@@ -5,17 +14,15 @@
   car = commit --amend --no-edit
   unstage = reset
   uncommit = reset --soft HEAD^
-  mg = merge --ff-only
+  mg = merge
   cm = commit -m
   upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
   fall = fetch --all
   mup = !git checkout master && git pull && git checkout -
+  rup = !git checkout release/26 && git pull && git checkout -
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
-  coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
-[user]
-  name = Devin Morgestern
-  email = devin.morgenstern@gmail.com
+  coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr)%C(bold blue)%an%Creset
 [github]
   user = devinrm
 [hub]
