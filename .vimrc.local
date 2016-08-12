@@ -1,12 +1,5 @@
 " Don't load
 let g:loaded_ctrlp = 1
-" let g:loaded_syntastic = 1
-let g:syntastic_javascript_checkers = ['standard']
-" autocmd bufwritepost *.js silent !standard-format -w %
-" set autoread
-
-" nvim gui colors
-set termguicolors
 
 " have cursor stay in the middle while scrolling
 " set scrolloff=999
@@ -111,8 +104,6 @@ endfunction
 
 set background=dark
 colorscheme sourcerer
-" highlight SignColumn guibg=opaque
-highlight ColorColumn guibg=#464646
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -122,8 +113,8 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Vim Dispatch
-" let g:rspec_command = "Dispatch rspec {spec}"
-let test#strategy = "neovim"
+let g:rspec_command = "Dispatch rspec {spec}"
+let test#strategy = "dispatch"
 
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
@@ -138,25 +129,11 @@ let g:jsx_ext_required = 0
 nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 
-" Neovim terminal mappings for easy navigation
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Map Ctrl-s to write the file
 nnoremap <leader>w :w<cr>
 
 " Map Ctrl-t to open new tab
 nnoremap <C-t> <esc>:tabnew<CR>
-
-" Open terminal in NeoVim
-nnoremap <leader>r :sp<cr>:terminal<cr>
-nnoremap <leader>rv :vsp<cr>:terminal<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nnoremap <leader>re :source $MYVIMRC<cr>
@@ -191,9 +168,6 @@ nnoremap <Leader>c :Commits<cr>
 " Require pry (from @christoomey)
 nnoremap <leader>b orequire 'pry'; binding.pry<esc>^
 
-" Have tmux-runner open pry session
-nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
-
 " Convert Ruby 1.8 to 1.9 Hash Syntax
 nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 
@@ -202,14 +176,6 @@ nnoremap <leader>gr "*gr<cr>
 
 " Code notes
 nnoremap <Leader>cn :Files ~/code/notes/<cr>
-
-" Vim-tmux-runner
-nnoremap <leader>fr :VtrFocusRunner<CR>
-nnoremap <leader>sr :VtrSendLinesToRunner<CR>
-nnoremap <leader>ap :VtrAttachToPane<CR>
-nnoremap <leader>se :VtrSendCommand<CR>
-nnoremap <leader>sf :VtrSendFile<CR>
-nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
 
 " Open .html pages from vim in browser
 nnoremap <silent> <F10> :!open '%'<cr>
@@ -244,10 +210,6 @@ nnoremap <C-p> :Files<cr>
 nnoremap <C-o> :BLines<cr>
 nnoremap <C-o> :BLines<cr>
 
-" Complete from open tmux panes (from @junegunn)
-inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
-inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
-
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -281,21 +243,6 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 " map visual-block to v
 nnoremap v <c-v>e
 
-"Vim-tmux-navigator mappings
-let g:tmux_navigator_no_mappings = 1
-
-" To use c-h in neovim on OS X
-" (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
-" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-" tic $TERM.ti
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
-
-let g:tmux_navigator_save_on_switch = 1
-
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -321,10 +268,8 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<cr>
 nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
+" Make esc more user friendly
 inoremap jk <esc>
-
-" omnicompletion
-" inoremap <c-c> <c-x><c-o>
 
 " Vim-Conflicted
 set stl+=%{ConflictedVersion()}
@@ -349,60 +294,142 @@ set stl+=%{ConflictedVersion()}
 " let g:syntastic_scss_checkers = ['scss_lint']
 " let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
 " let g:syntastic_css_checkers = ['csslint']
-" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 " let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
 " let g:syntastic_slim_checkers = ['slim_lint']
 " let g:syntastic_elixir_checkers = ['elixir']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
+" autocmd bufwritepost *.js silent !standard-format -w %
+" set autoread
 
-" omni-completion
+" Omnicompletion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+" inoremap <c-c> <c-x><c-o>
 
-" supertab
+" Supertab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabDefaultCompletionType    = '<C-n>'
 
-" Neomake
-nnoremap <leader>o :lopen<cr>
-nnoremap <leader>oo :lclose<cr>
-autocmd! BufWritePost,BufEnter * Neomake
+" Change vertical split color
+highlight VertSplit ctermbg=232
+highlight VertSplit ctermfg=165
 
-let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
-let g:neomake_scss_enabled_makers = ['scsslint']
-let g:neomake_css_enabled_makers = ['csslint']
-let g:neomake_markdown_enabled_makers = ['mdl']
-let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
-let g:neomake_html_enabled_makers = ['htmlhint']
-let g:neomake_haml_enabled_makers = ['hamllint']
-let g:neomake_slim_enabled_makers = ['slimlint']
-let g:neomake_elixir_enabled_makers = ['elixir']
-
-highlight VertSplit guibg=#242424
-highlight VertSplit guifg=#139cff
-
-" This changes the Visual line color
+" Change visual line color
 highlight visual ctermfg=1
-" neovim
-highlight visual guifg=#D73435
 
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
 
+" -----------TMUX-----------
+
+" Vim-tmux-navigator mappings
+let g:tmux_navigator_no_mappings = 1
+
+" To use c-h in neovim on OS X
+" (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
+" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+" tic $TERM.ti
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+" Vim-tmux-runner
+nnoremap <leader>fr :VtrFocusRunner<CR>
+nnoremap <leader>sr :VtrSendLinesToRunner<CR>
+nnoremap <leader>ap :VtrAttachToPane<CR>
+nnoremap <leader>se :VtrSendCommand<CR>
+nnoremap <leader>sf :VtrSendFile<CR>
+nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
+
+" Complete from open tmux panes (from @junegunn)
+inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
+inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
+
+" Save on switch
+let g:tmux_navigator_save_on_switch = 1
+
+" Have tmux-runner open pry session
+nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
+
+" ----------NEOVIM -----------
+
+" nvim gui colors
+if has('nvim')
+  set termguicolors
+endif
+
+" Change gui vertical split color
+highlight VertSplit guibg=#242424
+highlight VertSplit guifg=#139cff
+
+" Change visual line color
+highlight visual guifg=#D73435
+
+" Change sign column color
+" highlight SignColumn guibg=opaque
+
+" Change color column color
+highlight ColorColumn guibg=#464646
+
+" Neovim terminal mappings for easy navigation
+if has('nvim')
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+endif
+
 " NeoVim term colors
-let g:terminal_color_0  = '#073642' " black
-let g:terminal_color_1  = '#d30102' " red
-let g:terminal_color_2  = '#859900' " green
-let g:terminal_color_3  = '#b58900' " yellow
-let g:terminal_color_4  = '#268bd2' " blue
-let g:terminal_color_5  = '#d33682' " magenta
-let g:terminal_color_6  = '#2aa198' " cyan
-let g:terminal_color_7  = '#eee8d5' " white
-let g:terminal_color_8  = '#002b36' " brblack
-let g:terminal_color_9  = '#cb4b16' " brred
-let g:terminal_color_10 = '#586e75' " brgreen
-let g:terminal_color_11 = '#657b83' " bryellow
-let g:terminal_color_12 = '#839496' " brblue
-let g:terminal_color_13 = '#6c71c4' " brmagenta
-let g:terminal_color_14 = '#93a1a1' " brcyan
-let g:terminal_color_15 = '#fdf6e3' " brwhite
+if has('nvim')
+  let g:terminal_color_0  = '#073642' " black
+  let g:terminal_color_1  = '#d30102' " red
+  let g:terminal_color_2  = '#859900' " green
+  let g:terminal_color_3  = '#b58900' " yellow
+  let g:terminal_color_4  = '#268bd2' " blue
+  let g:terminal_color_5  = '#d33682' " magenta
+  let g:terminal_color_6  = '#2aa198' " cyan
+  let g:terminal_color_7  = '#eee8d5' " white
+  let g:terminal_color_8  = '#002b36' " brblack
+  let g:terminal_color_9  = '#cb4b16' " brred
+  let g:terminal_color_10 = '#586e75' " brgreen
+  let g:terminal_color_11 = '#657b83' " bryellow
+  let g:terminal_color_12 = '#839496' " brblue
+  let g:terminal_color_13 = '#6c71c4' " brmagenta
+  let g:terminal_color_14 = '#93a1a1' " brcyan
+  let g:terminal_color_15 = '#fdf6e3' " brwhite
+endif
+
+" Neomake
+if has('nvim')
+  nnoremap <leader>o :lopen<cr>
+  nnoremap <leader>oo :lclose<cr>
+  autocmd! BufWritePost,BufEnter * Neomake
+
+  let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
+  let g:neomake_scss_enabled_makers = ['scsslint']
+  let g:neomake_css_enabled_makers = ['csslint']
+  let g:neomake_markdown_enabled_makers = ['mdl']
+  let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+  let g:neomake_html_enabled_makers = ['htmlhint']
+  let g:neomake_haml_enabled_makers = ['hamllint']
+  let g:neomake_slim_enabled_makers = ['slimlint']
+  let g:neomake_elixir_enabled_makers = ['elixir']
+endif
+
+" Open terminal in neovim
+if has('nvim')
+  nnoremap <leader>r :sp<cr>:terminal<cr>
+  nnoremap <leader>rv :vsp<cr>:terminal<cr>
+endif
+
+" Test with neovim
+if has('nvim')
+  let test#strategy = "neovim"
+endif
