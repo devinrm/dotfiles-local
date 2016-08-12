@@ -358,25 +358,21 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   colorscheme onedark
-endif
 
-" nvim gui colors
-if has('nvim')
+  " nvim gui colors
   set termguicolors
-endif
 
-" Change gui vertical split color
-highlight VertSplit guibg=#242424
-highlight VertSplit guifg=#139cff
+  " Change gui vertical split color
+  highlight VertSplit guibg=#242424
+  highlight VertSplit guifg=#139cff
 
-" Change visual line color
-highlight visual guifg=#D73435
+  " Change visual line color
+  highlight visual guifg=#D73435
 
-" Change color column color
-highlight ColorColumn guibg=#464646
+  " Change color column color
+  highlight ColorColumn guibg=#464646
 
-" Neovim terminal mappings for easy navigation
-if has('nvim')
+  " Neovim terminal mappings for easy navigation
   tnoremap <C-h> <C-\><C-n><C-w>h
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
@@ -384,10 +380,8 @@ if has('nvim')
   nnoremap <C-h> <C-w>h
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
-endif
 
-" NeoVim term colors
-if has('nvim')
+  " NeoVim term colors
   let g:terminal_color_0  = '#073642' " black
   let g:terminal_color_1  = '#d30102' " red
   let g:terminal_color_2  = '#859900' " green
@@ -404,10 +398,8 @@ if has('nvim')
   let g:terminal_color_13 = '#6c71c4' " brmagenta
   let g:terminal_color_14 = '#93a1a1' " brcyan
   let g:terminal_color_15 = '#fdf6e3' " brwhite
-endif
 
-" Neomake
-if has('nvim')
+  " Neomake
   nnoremap <leader>o :lopen<cr>
   nnoremap <leader>oo :lclose<cr>
   autocmd! BufWritePost,BufEnter * Neomake
@@ -421,15 +413,11 @@ if has('nvim')
   let g:neomake_haml_enabled_makers = ['hamllint']
   let g:neomake_slim_enabled_makers = ['slimlint']
   let g:neomake_elixir_enabled_makers = ['elixir']
-endif
 
-" Open terminal in neovim
-if has('nvim')
+  " Open terminal in neovim
   nnoremap <leader>r :sp<cr>:terminal<cr>
   nnoremap <leader>rv :vsp<cr>:terminal<cr>
-endif
 
-" Test with neovim
-if has('nvim')
+  " Test with neovim
   let test#strategy = "neovim"
 endif
