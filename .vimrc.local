@@ -294,7 +294,7 @@ let g:syntastic_haml_checkers = ['haml_lint', 'haml']
 let g:syntastic_scss_checkers = ['scss_lint']
 " let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
 let g:syntastic_css_checkers = ['csslint']
-" let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " let g:syntastic_slim_checkers = ['slim_lint']
 " let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
@@ -304,12 +304,12 @@ let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
 " Omnicompletion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-" inoremap <c-c> <c-x><c-o>
+inoremap <c-c> <c-x><c-o>
 
 " Supertab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabDefaultCompletionType    = '<C-n>'
 
 " Change vertical split color
 highlight VertSplit ctermbg=232
@@ -357,7 +357,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 " ----------NEOVIM -----------
 
 if has("nvim")
-  colorscheme sourcerer
+  colorscheme onedark
 endif
 
 " nvim gui colors
