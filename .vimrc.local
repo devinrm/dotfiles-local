@@ -68,6 +68,9 @@ set number
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
 
+" Vim-Conflicted
+set stl+=%{ConflictedVersion()}
+
 " Colorscheme and lightline config
 let g:lightline = {
       \ 'colorscheme': 'onedark',
@@ -124,6 +127,12 @@ let g:vcoolor_disable_mappings = 1
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
+
+"  __  __    _    ____  ____
+" |  \/  |  / \  |  _ \/ ___|
+" | |\/| | / _ \ | |_) \___ \
+" | |  | |/ ___ \|  __/ ___) |
+" |_|  |_/_/   \_\_|   |____/
 
 " Open vimrc in new tab
 nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
@@ -271,9 +280,6 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 " Make esc more user friendly
 inoremap jk <esc>
 
-" Vim-Conflicted
-set stl+=%{ConflictedVersion()}
-
 " Syntastic
 " nnoremap <leader>o :Errors<cr>
 "
@@ -297,7 +303,7 @@ set stl+=%{ConflictedVersion()}
 " let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " let g:syntastic_slim_checkers = ['slim_lint']
 " let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
+" let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
 " autocmd bufwritepost *.js silent !standard-format -w %
 " set autoread
 
@@ -321,7 +327,11 @@ highlight visual ctermfg=1
 " This statement has to come late in order to work (from @geoffharcourt)
 highlight Comment cterm=italic
 
-" -----------TMUX-----------
+"  _____ __  __ _   ___  __
+" |_   _|  \/  | | | \ \/ /
+"   | | | |\/| | | | |\  /
+"   | | | |  | | |_| |/  \
+"   |_| |_|  |_|\___//_/\_\
 
 " To use c-h in neovim on OS X
 " (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
@@ -354,7 +364,11 @@ let g:tmux_navigator_save_on_switch = 1
 " Have tmux-runner open pry session
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
 
-" ----------NEOVIM -----------
+"  _   _ _____ _____     _____ __  __
+" | \ | | ____/ _ \ \   / /_ _|  \/  |
+" |  \| |  _|| | | \ \ / / | || |\/| |
+" | |\  | |__| |_| |\ V /  | || |  | |
+" |_| \_|_____\___/  \_/  |___|_|  |_|
 
 if has("nvim")
   colorscheme onedark
