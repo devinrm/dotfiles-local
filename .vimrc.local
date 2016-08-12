@@ -103,7 +103,7 @@ function! LightLineFilename()
 endfunction
 
 set background=dark
-colorscheme sourcerer
+colorscheme solarized
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -355,6 +355,10 @@ let g:tmux_navigator_save_on_switch = 1
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
 
 " ----------NEOVIM -----------
+
+if has("nvim")
+  colorscheme sourcerer
+endif
 
 " nvim gui colors
 if has('nvim')
