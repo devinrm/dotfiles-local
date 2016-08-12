@@ -162,9 +162,6 @@ nnoremap <Leader>x :exec getline(".")<cr>
 " Toggle spell checking on and off
 nnoremap <silent> <leader>, :set spell!<CR>
 
-" View commits in fzf
-nnoremap <Leader>c :Commits<cr>
-
 " Require pry (from @christoomey)
 nnoremap <leader>b orequire 'pry'; binding.pry<esc>^
 
@@ -210,6 +207,9 @@ nnoremap <C-p> :Files<cr>
 nnoremap <C-o> :BLines<cr>
 nnoremap <C-o> :BLines<cr>
 
+" View commits in fzf
+nnoremap <Leader>c :Commits<cr>
+
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -224,7 +224,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
-" Fzf tags
+" fzf tags
 nnoremap <leader>tg :Tags<cr>
 
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
@@ -289,12 +289,12 @@ set stl+=%{ConflictedVersion()}
 " let g:syntastic_warning_symbol = '⚠'
 " let g:syntastic_loc_list_height = 3
 "
-" let g:syntastic_haml_checkers = ['haml_lint', 'haml']
+let g:syntastic_haml_checkers = ['haml_lint', 'haml']
 " let g:syntastic_html_checkers = ['jshint']
-" let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_scss_checkers = ['scss_lint']
 " let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
-" let g:syntastic_css_checkers = ['csslint']
-" let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
 " let g:syntastic_slim_checkers = ['slim_lint']
 " let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
@@ -367,9 +367,6 @@ highlight VertSplit guifg=#139cff
 
 " Change visual line color
 highlight visual guifg=#D73435
-
-" Change sign column color
-" highlight SignColumn guibg=opaque
 
 " Change color column color
 highlight ColorColumn guibg=#464646
