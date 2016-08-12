@@ -323,9 +323,6 @@ highlight Comment cterm=italic
 
 " -----------TMUX-----------
 
-" Vim-tmux-navigator mappings
-let g:tmux_navigator_no_mappings = 1
-
 " To use c-h in neovim on OS X
 " (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
 " infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
@@ -335,6 +332,9 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+" Vim-tmux-navigator mappings
+let g:tmux_navigator_no_mappings = 1
 
 " Vim-tmux-runner
 nnoremap <leader>fr :VtrFocusRunner<CR>
@@ -384,7 +384,6 @@ if has('nvim')
   nnoremap <C-h> <C-w>h
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
 endif
 
 " NeoVim term colors
