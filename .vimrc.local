@@ -372,6 +372,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 " |_| \_|_____\___/  \_/  |___|_|  |_|
 
 if has("nvim")
+  set background=dark
   colorscheme two-firewatch
   let g:two_firewatch_italics=1
 
