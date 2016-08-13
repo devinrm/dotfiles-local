@@ -109,6 +109,9 @@ set background=dark
 colorscheme two-firewatch
 let g:two_firewatch_italics=1
 
+" Change sign column color for firewatch
+highlight SignColumn ctermbg=none
+
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
 
@@ -375,6 +378,9 @@ if has("nvim")
   set background=dark
   colorscheme two-firewatch
   let g:two_firewatch_italics=1
+
+  " Change sign column color for firewatch
+  highlight SignColumn guibg=none
 
   " nvim gui colors
   set termguicolors
