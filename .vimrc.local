@@ -106,7 +106,8 @@ function! LightLineFilename()
 endfunction
 
 set background=dark
-colorscheme solarized
+colorscheme two-firewatch
+let g:two_firewatch_italics=1
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -371,7 +372,8 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 " |_| \_|_____\___/  \_/  |___|_|  |_|
 
 if has("nvim")
-  colorscheme onedark
+  colorscheme two-firewatch
+  let g:two_firewatch_italics=1
 
   " nvim gui colors
   set termguicolors
