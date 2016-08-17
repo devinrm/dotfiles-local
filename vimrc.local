@@ -376,7 +376,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set background=dark
-  colorscheme two-firewatch
+  colorscheme deep-space
   let g:two_firewatch_italics=1
 
   " Change sign column color for firewatch
