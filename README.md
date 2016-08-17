@@ -1,7 +1,6 @@
 ## Dotfiles
-
 ===================
-I use [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles) as the
+Using [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles) as the
 foundation of my personal configuration. These files are the `.local`
 modifications that build on top of the foundation.
 
@@ -36,8 +35,11 @@ You can safely run `rcup` multiple times to update:
 Credits
 -------
 [Thoughtbot](http://thoughtbot.com).
+
 Chris Toomey
+
 Geoff Harcourt
+
 Ben Orenstein
 
 This software is free and distributable under the MIT license.
