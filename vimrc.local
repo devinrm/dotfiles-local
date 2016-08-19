@@ -14,6 +14,9 @@ set undofile
 " copy paste to clipboard
 set clipboard=unnamed
 
+" highlight cursorline
+set cursorline
+
 " highlight search results
 set hlsearch
 
@@ -420,7 +423,7 @@ if has("nvim")
   nnoremap <leader>oo :lclose<cr>
   autocmd! BufWritePost,BufEnter * Neomake
 
-  let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
+  let g:neomake_javascript_enabled_makers = ['eslint', 'jshint', 'coffeelint']
   let g:neomake_scss_enabled_makers = ['scsslint']
   let g:neomake_css_enabled_makers = ['csslint']
   let g:neomake_markdown_enabled_makers = ['mdl']
