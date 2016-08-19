@@ -185,7 +185,7 @@ nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 nnoremap <leader>gr "*gr<cr>
 
 " Code notes
-nnoremap <Leader>cn :Files ~/code/notes/<cr>
+nnoremap <Leader>cn :Files ~/dotfiles-local/notes/<cr>
 
 " Open .html pages from vim in browser
 nnoremap <silent> <F10> :!open '%'<cr>
