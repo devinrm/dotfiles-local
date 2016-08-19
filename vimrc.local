@@ -145,9 +145,6 @@ nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 " Map Ctrl-s to write the file
 nnoremap <leader>w :w<cr>
 
-" Map Ctrl-t to open new tab
-nnoremap <C-t> <esc>:tabnew<CR>
-
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nnoremap <leader>re :source $MYVIMRC<cr>
 nnoremap <leader>vr :sp $MYVIMRC<cr>
@@ -219,6 +216,8 @@ nnoremap <C-p> :Files<cr>
 nnoremap <C-p> :Files<cr>
 nnoremap <C-o> :BLines<cr>
 nnoremap <C-o> :BLines<cr>
+nnoremap <C-b> :Buffers<cr>
+nnoremap <C-t> :Tags<cr>
 
 " View commits in fzf
 nnoremap <Leader>c :Commits<cr>
@@ -236,9 +235,6 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
-" fzf tags
-nnoremap <leader>tg :Tags<cr>
 
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
 " 'j' = '∆' and 'k' = '˚'
