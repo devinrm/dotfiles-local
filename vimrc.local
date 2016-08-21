@@ -380,6 +380,8 @@ if has("nvim")
   highlight VertSplit guibg=#242424
   highlight VertSplit guifg=#139cff
 
+  highlight cursorline guibg=#464646
+
   " Change visual line color
   highlight visual guifg=#D73435
 
