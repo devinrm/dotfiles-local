@@ -109,8 +109,7 @@ function! LightLineFilename()
 endfunction
 
 set background=dark
-colorscheme two-firewatch
-let g:two_firewatch_italics=1
+colorscheme onedark
 
 " Change sign column color for firewatch
 highlight SignColumn ctermbg=none
@@ -375,8 +374,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set background=dark
-  colorscheme two-firewatch
-  let g:two_firewatch_italics=1
+  colorscheme onedark
 
   " Change sign column color for firewatch
   highlight SignColumn guibg=none
