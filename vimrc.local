@@ -111,9 +111,6 @@ endfunction
 set background=dark
 colorscheme onedark
 
-" Change sign column color for firewatch
-highlight SignColumn ctermbg=none
-
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
 
@@ -375,9 +372,6 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 if has("nvim")
   set background=dark
   colorscheme onedark
-
-  " Change sign column color for firewatch
-  highlight SignColumn guibg=none
 
   " nvim gui colors
   set termguicolors
