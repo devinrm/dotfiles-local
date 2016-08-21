@@ -383,9 +383,9 @@ if has("nvim")
   highlight cursorline guibg=#464646
 
   " Change visual line color
-  highlight visual guifg=#D73435
+  highlight visual guifg=#66ff66
 
-  " Change color column color
+  " change color column color
   highlight ColorColumn guibg=#464646
 
   " Neovim terminal mappings for easy navigation
