@@ -1,8 +1,6 @@
 Plug 'shirataki/lightline-onedark'
-Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'chrisbra/Colorizer'
 " Plug 'geoffharcourt/vim-coloresque'
 Plug 'itchyny/lightline.vim'
