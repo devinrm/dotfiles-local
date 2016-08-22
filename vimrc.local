@@ -316,6 +316,15 @@ inoremap <c-c> <c-x><c-o>
 " let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 
+let g:startify_custom_header = [
+        \ '            __                 ',
+        \ '    __  __ /\_\    ___ ___     ',
+        \ '   /\ \/\ \\/\ \ /'' __` __`\  ',
+        \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \  ',
+        \ '    \ \___/  \ \_\ \_\ \_\ \_\ ',
+        \ '     \/__/    \/_/\/_/\/_/\/_/ ',
+        \ ]
+
 " Change vertical split color
 highlight VertSplit ctermbg=232
 highlight VertSplit ctermfg=165
