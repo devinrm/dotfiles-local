@@ -389,13 +389,13 @@ if has("nvim")
   highlight VertSplit guibg=#242424
   highlight VertSplit guifg=#139cff
 
-  highlight cursorline guibg=#464646
+  highlight cursorline guibg=#3c3c3c
 
   " Change visual line color
   highlight visual guifg=#66ff66
 
   " change color column color
-  highlight ColorColumn guibg=#464646
+  highlight ColorColumn guibg=#3c3c3c
 
   " Neovim terminal mappings for easy navigation
   tnoremap <C-h> <C-\><C-n><C-w>h
