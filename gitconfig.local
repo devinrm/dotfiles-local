@@ -1,5 +1,5 @@
 [user]
-  name = devinrm
+  name = Devin Morgenstern
   email = devin.morgenstern@gmail.com
 [filter "lfs"]
   clean = git-lfs clean %f
