@@ -316,13 +316,12 @@ inoremap <c-c> <c-x><c-o>
 " let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 
+" Startify header
 let g:startify_custom_header = [
-        \ '            __                 ',
-        \ '    __  __ /\_\    ___ ___     ',
-        \ '   /\ \/\ \\/\ \ /'' __` __`\  ',
-        \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \  ',
-        \ '    \ \___/  \ \_\ \_\ \_\ \_\ ',
-        \ '     \/__/    \/_/\/_/\/_/\/_/ ',
+        \ '   ____ ____ ____ ',
+        \ '  ||v |||i |||m ||',
+        \ '  ||__|||__|||__||',
+        \ '  |/__\|/__\|/__\|',
         \ ]
 
 " Change vertical split color
@@ -442,4 +441,12 @@ if has("nvim")
 
   " Test with neovim
   let test#strategy = "neovim"
+
+  " Startify header
+  let g:startify_custom_header = [
+          \ '   ____ ____ ____ ____ ____ ____ ',
+          \ '  ||n |||e |||o |||v |||i |||m ||',
+          \ '  ||__|||__|||__|||__|||__|||__||',
+          \ '  |/__\|/__\|/__\|/__\|/__\|/__\|',
+          \ ]
 endif
