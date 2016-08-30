@@ -1,3 +1,8 @@
+"  ____ ____ ____ ____ ____ ____ ____ ____
+" ||s |||e |||t |||t |||i |||n |||g |||s ||
+" ||__|||__|||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+
 " Don't load
 let g:loaded_ctrlp = 1
 
@@ -131,11 +136,65 @@ let g:vcoolor_disable_mappings = 1
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
 
-"  __  __    _    ____  ____
-" |  \/  |  / \  |  _ \/ ___|
-" | |\/| | / _ \ | |_) \___ \
-" | |  | |/ ___ \|  __/ ___) |
-" |_|  |_/_/   \_\_|   |____/
+" Syntastic
+nnoremap <leader>o :Errors<cr>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_loc_list_height = 3
+
+let g:syntastic_haml_checkers = ['haml_lint', 'haml']
+let g:syntastic_html_checkers = ['jshint']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_slim_checkers = ['slim_lint']
+let g:syntastic_elixir_checkers = ['elixir']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
+autocmd bufwritepost *.js silent !standard-format -w %
+set autoread
+
+" Omnicompletion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+inoremap <c-c> <c-x><c-o>
+
+" Supertab
+" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+
+" Startify header
+let g:startify_custom_header = [
+        \ '   ____ ____ ____ ',
+        \ '  ||v |||i |||m ||',
+        \ '  ||__|||__|||__||',
+        \ '  |/__\|/__\|/__\|',
+        \ ]
+
+" Change vertical split color
+highlight VertSplit ctermbg=232
+highlight VertSplit ctermfg=165
+
+" Change visual line color
+highlight visual ctermfg=1
+
+" This statement has to come late in order to work (from @geoffharcourt)
+highlight Comment cterm=italic
+
+"  ____ ____ ____ ____
+" ||m |||a |||p |||s ||
+" ||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|
 
 " Open vimrc in new tab
 nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
@@ -282,66 +341,10 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 " Make esc more user friendly
 inoremap jk <esc>
 
-" Syntastic
-nnoremap <leader>o :Errors<cr>
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_loc_list_height = 3
-
-let g:syntastic_haml_checkers = ['haml_lint', 'haml']
-let g:syntastic_html_checkers = ['jshint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
-let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_slim_checkers = ['slim_lint']
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'standard']
-autocmd bufwritepost *.js silent !standard-format -w %
-set autoread
-
-" Omnicompletion
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-inoremap <c-c> <c-x><c-o>
-
-" Supertab
-" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-" let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-
-" Startify header
-let g:startify_custom_header = [
-        \ '   ____ ____ ____ ',
-        \ '  ||v |||i |||m ||',
-        \ '  ||__|||__|||__||',
-        \ '  |/__\|/__\|/__\|',
-        \ ]
-
-" Change vertical split color
-highlight VertSplit ctermbg=232
-highlight VertSplit ctermfg=165
-
-" Change visual line color
-highlight visual ctermfg=1
-
-" This statement has to come late in order to work (from @geoffharcourt)
-highlight Comment cterm=italic
-
-"  _____ __  __ _   ___  __
-" |_   _|  \/  | | | \ \/ /
-"   | | | |\/| | | | |\  /
-"   | | | |  | | |_| |/  \
-"   |_| |_|  |_|\___//_/\_\
+"  ____ ____ ____ ____
+" ||t |||m |||u |||x ||
+" ||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|
 
 " To use c-h in neovim on OS X
 " (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
@@ -374,11 +377,10 @@ let g:tmux_navigator_save_on_switch = 1
 " Have tmux-runner open pry session
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
 
-"  _   _ _____ _____     _____ __  __
-" | \ | | ____/ _ \ \   / /_ _|  \/  |
-" |  \| |  _|| | | \ \ / / | || |\/| |
-" | |\  | |__| |_| |\ V /  | || |  | |
-" |_| \_|_____\___/  \_/  |___|_|  |_|
+"  ____ ____ ____ ____ ____ ____
+" ||n |||e |||o |||v |||i |||m ||
+" ||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|
 
 if has("nvim")
   set background=dark
