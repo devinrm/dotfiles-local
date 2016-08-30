@@ -200,7 +200,7 @@ highlight Comment cterm=italic
 nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 
-" Map Ctrl-s to write the file
+" Map leader-w to write the file
 nnoremap <leader>w :w<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
@@ -271,8 +271,6 @@ nnoremap 0 ^
 
 " Search with fzf
 nnoremap <C-p> :Files<cr>
-nnoremap <C-p> :Files<cr>
-nnoremap <C-o> :BLines<cr>
 nnoremap <C-o> :BLines<cr>
 nnoremap <C-b> :Buffers<cr>
 nnoremap <C-t> :Tags<cr>
