@@ -126,7 +126,9 @@ autocmd! User GoyoLeave Limelight!
 " Vim Dispatch
 let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "dispatch"
+let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
+" Colorizer
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " vcoolor
@@ -201,7 +203,7 @@ nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 
 " Map leader-w to write the file
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :wa<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nnoremap <leader>re :source $MYVIMRC<cr>
@@ -456,6 +458,7 @@ if has("nvim")
 
   " Test with neovim
   let test#strategy = "neovim"
+  let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
   " Startify header
   let g:startify_custom_header = [
