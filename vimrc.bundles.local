@@ -38,3 +38,4 @@ Plug 'alvan/vim-closetag'
 Plug 'mhinz/vim-startify'
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'ddrscott/vim-side-search'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
