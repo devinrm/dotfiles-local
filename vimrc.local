@@ -119,6 +119,10 @@ colorscheme onedark
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+
 " Integrate limelight and goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -168,6 +172,7 @@ set autoread
 " Omnicompletion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
 inoremap <c-c> <c-x><c-o>
 
 " Supertab
