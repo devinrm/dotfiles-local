@@ -12,6 +12,14 @@ THOUGHTBOT WORKFLOW
   Delete local branch          branch -d <branch>
   Delete remote branch         push origin -d <branch>
 
+create-branch: alias to create feature branches.
+delete-branch: alias to delete feature branches.
+merge-branch: alias to merge feature branches into master.
+up: alias to fetch and rebase origin/master into the feature branch. Use git up -i for interactive rebases.
+git-churn: to show churn for the files changed in the branch.
+Adds post-{checkout,commit,merge} hooks to re-index your ctags.
+Adds pre-commit and prepare-commit-msg stubs that delegate to your local config.
+
 GIT MUP
 g mup (checks out master, pulls, then checks back out our feature branch)
 
