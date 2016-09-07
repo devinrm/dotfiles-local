@@ -22,7 +22,6 @@ alias ct="cat ~/dotfiles-local/notes/tmux.md"
 alias cv="cat ~/dotfiles-local/notes/vim.md"
 alias cpry="cat ~/dotfiles-local/notes/pry.md"
 alias ..='cd ..'
-alias ta='tmux attach-session -t'
 alias tl='tmux list-sessions'
 alias tn='tmux new -s'
 alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"
