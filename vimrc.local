@@ -123,7 +123,7 @@ let g:marked_app = 'Markoff'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Integrate limelight and goyo
 autocmd! User GoyoEnter Limelight
