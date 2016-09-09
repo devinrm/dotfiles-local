@@ -39,3 +39,4 @@ Plug 'beloglazov/vim-online-thesaurus'
 Plug 'ddrscott/vim-side-search'
 Plug 'justinmk/vim-dirvish'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'build': { 'mac': 'npm install -g tern', 'unix': 'npm install -g tern' }}
