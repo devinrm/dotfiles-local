@@ -119,12 +119,6 @@ colorscheme onedark
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:tern_request_timeout = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
 " Integrate limelight and goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -458,6 +452,12 @@ if has("nvim")
   let g:neomake_haml_enabled_makers = ['hamllint']
   let g:neomake_slim_enabled_makers = ['slimlint']
   let g:neomake_elixir_enabled_makers = ['elixir']
+
+  " Use deoplete
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_start_length = 1
+  let g:tern_request_timeout = 1
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
   " Open terminal in neovim
   nnoremap <leader>r :sp<cr>:terminal<cr>
