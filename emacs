@@ -35,6 +35,7 @@
 (ensure-package-installed 'iedit
                           'magit
                           'projectile
+                          'js2-mode
                           'helm
                           'evil
                           'evil-leader
@@ -54,8 +55,11 @@
                           'fill-column-indicator
                           'rainbow-delimiters
                           'auto-complete
-                          'ag
+                          'helm-ag
                           'robe
+                          'sass-mode
+                          'scss-mode
+                          'fiplr
                           'dtrt-indent
                           'enh-ruby-mode
                           'diminish
@@ -117,7 +121,7 @@
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
   "b" 'switch-to-buffer
-  "p" 'projectile-find-file
+  "p" 'fiplr-find-file
   "b" 'projectile-switch-to-buffer
   "w" 'evil-write
   "r" 'ansi-term)
