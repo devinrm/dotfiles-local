@@ -100,10 +100,8 @@
 (require 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)
 
-(require 'grizzl)
 (projectile-global-mode)
 (setq projectile-enable-caching t)
-(setq projectile-completion-system 'grizzl)
 
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories
