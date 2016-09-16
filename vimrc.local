@@ -402,7 +402,7 @@ if has("nvim")
 
   " change color column color
   highlight ColorColumn guibg=#3c3c3c
-  highlight SignColumn guifg=clear
+  highlight SignColumn guibg=#222222
 
   " Neovim terminal mappings for easy navigation
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
