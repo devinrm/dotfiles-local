@@ -50,7 +50,7 @@
                           'evil-args
                           'evil-mark-replace
                           'powerline-evil
-                          'tern-mode
+                          'tern
                           'relative-line-numbers
                           'jbeans-theme
                           'fill-column-indicator
