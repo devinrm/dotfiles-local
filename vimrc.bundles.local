@@ -1,5 +1,6 @@
 Plug 'shirataki/lightline-onedark'
 Plug 'joshdick/onedark.vim'
+Plug 'jacoborus/tender.vim'
 Plug 'chrisbra/Colorizer'
 " Plug 'geoffharcourt/vim-coloresque'
 Plug 'itchyny/lightline.vim'

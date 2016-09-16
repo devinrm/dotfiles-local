@@ -50,6 +50,7 @@
                           'evil-args
                           'evil-mark-replace
                           'powerline-evil
+                          'tern-mode
                           'relative-line-numbers
                           'jbeans-theme
                           'fill-column-indicator
@@ -67,6 +68,8 @@
                           'web-mode
                           'multiple-cursors
                           'smooth-scrolling
+                          'auto-complete
+                          'tern-auto-complete
                           'autopair
                           'key-chord)
 
@@ -233,3 +236,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'diminish)
 (diminish 'visual-line-mode)
+
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+
+(eval-after-load 'tern
+  '(progn
+    (require 'tern-auto-complete)
+    (tern-ac-setup)))

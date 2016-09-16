@@ -80,8 +80,9 @@ autocmd InsertLeave * :set relativenumber
 set stl+=%{ConflictedVersion()}
 
 " Colorscheme and lightline config
+let g:tender_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'tender',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -114,7 +115,7 @@ function! LightLineFilename()
 endfunction
 
 set background=dark
-colorscheme onedark
+colorscheme tender
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
@@ -385,7 +386,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set background=dark
-  colorscheme onedark
+  colorscheme tender
 
   " nvim gui colors
   set termguicolors
@@ -401,6 +402,7 @@ if has("nvim")
 
   " change color column color
   highlight ColorColumn guibg=#3c3c3c
+  highlight SignColumn guifg=clear
 
   " Neovim terminal mappings for easy navigation
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
