@@ -123,11 +123,11 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
-  "b" 'switch-to-buffer
+  "o" 'ibuffer
   "p" 'fiplr-find-file
   "b" 'projectile-switch-to-buffer
   "w" 'evil-write
-  "r" 'ansi-term)
+  "r" 'term)
 
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
