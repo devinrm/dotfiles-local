@@ -24,6 +24,6 @@ alias cpry="cat ~/dotfiles-local/notes/pry.md"
 alias ..='cd ..'
 alias tl='tmux list-sessions'
 alias tn='tmux new -s'
-alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"
+alias emacs="/usr/local/Cellar/emacs/25.1/bin/emacs -nw"
 alias rsa="SPEC_ALL=true bundle exec rspec"
 alias cat="ccat"
