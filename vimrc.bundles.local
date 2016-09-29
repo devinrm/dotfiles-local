@@ -22,11 +22,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-haml'
 Plug 'henrik/vim-indexed-search'
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'elixir-lang/vim-elixir'
-Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby'}
-Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 Plug 'skwp/greplace.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'vim-scripts/ReplaceWithRegister'
@@ -39,5 +35,9 @@ Plug 'mhinz/vim-startify'
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'ddrscott/vim-side-search'
 Plug 'justinmk/vim-dirvish'
+Plug 'itspriddle/vim-marked'
+Plug 'Keithbsmiley/rspec.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'build': { 'mac': 'npm install -g tern', 'unix': 'npm install -g tern' }}
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
