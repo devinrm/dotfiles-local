@@ -21,7 +21,6 @@ alias cg="cat ~/dotfiles-local/notes/git.md"
 alias ct="cat ~/dotfiles-local/notes/tmux.md"
 alias cv="cat ~/dotfiles-local/notes/vim.md"
 alias cpry="cat ~/dotfiles-local/notes/pry.md"
-alias ..='cd ..'
 alias tl='tmux list-sessions'
 alias emacs="/usr/local/Cellar/emacs/25.1/bin/emacs -nw"
 alias rsa="SPEC_ALL=true bundle exec rspec"
