@@ -8,12 +8,9 @@ unsetopt flowcontrol
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
+#chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # node
 export PATH="$HOME/.node/bin:$PATH"
