@@ -19,7 +19,7 @@
   upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
   fall = fetch --all
   mup = !git checkout master && git pull && git checkout -
-  rup = !git checkout release/26 && git pull && git checkout -
+  rup = !git checkout release/27 && git pull && git checkout -
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
   coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr)%C(bold blue)%an%Creset
