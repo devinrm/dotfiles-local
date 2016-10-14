@@ -77,10 +77,10 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 bind C-l send-keys 'C-l'
 
 # Quickly view system & process info in htop
-bind-key h split-window -h "htop"
+bind-key h split-window -v "htop"
 
 # keybinding for gitsh
-bind-key g split-window -h -c '#{pane_current_path}' -p 50 gitsh
+bind-key g split-window -v -c '#{pane_current_path}' -p 50 gitsh
 
 # Break out of session without exiting current session
 bind-key C-b send-keys 'tat && exit' 'C-m'

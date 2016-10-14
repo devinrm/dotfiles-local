@@ -203,7 +203,7 @@ nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 
 " Map leader-w to write the file
-nnoremap <leader>w :w<cr>
+nnoremap <C-a> :w<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nnoremap <leader>re :source $MYVIMRC<cr>
