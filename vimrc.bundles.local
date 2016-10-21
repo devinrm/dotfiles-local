@@ -43,4 +43,3 @@ Plug 'carlitux/deoplete-ternjs', { 'build': { 'mac': 'npm install -g tern', 'uni
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'machakann/vim-highlightedyank'
-Plug '907th/vim-auto-save'

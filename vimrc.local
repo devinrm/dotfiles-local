@@ -13,10 +13,6 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-" Autosave all the things
-let g:auto_save = 1
-let g:auto_save_write_all_buffers = 1
-
 " have cursor stay in the middle while scrolling
 " set scrolloff=999
 
