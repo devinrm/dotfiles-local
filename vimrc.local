@@ -451,7 +451,7 @@ if has("nvim")
   let g:neomake_scss_enabled_makers = ['scsslint']
   let g:neomake_css_enabled_makers = ['csslint']
   let g:neomake_markdown_enabled_makers = ['mdl']
-  let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+  let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'reek']
   let g:neomake_html_enabled_makers = ['htmlhint']
   let g:neomake_haml_enabled_makers = ['hamllint']
   let g:neomake_slim_enabled_makers = ['slimlint']
