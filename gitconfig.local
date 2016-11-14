@@ -18,8 +18,9 @@
   cm = commit -m
   upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
   fall = fetch --all
+  ph = push -u origin head
   mup = !git checkout master && git pull && git checkout -
-  rup = !git checkout release/28 && git pull && git checkout -
+  rup = !git checkout release/29 && git pull && git checkout -
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
   coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr)%C(bold blue)%an%Creset
