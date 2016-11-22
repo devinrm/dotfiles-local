@@ -53,7 +53,7 @@ set -g status-left " #S => "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "#(battery -p -t -g -m -w '#2076c7')  #(date '+%a, %b %d - %H:%M') "
+set -g status-right "#(battery -p -t -g '#2076c7')  #(date '+%a, %b %d - %H:%M') "
 
 # Change pane border color
 set -g pane-border-fg '#3942AE'
@@ -80,7 +80,7 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 bind C-l send-keys 'C-l'
 
 # Quickly view system & process info in htop
-bind-key h split-window -v "htop"
+bind-key h split-window -h "htop"
 
 # keybinding for gitsh
 bind-key g split-window -v -c '#{pane_current_path}' -p 50 gitsh
