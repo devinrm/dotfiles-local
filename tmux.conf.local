@@ -62,7 +62,7 @@ set -g pane-active-border-bg default
 
 # set status bar color
 set -g status-fg '#d75f87'
-set -g status-bg '#4b4b4b'
+set -g status-bg '#404242'
 
 # set tab color
 set-window-option -g window-status-current-bg '#ffffff'
