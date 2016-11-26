@@ -387,7 +387,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set background=dark
-  colorscheme apathy
+  colorscheme mocha
 
   " nvim gui colors
   set termguicolors
