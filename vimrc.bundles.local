@@ -1,5 +1,3 @@
-Plug 'shirataki/lightline-onedark'
-Plug 'joshdick/onedark.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'Soares/base16.nvim'
 Plug 'chrisbra/Colorizer'

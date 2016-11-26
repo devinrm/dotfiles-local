@@ -87,9 +87,8 @@ autocmd InsertLeave * :set relativenumber
 set stl+=%{ConflictedVersion()}
 
 " Colorscheme and lightline config
-let g:tender_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
