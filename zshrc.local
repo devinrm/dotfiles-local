@@ -9,16 +9,16 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # chruby
-chruby 2.3.3
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby 2.3.3
 
 # node
 export PATH="$HOME/.node/bin:$PATH"
 
 # go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOPATH=$HOME/code/go
+export GOPATH=$HOME/src/go
 
 # fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

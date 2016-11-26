@@ -89,7 +89,7 @@ set stl+=%{ConflictedVersion()}
 " Colorscheme and lightline config
 let g:tender_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'tender',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -388,7 +388,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set background=dark
-  colorscheme tender
+  colorscheme apathy
 
   " nvim gui colors
   set termguicolors
