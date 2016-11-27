@@ -343,6 +343,7 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " Make esc more user friendly
 inoremap jk <esc>
+inoremap ii <esc>
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
