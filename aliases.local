@@ -49,7 +49,7 @@ alias help="run-help"
 alias sed="sed -E"
 
 # Copy-pasting '$ ruby something.rb' works
-alias \$=''
+alias \❯=''
 
 alias dotfiles="cd ~/dotfiles-local"
 
