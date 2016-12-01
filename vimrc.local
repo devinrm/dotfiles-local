@@ -119,7 +119,7 @@ function! LightLineFilename()
 endfunction
 
 set background=dark
-colorscheme tender
+colorscheme seoul256
 
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
