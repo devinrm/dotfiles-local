@@ -386,24 +386,38 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 " |/__\|/__\|/__\|/__\|/__\|/__\|
 
 if has("nvim")
+
+  " seoul256 (dark):
+  colo seoul256
+  "   Range:   233 (darkest) ~ 239 (lightest)
+  "   Default: 237
+  let g:seoul256_background = 235
+
+  " seoul256 (light):
+  " colo seoul256-light
+  "   Range:   252 (darkest) ~ 256 (lightest)
+  "   Default: 253
+  " let g:seoul256_light_background = 256
+
+  " Switch
   set background=dark
-  colorscheme mocha
+  " set background=light
 
   " nvim gui colors
   set termguicolors
 
   " Change gui vertical split color
-  highlight VertSplit guibg=#242424
-  highlight VertSplit guifg=#139cff
+  " highlight VertSplit guibg=#242424
+  " highlight VertSplit guifg=#139cff
 
-  highlight cursorline guibg=#3c3c3c
+  " highlight cursorline guibg=#3c3c3c
 
   " Change visual line color
-  highlight visual guifg=#ff0080
+  " highlight visual guifg=#ff0080
 
   " change color column color
-  highlight ColorColumn guibg=#3c3c3c
-  highlight SignColumn guibg=#222222
+  " highlight ColorColumn guibg=#3c3c3c
+  " highlight SignColumn guibg=#222222
 
   " Neovim terminal mappings for easy navigation
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
@@ -461,6 +475,9 @@ if has("nvim")
   let g:deoplete#auto_complete_start_length = 1
   let g:tern_request_timeout = 1
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+  " TMUX complete
+  let g:tmuxcomplete#trigger = ''
 
   " Open terminal in neovim
   nnoremap <leader>r :sp<cr>:terminal<cr>
