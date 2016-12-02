@@ -1,6 +1,7 @@
 Plug 'jacoborus/tender.vim'
 Plug 'Soares/base16.nvim'
 Plug 'junegunn/seoul256.vim'
+Plug 'jdkanani/vim-material-theme'
 Plug 'chrisbra/Colorizer'
 " Plug 'geoffharcourt/vim-coloresque'
 Plug 'itchyny/lightline.vim'
