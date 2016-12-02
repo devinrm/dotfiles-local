@@ -1,3 +1,8 @@
+D - delete to end of line, but stay in normal mode
+C - delete to end of line, but enter insert mode
+zb - current line to bottom
+c-y, c-e - scroll one line
+
 For FZF.vim
 Most commands support CTRL-T / CTRL-X / CTRL-V key bindings to open in a new tab,
 a new split, or in a new vertical split
