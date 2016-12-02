@@ -5,6 +5,9 @@ set -g prefix C-s
 # Use emacs instead of vi keybindings for prompt
 set-option -g status-keys "emacs"
 
+# Turn on mouse on for pair programming
+set -g mouse on
+
 # Easy reloading of the tmux.conf configuration file
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
