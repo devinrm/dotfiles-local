@@ -391,7 +391,7 @@ if has("nvim")
   colo seoul256
   "   Range:   233 (darkest) ~ 239 (lightest)
   "   Default: 237
-  let g:seoul256_background = 235
+  let g:seoul256_background = 236
 
   " seoul256 (light):
   " colo seoul256-light
