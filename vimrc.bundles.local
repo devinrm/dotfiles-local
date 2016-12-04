@@ -1,5 +1,6 @@
 Plug 'jacoborus/tender.vim'
 Plug 'junegunn/seoul256.vim'
+Plug  'dikiaap/minimalist'
 Plug 'chrisbra/Colorizer'
 " Plug 'geoffharcourt/vim-coloresque'
 Plug 'itchyny/lightline.vim'
