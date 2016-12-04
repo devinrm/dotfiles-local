@@ -344,6 +344,9 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 inoremap jk <esc>
 inoremap ii <esc>
 
+" Make it easier to run ruby files inside vim
+nnoremap <Leader>! :!ruby %<cr>
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
