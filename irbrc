@@ -69,3 +69,13 @@ class Object
     (methods - Object.instance_methods).sort
   end
 end
+
+def time(&block)
+  require "benchmark"
+  result = nil
+  timing = Benchmark.measure do
+    result = block.yield
+  end
+  puts "It took: #{timing}"
+  result
+end
