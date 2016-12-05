@@ -416,8 +416,8 @@ if has("nvim")
 
   " highlight cursorline guibg=#3c3c3c
 
-  " Change visual line color
-  " highlight visual guifg=#ff0080
+  " Change visual line color (for minimalist theme only)
+  highlight visual guifg=#ff0080
 
   " change color column color
   " highlight ColorColumn guibg=#3c3c3c
