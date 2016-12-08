@@ -246,6 +246,9 @@ nnoremap <leader>gr "*gr<cr>
 " Code notes
 nnoremap <Leader>cn :Files ~/dotfiles-local/notes/<cr>
 
+" Toggle relative line number for yanking, i.e. :6y
+nnoremap <leader>ln :set relativenumber!<cr>
+
 " Open .html pages from vim in browser
 nnoremap <silent> <F10> :!open '%'<cr>
 
