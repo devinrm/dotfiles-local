@@ -1,3 +1,5 @@
+gx - open link in browser
+
 D - delete to end of line, but stay in normal mode
 C - delete to end of line, but enter insert mode
 zb - current line to bottom
