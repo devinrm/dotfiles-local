@@ -249,8 +249,11 @@ nnoremap <Leader>cn :Files ~/dotfiles-local/notes/<cr>
 " Toggle relative line number for yanking, i.e. :6y
 nnoremap <leader>ln :set relativenumber!<cr>
 
+" Make it easier to run ruby files inside vim
+nnoremap <Leader>! :!ruby %<cr>
+
 " Open .html pages from vim in browser
-nnoremap <silent> <F10> :!open '%'<cr>
+nnoremap <leader>ht :!open '%'<cr>
 
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
@@ -346,9 +349,6 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 " Make esc more user friendly
 inoremap jk <esc>
 inoremap ii <esc>
-
-" Make it easier to run ruby files inside vim
-nnoremap <Leader>! :!ruby %<cr>
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
