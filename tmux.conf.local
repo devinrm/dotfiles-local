@@ -12,7 +12,7 @@ set -g mouse on
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
 # Faster escape times
-set -s escape-time 10
+set -s escape-time 5
 
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
