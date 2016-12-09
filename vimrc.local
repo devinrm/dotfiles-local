@@ -393,12 +393,13 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
 
+  " colo minimalist
+
   " seoul256 (dark):
-  colo minimalist
-  " colo seoul256
+  colo seoul256
   "   Range:   233 (darkest) ~ 239 (lightest)
   "   Default: 237
-  let g:seoul256_background = 236
+  let g:seoul256_background = 235
 
   " seoul256 (light):
   " colo seoul256-light
