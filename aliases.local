@@ -35,6 +35,11 @@ alias cpry="cat ~/dotfiles-local/notes/pry.md"
 alias c="chruby"
 alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
+alias ras="rails s"
+
+# JavaScript
+alias yi="yarn install"
+alias ys="yarn start"
 
 # Unix
 alias cp="cp -iv"
@@ -58,4 +63,6 @@ alias ra="ranger"
 
 alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
 
-alias tl='tmux list-sessions'
+alias tl="tmux list-sessions"
+
+alias db="dynamodb-local"
