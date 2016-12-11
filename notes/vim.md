@@ -1,3 +1,12 @@
+vipga=
+  visual-select inner paragraph
+  Start EasyAlign command (ga)
+  Align around =
+
+gaip=
+  Start EasyAlign command (ga) for inner paragraph
+  Align around =
+
 gx - open link in browser
 
 D - delete to end of line, but stay in normal mode
