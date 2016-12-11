@@ -56,20 +56,20 @@ set -g status-left " #S Ϟ "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "#(battery -p -t -g '#2aa098')  #(date '+%a, %b %d - %H:%M') "
+set -g status-right "#(battery -p -t -g '#5f819d')  #(date '+%a, %b %d - %H:%M') "
 
 # Change pane border color
-set -g pane-border-fg '#859900'
-set -g pane-active-border-fg '#278bd2'
+set -g pane-border-fg '#5e8d87'
+set -g pane-active-border-fg '#85678f'
 set -g pane-active-border-bg default
 
 # set status bar color
-set -g status-fg '#2aa098'
+set -g status-fg '#5f819d'
 set -g status-bg default
 set -g status-attr bright
 
 # set tab color
-set-window-option -g window-status-current-bg '#2aa098'
+set-window-option -g window-status-current-bg '#5f819d'
 set-window-option -g window-status-current-fg '#ffffff'
 
 # Bind <c-j> to choose-tree and integrate with fzf
