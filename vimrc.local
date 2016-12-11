@@ -448,22 +448,22 @@ if has("nvim")
   tnoremap <C-l> <C-\><C-n><C-w>l
 
   " NeoVim term colors
-  let g:terminal_color_0  = '#073642' " black
-  let g:terminal_color_1  = '#d30102' " red
-  let g:terminal_color_2  = '#859900' " green
-  let g:terminal_color_3  = '#b58900' " yellow
-  let g:terminal_color_4  = '#268bd2' " blue
-  let g:terminal_color_5  = '#d33682' " magenta
-  let g:terminal_color_6  = '#2aa198' " cyan
-  let g:terminal_color_7  = '#eee8d5' " white
-  let g:terminal_color_8  = '#002b36' " brblack
-  let g:terminal_color_9  = '#cb4b16' " brred
-  let g:terminal_color_10 = '#586e75' " brgreen
-  let g:terminal_color_11 = '#657b83' " bryellow
-  let g:terminal_color_12 = '#839496' " brblue
-  let g:terminal_color_13 = '#6c71c4' " brmagenta
-  let g:terminal_color_14 = '#93a1a1' " brcyan
-  let g:terminal_color_15 = '#fdf6e3' " brwhite
+  let g:terminal_color_0  = '#282a2d' " black
+  let g:terminal_color_1  = '#a54242' " red
+  let g:terminal_color_2  = '#8c9441' " green
+  let g:terminal_color_3  = '#de935f' " yellow
+  let g:terminal_color_4  = '#5f819d' " blue
+  let g:terminal_color_5  = '#85678f' " magenta
+  let g:terminal_color_6  = '#5e8d87' " cyan
+  let g:terminal_color_7  = '#707880' " white
+  let g:terminal_color_8  = '#373b41' " brblack
+  let g:terminal_color_9  = '#cc6666' " brred
+  let g:terminal_color_10 = '#b5bd68' " brgreen
+  let g:terminal_color_11 = '#f0c674' " bryellow
+  let g:terminal_color_12 = '#81a2be' " brblue
+  let g:terminal_color_13 = '#b294bb' " brmagenta
+  let g:terminal_color_14 = '#8abeb7' " brcyan
+  let g:terminal_color_15 = '#c5c8c6' " brwhite
 
   " Neomake
   " Disable inherited syntastic
@@ -494,8 +494,6 @@ if has("nvim")
   " Use deoplete
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_start_length = 1
-  let g:tern_request_timeout = 1
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
   " TMUX complete
   let g:tmuxcomplete#trigger = ''
