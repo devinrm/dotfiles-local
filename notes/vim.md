@@ -1,3 +1,5 @@
+% - Moving to matching braces
+
 vipga=
   visual-select inner paragraph
   Start EasyAlign command (ga)
