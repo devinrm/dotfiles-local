@@ -188,12 +188,13 @@ augroup rainbow
 augroup END
 
 " Startify header
-let g:startify_custom_header = [
+let g:ascii = [
         \ '   ____ ____ ____ ',
         \ '  ||v |||i |||m ||',
         \ '  ||__|||__|||__||',
         \ '  |/__\|/__\|/__\|',
         \ ]
+let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 
 " Change vertical split color
 highlight VertSplit ctermbg=232
@@ -507,12 +508,13 @@ if has("nvim")
   let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
   " Startify header
-  let g:startify_custom_header = [
+  let g:ascii = [
           \ '   ____ ____ ____ ____ ____ ____ ',
           \ '  ||n |||e |||o |||v |||i |||m ||',
           \ '  ||__|||__|||__|||__|||__|||__||',
           \ '  |/__\|/__\|/__\|/__\|/__\|/__\|',
           \ ]
+  let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 
   set inccommand=split
 endif
