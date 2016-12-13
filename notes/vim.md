@@ -1,3 +1,5 @@
+y$ - yank to end of line
+
 % - Moving to matching braces
 
 vipga=
