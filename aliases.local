@@ -35,6 +35,7 @@ alias cpry="cat ~/dotfiles-local/notes/pry.md"
 alias c="chruby"
 alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
+alias racer="ruby -r tracer"
 alias ras="rails s"
 
 # JavaScript
