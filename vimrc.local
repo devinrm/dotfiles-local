@@ -258,7 +258,7 @@ nnoremap <Leader>cn :Files ~/dotfiles-local/notes/<cr>
 nnoremap <leader>ln :set relativenumber!<cr>
 
 " Make it easier to run ruby files inside vim
-nnoremap <Leader>! :!ruby %<cr>
+nnoremap <Leader>! :!ruby -w %<cr>
 
 " Open .html pages from vim in browser
 nnoremap <leader>ht :!open '%'<cr>
@@ -362,7 +362,7 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 " Make esc more user friendly
 inoremap jk <esc>
-inoremap ii <esc>
+" inoremap ii <esc>
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
