@@ -1,3 +1,5 @@
+:up - To write (save) the current file only if the file has been modified you can
+
 y$ - yank to end of line
 
 % - Moving to matching braces
