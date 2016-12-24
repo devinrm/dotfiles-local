@@ -1,3 +1,6 @@
+Add SSH key to keychain:
+ssh-add -K ~/.ssh/id_rsa
+
 THOUGHTBOT WORKFLOW
   Start with a branch:         co -d <branch>
   Check git diff before push:  Gdiff master
