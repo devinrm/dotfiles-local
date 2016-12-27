@@ -58,6 +58,9 @@ alias sed="sed -E"
 # Copy-pasting '$ ruby something.rb' works
 alias \❯=''
 
+# Open applications I use often
+alias chrome="open -a Google\ Chrome"
+
 alias dotfiles="cd ~/dotfiles-local"
 
 alias ra="ranger"
