@@ -120,6 +120,7 @@ endfunction
 
 " hybrid colo
 colorscheme hybrid
+let g:limelight_conceal_ctermfg = 240
 let g:hybrid_custom_term_colors = 1
 set background=dark
 
@@ -408,6 +409,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 if has("nvim")
 
   colorscheme hybrid
+  let g:limelight_conceal_guifg = '#777777'
 
   " seoul256 (dark):
   " colo seoul256
