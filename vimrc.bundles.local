@@ -3,7 +3,8 @@ Plug 'jacoborus/tender.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'w0ng/vim-hybrid'
 
-" status line
+" start screen/status line
+Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 
 " CSS
@@ -37,7 +38,6 @@ Plug 'ervandew/supertab'
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'christoomey/vim-conflicted'
 
 " language plugins
 Plug 'elixir-lang/vim-elixir'
@@ -61,8 +61,8 @@ Plug 'derekprior/vim-trimmer'
 Plug 'machakann/vim-highlightedyank'
 
 " everything else
+Plug 'christoomey/vim-conflicted'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wfleming/vim-codeclimate'
-Plug 'mhinz/vim-startify'
 Plug 'beloglazov/vim-online-thesaurus'
