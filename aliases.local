@@ -32,7 +32,6 @@ alias cv="cat ~/dotfiles-local/notes/vim.md"
 alias cpry="cat ~/dotfiles-local/notes/pry.md"
 
 # Ruby and RSpec
-alias c="chruby"
 alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
 alias racer="ruby -r tracer"
