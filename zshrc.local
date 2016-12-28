@@ -44,7 +44,7 @@ eval "$(thefuck --alias)"
 #   fi
 # }
 
-ensure_tmux_is_running
+# ensure_tmux_is_running
 
 # Don't load default ranger config
 export RANGER_LOAD_DEFAULT_RC=FALSE
