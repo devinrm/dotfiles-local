@@ -1,3 +1,6 @@
+----------Give shell scripts the permissions they need--------
+chmod +x hello.sh
+
 ----------------KILL SERVER-------------------
 lsof -i:3000
 kill -9 48506
