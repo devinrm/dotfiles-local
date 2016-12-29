@@ -46,6 +46,9 @@ eval "$(thefuck --alias)"
 
 # ensure_tmux_is_running
 
+# make nvim the manpager
+export MANPAGER="nvim -c 'set ft=man' -"
+
 # Don't load default ranger config
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
