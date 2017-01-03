@@ -365,6 +365,11 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 inoremap jk <esc>
 " inoremap ii <esc>
 
+" comfortable-motion
+let g:comfortable_motion_no_default_key_mappings = 1
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
