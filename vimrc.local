@@ -88,7 +88,7 @@ set stl+=%{ConflictedVersion()}
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -119,9 +119,12 @@ function! LightLineFilename()
 endfunction
 
 " hybrid colo
-colorscheme hybrid
-let g:limelight_conceal_ctermfg = 240
-let g:hybrid_custom_term_colors = 1
+" colorscheme hybrid
+" let g:limelight_conceal_ctermfg = 240
+" let g:hybrid_custom_term_colors = 1
+
+" one-dark colo
+colorscheme one
 set background=dark
 
 " Use thoughtbot's Markoff for markdown previews
