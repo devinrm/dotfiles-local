@@ -70,3 +70,5 @@ alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; 
 alias tl="tmux list-sessions"
 
 alias db="dynamodb-local"
+
+alias dep="bundle exec dotenv bin/fd app deploy"
