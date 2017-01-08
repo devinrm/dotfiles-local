@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
-    - ".vimrc"
-    - ".vimrc.local"
+    - "vimrc"
+    - "vimrc.local"
     - "vendor/**/*"
     - "db/schema.rb"
   UseCache: false

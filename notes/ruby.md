@@ -1,19 +1,17 @@
+bundle check --path=./vendor
+
 -----------------------.EACH and .MAP--------------------------
 use .each for iteration and .map for transformation.
-
 
 ---------------------- ||= OPERATOR ---------------------
 @foo = @foo || "bar"    ->     @foo ||= "bar"
 
-
 ------------------------NGROK-------------------------
 ngrok http 3000
-
 
 ----------------------CURL-----------------------
 curl localhost:3000/index
 curl -H "Authorization: bearer asdf" -X PUT -i(shows headers) -d(data, how you pass params) "id=1" localhost:3000/update
-
 
 ----------------------HTTPIE---------------------
 -p       What to output: H and B for request headers and body, h and b for response headers and body
@@ -23,18 +21,17 @@ curl -H "Authorization: bearer asdf" -X PUT -i(shows headers) -d(data, how you p
 --help   View command options and documentation
 
 ---------------------GETTERS and SETTERS---------------------
-attr_reader :description will define 
-def description 
-  @description 
+attr_reader :description will define
+def description
+  @description
 end
 
-attr_writer :description gives you 
-def description=(new_description) 
-  @description = new_description 
+attr_writer :description gives you
+def description=(new_description)
+  @description = new_description
 end
 
 attr_accessor :description is equivalent to attr_reader :description; attr_writer :description
-
 
 -----------------map and each------------------------
 
@@ -99,5 +96,3 @@ The classical approach to object oriented programming is:
 attr
 attr_writer - setter
 attr_reader - getter
-
-
