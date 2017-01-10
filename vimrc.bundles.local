@@ -28,6 +28,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'majutsushi/tagbar'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/gv.vim'
+Plug 'kopischke/vim-fetch'
 
 " deoplete/completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
