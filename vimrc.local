@@ -428,17 +428,13 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
 
-  " deep-space
-  colorscheme deep-space
-  let g:deepspace_italics = 1
-
   " one
   " colorscheme one
   " let g:one_allow_italics = 1
 
   " hybrid
-  " colorscheme hybrid
-  " let g:limelight_conceal_guifg = '#777777'
+  colorscheme hybrid
+  let g:limelight_conceal_guifg = '#777777'
 
   " seoul256 (dark):
   " colo seoul256

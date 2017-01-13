@@ -3,7 +3,6 @@ Plug 'jacoborus/tender.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'rakr/vim-one'
-Plug 'tyrannicaltoucan/vim-deep-space'
 
 " start screen/status line
 Plug 'mhinz/vim-startify'
