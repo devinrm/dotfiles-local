@@ -369,20 +369,21 @@ nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " make tab completion travel in a reasonable direction (from @geoffharcourt)
-inoremap <S-Tab> <C-P>
-
-function! s:check_back_space()
-  let col = col('.') - 1
-  return !col "|| getline('.')[col - 1] !~ '\k'
-endfunction
-
-function! InsertTabWrapper()
-  if s:check_back_space()
-    return "\<Tab>"
-  else
-    return "\<C-n>"
-  endif
-endfunction
+" inoremap <S-Tab> <C-P>
+"
+" function! s:check_back_space()
+"   let col = col('.') - 1
+"   return !col "|| getline('.')[col - 1] !~ '\k'
+" endfunction
+"
+" function! InsertTabWrapper()
+"   if s:check_back_space()
+"     return "\<Tab>"
+"   else
+"     return "\<C-n>"
+"   endif
+" endfunction
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
@@ -427,9 +428,13 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
 
+  " deep-space
+  colorscheme deep-space
+  let g:deepspace_italics = 1
+
   " one
-  colorscheme one
-  let g:one_allow_italics = 1
+  " colorscheme one
+  " let g:one_allow_italics = 1
 
   " hybrid
   " colorscheme hybrid

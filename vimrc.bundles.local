@@ -37,6 +37,7 @@ Plug 'neomake/neomake'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
+Plug 'ervandew/supertab'
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
