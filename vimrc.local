@@ -123,10 +123,6 @@ endfunction
 " let g:limelight_conceal_ctermfg = 240
 " let g:hybrid_custom_term_colors = 1
 
-" one-dark colo
-colorscheme one
-set background=dark
-
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
 
@@ -428,13 +424,12 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
 
-  " one
-  " colorscheme one
-  " let g:one_allow_italics = 1
+  " solarized
+  colorscheme solarized8_light
 
   " hybrid
-  colorscheme hybrid
-  let g:limelight_conceal_guifg = '#777777'
+  " colorscheme hybrid
+  " let g:limelight_conceal_guifg = '#777777'
 
   " seoul256 (dark):
   " colo seoul256
@@ -449,8 +444,8 @@ if has("nvim")
   " let g:seoul256_light_background = 256
 
   " Switch
-  set background=dark
-  " set background=light
+  " set background=dark
+  set background=light
 
   " nvim gui colors
   set termguicolors

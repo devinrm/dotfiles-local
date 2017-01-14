@@ -2,7 +2,7 @@
 Plug 'jacoborus/tender.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'rakr/vim-one'
+Plug 'lifepillar/vim-solarized8'
 
 " start screen/status line
 Plug 'mhinz/vim-startify'
