@@ -425,6 +425,8 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 if has("nvim")
 
   " solarized
+  " colorscheme solarized8_dark
+  " colorscheme solarized8_dark_high
   colorscheme solarized8_light
 
   " hybrid
