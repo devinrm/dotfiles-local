@@ -381,6 +381,9 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 " endfunction
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+" vim-sneak
+let g:sneak#s_next = 1
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
