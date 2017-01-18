@@ -40,6 +40,7 @@ alias ras="rails s"
 # JavaScript
 alias yi="yarn install"
 alias ys="yarn start"
+alias npmt="./node_modules/.bin/wdio wdio.conf.js --spec "
 
 # Unix
 alias cp="cp -iv"
