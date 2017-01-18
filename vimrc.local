@@ -229,7 +229,7 @@ nnoremap <Leader>sc :split db/schema.rb<cr>
 nnoremap <Leader>i mmgg=G`m
 
 " Set paste so paste works properly
-nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
+nnoremap <Leader>p "*p
 
 " Run vimscript functions
 nnoremap <Leader>x :exec getline(".")<cr>
