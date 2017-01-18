@@ -7,3 +7,4 @@ haml_lint
 slim_lint
 rubocop
 scss_lint
+reek
