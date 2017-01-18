@@ -2,3 +2,8 @@ bundler
 gem-browse
 gem-ctags
 neovim
+mdl
+haml_lint
+slim_lint
+rubocop
+scss_lint
