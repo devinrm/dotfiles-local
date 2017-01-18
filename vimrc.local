@@ -528,7 +528,7 @@ if has("nvim")
   nnoremap <leader>rv :vsp<cr>:terminal<cr>
 
   " Test with neovim
-  let test#strategy = "neovim"
+  let test#strategy = "dispatch" " neovim
   let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
   " Startify header
