@@ -529,7 +529,6 @@ if has("nvim")
 
   " Test with neovim
   let test#strategy = "dispatch" " neovim
-  let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
   " Startify header
   let g:ascii = [
