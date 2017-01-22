@@ -117,6 +117,9 @@ git aa = add --all
 GIT PATCH
 git ap - add --patch
 
+STAGE DELETE FILE FOR COMMIT
+git rm foo
+
 GIT BRANCH
 git branch branch-name (create branch)
 git branches (view all branches)

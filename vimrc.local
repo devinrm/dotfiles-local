@@ -385,6 +385,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:sneak#s_next = 1
 let g:sneak#label = 1
 
+" Get dot command repeatability in visual mode // from @geoffharcourt
+xnoremap . :normal.<CR>
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
