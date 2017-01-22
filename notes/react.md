@@ -1,2 +1,0 @@
-$r.props
-$r.state
