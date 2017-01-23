@@ -18,5 +18,8 @@ zoom
 new window
 <C-s>b - break a pane out to a new window
 
-run command
-<C-s>: - Run command from tmux, like start a new session
+swap-window -s 3 -t 1
+to let window number 3 and window number 1 swap their positions.
+
+rename-session
+<c-s>$
