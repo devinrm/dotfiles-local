@@ -88,7 +88,7 @@ set stl+=%{ConflictedVersion()}
 
 " Colorscheme and lightline config
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -436,15 +436,11 @@ if has("nvim")
   " colorscheme solarized8_dark_high
   " colorscheme solarized8_light
 
-  " hybrid
-  colorscheme hybrid
-  let g:limelight_conceal_guifg = '#777777'
-
   " seoul256 (dark):
-  " colo seoul256
+  colo seoul256
   "   Range:   233 (darkest) ~ 239 (lightest)
   "   Default: 237
-  " let g:seoul256_background = 235
+  let g:seoul256_background = 236
 
   " seoul256 (light):
   " colo seoul256-light
