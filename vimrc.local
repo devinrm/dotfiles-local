@@ -462,7 +462,7 @@ if has("nvim")
   " highlight cursorline guibg=#3c3c3c
 
   " Change visual line color
-  highlight visual guifg=#777777
+  " highlight visual guifg=#777777
 
   " Neovim terminal mappings for easy navigation
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif

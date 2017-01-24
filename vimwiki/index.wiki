@@ -18,6 +18,9 @@
     * [[Vim]]
     * [[Vim Tutor]]
 
+= Todos =
+  * [[Daily]]
+
 = Vimwiki Mappings =
 {{{viml
 <Leader>ww -- Open default wiki index file.
