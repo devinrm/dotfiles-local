@@ -440,7 +440,7 @@ if has("nvim")
   colo seoul256
   "   Range:   233 (darkest) ~ 239 (lightest)
   "   Default: 237
-  let g:seoul256_background = 236
+  let g:seoul256_background = 235
 
   " seoul256 (light):
   " colo seoul256-light
@@ -527,7 +527,7 @@ if has("nvim")
   nnoremap <leader>rv :vsp<cr>:terminal<cr>
 
   " Test with neovim
-  let test#strategy = "dispatch" " neovim
+  " let test#strategy = "dispatch"
 
   " Startify header
   let g:ascii = [
