@@ -73,6 +73,7 @@ set complete+=k~/.vim/dictionaries/rails_model_completions.txt
 set complete+=k~/.vim/dictionaries/rails_spec_completions.txt
 set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
+set complete+=k~/.vim/dictionaries/webdriver_io.txt
 
 " Shows menu and any addition tips
 set completeopt=menu,preview
