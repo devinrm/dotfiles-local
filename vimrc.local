@@ -119,11 +119,6 @@ function! LightLineFilename()
   endif
 endfunction
 
-" hybrid colo
-" colorscheme hybrid
-" let g:limelight_conceal_ctermfg = 240
-" let g:hybrid_custom_term_colors = 1
-
 " Use thoughtbot's Markoff for markdown previews
 let g:marked_app = 'Markoff'
 
@@ -138,10 +133,6 @@ let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
 " Colorizer
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
-
-" vcoolor
-let g:vcoolor_lowercase = 1
-let g:vcoolor_disable_mappings = 1
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
@@ -192,16 +183,6 @@ let g:ascii = [
         \ ]
 let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 
-" Change vertical split color
-highlight VertSplit ctermbg=232
-highlight VertSplit ctermfg=165
-
-" Change visual line color
-highlight visual ctermfg=1
-
-" This statement has to come late in order to work (from @geoffharcourt)
-highlight Comment cterm=italic
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -244,14 +225,11 @@ nnoremap <leader>b orequire 'pry'; binding.pry<esc>^
 " Convert Ruby 1.8 to 1.9 Hash Syntax
 nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
 
-" Replace with register
-nnoremap <leader>gr "*gr<cr>
-
 " Toggle relative line number for yanking, i.e. :6y
 nnoremap <leader>ln :set relativenumber!<cr>
 
 " Make it easier to run ruby files inside vim
-nnoremap <Leader>! :!ruby -w %<cr>
+nnoremap <Leader>ru :!ruby -w %<cr>
 
 " Open .html pages from vim in browser
 nnoremap <leader>ht :!open '%'<cr>
@@ -331,15 +309,6 @@ nnoremap <leader>= :wincmd =<cr>
 
 " map <ctrl>c to quit
 nnoremap <c-c> :q<cr>
-
-" Align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 " Make n N nicer
 function! s:nice_next(cmd)
@@ -458,15 +427,6 @@ if has("nvim")
 
   " nvim gui colors
   set termguicolors
-
-  " Change gui vertical split color
-  " highlight VertSplit guibg=#242424
-  " highlight VertSplit guifg=#139cff
-
-  " highlight cursorline guibg=#3c3c3c
-
-  " Change visual line color
-  " highlight visual guifg=#777777
 
   " Neovim terminal mappings for easy navigation
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif

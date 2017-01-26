@@ -8,7 +8,6 @@ Plug 'itchyny/lightline.vim'
 
 " CSS
 Plug 'chrisbra/Colorizer'
-Plug 'KabbAmine/vCoolor.vim'
 
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
@@ -24,7 +23,6 @@ Plug 'ddrscott/vim-side-search'
 Plug 'justinmk/vim-dirvish'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/gv.vim'
-Plug 'kopischke/vim-fetch'
 Plug 'justinmk/vim-sneak'
 
 " deoplete/completion
@@ -43,16 +41,13 @@ Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'itspriddle/vim-marked'
-Plug 'mustache/vim-mustache-handlebars'
 
 " html
 Plug 'tpope/vim-haml'
-Plug 'alvan/vim-closetag'
 
 " make editing nicer
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -63,7 +58,6 @@ Plug 'machakann/vim-highlightedyank'
 " everything else
 Plug 'christoomey/vim-conflicted'
 Plug 'tpope/vim-dispatch'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wfleming/vim-codeclimate'
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'yuttie/comfortable-motion.vim'
