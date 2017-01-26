@@ -389,6 +389,9 @@ xnoremap . :normal.<CR>
 " Set vimwiki path
 let g:vimwiki_list = [{'path': '~/dotfiles-local/vimwiki/'}]
 
+" Sed it up
+nnoremap <C-n> :%s/\(<c-r>=expand("<cword>")<cr>\)/
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
