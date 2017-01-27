@@ -10,7 +10,7 @@
     * [[React]]
     * [[Readline]]
     * [[Ruby]]
-    * [[Ruby Ref.]]
+    * [[Ruby_Ref]]
     * [[SQL]]
     * [[SQL Ex.]]
     * [[Terminal]]
