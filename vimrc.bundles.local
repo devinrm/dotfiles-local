@@ -2,13 +2,6 @@
 Plug 'junegunn/seoul256.vim'
 Plug 'lifepillar/vim-solarized8'
 
-" start screen/status line
-Plug 'mhinz/vim-startify'
-Plug 'itchyny/lightline.vim'
-
-" CSS
-Plug 'chrisbra/Colorizer'
-
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
@@ -32,16 +25,13 @@ Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
 Plug 'ervandew/supertab'
 
-" JavaScript
+" language plugins
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-
-" language plugins
 Plug 'elixir-lang/vim-elixir'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'itspriddle/vim-marked'
-
-" html
+Plug 'chrisbra/Colorizer'
 Plug 'tpope/vim-haml'
 
 " make editing nicer
@@ -55,9 +45,9 @@ Plug 'derekprior/vim-trimmer'
 Plug 'machakann/vim-highlightedyank'
 
 " everything else
+Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-conflicted'
 Plug 'tpope/vim-dispatch'
 Plug 'wfleming/vim-codeclimate'
-Plug 'beloglazov/vim-online-thesaurus'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'vimwiki/vimwiki'

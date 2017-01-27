@@ -174,15 +174,6 @@ augroup rainbow
   autocmd BufRead,BufNewFile * RainbowParentheses
 augroup END
 
-" Startify header
-let g:ascii = [
-        \ '   ____ ____ ____ ',
-        \ '  ||v |||i |||m ||',
-        \ '  ||__|||__|||__||',
-        \ '  |/__\|/__\|/__\|',
-        \ ]
-let g:startify_custom_header = g:ascii + startify#fortune#boxed()
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -496,15 +487,6 @@ if has("nvim")
 
   " Test with neovim
   " let test#strategy = "dispatch"
-
-  " Startify header
-  let g:ascii = [
-          \ '   ____ ____ ____ ____ ____ ____ ',
-          \ '  ||n |||e |||o |||v |||i |||m ||',
-          \ '  ||__|||__|||__|||__|||__|||__||',
-          \ '  |/__\|/__\|/__\|/__\|/__\|/__\|',
-          \ ]
-  let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 
   set inccommand=split
 endif
