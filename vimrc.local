@@ -255,8 +255,11 @@ inoremap <C-@> <Esc>`^
 nnoremap j gj
 nnoremap k gk
 
-" Easy access to the start of the line
-nnoremap 0 ^
+" Emacs-like beginning and end of line.
+nnoremap <C-e> $
+nnoremap <C-a> ^
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
 
 " Search with fzf
 nnoremap <C-p> :Files<cr>
