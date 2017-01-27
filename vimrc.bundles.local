@@ -21,7 +21,6 @@ Plug 'junegunn/vim-slash'
 Plug 'henrik/vim-indexed-search'
 Plug 'ddrscott/vim-side-search'
 Plug 'justinmk/vim-dirvish'
-Plug 'majutsushi/tagbar'
 Plug 'junegunn/gv.vim'
 Plug 'justinmk/vim-sneak'
 

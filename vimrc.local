@@ -265,7 +265,8 @@ imap <c-a> <c-o>^
 nnoremap <C-p> :Files<cr>
 nnoremap <C-o> :BLines<cr>
 nnoremap <C-b> :Buffers<cr>
-nnoremap <C-t> :Tags<cr>
+nnoremap <C-i> :Tags<cr>
+nnoremap <C-t> :BTags<cr>
 
 " View commits in fzf
 nnoremap <Leader>c :Commits<cr>
