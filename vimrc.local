@@ -225,6 +225,9 @@ nnoremap <Leader>ru :!ruby -w %<cr>
 " Open .html pages from vim in browser
 nnoremap <leader>ht :!open '%'<cr>
 
+" browse old files
+nnoremap <leader>old :browse old<cr>
+
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
 vnoremap <C-\> :TComment<CR>
