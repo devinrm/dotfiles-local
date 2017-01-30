@@ -123,6 +123,12 @@ autocmd! User GoyoLeave Limelight!
 let g:rspec_command = "Dispatch rspec {spec}"
 let test#strategy = "dispatch"
 let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
+
+" Dirvish
+let g:loaded_netrwPlugin = 1
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>
 autocmd FileType dirvish call fugitive#detect(@%)
 
 " Colorizer
