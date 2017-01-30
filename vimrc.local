@@ -430,6 +430,7 @@ if has("nvim")
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
+  tnoremap <C-d> <C-\><C-n>:bd!<cr>
 
   " NeoVim term colors
   let g:terminal_color_0  = '#282a2d' " black
@@ -492,7 +493,7 @@ if has("nvim")
   nnoremap <leader>do :sp<cr>:terminal<cr>dotfiles<cr>gsh<cr>
 
   " Test with neovim
-  " let test#strategy = "dispatch"
+  " let test#strategy = "neovim"
 
   set inccommand=split
 endif
