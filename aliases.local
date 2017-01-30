@@ -41,7 +41,7 @@ alias ras="rails s"
 # JavaScript
 alias yi="yarn install"
 alias ys="yarn start"
-alis yu="yarn upgrade"
+alias yu="yarn upgrade"
 alias yt="./node_modules/.bin/wdio wdio.conf.js --spec "
 
 # Unix
