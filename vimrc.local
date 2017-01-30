@@ -228,6 +228,9 @@ nnoremap <leader>ht :!open '%'<cr>
 " browse old files
 nnoremap <leader>old :browse old<cr>
 
+" Sed it up
+nnoremap <leader>n :%s/\(<c-r>=expand("<cword>")<cr>\)/
+
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
 vnoremap <C-\> :TComment<CR>
@@ -355,9 +358,6 @@ xnoremap . :normal.<CR>
 
 " Set vimwiki path
 let g:vimwiki_list = [{'path': '~/dotfiles-local/vimwiki/'}]
-
-" Sed it up
-nnoremap <C-n> :%s/\(<c-r>=expand("<cword>")<cr>\)/
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
