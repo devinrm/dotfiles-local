@@ -486,6 +486,11 @@ if has("nvim")
   nnoremap <leader>r :sp<cr>:terminal<cr>
   nnoremap <leader>rv :vsp<cr>:terminal<cr>
 
+  " Open gitsh in terminal split
+  nnoremap <leader>g :sp<cr>:terminal<cr>gsh<cr>
+
+  nnoremap <leader>do :sp<cr>:terminal<cr>dotfiles<cr>gsh<cr>
+
   " Test with neovim
   " let test#strategy = "dispatch"
 
