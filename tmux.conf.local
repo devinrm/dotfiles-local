@@ -59,34 +59,21 @@ set -g status-left " #S Ϟ "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
-# hybrid colorscheme
-# set -g status-right "#(battery -p -t -g '#5f819d')  #(date '+%a, %b %d - %H:%M') "
-# solarized_light colorscheme
-set -g status-right "#(battery -p -t -g '#268bd2')  #(date '+%a, %b %d - %H:%M') "
+set -g status-right "#(battery -p -t -g '#98bc99')  #(date '+%a, %b %d - %H:%M') "
 
 # Change pane border color
-# hybrid colorscheme
-# set -g pane-border-fg '#5e8d87'
-# set -g pane-active-border-fg '#85678f'
-# solarized_light colorscheme
-set -g pane-border-fg '#2aa198'
-set -g pane-active-border-fg '#6c6ec6'
+set -g pane-border-fg '#97dddf'
+set -g pane-active-border-fg '#e17899'
 set -g pane-active-border-bg default
 
 # set status bar color
-# hybrid colorscheme
-# set -g status-fg '#5f819d'
-# solarized_light colorscheme
-set -g status-fg '#268bd2'
+set -g status-fg '#98bc99'
 set -g status-bg default
 set -g status-attr bright
 
 # set tab color
-# hybrid colorscheme
-# set-window-option -g window-status-current-bg '#5f819d'
-# solarized_light colorscheme
-set-window-option -g window-status-current-bg '#268bd2'
-set-window-option -g window-status-current-fg '#fcf4dc'
+set-window-option -g window-status-current-bg '#98bc99'
+set-window-option -g window-status-current-fg '#e9e9e9'
 
 # Bind <c-j> to choose-tree and integrate with fzf
 bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
