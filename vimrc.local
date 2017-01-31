@@ -46,11 +46,14 @@ set spelllang=en_us
 " Window size
 set winwidth=84
 set winheight=10
-set winminheight=10
-set winheight=999
+set winminheight=5
 
 " Replace all matches on a line instead of just the first
 set gdefault
+
+set nowrap
+set nofoldenable
+set noshowmode
 
 " Pull from keywords in the current file and from the current tags file
 set complete=.,b,u,w,t,]
@@ -333,18 +336,18 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 " make tab completion travel in a reasonable direction (from @geoffharcourt)
 inoremap <S-Tab> <C-P>
 
-function! s:check_back_space()
-  let col = col('.') - 1
-  return !col "|| getline('.')[col - 1] !~ '\k'
-endfunction
-
-function! InsertTabWrapper()
-  if s:check_back_space()
-    return "\<Tab>"
-  else
-    return "\<C-n>"
-  endif
-endfunction
+" function! s:check_back_space()
+"   let col = col('.') - 1
+"   return !col "|| getline('.')[col - 1] !~ '\k'
+" endfunction
+"
+" function! InsertTabWrapper()
+"   if s:check_back_space()
+"     return "\<Tab>"
+"   else
+"     return "\<C-n>"
+"   endif
+" endfunction
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " vim-sneak
@@ -493,7 +496,7 @@ if has("nvim")
   nnoremap <leader>do :sp<cr>:terminal<cr>dotfiles<cr>gsh<cr>
 
   " Test with neovim
-  " let test#strategy = "neovim"
+  let test#strategy = "neovim"
 
   set inccommand=split
 endif
