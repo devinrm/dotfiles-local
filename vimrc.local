@@ -427,6 +427,10 @@ if has("nvim")
   " nvim gui colors
   set termguicolors
 
+  " the new cursor in 0.2.0 is awesome but might not be default for long so
+  " leaving this enabled even if it disappears
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
   " Neovim terminal mappings for easy navigation
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
   tnoremap <C-h> <C-\><C-n><C-w>h
