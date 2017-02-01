@@ -3,60 +3,32 @@
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-" Don't load
-let g:loaded_ctrlp = 1
+let g:loaded_ctrlp = 1 " Don't load
 
-" have cursor stay in the middle while scrolling
-" set scrolloff=999
-
-" Enables a menu at the bottom of the vim window.
-set wildmenu
+set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=longest:full,full
-
+" set scrolloff=999 " have cursor stay in the middle while scrolling
 set undodir=$HOME/.undodir
 set undofile
-
-" copy paste to clipboard
-set clipboard=unnamed
-
-" highlight cursorline
-set cursorline
-
-" highlight search results
-set hlsearch
-
-" Speed up escape after (){} chars
-set matchtime=0
-
-" case insensitive pattern matching
-set ignorecase
-
-" Fast timeout
-set ttimeout
-
-" overrides ignorecase if pattern contains upcase
-set smartcase
-
-" Ignore stuff that can't be opened
-set wildignore+=tmp/**
-
-" Set region to US English
-set spelllang=en_us
-
+set clipboard=unnamed " copy paste to clipboard
+set cursorline " highlight cursorline
+set hlsearch " highlight search results
+set matchtime=0 " Speed up escape after (){} chars
+set ignorecase " case insensitive pattern matching
+set ttimeout " Fast timeout
+set smartcase " overrides ignorecase if pattern contains upcase
+set wildignore+=tmp/** " Ignore stuff that can't be opened
+set spelllang=en_us " Set region to US English
 " Window size
 set winwidth=84
 set winheight=10
-set winminheight=5
-
-" Replace all matches on a line instead of just the first
-set gdefault
-
+set winminheight=10
+set winheight=999
+set gdefault " Replace all matches on a line instead of just the first
 set nowrap
 set nofoldenable
 set noshowmode
-
-" Pull from keywords in the current file and from the current tags file
-set complete=.,b,u,w,t,]
+set complete=.,b,u,w,t,] " Pull from keywords in the current file and from the current tags file
 set complete+=k~/.vim/dictionaries/array_methods.txt
 set complete+=k~/.vim/dictionaries/float_methods.txt
 set complete+=k~/.vim/dictionaries/hash_methods.txt
@@ -70,18 +42,38 @@ set complete+=k~/.vim/dictionaries/rails_spec_completions.txt
 set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
-
-" Shows menu and any addition tips
-set completeopt=menu,preview
-
-" Get the best of both worlds with set number and relativenumber
-set relativenumber
+set completeopt=menu,preview " Shows menu and any addition tips
+set relativenumber " Get the best of both worlds with set number and relativenumber
 set number
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
 
-" Vim-Conflicted
-set stl+=%{ConflictedVersion()}
+set stl+=%{ConflictedVersion()} " Vim-Conflicted
+let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews
+
+autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
+autocmd! User GoyoLeave Limelight!
+
+let g:rspec_command = "Dispatch rspec {spec}" " Vim Dispatch
+let test#strategy = "dispatch"
+let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
+
+let g:loaded_netrwPlugin = 1 " Dirvish
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>
+autocmd FileType dirvish call fugitive#detect(@%)
+
+let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml' " Colorizer
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+filetype plugin on " Omnicompletion
+set omnifunc=syntaxcomplete#Complete
+inoremap <c-c> <c-x><c-o>
+
+augroup rainbow " Rainbow Parens
+  autocmd BufRead,BufNewFile * RainbowParentheses
+augroup END
 
 " Colorscheme and lightline config
 let g:lightline = {
@@ -115,31 +107,6 @@ function! LightLineFilename()
   endif
 endfunction
 
-" Use thoughtbot's Markoff for markdown previews
-let g:marked_app = 'Markoff'
-
-" Integrate limelight and goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-" Vim Dispatch
-let g:rspec_command = "Dispatch rspec {spec}"
-let test#strategy = "dispatch"
-let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
-
-" Dirvish
-let g:loaded_netrwPlugin = 1
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>
-autocmd FileType dirvish call fugitive#detect(@%)
-
-" Colorizer
-let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
-
-" Allow JSX in normal JS files
-let g:jsx_ext_required = 0
-
 " Syntastic
 nnoremap <leader>o :Errors<cr>
 
@@ -165,16 +132,6 @@ let g:syntastic_slim_checkers = ['slim_lint']
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 set autoread
-
-" Omnicompletion
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-inoremap <c-c> <c-x><c-o>
-
-" Rainbow Parens
-augroup rainbow
-  autocmd BufRead,BufNewFile * RainbowParentheses
-augroup END
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
