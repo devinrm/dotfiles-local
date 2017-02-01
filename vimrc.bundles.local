@@ -1,6 +1,7 @@
 " colorschemes
 Plug 'junegunn/seoul256.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'liuchengxu/space-vim-dark'
 
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
