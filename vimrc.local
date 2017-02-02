@@ -76,6 +76,27 @@ augroup rainbow " Rainbow Parens
 augroup END
 
 " Colorscheme and lightline config
+" solarized
+" colorscheme solarized8_dark
+" colorscheme solarized8_dark_high
+" colorscheme solarized8_light
+
+" seoul256 (dark):
+colo seoul256
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+let g:seoul256_background = 235
+
+" seoul256 (light):
+" colo seoul256-light
+"   Range:   252 (darkest) ~ 256 (lightest)
+"   Default: 253
+" let g:seoul256_light_background = 256
+
+" Switch
+set background=dark
+" set background=light
+
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
@@ -110,30 +131,25 @@ endfunction
 let g:fzf_colors =
   \ { 'hl': ['fg', 'Exception'] }
 
-" Syntastic
-nnoremap <Leader>o :Errors<CR>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Neomake
+nnoremap <Leader>o :lopen<CR>
+nnoremap <Leader>oo :lclose<CR>
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_loc_list_height = 3
+let g:neomake_serialize = 1
+let g:neomake_serialize_abort_on_error = 1
 
-let g:syntastic_haml_checkers = ['haml_lint', 'haml']
-let g:syntastic_html_checkers = ['jshint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_sass_checkers = ['sass-lint', 'sass_lint']
-let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_slim_checkers = ['slim_lint']
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-set autoread
+" Run NeoMake on read and write operations
+autocmd! BufReadPost,BufWritePost * Neomake
+
+let g:neomake_javascript_enabled_makers = ['eslint', 'jshint', 'coffeelint']
+let g:neomake_scss_enabled_makers = ['scsslint']
+let g:neomake_css_enabled_makers = ['csslint']
+let g:neomake_markdown_enabled_makers = ['mdl']
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'reek']
+let g:neomake_html_enabled_makers = ['htmlhint', 'tidy']
+let g:neomake_haml_enabled_makers = ['hamllint']
+let g:neomake_slim_enabled_makers = ['slimlint']
+let g:neomake_elixir_enabled_makers = ['elixir']
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -365,28 +381,6 @@ inoremap <C-z> <esc> :w<CR>
 " |/__\|/__\|/__\|/__\|/__\|/__\|
 
 if has("nvim")
-
-  " solarized
-  " colorscheme solarized8_dark
-  " colorscheme solarized8_dark_high
-  " colorscheme solarized8_light
-
-  " seoul256 (dark):
-  colo seoul256
-  "   Range:   233 (darkest) ~ 239 (lightest)
-  "   Default: 237
-  let g:seoul256_background = 235
-
-  " seoul256 (light):
-  " colo seoul256-light
-  "   Range:   252 (darkest) ~ 256 (lightest)
-  "   Default: 253
-  " let g:seoul256_light_background = 256
-
-  " Switch
-  set background=dark
-  " set background=light
-
   " nvim gui colors
   set termguicolors
 
@@ -420,32 +414,6 @@ if has("nvim")
   let g:terminal_color_14 = '#97dddf' " brcyan
   let g:terminal_color_15 = '#e9e9e9' " brwhite
 
-  " Neomake
-  " Disable inherited syntastic
-  let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": [] }
-
-  nnoremap <Leader>o :lopen<CR>
-  nnoremap <Leader>oo :lclose<CR>
-
-  let g:neomake_serialize = 1
-  let g:neomake_serialize_abort_on_error = 1
-
-" Run NeoMake on read and write operations
-  autocmd! BufReadPost,BufWritePost * Neomake
-
-  let g:neomake_javascript_enabled_makers = ['eslint', 'jshint', 'coffeelint']
-  let g:neomake_scss_enabled_makers = ['scsslint']
-  let g:neomake_css_enabled_makers = ['csslint']
-  let g:neomake_markdown_enabled_makers = ['mdl']
-  let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'reek']
-  let g:neomake_html_enabled_makers = ['htmlhint', 'tidy']
-  let g:neomake_haml_enabled_makers = ['hamllint']
-  let g:neomake_slim_enabled_makers = ['slimlint']
-  let g:neomake_elixir_enabled_makers = ['elixir']
-
   " Use deoplete
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_start_length = 1
@@ -459,7 +427,6 @@ if has("nvim")
 
   " Open gitsh in terminal split
   nnoremap <Leader>g :sp<CR>:terminal<CR>gsh<CR>
-
   nnoremap <Leader>do :sp<CR>:terminal<CR>dotfiles<CR>gsh<CR>
 
   " Test with neovim
