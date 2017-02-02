@@ -307,8 +307,8 @@ nnoremap <silent> n :call <SID>nice_next('n')<CR>
 nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
 " Make esc more user friendly
-inoremap jk <esc>
-inoremap ii <esc>
+inoremap jk <esc>:w<CR>
+inoremap ii <esc>:w<CR>
 
 " comfortable-motion
 let g:comfortable_motion_no_default_key_mappings = 1
@@ -378,10 +378,6 @@ let g:tmux_navigator_save_on_switch = 1
 " Have tmux-runner open pry session
 nnoremap <Leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<CR>
 
-" Save
-nnoremap <C-z> :w<CR>
-inoremap <C-z> <esc> :w<CR>
-
 "  ____ ____ ____ ____ ____ ____
 " ||n |||e |||o |||v |||i |||m ||
 " ||__|||__|||__|||__|||__|||__||
@@ -391,7 +387,7 @@ if has("nvim")
   " nvim gui colors
   set termguicolors
 
-  " the new cursor in 0.2.0 is awesome but might not be default for long so
+  " the new cursor in 0.3.0 is awesome but might not be default for long so
   " leaving this enabled even if it disappears
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
