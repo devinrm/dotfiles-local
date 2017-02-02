@@ -111,7 +111,7 @@ let g:fzf_colors =
   \ { 'hl': ['fg', 'Exception'] }
 
 " Syntastic
-nnoremap <leader>o :Errors<CR>
+nnoremap <Leader>o :Errors<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -145,8 +145,8 @@ nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 
 " Source (reload) your vimrc. Type space, r, e in sequence to trigger
-nnoremap <leader>re :source $MYVIMRC<CR>
-nnoremap <leader>vr :sp $MYVIMRC<CR>
+nnoremap <Leader>re :source $MYVIMRC<CR>
+nnoremap <Leader>vr :sp $MYVIMRC<CR>
 
 " Pre-populate a split command with the current directory
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
@@ -168,28 +168,28 @@ nnoremap <Leader>p "*p
 nnoremap <Leader>x :exec getline(".")<CR>
 
 " Toggle spell checking on and off
-nnoremap <silent> <leader>, :set spell!<CR>
+nnoremap <silent> <Leader>, :set spell!<CR>
 
 " Require pry (from @christoomey)
-nnoremap <leader>b orequire 'pry'; binding.pry<esc>^
+nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
 " Convert Ruby 1.8 to 1.9 Hash Syntax
 nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
 " Toggle relative line number for yanking, i.e. :6y
-nnoremap <leader>ln :set relativenumber!<CR>
+nnoremap <Leader>ln :set relativenumber!<CR>
 
 " Make it easier to run ruby files inside vim
 nnoremap <Leader>ru :!ruby -w %<CR>
 
 " Open .html pages from vim in browser
-nnoremap <leader>ht :!open '%'<CR>
+nnoremap <Leader>ht :!open '%'<CR>
 
 " browse old files
-nnoremap <leader>old :browse old<CR>
+nnoremap <Leader>old :browse old<CR>
 
 " Sed it up
-nnoremap <leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
+nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
@@ -229,9 +229,9 @@ nnoremap <C-t> :BTags<CR>
 nnoremap <Leader>c :Commits<CR>
 
 " Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+nmap <Leader><tab> <plug>(fzf-maps-n)
+xmap <Leader><tab> <plug>(fzf-maps-x)
+omap <Leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -265,8 +265,8 @@ nnoremap v <c-v>e
 autocmd VimResized * :wincmd =
 
 " zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
-nnoremap <leader>= :wincmd =<CR>
+nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <Leader>= :wincmd =<CR>
 
 " map <ctrl>c to quit
 nnoremap <c-c> :q<CR>
@@ -338,12 +338,12 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 let g:tmux_navigator_no_mappings = 1
 
 " Vim-tmux-runner
-nnoremap <leader>fr :VtrFocusRunner<CR>
-nnoremap <leader>sr :VtrSendLinesToRunner<CR>
-nnoremap <leader>ap :VtrAttachToPane<CR>
-nnoremap <leader>se :VtrSendCommand<CR>
-nnoremap <leader>sf :VtrSendFile<CR>
-nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<CR>
+nnoremap <Leader>fr :VtrFocusRunner<CR>
+nnoremap <Leader>sr :VtrSendLinesToRunner<CR>
+nnoremap <Leader>ap :VtrAttachToPane<CR>
+nnoremap <Leader>se :VtrSendCommand<CR>
+nnoremap <Leader>sf :VtrSendFile<CR>
+nnoremap <Leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<CR>
 
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
@@ -353,7 +353,7 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 let g:tmux_navigator_save_on_switch = 1
 
 " Have tmux-runner open pry session
-nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<CR>
+nnoremap <Leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<CR>
 
 " Save
 nnoremap <C-z> :w<CR>
@@ -427,8 +427,8 @@ if has("nvim")
     \ "active_filetypes": [],
     \ "passive_filetypes": [] }
 
-  nnoremap <leader>o :lopen<CR>
-  nnoremap <leader>oo :lclose<CR>
+  nnoremap <Leader>o :lopen<CR>
+  nnoremap <Leader>oo :lclose<CR>
 
   let g:neomake_serialize = 1
   let g:neomake_serialize_abort_on_error = 1
@@ -454,13 +454,13 @@ if has("nvim")
   let g:tmuxcomplete#trigger = ''
 
   " Open terminal in neovim
-  nnoremap <leader>r :sp<CR>:terminal<CR>
-  nnoremap <leader>rv :vsp<CR>:terminal<CR>
+  nnoremap <Leader>r :sp<CR>:terminal<CR>
+  nnoremap <Leader>rv :vsp<CR>:terminal<CR>
 
   " Open gitsh in terminal split
-  nnoremap <leader>g :sp<CR>:terminal<CR>gsh<CR>
+  nnoremap <Leader>g :sp<CR>:terminal<CR>gsh<CR>
 
-  nnoremap <leader>do :sp<CR>:terminal<CR>dotfiles<CR>gsh<CR>
+  nnoremap <Leader>do :sp<CR>:terminal<CR>dotfiles<CR>gsh<CR>
 
   " Test with neovim
   let test#strategy = "neovim"
