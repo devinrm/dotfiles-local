@@ -61,7 +61,7 @@ let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 let g:loaded_netrwPlugin = 1 " Dirvish
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
 autocmd FileType dirvish call fugitive#detect(@%)
 
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml' " Colorizer
@@ -108,7 +108,7 @@ function! LightLineFilename()
 endfunction
 
 " Syntastic
-nnoremap <leader>o :Errors<cr>
+nnoremap <leader>o :Errors<CR>
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -143,18 +143,18 @@ nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 
 " Source (reload) your vimrc. Type space, r, e in sequence to trigger
-nnoremap <leader>re :source $MYVIMRC<cr>
-nnoremap <leader>vr :sp $MYVIMRC<cr>
+nnoremap <leader>re :source $MYVIMRC<CR>
+nnoremap <leader>vr :sp $MYVIMRC<CR>
 
 " Pre-populate a split command with the current directory
-nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " Copy the entire buffer into the system register (from @R00k)
 nnoremap <Leader>co mmggVG"*y`m
 
 " Edit the db/schema.rb Rails file in a split
-nnoremap <Leader>sc :split db/schema.rb<cr>
+nnoremap <Leader>sc :split db/schema.rb<CR>
 
 " Indent the whole file
 nnoremap <Leader>i mmgg=G`m
@@ -163,7 +163,7 @@ nnoremap <Leader>i mmgg=G`m
 nnoremap <Leader>p "*p
 
 " Run vimscript functions
-nnoremap <Leader>x :exec getline(".")<cr>
+nnoremap <Leader>x :exec getline(".")<CR>
 
 " Toggle spell checking on and off
 nnoremap <silent> <leader>, :set spell!<CR>
@@ -172,22 +172,22 @@ nnoremap <silent> <leader>, :set spell!<CR>
 nnoremap <leader>b orequire 'pry'; binding.pry<esc>^
 
 " Convert Ruby 1.8 to 1.9 Hash Syntax
-nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<cr>
+nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
 " Toggle relative line number for yanking, i.e. :6y
-nnoremap <leader>ln :set relativenumber!<cr>
+nnoremap <leader>ln :set relativenumber!<CR>
 
 " Make it easier to run ruby files inside vim
-nnoremap <Leader>ru :!ruby -w %<cr>
+nnoremap <Leader>ru :!ruby -w %<CR>
 
 " Open .html pages from vim in browser
-nnoremap <leader>ht :!open '%'<cr>
+nnoremap <leader>ht :!open '%'<CR>
 
 " browse old files
-nnoremap <leader>old :browse old<cr>
+nnoremap <leader>old :browse old<CR>
 
 " Sed it up
-nnoremap <leader>n :%s/\(<c-r>=expand("<cword>")<cr>\)/
+nnoremap <leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " Comment/un-comment like Sublime (from @geoffharcourt)
 nnoremap <C-\> :TComment<CR>
@@ -217,14 +217,14 @@ imap <c-e> <c-o>$
 imap <c-a> <c-o>^
 
 " Search with fzf
-nnoremap <C-p> :Files<cr>
-nnoremap <C-o> :BLines<cr>
-nnoremap <C-b> :Buffers<cr>
-nnoremap <C-i> :Tags<cr>
-nnoremap <C-t> :BTags<cr>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-o> :BLines<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-i> :Tags<CR>
+nnoremap <C-t> :BTags<CR>
 
 " View commits in fzf
-nnoremap <Leader>c :Commits<cr>
+nnoremap <Leader>c :Commits<CR>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -263,11 +263,11 @@ nnoremap v <c-v>e
 autocmd VimResized * :wincmd =
 
 " zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
+nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <leader>= :wincmd =<CR>
 
 " map <ctrl>c to quit
-nnoremap <c-c> :q<cr>
+nnoremap <c-c> :q<CR>
 
 " Make n N nicer
 function! s:nice_next(cmd)
@@ -278,8 +278,8 @@ function! s:nice_next(cmd)
   endif
 endfunction
 
-nnoremap <silent> n :call <SID>nice_next('n')<cr>
-nnoremap <silent> N :call <SID>nice_next('N')<cr>
+nnoremap <silent> n :call <SID>nice_next('n')<CR>
+nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
 " Make esc more user friendly
 inoremap jk <esc>
@@ -326,11 +326,11 @@ let g:vimwiki_list = [{'path': '~/dotfiles-local/vimwiki/'}]
 " (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
 " infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 " tic $TERM.ti
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR>
 
 " Vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
@@ -341,7 +341,7 @@ nnoremap <leader>sr :VtrSendLinesToRunner<CR>
 nnoremap <leader>ap :VtrAttachToPane<CR>
 nnoremap <leader>se :VtrSendCommand<CR>
 nnoremap <leader>sf :VtrSendFile<CR>
-nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
+nnoremap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<CR>
 
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
@@ -351,7 +351,10 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 let g:tmux_navigator_save_on_switch = 1
 
 " Have tmux-runner open pry session
-nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
+nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<CR>
+
+" Save
+nnoremap <leader>wq :w<CR>
 
 "  ____ ____ ____ ____ ____ ____
 " ||n |||e |||o |||v |||i |||m ||
@@ -394,7 +397,7 @@ if has("nvim")
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
-  tnoremap <C-d> <C-\><C-n>:bd!<cr>
+  tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
   " NeoVim term colors
   let g:terminal_color_0  = '#616161' " black
@@ -421,8 +424,8 @@ if has("nvim")
     \ "active_filetypes": [],
     \ "passive_filetypes": [] }
 
-  nnoremap <leader>o :lopen<cr>
-  nnoremap <leader>oo :lclose<cr>
+  nnoremap <leader>o :lopen<CR>
+  nnoremap <leader>oo :lclose<CR>
 
   let g:neomake_serialize = 1
   let g:neomake_serialize_abort_on_error = 1
@@ -448,13 +451,13 @@ if has("nvim")
   let g:tmuxcomplete#trigger = ''
 
   " Open terminal in neovim
-  nnoremap <leader>r :sp<cr>:terminal<cr>
-  nnoremap <leader>rv :vsp<cr>:terminal<cr>
+  nnoremap <leader>r :sp<CR>:terminal<CR>
+  nnoremap <leader>rv :vsp<CR>:terminal<CR>
 
   " Open gitsh in terminal split
-  nnoremap <leader>g :sp<cr>:terminal<cr>gsh<cr>
+  nnoremap <leader>g :sp<CR>:terminal<CR>gsh<CR>
 
-  nnoremap <leader>do :sp<cr>:terminal<cr>dotfiles<cr>gsh<cr>
+  nnoremap <leader>do :sp<CR>:terminal<CR>dotfiles<CR>gsh<CR>
 
   " Test with neovim
   let test#strategy = "neovim"
