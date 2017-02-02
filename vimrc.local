@@ -47,6 +47,7 @@ set relativenumber " Get the best of both worlds with set number and relativenum
 set number
 autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
+set autoread
 
 set stl+=%{ConflictedVersion()} " Vim-Conflicted
 let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews
@@ -132,14 +133,17 @@ let g:fzf_colors =
   \ { 'hl': ['fg', 'Exception'] }
 
 " Neomake
-nnoremap <Leader>o :lopen<CR>
-nnoremap <Leader>oo :lclose<CR>
+" Run NeoMake on read and write operations
+autocmd! BufReadPost,BufWritePost * Neomake
+
+" Disable inherited syntastic
+let g:syntastic_mode_map = {
+  \ "mode": "passive",
+  \ "active_filetypes": [],
+  \ "passive_filetypes": [] }
 
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
-
-" Run NeoMake on read and write operations
-autocmd! BufReadPost,BufWritePost * Neomake
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'jshint', 'coffeelint']
 let g:neomake_scss_enabled_makers = ['scsslint']
@@ -283,6 +287,9 @@ autocmd VimResized * :wincmd =
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <Leader>= :wincmd =<CR>
+
+nnoremap <Leader>o :lopen<CR>
+nnoremap <Leader>oo :lclose<CR>
 
 " map <ctrl>c to quit
 nnoremap <c-c> :q<CR>
