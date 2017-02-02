@@ -357,6 +357,7 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 " Save
 nnoremap <C-z> :w<CR>
+inoremap <C-z> <esc> :w<CR>
 
 "  ____ ____ ____ ____ ____ ____
 " ||n |||e |||o |||v |||i |||m ||
