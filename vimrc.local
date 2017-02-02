@@ -107,9 +107,11 @@ function! LightLineFilename()
   endif
 endfunction
 
+let g:fzf_colors =
+  \ { 'hl': ['fg', 'Exception'] }
+
 " Syntastic
 nnoremap <leader>o :Errors<CR>
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -354,7 +356,7 @@ let g:tmux_navigator_save_on_switch = 1
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<CR>
 
 " Save
-nnoremap <leader>wq :w<CR>
+nnoremap <C-z> :w<CR>
 
 "  ____ ____ ____ ____ ____ ____
 " ||n |||e |||o |||v |||i |||m ||
