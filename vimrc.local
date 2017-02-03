@@ -7,7 +7,7 @@ let g:loaded_ctrlp = 1 " Don't load
 
 set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=longest:full,full
-" set scrolloff=999 " have cursor stay in the middle while scrolling
+set scrolloff=5 " show 5 lines above and below cursor
 set undodir=$HOME/.undodir
 set undofile
 set clipboard=unnamed " copy paste to clipboard
@@ -19,8 +19,7 @@ set ttimeout " Fast timeout
 set smartcase " overrides ignorecase if pattern contains upcase
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set spelllang=en_us " Set region to US English
-" Window size
-set winwidth=84
+set winwidth=84 " Window size
 set winheight=10
 set winminheight=10
 set winheight=999
@@ -132,10 +131,10 @@ endfunction
 let g:fzf_colors =
   \ { 'hl': ['fg', 'Exception'] }
 
-" Neomake
-" Run NeoMake on read and write operations
+"  Neomake
+"  Run NeoMake on read and write operations
 autocmd! BufReadPost,BufWritePost * Neomake
-
+"
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
   \ "mode": "passive",
@@ -154,6 +153,13 @@ let g:neomake_html_enabled_makers = ['htmlhint', 'tidy']
 let g:neomake_haml_enabled_makers = ['hamllint']
 let g:neomake_slim_enabled_makers = ['slimlint']
 let g:neomake_elixir_enabled_makers = ['elixir']
+
+" ALE
+" let g:ale_linters = { 'javascript': [ 'eslint' ] }
+" let g:ale_set_quickfix = 0
+" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+" let g:ale_sign_error = '⚠ '
+" let g:ale_sign_warning = '--'
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -318,19 +324,18 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 " make tab completion travel in a reasonable direction (from @geoffharcourt)
 inoremap <S-Tab> <C-P>
 
-" function! s:check_back_space()
-"   let col = col('.') - 1
-"   return !col "|| getline('.')[col - 1] !~ '\k'
-" endfunction
-"
-" function! InsertTabWrapper()
-"   if s:check_back_space()
-"     return "\<Tab>"
-"   else
-"     return "\<C-n>"
-"   endif
-" endfunction
-let g:SuperTabDefaultCompletionType = "<c-n>"
+function! s:check_back_space()
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] !~ '\k'
+endfunction
+
+function! InsertTabWrapper()
+  if s:check_back_space()
+    return "\<Tab>"
+  else
+    return "\<C-n>"
+  endif
+endfunction
 
 " vim-sneak
 let g:sneak#s_next = 1

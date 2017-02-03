@@ -20,11 +20,11 @@ Plug 'justinmk/vim-sneak'
 
 " deoplete/completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'w0rp/ale'
 Plug 'neomake/neomake'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
-Plug 'ervandew/supertab'
 
 " language plugins
 Plug 'pangloss/vim-javascript'
