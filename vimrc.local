@@ -346,6 +346,9 @@ xnoremap . :normal.<CR>
 " Yank to end of line instead of whole line
 nnoremap Y y$
 
+" Grep the word under the cursor
+nnoremap \\ :Ag <C-r><C-w><CR>
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
