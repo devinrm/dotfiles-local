@@ -161,6 +161,11 @@ let g:neomake_elixir_enabled_makers = ['elixir']
 " let g:ale_sign_error = '⚠ '
 " let g:ale_sign_warning = '--'
 
+let g:sneak#s_next = 1 " vim-sneak
+let g:sneak#label = 1
+
+let g:vimwiki_list = [{'path': '~/dotfiles-local/vimwiki/'}] " Set vimwiki path
+
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -308,7 +313,6 @@ function! s:nice_next(cmd)
     normal! zz
   endif
 endfunction
-
 nnoremap <silent> n :call <SID>nice_next('n')<CR>
 nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
@@ -323,7 +327,6 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " make tab completion travel in a reasonable direction (from @geoffharcourt)
 inoremap <S-Tab> <C-P>
-
 function! s:check_back_space()
   let col = col('.') - 1
   return !col || getline('.')[col - 1] !~ '\k'
@@ -337,15 +340,11 @@ function! InsertTabWrapper()
   endif
 endfunction
 
-" vim-sneak
-let g:sneak#s_next = 1
-let g:sneak#label = 1
-
 " Get dot command repeatability in visual mode // from @geoffharcourt
 xnoremap . :normal.<CR>
 
-" Set vimwiki path
-let g:vimwiki_list = [{'path': '~/dotfiles-local/vimwiki/'}]
+" Yank to end of line instead of whole line
+nnoremap Y y$
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
