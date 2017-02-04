@@ -76,29 +76,14 @@ augroup rainbow " Rainbow Parens
 augroup END
 
 " Colorscheme and lightline config
-" solarized
-" colorscheme solarized8_dark
-" colorscheme solarized8_dark_high
-" colorscheme solarized8_light
-
-" seoul256 (dark):
-colo seoul256
-"   Range:   233 (darkest) ~ 239 (lightest)
-"   Default: 237
-let g:seoul256_background = 235
-
-" seoul256 (light):
-" colo seoul256-light
-"   Range:   252 (darkest) ~ 256 (lightest)
-"   Default: 253
-" let g:seoul256_light_background = 256
+colorscheme jellybeans
 
 " Switch
 set background=dark
 " set background=light
 
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -155,11 +140,27 @@ let g:neomake_slim_enabled_makers = ['slimlint']
 let g:neomake_elixir_enabled_makers = ['elixir']
 
 " ALE
-" let g:ale_linters = { 'javascript': [ 'eslint' ] }
+" let g:ale_linters = {
+"       \ 'javascript': ['eslint'],
+"       \ 'ruby': ['rubocop'],
+"       \ 'bash': ['shellcheck'],
+"       \ 'coffeescript': ['coffeelint'],
+"       \ 'css': ['csslint'],
+"       \ 'html': ['htmlhint', 'tidy'],
+"       \ 'markdown': ['mdl'],
+"       \ 'scss': ['stylelint']
+"       \ }
 " let g:ale_set_quickfix = 0
 " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 " let g:ale_sign_error = '⚠ '
-" let g:ale_sign_warning = '--'
+" let g:ale_sign_warning = '⨉'
+" set updatetime=1000
+" autocmd BufEnter * set conceallevel=0
+" autocmd CursorHold * call ale#Lint()
+" autocmd CursorHoldI * call ale#Lint()
+" autocmd InsertLeave * call ale#Lint()
+" autocmd TextChanged * call ale#Lint()
+" let g:ale_lint_on_text_changed = 0
 
 let g:sneak#s_next = 1 " vim-sneak
 let g:sneak#label = 1
@@ -348,6 +349,15 @@ nnoremap Y y$
 
 " Grep the word under the cursor
 nnoremap \\ :Ag <C-r><C-w><CR>
+
+" Show syntax highlighting groups for word under cursor
+nnoremap <Leader>syn :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||

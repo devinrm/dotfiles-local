@@ -1,7 +1,5 @@
 " colorschemes
-Plug 'junegunn/seoul256.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'liuchengxu/space-vim-dark'
+Plug 'nanotech/jellybeans.vim'
 
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
@@ -20,7 +18,7 @@ Plug 'justinmk/vim-sneak'
 
 " deoplete/completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'neomake/neomake'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'
