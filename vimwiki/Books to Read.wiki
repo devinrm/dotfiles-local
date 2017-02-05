@@ -1,4 +1,4 @@
-- [ ] Ruby Under a Microsope
+- [x] Ruby Under a Microsope
 - [ ] Eloquent Ruby
 - [ ] Refactoring Ruby
 - [ ] Clean Code
