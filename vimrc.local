@@ -404,7 +404,7 @@ if has("nvim")
   set termguicolors " nvim gui colors
   set inccommand=split
 
-  " the new cursor in 0.3.0 is awesome but might not be default for long so
+  " the new cursor in 0.2.0 is awesome but might not be default for long so
   " leaving this enabled even if it disappears
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -417,22 +417,22 @@ if has("nvim")
   tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
   " NeoVim term colors
-  let g:terminal_color_0  = '#616161' " black
-  let g:terminal_color_1  = '#df9b99' " red
-  let g:terminal_color_2  = '#719772' " green
-  let g:terminal_color_3  = '#e0bc72' " yellow
-  let g:terminal_color_4  = '#96bcdc' " blue
-  let g:terminal_color_5  = '#e0bebc' " magenta
-  let g:terminal_color_6  = '#98bcbd' " cyan
-  let g:terminal_color_7  = '#d9d9d9' " white
-  let g:terminal_color_8  = '#757575' " brblack
-  let g:terminal_color_9  = '#e17899' " brred
-  let g:terminal_color_10 = '#baddfc' " brgreen
-  let g:terminal_color_11 = '#ffde99' " bryellow
-  let g:terminal_color_12 = '#baddfc' " brblue
-  let g:terminal_color_13 = '#ffbfbd' " brmagenta
-  let g:terminal_color_14 = '#97dddf' " brcyan
-  let g:terminal_color_15 = '#e9e9e9' " brwhite
+  let g:terminal_color_0  = '#282c34' " black
+  let g:terminal_color_1  = '#e26b73' " red
+  let g:terminal_color_2  = '#96c475' " green
+  let g:terminal_color_3  = '#d29b61' " yellow
+  let g:terminal_color_4  = '#5daef2' " blue
+  let g:terminal_color_5  = '#c775e0' " magenta
+  let g:terminal_color_6  = '#51b6c3' " cyan
+  let g:terminal_color_7  = '#abb2bf' " white
+  let g:terminal_color_8  = '#282c34' " brblack
+  let g:terminal_color_9  = '#e26b73' " brred
+  let g:terminal_color_10 = '#96c475' " brgreen
+  let g:terminal_color_11 = '#d29b61' " bryellow
+  let g:terminal_color_12 = '#5daef2' " brblue
+  let g:terminal_color_13 = '#c775e0' " brmagenta
+  let g:terminal_color_14 = '#51b6c3' " brcyan
+  let g:terminal_color_15 = '#abb2bf' " brwhite
 
   " Open terminal in neovim
   nnoremap <Leader>r :sp<CR>:terminal<CR>
