@@ -252,7 +252,7 @@ imap <c-a> <c-o>^
 
 " Search with fzf
 nnoremap <C-p> :Files<CR>
-nnoremap <C-o> :BLines<CR>
+nnoremap <C-[> :BLines<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-i> :Tags<CR>
 nnoremap <C-t> :BTags<CR>
