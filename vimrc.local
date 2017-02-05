@@ -76,7 +76,7 @@ augroup rainbow " Rainbow Parens
 augroup END
 
 " Colorscheme and lightline config
-colorscheme jellybeans
+colorscheme one
 
 " Switch
 set background=dark

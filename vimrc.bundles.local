@@ -1,5 +1,5 @@
 " colorschemes
-Plug 'nanotech/jellybeans.vim'
+Plug 'rakr/vim-one'
 
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
@@ -23,6 +23,7 @@ Plug 'neomake/neomake'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
+Plug 'cohama/lexima.vim'
 
 " language plugins
 Plug 'pangloss/vim-javascript'
