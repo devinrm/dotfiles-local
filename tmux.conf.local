@@ -59,21 +59,21 @@ set -g status-left " #S Ϟ "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "#(battery -p -t -g '#98bc99')  #(date '+%a, %b %d - %H:%M') "
+set -g status-right "#(battery -p -t -g '#80a0ff')  #(date '+%a, %b %d - %H:%M') "
 
 # Change pane border color
-set -g pane-border-fg '#97dddf'
-set -g pane-active-border-fg '#e17899'
+set -g pane-border-fg '#81c079'
+set -g pane-active-border-fg '#c678d7'
 set -g pane-active-border-bg default
 
 # set status bar color
-set -g status-fg '#98bc99'
+set -g status-fg '#80a0ff'
 set -g status-bg default
 set -g status-attr bright
 
 # set tab color
-set-window-option -g window-status-current-bg '#98bc99'
-set-window-option -g window-status-current-fg '#e9e9e9'
+set-window-option -g window-status-current-bg '#80a0ff'
+set-window-option -g window-status-current-fg '#000000'
 
 # Bind <c-j> to choose-tree and integrate with fzf
 bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
