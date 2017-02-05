@@ -19,6 +19,7 @@ alias gsh="gitsh"
 alias ru="rubocop"
 alias da="dasht"
 alias prettyjson="python -m json.tool"
+alias wuzz="$GOPATH/bin/wuzz"
 
 # Weather and the moon, man
 alias weather="curl http://wttr\.in/washington"
@@ -37,6 +38,7 @@ alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
 alias racer="ruby -r tracer"
 alias ras="rails s"
+alias rake="RUBYOPT=W0 rake"
 
 # JavaScript
 alias yi="yarn install"
