@@ -129,7 +129,7 @@ let g:syntastic_mode_map = {
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 
-let g:neomake_javascript_enabled_makers = ['eslint', 'jshint', 'coffeelint']
+let g:neomake_javascript_enabled_makers = ['eslint', 'coffeelint']
 let g:neomake_scss_enabled_makers = ['scsslint']
 let g:neomake_css_enabled_makers = ['csslint']
 let g:neomake_markdown_enabled_makers = ['mdl']
