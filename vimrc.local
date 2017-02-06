@@ -118,42 +118,42 @@ let g:fzf_colors =
 
 "  Neomake
 "  Run NeoMake on read and write operations
-autocmd! BufReadPost,BufWritePost * Neomake
-"
+" autocmd! BufReadPost,BufWritePost * Neomake
+
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
   \ "mode": "passive",
   \ "active_filetypes": [],
   \ "passive_filetypes": [] }
 
-let g:neomake_serialize = 1
-let g:neomake_serialize_abort_on_error = 1
-
-let g:neomake_javascript_enabled_makers = ['eslint', 'coffeelint']
-let g:neomake_scss_enabled_makers = ['scsslint']
-let g:neomake_css_enabled_makers = ['csslint']
-let g:neomake_markdown_enabled_makers = ['mdl']
-let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'reek']
-let g:neomake_html_enabled_makers = ['htmlhint', 'tidy']
-let g:neomake_haml_enabled_makers = ['hamllint']
-let g:neomake_slim_enabled_makers = ['slimlint']
-let g:neomake_elixir_enabled_makers = ['elixir']
+" let g:neomake_serialize = 1
+" let g:neomake_serialize_abort_on_error = 1
+"
+" let g:neomake_javascript_enabled_makers = ['eslint', 'coffeelint']
+" let g:neomake_scss_enabled_makers = ['scsslint']
+" let g:neomake_css_enabled_makers = ['csslint']
+" let g:neomake_markdown_enabled_makers = ['mdl']
+" let g:neomake_ruby_enabled_makers = ['mri', 'rubocop', 'reek']
+" let g:neomake_html_enabled_makers = ['htmlhint', 'tidy']
+" let g:neomake_haml_enabled_makers = ['hamllint']
+" let g:neomake_slim_enabled_makers = ['slimlint']
+" let g:neomake_elixir_enabled_makers = ['elixir']
 
 " ALE
-" let g:ale_linters = {
-"        \ 'javascript': ['eslint']
-"        \ }
-" let g:ale_set_quickfix = 0
-" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-" let g:ale_sign_error = '⚠ '
-" let g:ale_sign_warning = '⨉'
-" set updatetime=1000
-" autocmd BufEnter * set conceallevel=0
-" autocmd CursorHold * call ale#Lint()
-" autocmd CursorHoldI * call ale#Lint()
-" autocmd InsertLeave * call ale#Lint()
-" autocmd TextChanged * call ale#Lint()
-" let g:ale_lint_on_text_changed = 0
+let g:ale_linters = {
+       \ 'javascript': ['eslint']
+       \ }
+let g:ale_set_quickfix = 0
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_sign_error = '⚠ '
+let g:ale_sign_warning = '⨉'
+set updatetime=1000
+autocmd BufEnter * set conceallevel=0
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+autocmd TextChanged * call ale#Lint()
+let g:ale_lint_on_text_changed = 0
 
 let g:sneak#s_next = 1 " vim-sneak
 let g:sneak#label = 1
