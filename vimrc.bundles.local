@@ -18,7 +18,7 @@ Plug 'justinmk/vim-sneak'
 
 " deoplete/completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'neomake/neomake'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'

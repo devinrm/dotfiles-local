@@ -140,20 +140,20 @@ let g:neomake_slim_enabled_makers = ['slimlint']
 let g:neomake_elixir_enabled_makers = ['elixir']
 
 " ALE
-let g:ale_linters = {
-       \ 'javascript': ['eslint']
-       \ }
-let g:ale_set_quickfix = 0
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_sign_error = '⚠ '
-let g:ale_sign_warning = '⨉'
-set updatetime=1000
-autocmd BufEnter * set conceallevel=0
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
-let g:ale_lint_on_text_changed = 0
+" let g:ale_linters = {
+"        \ 'javascript': ['eslint']
+"        \ }
+" let g:ale_set_quickfix = 0
+" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+" let g:ale_sign_error = '⚠ '
+" let g:ale_sign_warning = '⨉'
+" set updatetime=1000
+" autocmd BufEnter * set conceallevel=0
+" autocmd CursorHold * call ale#Lint()
+" autocmd CursorHoldI * call ale#Lint()
+" autocmd InsertLeave * call ale#Lint()
+" autocmd TextChanged * call ale#Lint()
+" let g:ale_lint_on_text_changed = 0
 
 let g:sneak#s_next = 1 " vim-sneak
 let g:sneak#label = 1
