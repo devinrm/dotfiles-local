@@ -11,10 +11,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 Plug 'henrik/vim-indexed-search'
-Plug 'ddrscott/vim-side-search'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/gv.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'mhinz/vim-grepper'
 
 " deoplete/completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
