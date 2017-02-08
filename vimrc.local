@@ -247,11 +247,16 @@ imap <c-e> <c-o>$
 imap <c-a> <c-o>^
 
 " Search with fzf
-nnoremap <C-p> :Files<CR>
-nnoremap <C-[> :BLines<CR>
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-i> :Tags<CR>
-nnoremap <C-t> :BTags<CR>
+nnoremap <C-p> :FzfFiles<CR>
+nnoremap <C-[> :FzfBLines<CR>
+nnoremap <C-b> :FzfBuffers<CR>
+nnoremap <C-i> :FzfTags<CR>
+nnoremap <C-t> :FzfBTags<CR>
+nnoremap \ :FzfAg<SPACE>
+let g:fzf_command_prefix = 'Fzf'
+
+" Grep the word under the cursor with Ag.vim
+nnoremap \\ :GrepperAg <C-r><C-w><CR>
 
 " View commits in fzf
 nnoremap <Leader>c :Commits<CR>
@@ -269,9 +274,6 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
-" Grepper
-nnoremap <Leader>ss :GrepperAg<SPACE>
 
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
 " 'j' = '∆' and 'k' = '˚'
@@ -342,9 +344,6 @@ xnoremap . :normal.<CR>
 
 " Yank to end of line instead of whole line
 nnoremap Y y$
-
-" Grep the word under the cursor
-nnoremap \\ :Ag <C-r><C-w><CR>
 
 " Show syntax highlighting groups for word under cursor
 nnoremap <Leader>syn :call <SID>SynStack()<CR>

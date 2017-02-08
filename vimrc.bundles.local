@@ -6,7 +6,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 
 " search/find
-Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
@@ -14,7 +14,6 @@ Plug 'henrik/vim-indexed-search'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/gv.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'mhinz/vim-grepper'
 
 " deoplete/completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
