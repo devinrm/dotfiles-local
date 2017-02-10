@@ -1,5 +1,6 @@
 = Code Notes =
     * [[Capybara]]
+    * [[Comp. Sci]]
     * [[CSS]]
     * [[Docker]]
     * [[Git]]

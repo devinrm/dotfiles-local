@@ -1,0 +1,11 @@
+4-step engineering problem solving approach:
+1. Understand the problem
+2. Plan a solution
+3. Carry out that plan
+4. Examine your results for accuracy
+
+    What most people don't understand is that most of the significant effort goes
+    into the first two parts of the process. If you fail either of those, it hardly
+    matters whether you've carried out your plan perfectly or accurately. So if you
+    want to think like an engineer, solve your problems fully BEFORE diving into the
+    implementation of your solution.
