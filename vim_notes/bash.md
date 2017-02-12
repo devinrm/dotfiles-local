@@ -1,3 +1,4 @@
+```bash
 * Moving
 
 Ctrl-a
@@ -164,3 +165,4 @@ Enter Emacs editing mode
 
 Ctrl-Alt-j
 Enter Vi editing modeilling and Yanking (Cutting and Pasting)
+```

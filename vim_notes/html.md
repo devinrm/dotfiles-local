@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 Elements are designators that define the structure and content of objects within
@@ -65,3 +66,4 @@ reference to a linked resource.
   <a href="#top">Back to top</a>
   ...
 </body>
+```

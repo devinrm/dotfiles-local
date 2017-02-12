@@ -1,3 +1,4 @@
+```bash
 kill session
 bind K - kill session
 
@@ -23,3 +24,4 @@ to let window number 3 and window number 1 swap their positions.
 
 rename-session
 <c-s>$
+```

@@ -1,3 +1,4 @@
+```bash
 ----------Give shell scripts the permissions they need--------
 chmod +x hello.sh
 
@@ -19,3 +20,4 @@ CTRL + H : Delete the letter starting at cursor.
 
 -------Symbolic links-----------
 ln -s code/dotfiles/vim/vimrc ~/vimrc
+```

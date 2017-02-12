@@ -1,3 +1,4 @@
+```vim
 VIM FETCH
 :e[dit] path/to/file.ext:100:12 in Vim to edit file.ext on line 100 at column 12
 gF with the cursor at ^ on path/to^/file.ext:98,8 to edit file.ext on line 98, column 8
@@ -130,3 +131,4 @@ t<char> find a character forward in a line and move un(t)il it (one character
 before)
 
 q/ - open search history
+```

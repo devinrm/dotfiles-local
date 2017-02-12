@@ -1,3 +1,4 @@
+```css
 A selector designates exactly which element or elements within our HTML to target
 and apply styles (such as color, size, and position) to.
 
@@ -117,3 +118,4 @@ The background-position property requires two values: a horizontal offset
 (the first value) and a vertical offset (the second value). If only one
 value is specified, that value is used for the horizontal offset and the
 vertical offset will default to 50%.
+```

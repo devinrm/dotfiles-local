@@ -55,7 +55,7 @@ Numbers
 Strings
 
 In all of the %() cases below, you may use any matching characters or any single character for delimiters. %[], %!!, %@@, etc.
-
+```ruby
 'no interpolation'
 "#{interpolation}, and backslashes\n"
 %q(no interpolation)
@@ -75,6 +75,7 @@ Here Docs:
 <<"identifier" - same thing
 <<'identifier' - no interpolation
 <<-identifier  - you can indent the identifier by using "-" in front
+```
 Encodings:
 
 Waaaay too much to cover here. Try these instead:
@@ -86,7 +87,7 @@ Symbols
 Internalized String. Guaranteed to be unique and quickly comparable. Ideal for hash keys.
 
 1.8: Symbols may not contain \0 or be empty.
-
+```ruby
 :symbol                        == :symbol
 :'#{"without"} interpolation'  == :"#{"without"} interpolation"
 :"#{"with"} interpolation"     == :"with interpolation"
@@ -1023,3 +1024,4 @@ p expression               evaluate expression and print its value
 h[elp]                     print this help
 everything else            evaluate
 empty                      repeats the last command
+```

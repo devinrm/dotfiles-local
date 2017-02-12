@@ -31,6 +31,7 @@ Plug 'Keithbsmiley/rspec.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'chrisbra/Colorizer'
 Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
 
 " make editing nicer
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -48,4 +49,3 @@ Plug 'christoomey/vim-conflicted'
 Plug 'tpope/vim-dispatch'
 Plug 'wfleming/vim-codeclimate'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'vimwiki/vimwiki'

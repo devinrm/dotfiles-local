@@ -1,3 +1,4 @@
+```ruby
 bundle check --path=./vendor
 
 -----------------------.EACH and .MAP--------------------------
@@ -32,6 +33,11 @@ def description=(new_description)
 end
 
 attr_accessor :description is equivalent to attr_reader :description; attr_writer :description
+
+attr
+attr_writer - setter
+attr_reader - getter
+```
 
 LS
 module - class
@@ -89,6 +95,3 @@ The classical approach to object oriented programming is:
 3. Organize and associate the verbs with the nouns.
 4. The nouns are the classes and the verbs are the behaviors or methods.
 
-attr
-attr_writer - setter
-attr_reader - getter

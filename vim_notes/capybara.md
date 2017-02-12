@@ -1,3 +1,4 @@
+```ruby
 Navigating
 
   visit('/projects')
@@ -73,3 +74,4 @@ XPath and CSS
   within('ul li') { ... }
   find('ul li').text
   locate('input#name').value
+```

@@ -1,7 +1,6 @@
+```vim
 g-t - next tab
 g-T - previous tab
-
-<F5> - open html file in browser
 
 ctrl-o - jump to previous file
 
@@ -260,3 +259,4 @@ v  Visually select
 { The simplest commands are made by simply repeating the operator a second time to act on the current line. For example, where d is the operator for "delete", dd will delete the whole line. Each of yy, cc, >>, == behave similarly. }
 
 :%s/$/,/ - Add a comma to every line in vim
+```

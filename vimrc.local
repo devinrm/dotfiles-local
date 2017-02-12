@@ -144,7 +144,7 @@ let g:ale_lint_on_text_changed = 0
 let g:sneak#s_next = 1 " vim-sneak
 let g:sneak#label = 1
 
-let g:vimwiki_list = [{'path': '~/dotfiles-local/vimwiki/'}] " Set vimwiki path
+let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -337,6 +337,9 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" Code notes
+nnoremap <Leader>ww :FzfFiles ~/dotfiles-local/vim_notes/<CR>
+
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
 " ||__|||__|||__|||__||
@@ -426,5 +429,5 @@ if has("nvim")
   " Use deoplete
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#disable_auto_complete = 1
+  let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 endif

@@ -1,3 +1,4 @@
+```sql
 INSERT INTO movies (title, genre, duration)
 VALUES
 ('Peter Pan', 'Animation', 134);
@@ -120,3 +121,4 @@ in the artists table because id is the PRIMARY KEY of artists.
 Outer joins also combine rows from two or more tables, but unlike inner joins, they do not require the join condition to be met. Instead, every row in the left table is returned in the result set, and if the join condition is not met, then NULL values are used to fill in the columns from the right table.
 
 The left table is simply the first table that appears in the statement. Here, the left table is albums. Likewise, the right table is the second table that appears. Here, artists is the right table.
+```

@@ -49,7 +49,7 @@ Note this may take a LONG time, especially if you’ve got gems with c-extension
 Figuring out how a method was called
 
 To generate a backtrace without raising an exception use the caller method like:
-
+```ruby
 class Project
 
   def foo
@@ -57,7 +57,7 @@ class Project
     puts caller
   end
 end
-
+```
 Now when you generate a request you’ll get a backtrace like:
 
 =====================
@@ -170,11 +170,12 @@ run MyRailsApp::Application.routes
 Find where Super is Calling
 
 Let’s say you have code that calls super you can find where that method is defined like this:
-
+```ruby
 def foo
   puts method(:foo).super_method.source_location
   super
 end
+```
 
 I love this one since I proposed its addition 😉. You can read more about super_method here: http://www.schneems.com/2015/01/14/debugging-super-methods-ruby-22.html
 List all methods on an object
@@ -187,11 +188,11 @@ Get instance method location without an instance
 User.instance_method(:github_url).source_location
 
 Introspect method arguments
-
+```ruby
 def parse(input, skip_code_comments: false, ignore_whitespace: true)
   # do stuff
 end
-
+```
 method(:parse).parameters
 #=> [[:req, :input], [:key, :skip_code_comments], [:key, :ignore_whitespace]]
 
@@ -223,7 +224,7 @@ See where a constant is created
 Again, originally a “missing piece” i got this debugging technique thanks to https://tenderlovemaking.com/2016/02/05/i-am-a-puts-debuggerer.html#i-need-to-find-where-this-object-came-from
 
 You can use object space to see where a constant or object was created.
-
+```ruby
 require 'objspace'
 ObjectSpace.trace_object_allocations_start
 
@@ -235,7 +236,7 @@ world = "hello"
 
 sup world
 # => /tmp/scratch.rb:10
-
+```
 Since the invocation to get the file and line number is so long, I add an helper method globally called sup. Make sure tracing is started early as possible, I put this code in the top of my Gemfile. Remove it when you’re not debugging, tracing allocations has a performance impact.
 Missing Pieces Wish List
 

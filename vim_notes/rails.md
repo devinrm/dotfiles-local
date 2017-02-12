@@ -1,3 +1,4 @@
+```ruby
 ------------------------UNDO STUFF------------------------
 $ rails generate controller StaticPages home help
 
@@ -83,3 +84,4 @@ about a singleton resource.
 -----------------attr_accessible----------------------
 Replaced by strong params in Rails 4, so be mindful of which rails version your
 app is on.
+```
