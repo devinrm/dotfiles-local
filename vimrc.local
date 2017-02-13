@@ -339,6 +339,7 @@ endfunc
 
 " Code notes
 nnoremap <Leader>ww :FzfFiles ~/dotfiles-local/vim_notes/<CR>
+nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
 
 "  ____ ____ ____ ____
 " ||t |||m |||u |||x ||
