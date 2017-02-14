@@ -133,7 +133,7 @@ let g:ale_sign_warning = '⨉'
 let g:ale_echo_msg_format = '[%linter%] %s'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
-set updatetime=1000
+set updatetime=500
 autocmd BufEnter * set conceallevel=0
 autocmd CursorHold * call ale#Lint()
 autocmd CursorHoldI * call ale#Lint()

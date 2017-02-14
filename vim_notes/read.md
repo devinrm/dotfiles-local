@@ -1,7 +1,25 @@
+Ruby
+
+* [x] POODR
+* [x] Confident Ruby
+* [x] Pickaxe
+* [x] Ruby Science
 * [x] Ruby Under a Microsope
+* [x] The Well-Grounded Rubyist
 * [ ] Eloquent Ruby
 * [ ] Refactoring Ruby
-* [ ] Clean Code
 * [ ] Design Patterns in Ruby
 * [ ] Metaprogramming Ruby
+* [ ] Exceptional Ruby
+* [ ] MiniTest Cookbook
+
+Rails
+
+* [x] Crafting Rails 4 Applications
 * [ ] Agile Web Development with Rails
+* [ ] Objects on Rails
+
+Other
+
+* [x] Growing Object-Oriented Software Guided by Tests
+* [ ] Clean Code
