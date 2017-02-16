@@ -1,3 +1,13 @@
+```
+brew install qt5 --with-qtwebkit
+Install capybara-webkit with PATH=~/Qt5.5.1/5.5/clang_64/bin:$PATH gem install capybara-webkit
+
+OR
+
+gem uninstall capybara-webkit
+QMAKE=/usr/local/Cellar/qt5/5.4.0/bin/qmake bundle install
+```
+
 ```ruby
 Navigating
 
