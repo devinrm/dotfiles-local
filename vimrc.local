@@ -196,9 +196,6 @@ nnoremap <Leader>ru :!ruby -w %<CR>
 " Open .html pages from vim in browser
 nnoremap <Leader>ht :!open '%'<CR>
 
-" browse old files
-nnoremap <Leader>old :browse old<CR>
-
 " Sed it up
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
@@ -236,7 +233,10 @@ nnoremap <C-b> :FzfBuffers<CR>
 nnoremap <C-i> :FzfTags<CR>
 nnoremap <C-t> :FzfBTags<CR>
 " View commits in fzf
-nnoremap <Leader>c :Commits<CR>
+nnoremap <Leader>c :FzfCommits<CR>
+" browse old files
+nnoremap <Leader>old :FzfHistory<CR>
+
 nnoremap \ :FzfAg<SPACE>
 " Grep the word under the cursor with Ag.vim
 nnoremap \\ :GrepperAg <C-r><C-w><CR>
