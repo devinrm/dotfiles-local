@@ -152,8 +152,8 @@ let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css
 " |/__\|/__\|/__\|/__\|
 
 " Open vimrc in new tab
-nnoremap <Leader>vi :tabe ~/.vimrc.local<CR>
-nnoremap <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
+nnoremap <Leader>vi :tabe ~/dotfiles-local/vimrc.local<CR>
+nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
 
 " Source (reload) your vimrc. Type space, r, e in sequence to trigger
 nnoremap <Leader>re :source $MYVIMRC<CR>
