@@ -235,14 +235,14 @@ nnoremap <Leader>f :FzfBLines<CR>
 nnoremap <C-b> :FzfBuffers<CR>
 nnoremap <C-i> :FzfTags<CR>
 nnoremap <C-t> :FzfBTags<CR>
+" View commits in fzf
+nnoremap <Leader>c :Commits<CR>
 nnoremap \ :FzfAg<SPACE>
-let g:fzf_command_prefix = 'Fzf'
-
 " Grep the word under the cursor with Ag.vim
 nnoremap \\ :GrepperAg <C-r><C-w><CR>
 
-" View commits in fzf
-nnoremap <Leader>c :Commits<CR>
+" This is a hack to make GrepperAG send my search to a quickfix window when I want it to
+let g:fzf_command_prefix = 'Fzf'
 
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
