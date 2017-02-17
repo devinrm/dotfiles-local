@@ -1,11 +1,11 @@
-" colorschemes
+" colorscheme(s)
 Plug 'rakr/vim-one'
 
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 
-" search/find
+" search/find/git
 Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'

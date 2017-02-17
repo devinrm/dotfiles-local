@@ -27,6 +27,16 @@ set gdefault " Replace all matches on a line instead of just the first
 set nowrap
 set nofoldenable
 set noshowmode
+set relativenumber " Get the best of both worlds with set number and relativenumber
+set number
+autocmd InsertEnter * :set number norelativenumber
+autocmd InsertLeave * :set relativenumber
+set autoread
+filetype plugin on
+
+" === omnicompletion ===
+set omnifunc=syntaxcomplete#Complete
+inoremap <c-c> <c-x><c-o>
 set complete=.,b,u,w,t,] " Pull from keywords in the current file and from the current tags file
 set complete+=k~/.vim/dictionaries/array_methods.txt
 set complete+=k~/.vim/dictionaries/float_methods.txt
@@ -42,46 +52,55 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
-set relativenumber " Get the best of both worlds with set number and relativenumber
-set number
-autocmd InsertEnter * :set number norelativenumber
-autocmd InsertLeave * :set relativenumber
-set autoread
 
-set stl+=%{ConflictedVersion()} " Vim-Conflicted
+" === switch background ===
+set background=dark
+" set background=light
+
+"  ____ ____ ____ ____ ____ ____ ____
+" ||p |||l |||u |||g |||i |||n |||s ||
+" ||__|||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+
+" === vim-conflicted ===
+set stl+=%{ConflictedVersion()}
+
+" === vim-marked ===
 let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews
 
+" === goyo.vim/limelight.vim ===
 autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
 autocmd! User GoyoLeave Limelight!
 
-let g:rspec_command = "Dispatch rspec {spec}" " Vim Dispatch
+" === dispatch.vim ===
+let g:rspec_command = "Dispatch rspec {spec}"
+
+" === vim-test ===
 let test#strategy = "dispatch"
 let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 
-let g:loaded_netrwPlugin = 1 " Dirvish
+" === dirvish ===
+let g:loaded_netrwPlugin = 1
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
 nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
 autocmd FileType dirvish call fugitive#detect(@%)
 
+" === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml' " Colorizer
+
+" === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-filetype plugin on " Omnicompletion
-set omnifunc=syntaxcomplete#Complete
-inoremap <c-c> <c-x><c-o>
-
+" === rainbow_parentheses ===
 augroup rainbow " Rainbow Parens
   autocmd BufRead,BufNewFile * RainbowParentheses
 augroup END
 
-" Colorscheme and lightline config
+" === vim-one ===
 colorscheme one
 
-" Switch
-set background=dark
-" set background=light
-
+" === lightline.vim ===
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ 'active': {
@@ -113,10 +132,40 @@ function! LightLineFilename()
   endif
 endfunction
 
+" === fzf.vim ===
+nnoremap <C-p> :FzfFiles<CR>
+nnoremap <Leader>f :FzfBLines<CR>
+nnoremap <C-b> :FzfBuffers<CR>
+nnoremap <C-i> :FzfTags<CR>
+nnoremap <C-t> :FzfBTags<CR>
+nnoremap <Leader>c :FzfCommits<CR>
+nnoremap <Leader>old :FzfHistory<CR>
+nnoremap \ :FzfAg<SPACE>
 let g:fzf_colors =
   \ { 'hl': ['fg', 'Exception'] }
+" Mapping selecting mappings
+nmap <Leader><tab> <plug>(fzf-maps-n)
+xmap <Leader><tab> <plug>(fzf-maps-x)
+omap <Leader><tab> <plug>(fzf-maps-o)
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+" This is a lazy hack so I can use GrepperAG when I want search results in a quickfix
+" window
+let g:fzf_command_prefix = 'Fzf'
+" Complete from open tmux panes (from @junegunn)
+inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
+inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
-" ALE
+" === vim-grepper ===
+" Grep the word under the cursor with Ag.vim
+nnoremap \\ :GrepperAg <C-r><C-w><CR>
+
+" === ALE ===
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
   \ "mode": "passive",
@@ -141,10 +190,22 @@ autocmd InsertLeave * call ale#Lint()
 autocmd TextChanged * call ale#Lint()
 let g:ale_lint_on_text_changed = 0
 
+" === vim-sneak ===
 let g:sneak#s_next = 1 " vim-sneak
 let g:sneak#label = 1
 
+" === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
+
+" === comfortable-motion.vim ===
+let g:comfortable_motion_no_default_key_mappings = 1
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
+" === deoplete ===
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -157,7 +218,6 @@ nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
 
 " Source (reload) your vimrc. Type space, r, e in sequence to trigger
 nnoremap <Leader>re :source $MYVIMRC<CR>
-nnoremap <Leader>vr :sp $MYVIMRC<CR>
 
 " Pre-populate a split command with the current directory
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
@@ -220,43 +280,12 @@ inoremap <C-@> <Esc>`^
 nnoremap j gj
 nnoremap k gk
 
-" Emacs-like beginning and end of line.
+" Emacs-like beginning and end of line. Experimental, breaks things you might be
+" using.
 nnoremap <C-e> $
 nnoremap <C-a> ^
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
-
-" Search with fzf
-nnoremap <C-p> :FzfFiles<CR>
-nnoremap <Leader>f :FzfBLines<CR>
-nnoremap <C-b> :FzfBuffers<CR>
-nnoremap <C-i> :FzfTags<CR>
-nnoremap <C-t> :FzfBTags<CR>
-" View commits in fzf
-nnoremap <Leader>c :FzfCommits<CR>
-" browse old files
-nnoremap <Leader>old :FzfHistory<CR>
-
-nnoremap \ :FzfAg<SPACE>
-" Grep the word under the cursor with Ag.vim
-nnoremap \\ :GrepperAg <C-r><C-w><CR>
-
-" This is a hack to make GrepperAG send my search to a quickfix window when I want it to
-let g:fzf_command_prefix = 'Fzf'
-
-" Mapping selecting mappings
-nmap <Leader><tab> <plug>(fzf-maps-n)
-xmap <Leader><tab> <plug>(fzf-maps-x)
-omap <Leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" Advanced customization using autoload functions
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " Mappings to move lines. Symbols represent 'alt' because macs are insane
 " 'j' = '∆' and 'k' = '˚'
@@ -276,11 +305,11 @@ nnoremap v <c-v>e
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
-
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <Leader>= :wincmd =<CR>
 
+" open and close location list
 nnoremap <Leader>o :lopen<CR>
 nnoremap <Leader>oo :lclose<CR>
 
@@ -298,14 +327,9 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<CR>
 nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
-" Make esc more user friendly
+" Make esc more user friendly / ii is for Colemak
 inoremap jk <esc>:w<CR>
 inoremap ii <esc>:w<CR>
-
-" comfortable-motion
-let g:comfortable_motion_no_default_key_mappings = 1
-nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " make tab completion travel in a reasonable direction (from @geoffharcourt)
 inoremap <S-Tab> <C-P>
@@ -322,13 +346,14 @@ function! InsertTabWrapper()
   endif
 endfunction
 
-" Get dot command repeatability in visual mode // from @geoffharcourt
+" Get dot command repeatability in visual mode (from @geoffharcourt)
 xnoremap . :normal.<CR>
 
-" Yank to end of line instead of whole line
+" Yank to end of line instead of whole line (from @geoffharcourt)
 nnoremap Y y$
 
-" Show syntax highlighting groups for word under cursor
+" Show syntax highlighting groups for word under cursor, useful for editing
+" colorschemes (from @drewneil)
 nnoremap <Leader>syn :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
@@ -354,7 +379,7 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-" nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR> TODO: fix this
 
 " Vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
@@ -366,10 +391,6 @@ nnoremap <Leader>ap :VtrAttachToPane<CR>
 nnoremap <Leader>se :VtrSendCommand<CR>
 nnoremap <Leader>sf :VtrSendFile<CR>
 nnoremap <Leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<CR>
-
-" Complete from open tmux panes (from @junegunn)
-inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
-inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
 " Save on switch
 let g:tmux_navigator_save_on_switch = 1
@@ -384,7 +405,7 @@ nnoremap <Leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set termguicolors " nvim gui colors
-  set inccommand=split
+  set inccommand=split " this is necessary for using this %s with a quickfix window
 
   " the new cursor in 0.2.0 is awesome but might not be default for long so
   " leaving this enabled even if it disappears
@@ -426,9 +447,4 @@ if has("nvim")
 
   " Test with neovim
   let test#strategy = "neovim"
-
-  " Use deoplete
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 endif
