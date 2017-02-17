@@ -52,9 +52,6 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
-" === switch background ===
-set background=dark
-" set background=light
 
 "  ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n |||s ||
@@ -103,6 +100,8 @@ augroup END
 
 " === vim-one ===
 colorscheme one
+set background=dark
+" set background=light
 
 " === lightline.vim ===
 let g:lightline = {
@@ -235,7 +234,7 @@ let g:tmux_navigator_save_on_switch = 1
 nnoremap <Leader>vi :tabe ~/dotfiles-local/vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
 
-" Source (reload) your vimrc. Type space, r, e in sequence to trigger
+" Source (reload) your vimrc.
 nnoremap <Leader>re :source $MYVIMRC<CR>
 
 " Pre-populate a split command with the current directory
