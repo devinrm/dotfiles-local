@@ -93,7 +93,7 @@ bind C-l send-keys C-l
 # Quickly view system & process info in htop
 bind-key h split-window -h "htop"
 
-# keybinding for gitsh
+# Open gitsh in a split in the current directory
 bind-key g split-window -v -c '#{pane_current_path}' -p 50 gitsh
 
 # Go to dotfiles and open gitsh
