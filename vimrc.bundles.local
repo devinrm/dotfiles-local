@@ -1,10 +1,7 @@
-" colorscheme(s)
+" === colorscheme(s) ===
 Plug 'rakr/vim-one'
 
-" tmux-vim
-Plug 'christoomey/vim-tmux-navigator'
-
-" search/find/git
+" === search/find/git ===
 Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -12,17 +9,19 @@ Plug 'junegunn/vim-slash'
 Plug 'henrik/vim-indexed-search'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/gv.vim'
+Plug 'christoomey/vim-conflicted'
 Plug 'justinmk/vim-sneak'
 
-" deoplete/completion
+" === linting/completion ===
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'w0rp/ale'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
 Plug 'cohama/lexima.vim'
+Plug 'w0rp/ale'
+Plug 'wfleming/vim-codeclimate'
 
-" language plugins
+" === language plugins ===
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
@@ -31,8 +30,9 @@ Plug 'itspriddle/vim-marked'
 Plug 'chrisbra/Colorizer'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
+Plug 'wannesm/wmgraphviz.vim'
 
-" make editing nicer
+" === make editing nicer ===
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/goyo.vim'
@@ -42,10 +42,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'derekprior/vim-trimmer'
 Plug 'machakann/vim-highlightedyank'
 
-" everything else
+" === everything else ===
 Plug 'itchyny/lightline.vim'
-Plug 'christoomey/vim-conflicted'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-dispatch'
-Plug 'wfleming/vim-codeclimate'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'wannesm/wmgraphviz.vim'
