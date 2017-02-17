@@ -26,12 +26,11 @@ alias weather="curl http://wttr\.in/washington"
 alias moon="curl wttr.in/Moon"
 
 # Code notes
-alias cr="cat ~/dotfiles-local/vimwiki/Ruby_Ref.wiki"
-alias cg="cat ~/dotfiles-local/vimwiki/Git.wiki"
-alias ct="cat ~/dotfiles-local/vimwiki/TMUX.wiki"
-alias cv="cat ~/dotfiles-local/vimwiki/Vim.wiki"
-alias cpr="cat ~/dotfiles-local/vimwiki/Pry.wiki"
-alias cre="cat ~/dotfiles-local/vimwiki/Readline.wiki"
+alias cr="cat ~/dotfiles-local/vim_notes/ruby_ref.md"
+alias cg="cat ~/dotfiles-local/vim_notes/git.md"
+alias cv="cat ~/dotfiles-local/vim_notes/vim.md"
+alias cpr="cat ~/dotfiles-local/vim_notes/pry.md"
+alias ct="cat ~/dotfiles-local/vim_notes/readline.md"
 
 # Ruby and RSpec
 alias rsa="SPEC_ALL=true bundle exec rspec"

@@ -20,7 +20,7 @@
   fall = fetch --all
   ph = push -u origin head
   mup = !git checkout master && git pull && git checkout -
-  rup = !git checkout release/30 && git pull && git checkout -
+  rup = !git checkout release/32 && git pull && git checkout -
   stu = stash -u
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset

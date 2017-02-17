@@ -94,7 +94,7 @@ bind C-l send-keys C-l
 bind-key h split-window -h "htop"
 
 # Open gitsh in a split in the current directory
-bind-key g split-window -v -c '#{pane_current_path}' -p 50 gitsh
+bind-key g split-window -h -c '#{pane_current_path}' -p 50 gitsh
 
 # Go to dotfiles and open gitsh
 bind-key o split-window -h -c ~/dotfiles-local -p 50 gitsh
