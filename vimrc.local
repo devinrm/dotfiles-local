@@ -138,10 +138,10 @@ endfunction
 
 " === fzf.vim ===
 nnoremap <C-p> :FzfFiles<CR>
-nnoremap <Leader>f :FzfBLines<CR>
 nnoremap <C-b> :FzfBuffers<CR>
 nnoremap <C-i> :FzfTags<CR>
 nnoremap <C-t> :FzfBTags<CR>
+nnoremap <Leader>f :FzfBLines<CR>
 nnoremap <Leader>c :FzfCommits<CR>
 nnoremap <Leader>old :FzfHistory<CR>
 nnoremap \ :FzfAg<SPACE>
@@ -216,7 +216,13 @@ let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 " (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
 " infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 " tic $TERM.ti
+nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR> TODO: fix this
+" Vim-tmux-navigator mappings
+let g:tmux_navigator_no_mappings = 1
 " Save on switch
 let g:tmux_navigator_save_on_switch = 1
 
