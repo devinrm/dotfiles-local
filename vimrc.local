@@ -230,58 +230,58 @@ let g:tmux_navigator_save_on_switch = 1
 " ||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|
 
-" Open vimrc in new tab
+" === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe ~/dotfiles-local/vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
 
-" Source (reload) your vimrc.
+" === Source (reload) your vimrc ===
 nnoremap <Leader>re :source $MYVIMRC<CR>
 
-" Pre-populate a split command with the current directory
+" === Pre-populate a split command with the current directory ===
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-" Copy the entire buffer into the system register (from @R00k)
+" === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>co mmggVG"*y`m
 
-" Edit the db/schema.rb Rails file in a split
+" === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :split db/schema.rb<CR>
 
-" Indent the whole file
+" === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
 
-" Set paste so paste works properly
+" === Set paste so paste works properly ===
 nnoremap <Leader>p "*p
 
-" Run vimscript functions
+" === Run vimscript functions ===
 nnoremap <Leader>x :exec getline(".")<CR>
 
-" Toggle spell checking on and off
+" === Toggle spell checking on and off ===
 nnoremap <silent> <Leader>, :set spell!<CR>
 
-" Require pry (from @christoomey)
+" === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
-" Convert Ruby 1.8 to 1.9 Hash Syntax
+" === Convert Ruby 1.8 to 1.9 Hash Syntax ===
 nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
-" Toggle relative line number for yanking, i.e. :6y
+" === Toggle relative line number for yanking, i.e. :6y ===
 nnoremap <Leader>ln :set relativenumber!<CR>
 
-" Make it easier to run ruby files inside vim
+" === Make it easier to run ruby files inside vim ===
 nnoremap <Leader>ru :!ruby -w %<CR>
 
-" Open .html pages from vim in browser
+" === Open .html pages from vim in browser ===
 nnoremap <Leader>ht :!open '%'<CR>
 
-" Sed it up
+" === sed it up ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
-" Comment/un-comment like Sublime (from @geoffharcourt)
+" === Comment/un-comment like Sublime (from @geoffharcourt) ===
 nnoremap <C-\> :TComment<CR>
 vnoremap <C-\> :TComment<CR>
 
-" Use C-Space to Esc out of any mode (from @christoomey)
+" === Use C-Space to Esc out of any mode (from @christoomey) ===
 nnoremap <C-Space> <Esc>:noh<CR>
 vnoremap <C-Space> <Esc>gV
 onoremap <C-Space> <Esc>
@@ -294,18 +294,18 @@ onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>`^
 
-" Move up and down by visible lines if current line is wrapped
+" === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
 
-" Emacs-like beginning and end of line. Experimental, breaks things you might be
-" using.
+" === Emacs-like beginning and end of line. Experimental, breaks things you might be
+" using. ===
 nnoremap <C-e> $
 nnoremap <C-a> ^
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
 
-" Mappings to move lines. Symbols represent 'alt' because macs are insane
+" === Mappings to move lines. Symbols represent 'alt' because macs are insane ===
 " 'j' = '∆' and 'k' = '˚'
 " http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
 nnoremap ˚ :m .-2<CR>==
@@ -315,26 +315,27 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 vnoremap ˚ :m '>-2<CR>gv=gv
 vnoremap ∆ :m '<+1<CR>gv=gv
 
-" Make yank behave like yank should
+" === Make yank behave like yank should ===
 vnoremap <expr>y "my\"" . v:register . "y`y"
 
-" map visual-block to v
+" === map visual-block to v ===
 nnoremap v <c-v>e
 
-" automatically rebalance windows on vim resize
+" === automatically rebalance windows on vim resize ===
 autocmd VimResized * :wincmd =
-" zoom a vim pane, <C-w>= to re-balance
+
+" === zoom a vim pane, <C-w>= to re-balance ===
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <Leader>= :wincmd =<CR>
 
-" open and close location list
+" === open and close location list ===
 nnoremap <Leader>o :lopen<CR>
 nnoremap <Leader>oo :lclose<CR>
 
-" map <ctrl>c to quit
+" === map <ctrl>c to quit ===
 nnoremap <c-c> :q<CR>
 
-" Make n N nicer
+" === make n N nicer ===
 function! s:nice_next(cmd)
   let view = winsaveview()
   execute "normal! " . a:cmd
@@ -345,11 +346,11 @@ endfunction
 nnoremap <silent> n :call <SID>nice_next('n')<CR>
 nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
-" Make esc more user friendly / ii is for Colemak
+" === Make esc more user friendly / ii is for Colemak ===
 inoremap jk <esc>:w<CR>
 inoremap ii <esc>:w<CR>
 
-" make tab completion travel in a reasonable direction (from @geoffharcourt)
+" === make tab completion travel in a reasonable direction (from @geoffharcourt) ===
 inoremap <S-Tab> <C-P>
 function! s:check_back_space()
   let col = col('.') - 1
@@ -364,14 +365,14 @@ function! InsertTabWrapper()
   endif
 endfunction
 
-" Get dot command repeatability in visual mode (from @geoffharcourt)
+" === Get dot command repeatability in visual mode (from @geoffharcourt) ===
 xnoremap . :normal.<CR>
 
-" Yank to end of line instead of whole line (from @geoffharcourt)
+" === Yank to end of line instead of whole line (from @geoffharcourt) ===
 nnoremap Y y$
 
-" Show syntax highlighting groups for word under cursor, useful for editing
-" colorschemes (from @drewneil)
+" === Show syntax highlighting groups for word under cursor, useful for editing
+" colorschemes (from @drewneil) ===
 nnoremap <Leader>syn :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
@@ -380,7 +381,7 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Code notes
+" === Code notes ===
 nnoremap <Leader>ww :FzfFiles ~/dotfiles-local/vim_notes/<CR>
 nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
 
@@ -392,11 +393,11 @@ nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
 if has("nvim")
   set termguicolors " nvim gui colors
 
-  " the new cursor in 0.2.0 is awesome but might not be default for long so
-  " leaving this enabled even if it disappears
+  " === the new cursor in 0.2.0 is awesome but might not be default for long so
+  " leaving this enabled even if it disappears ===
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-  " Neovim terminal mappings for easy navigation
+  " === Neovim terminal mappings for easy navigation ===
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
   tnoremap <C-h> <C-\><C-n><C-w>h
   tnoremap <C-j> <C-\><C-n><C-w>j
@@ -404,7 +405,7 @@ if has("nvim")
   tnoremap <C-l> <C-\><C-n><C-w>l
   tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
-  " NeoVim term colors
+  " === NeoVim term colors ===
   let g:terminal_color_0  = '#282c34' " black
   let g:terminal_color_1  = '#e26b73' " red
   let g:terminal_color_2  = '#96c475' " green
