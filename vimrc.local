@@ -34,7 +34,6 @@ autocmd InsertEnter * :set number norelativenumber
 autocmd InsertLeave * :set relativenumber
 set autoread
 filetype plugin on
-
 " === omnicompletion ===
 set omnifunc=syntaxcomplete#Complete
 inoremap <c-c> <c-x><c-o>
@@ -53,7 +52,6 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
-
 " === switch background ===
 set background=dark
 " set background=light
@@ -78,7 +76,12 @@ let g:rspec_command = "Dispatch rspec {spec}"
 
 " === vim-test ===
 let test#strategy = "dispatch"
+" this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
+if has("nvim")
+  " open vim-test in neovim terminal if using neovim
+  let test#strategy = "neovim"
+endif
 
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
@@ -93,7 +96,7 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml' " Colorizer
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" === rainbow_parentheses ===
+" === rainbow_parentheses.vim ===
 augroup rainbow " Rainbow Parens
   autocmd BufRead,BufNewFile * RainbowParentheses
 augroup END
@@ -413,7 +416,4 @@ if has("nvim")
   let g:terminal_color_13 = '#c775e0' " brmagenta
   let g:terminal_color_14 = '#51b6c3' " brcyan
   let g:terminal_color_15 = '#abb2bf' " brwhite
-
-  " Test with neovim
-  let test#strategy = "neovim"
 endif
