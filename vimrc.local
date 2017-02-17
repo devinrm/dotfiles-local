@@ -27,6 +27,7 @@ set gdefault " Replace all matches on a line instead of just the first
 set nowrap
 set nofoldenable
 set noshowmode
+set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 set relativenumber " Get the best of both worlds with set number and relativenumber
 set number
 autocmd InsertEnter * :set number norelativenumber
@@ -207,6 +208,15 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 
+" === vim-tmux-navigator ===
+" To use c-h in neovim on OS X
+" (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
+" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+" tic $TERM.ti
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR> TODO: fix this
+" Save on switch
+let g:tmux_navigator_save_on_switch = 1
+
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -366,38 +376,6 @@ endfunc
 nnoremap <Leader>ww :FzfFiles ~/dotfiles-local/vim_notes/<CR>
 nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
 
-"  ____ ____ ____ ____
-" ||t |||m |||u |||x ||
-" ||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|
-
-" To use c-h in neovim on OS X
-" (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
-" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-" tic $TERM.ti
-nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
-nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
-nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-" nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR> TODO: fix this
-
-" Vim-tmux-navigator mappings
-let g:tmux_navigator_no_mappings = 1
-
-" Vim-tmux-runner
-nnoremap <Leader>fr :VtrFocusRunner<CR>
-nnoremap <Leader>sr :VtrSendLinesToRunner<CR>
-nnoremap <Leader>ap :VtrAttachToPane<CR>
-nnoremap <Leader>se :VtrSendCommand<CR>
-nnoremap <Leader>sf :VtrSendFile<CR>
-nnoremap <Leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<CR>
-
-" Save on switch
-let g:tmux_navigator_save_on_switch = 1
-
-" Have tmux-runner open pry session
-nnoremap <Leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<CR>
-
 "  ____ ____ ____ ____ ____ ____
 " ||n |||e |||o |||v |||i |||m ||
 " ||__|||__|||__|||__|||__|||__||
@@ -405,7 +383,6 @@ nnoremap <Leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 if has("nvim")
   set termguicolors " nvim gui colors
-  set inccommand=split " this is necessary for using this %s with a quickfix window
 
   " the new cursor in 0.2.0 is awesome but might not be default for long so
   " leaving this enabled even if it disappears
@@ -436,14 +413,6 @@ if has("nvim")
   let g:terminal_color_13 = '#c775e0' " brmagenta
   let g:terminal_color_14 = '#51b6c3' " brcyan
   let g:terminal_color_15 = '#abb2bf' " brwhite
-
-  " Open terminal in neovim
-  nnoremap <Leader>r :sp<CR>:terminal<CR>
-  nnoremap <Leader>rv :vsp<CR>:terminal<CR>
-
-  " Open gitsh in terminal split
-  nnoremap <Leader>g :sp<CR>:terminal<CR>gsh<CR>
-  nnoremap <Leader>do :sp<CR>:terminal<CR>dotfiles<CR>gsh<CR>
 
   " Test with neovim
   let test#strategy = "neovim"

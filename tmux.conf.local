@@ -96,6 +96,9 @@ bind-key h split-window -h "htop"
 # keybinding for gitsh
 bind-key g split-window -v -c '#{pane_current_path}' -p 50 gitsh
 
+# Go to dotfiles and open gitsh
+bind-key o split-window -h -c ~/dotfiles-local -p 50 gitsh
+
 # Break out of session without exiting current session
 bind-key C-b send-keys 'tat && exit' 'C-m'
 

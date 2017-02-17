@@ -3,7 +3,6 @@ Plug 'rakr/vim-one'
 
 " tmux-vim
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
 
 " search/find/git
 Plug 'mhinz/vim-grepper'
