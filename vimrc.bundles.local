@@ -1,49 +1,55 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
 
-" === search/find/git ===
-Plug 'mhinz/vim-grepper'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-slash'
-Plug 'henrik/vim-indexed-search'
-Plug 'justinmk/vim-dirvish'
-Plug 'junegunn/gv.vim'
-Plug 'christoomey/vim-conflicted'
-Plug 'justinmk/vim-sneak'
-
-" === linting/completion ===
+" === completion ===
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fishbullet/deoplete-ruby'
 Plug 'Shougo/neco-vim'
+Plug 'fishbullet/deoplete-ruby'
 Plug 'zchee/deoplete-zsh'
-Plug 'cohama/lexima.vim'
+
+" === git ===
+Plug 'christoomey/vim-conflicted'
+Plug 'junegunn/gv.vim'
+
+" === language plugins ===
+Plug 'Keithbsmiley/rspec.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'itspriddle/vim-marked'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+
+" === linting ===
 Plug 'w0rp/ale'
 Plug 'wfleming/vim-codeclimate'
 
-" === language plugins ===
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'elixir-lang/vim-elixir'
-Plug 'Keithbsmiley/rspec.vim'
-Plug 'itspriddle/vim-marked'
-Plug 'chrisbra/Colorizer'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-markdown'
-Plug 'wannesm/wmgraphviz.vim'
-
 " === make editing nicer ===
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'junegunn/vim-pseudocl'
+Plug 'cohama/lexima.vim'
+Plug 'derekprior/vim-trimmer'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/vim-peekaboo'
-Plug 'tpope/vim-unimpaired'
-Plug 'derekprior/vim-trimmer'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
-
-" === everything else ===
-Plug 'itchyny/lightline.vim'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
+
+" === move ===
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-sneak'
 Plug 'yuttie/comfortable-motion.vim'
+
+" === other ===
+Plug 'chrisbra/Colorizer'
+Plug 'itchyny/lightline.vim'
+
+" === search ===
+Plug 'henrik/vim-indexed-search'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-slash'
+Plug 'justinmk/vim-dirvish'
+Plug 'mhinz/vim-grepper'
+
