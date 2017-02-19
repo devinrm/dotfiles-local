@@ -365,6 +365,9 @@ nnoremap <Leader>oo :lclose<CR>
 " === Set paste so paste works properly ===
 nnoremap <Leader>p "*p
 
+" === qq to record, Q to replay (recursive map due to peekaboo) ===
+nmap Q @q
+
 " === Source (reload) your vimrc ===
 nnoremap <Leader>re :source $MYVIMRC<CR>
 
