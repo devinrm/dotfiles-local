@@ -204,6 +204,9 @@ augroup rainbow
   autocmd BufRead,BufNewFile * RainbowParentheses
 augroup END
 
+" === vim-signify ===
+let g:signify_vcs_list = [ 'git' ]
+
 " === vim-sneak ===
 let g:sneak#s_next = 1
 let g:sneak#label = 1
@@ -335,6 +338,8 @@ vnoremap <A-j> :m '<+1<CR>gv=gv
 " === Make esc more user friendly / ii is for Colemak ===
 inoremap jk <esc>:w<CR>
 inoremap ii <esc>:w<CR>
+xnoremap jk <Esc>
+xnoremap ii <esc>
 
 " === Toggle relative line number for yanking, i.e. :6y ===
 nnoremap <Leader>ln :set relativenumber!<CR>
