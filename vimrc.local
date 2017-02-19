@@ -7,6 +7,8 @@ let g:loaded_ctrlp = 1 " Don't load
 let s:darwin = has('mac')
 
 set autoread
+set background=dark
+" set background=light
 set clipboard=unnamed " copy paste to clipboard
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
@@ -66,7 +68,7 @@ autocmd TextChanged * call ale#Lint()
 let g:ale_lint_on_text_changed = 0
 
 " === colorizer ===
-let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml' " Colorizer
+let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " === comfortable-motion.vim ===
 let g:comfortable_motion_no_default_key_mappings = 1
@@ -171,6 +173,9 @@ if s:darwin
   let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews on MacOS
 endif
 
+" === Monrovia ===
+colo monrovia
+
 " === omnicompletion ===
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -192,17 +197,15 @@ set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
 
 " === vim-one ===
-colorscheme one
-set background=dark
-" set background=light
+" colorscheme one
 
 " === rainbow_parentheses.vim ===
-augroup rainbow " Rainbow Parens
+augroup rainbow
   autocmd BufRead,BufNewFile * RainbowParentheses
 augroup END
 
 " === vim-sneak ===
-let g:sneak#s_next = 1 " vim-sneak
+let g:sneak#s_next = 1
 let g:sneak#label = 1
 
 " === vim-test ===
