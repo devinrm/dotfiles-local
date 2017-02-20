@@ -16,6 +16,7 @@ set hlsearch " highlight search results
 set ignorecase " case insensitive pattern matching
 set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 set matchtime=0 " Speed up escape after (){} chars
+set mouse=a " Turn mouse on for pair programming
 set nofoldenable
 set noshowmode
 set nowrap
@@ -173,8 +174,8 @@ if s:darwin
   let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews on MacOS
 endif
 
-" === Monrovia ===
-colo monrovia
+" === Sidonia ===
+colo sidonia
 
 " === omnicompletion ===
 filetype plugin on

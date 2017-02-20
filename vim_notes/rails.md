@@ -35,6 +35,19 @@ user.update_attributes(name: "The Dude", email: "dude@abides.org")
 >> user.update_attribute(:name, "The Dude")
 
 -------------------RAILS ROUTES--------------------------
+When you use product_url , you’ll get the full enchilada with protocol and domain name,
+like http://example.com/products/1 . That’s the thing to use when you’re doing
+redirect_to , because the HTTP spec requires a fully qualified URL when doing
+302 Redirect and friends. You also need the full URL if you’re redirecting from
+one domain to another, like product_url(domain: "example2.com", product: product).
+The rest of the time, you can happily use product_path . This will generate only
+the /products/1 part, and that’s all you need when doing links or pointing forms,
+like link_to "My lovely product", product_path(product) . The confusing part is
+that oftentimes the two are interchangeable because of lenient browsers. You can
+do a redirect_to with a product_path and it’ll probably work, but it won’t be valid
+according to spec. And you can link_to a product_url , but then you’re littering
+up your HTML with needless characters, which is a bad idea too. -DHH
+
 root_path -> '/'
 root_url  -> 'http://www.example.com/'
 

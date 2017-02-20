@@ -1,5 +1,4 @@
 " === colorscheme(s) ===
-Plug 'AlessandroYorba/Monrovia'
 Plug 'rakr/vim-one'
 
 " === completion ===
@@ -9,7 +8,7 @@ Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AlessandroYorba/Sidonia'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-grammarous'
 
@@ -31,7 +30,6 @@ Plug 'w0rp/ale'
 Plug 'wfleming/vim-codeclimate'
 
 " === make editing nicer ===
-Plug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
