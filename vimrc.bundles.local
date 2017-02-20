@@ -8,7 +8,6 @@ Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
-Plug 'AlessandroYorba/Sidonia'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-grammarous'
 

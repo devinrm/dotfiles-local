@@ -174,9 +174,6 @@ if s:darwin
   let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews on MacOS
 endif
 
-" === Sidonia ===
-colo sidonia
-
 " === omnicompletion ===
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -198,7 +195,7 @@ set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
 
 " === vim-one ===
-" colorscheme one
+colorscheme one
 
 " === rainbow_parentheses.vim ===
 augroup rainbow
