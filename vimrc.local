@@ -82,7 +82,7 @@ set stl+=%{ConflictedVersion()}
 " === deoplete ===
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
+" let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
@@ -136,7 +136,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'railscasts',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -195,7 +195,10 @@ set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
 
 " === vim-one ===
-colorscheme one
+" colorscheme one
+
+" === vim-railscasts-theme ===
+colorscheme railscasts
 
 " === rainbow_parentheses.vim ===
 augroup rainbow

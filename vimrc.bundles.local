@@ -1,5 +1,6 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
+Plug 'jpo/vim-railscasts-theme'
 
 " === completion ===
 Plug 'fishbullet/deoplete-ruby'
@@ -8,7 +9,6 @@ Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
-Plug 'mhinz/vim-signify'
 Plug 'rhysd/vim-grammarous'
 
 " === git ===
