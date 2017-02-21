@@ -1,8 +1,13 @@
 
 
 # 50-character subject line
-# Ex: If applied, this commit will update getting started documentation
-# Ex: If applied, this commit will merge pull request #123 from user/branch
+# Ex:
+# fix(middleware): ensure Range headers adhere more closely to RFC 2616
+#
+# Added one new dependency, use `range-parser` (Express dependency) to compute
+# range. It is more well-tested in the wild.
+#
+# Fixes #2310
 
 # 72-character wrapped longer description. This should answer:
 
