@@ -16,7 +16,6 @@ Plug 'christoomey/vim-conflicted'
 Plug 'junegunn/gv.vim'
 
 " === language plugins ===
-Plug 'elixir-lang/vim-elixir'
 Plug 'itspriddle/vim-marked'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'

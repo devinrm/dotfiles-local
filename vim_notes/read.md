@@ -6,7 +6,7 @@ Ruby
 * [x] Ruby Science
 * [x] Ruby Under a Microsope
 * [x] The Well-Grounded Rubyist
-* [ ] Eloquent Ruby
+* [x] Eloquent Ruby
 * [ ] Refactoring Ruby
 * [ ] Design Patterns in Ruby
 * [ ] Metaprogramming Ruby
@@ -16,7 +16,7 @@ Ruby
 Rails
 
 * [x] Crafting Rails 4 Applications
-* [ ] Agile Web Development with Rails
+* [x] Agile Web Development with Rails
 * [ ] Objects on Rails
 
 Other
