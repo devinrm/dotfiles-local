@@ -97,4 +97,17 @@ about a singleton resource.
 -----------------attr_accessible----------------------
 Replaced by strong params in Rails 4, so be mindful of which rails version your
 app is on.
+
+----------------difference between new action and createaction-------------
+“the new action creates an Order object in memory simply to give the template
+code something to work with. Once the response is sent to the browser, that
+particular object gets abandoned, and it’ll eventually be reaped by Ruby’s
+garbage collector. It never gets close to the database.
+
+The create action also creates an Order object, populating it from the form fields.
+This object does get saved in the database. So, model objects perform two roles:
+they map data into and out of the database, but they’re also regular objects that
+hold business data. They affect the database only when you tell them to, typically
+by calling save.”
+
 ```
