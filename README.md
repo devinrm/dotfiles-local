@@ -6,11 +6,13 @@ modifications that build on top of the foundation.
 
 Requirements
 ------------
-*I don't recommend using my dotfiles. They're a constant experiment but if you
-insist, follow the installation instructions below.*
+*I don't recommend copying my dotfiles wholesale. Cherry-pick from them so you
+can learn about what each configuration does.*
 
 Install
 -------
+
+Install [rcm](https://github.com/thoughtbot/rcm)
 
 Install Thoughtbot's dotfiles:
 

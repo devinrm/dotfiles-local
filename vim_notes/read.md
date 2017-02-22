@@ -18,6 +18,7 @@ Rails
 * [x] Crafting Rails 4 Applications
 * [x] Agile Web Development with Rails
 * [ ] Objects on Rails
+* [ ] Testing Rails
 
 Other
 
