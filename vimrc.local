@@ -85,8 +85,6 @@ set stl+=%{ConflictedVersion()}
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
-let g:deoplete#max_list = 10
-let g:deoplete#enable_refresh_always = 1
 
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
@@ -302,11 +300,17 @@ imap <C-e> <C-o>$
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
+" === Let's stop typing ':Bundle' ===
+nnoremap <Leader>bu :Bundle<CR>
+
 " === map <ctrl>c to quit ===
 nnoremap <C-c> :q<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>co mmggVG"*y`m
+
+" === Run them migrations ===
+nnoremap <Leader>dm :! rails db:migrate<CR>
 
 " === Convert Ruby 1.8 to 1.9 Hash Syntax ===
 nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
