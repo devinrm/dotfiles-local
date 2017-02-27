@@ -84,6 +84,19 @@ primary_key
 
 timestamp
 
+-------------------Active Record-------------------------
+The model for the table that contains the foreign key always has the belongs_to
+declaration.
+
+Ex:
+class Invoice
+  belongs_to :order
+end
+
+class Order
+  has_one :invoice
+end
+
 -------------------PUSH LOCAL DB TO HEROKU--------------------
 heroku pg:push localdb_development DATABASE_URL
 
