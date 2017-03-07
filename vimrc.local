@@ -39,14 +39,14 @@ set winwidth=84 " Window size
 set winheight=10
 set winminheight=10
 set winheight=999
+" set colorcolumn=
+" highlight ColorColumn guibg=green ctermbg=213
+" call matchadd('ColorColumn', '\%81v', 100)
 
 "  ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n |||s ||
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-
-" === vim-afterglow ===
-colorscheme afterglow
 
 " === ALE ===
 " Disable inherited syntastic
@@ -101,14 +101,15 @@ autocmd FileType dirvish call fugitive#detect(@%)
 let g:rspec_command = "Dispatch rspec {spec}"
 
 " === fzf.vim ===
-nnoremap <C-p> :FzfFiles<CR>
-nnoremap <C-b> :FzfBuffers<CR>
-nnoremap <C-i> :FzfTags<CR>
-nnoremap <C-t> :FzfBTags<CR>
-nnoremap <Leader>f :FzfBLines<CR>
-nnoremap <Leader>c :FzfCommits<CR>
-nnoremap <Leader>old :FzfHistory<CR>
-nnoremap \ :FzfAg<SPACE>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-i> :Tags<CR>
+nnoremap <C-t> :BTags<CR>
+nnoremap <Leader>f :BLines<CR>
+nnoremap <Leader>c :Commits<CR>
+nnoremap <Leader>old :History<CR>
+nnoremap \\ :Ag <C-r><C-w><CR>
+
 let g:fzf_colors =
   \ { 'hl': ['fg', 'Exception'] }
 " Mapping selecting mappings
@@ -122,9 +123,45 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-" This is a lazy hack so I can use GrepperAG when I want search results in a quickfix
-" window
-let g:fzf_command_prefix = 'Fzf'
+
+" Narrow ag results within vim; CTRL-A to select all matches and list them in
+" quickfix window
+function! s:ag_to_qf(line)
+  let parts = split(a:line, ':')
+  return {'filename': parts[0], 'lnum': parts[1], 'col': parts[2],
+        \ 'text': join(parts[3:], ':')}
+endfunction
+
+function! s:ag_handler(lines)
+  if len(a:lines) < 2 | return | endif
+
+  let cmd = get({'ctrl-x': 'split',
+               \ 'ctrl-v': 'vertical split',
+               \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
+  let list = map(a:lines[1:], 's:ag_to_qf(v:val)')
+
+  let first = list[0]
+  execute cmd escape(first.filename, ' %#\')
+  execute first.lnum
+  execute 'normal!' first.col.'|zz'
+
+  if len(list) > 1
+    call setqflist(list)
+    copen
+    wincmd p
+  endif
+endfunction
+
+command! -nargs=* Ag call fzf#run({
+\ 'source':  printf('ag --nogroup --column --color "%s"',
+\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
+\ 'sink*':    function('<sid>ag_handler'),
+\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+\            '--color hl:68,hl+:110',
+\ 'down':    '50%'
+\ })
+
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
@@ -132,10 +169,6 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 " === goyo.vim/limelight.vim ===
 autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
 autocmd! User GoyoLeave Limelight!
-
-" === vim-grepper ===
-" Grep the word under the cursor with Ag.vim
-nnoremap \\ :GrepperAg <C-r><C-w><CR>
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -201,7 +234,7 @@ set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
 
 " === vim-one ===
-" colorscheme one
+colorscheme one
 
 " === vim-railscasts-theme ===
 " colorscheme railscasts
@@ -296,8 +329,8 @@ endfunction
 
 " === Emacs-like beginning and end of line. Experimental, breaks things you might be
 " using. ===
-nnoremap <C-a> ^
-nnoremap <C-e> $
+" nnoremap <C-a> ^
+" nnoremap <C-e> $
 imap <C-a> <C-o>^
 imap <C-e> <C-o>$
 
@@ -412,7 +445,7 @@ nnoremap <Leader>vi :tabe ~/dotfiles-local/vimrc.local<CR>
 nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
 
 " === Code notes ===
-nnoremap <Leader>ww :FzfFiles ~/dotfiles-local/vim_notes/<CR>
+nnoremap <Leader>ww :Files ~/dotfiles-local/vim_notes/<CR>
 nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
 
 " === Run vimscript functions ===

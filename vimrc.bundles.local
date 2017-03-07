@@ -1,7 +1,6 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
 Plug 'jpo/vim-railscasts-theme'
-Plug 'danilo-augusto/vim-afterglow'
 
 " === completion ===
 Plug 'fishbullet/deoplete-ruby'
@@ -17,10 +16,12 @@ Plug 'christoomey/vim-conflicted'
 Plug 'junegunn/gv.vim'
 
 " === language plugins ===
+Plug 'c-brenn/phoenix.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 
@@ -54,5 +55,3 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
 Plug 'justinmk/vim-dirvish'
-Plug 'mhinz/vim-grepper'
-
