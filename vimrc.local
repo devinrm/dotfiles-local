@@ -8,7 +8,7 @@ let s:darwin = has('mac')
 
 set autoread
 if (strftime('%H') % 17) > 7 " change background based on the time of day. Windows, man.
-  colo solarized8_light_flat
+  colo solarized8_light
   set background=light
 else
   colo one
@@ -475,6 +475,9 @@ if has('nvim')
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
   tnoremap <C-d> <C-\><C-n>:bd!<CR>
+
+  " open neovim terminal for whatever reason
+  nnoremap <Leader>r :sp<CR>:terminal<CR>
 
   " === NeoVim term colors ===
   let g:terminal_color_0  = '#282c34' " black
