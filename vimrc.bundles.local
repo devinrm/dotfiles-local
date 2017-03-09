@@ -1,7 +1,7 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
 Plug 'jpo/vim-railscasts-theme'
-Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 
 " === completion ===
 Plug 'fishbullet/deoplete-ruby'

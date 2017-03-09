@@ -8,7 +8,7 @@ let s:darwin = has('mac')
 
 set autoread
 if (strftime('%H') % 17) > 7 " change background based on the time of day. Windows, man.
-  colo gruvbox
+  colo solarized8_light_flat
   set background=light
 else
   colo one
@@ -54,13 +54,13 @@ set winheight=999
 " === ALE ===
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
-  \ 'mode': 'passive',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': [] }
+      \ 'mode': 'passive',
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-       \ 'javascript': ['eslint']
-       \ }
+      \ 'javascript': ['eslint']
+      \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_sign_error = '⚠ '
@@ -116,7 +116,7 @@ nnoremap <Leader>old :History<CR>
 nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
 
 let g:fzf_colors =
-  \ { 'hl': ['fg', 'Exception'] }
+      \ { 'hl': ['fg', 'Exception'] }
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
 xmap <Leader><tab> <plug>(fzf-maps-x)
@@ -141,8 +141,8 @@ function! s:ag_handler(lines)
   if len(a:lines) < 2 | return | endif
 
   let cmd = get({'ctrl-x': 'split',
-               \ 'ctrl-v': 'vertical split',
-               \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
+        \ 'ctrl-v': 'vertical split',
+        \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
   let list = map(a:lines[1:], 's:ag_to_qf(v:val)')
 
   let first = list[0]
@@ -158,14 +158,14 @@ function! s:ag_handler(lines)
 endfunction
 
 command! -nargs=* Ag call fzf#run({
-\ 'source':  printf('ag --nogroup --column --color "%s"',
-\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
-\ 'sink*':    function('<sid>ag_handler'),
-\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-\            '--color hl:68,hl+:110',
-\ 'down':    '50%'
-\ })
+      \ 'source':  printf('ag --nogroup --column --color "%s"',
+      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
+      \ 'sink*':    function('<sid>ag_handler'),
+      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+      \            '--color hl:68,hl+:110',
+      \ 'down':    '50%'
+      \ })
 
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
@@ -180,7 +180,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
