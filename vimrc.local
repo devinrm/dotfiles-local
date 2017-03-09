@@ -7,12 +7,14 @@ let g:loaded_ctrlp = 1 " Don't load
 let s:darwin = has('mac')
 
 set autoread
-if (strftime('%H') % 17) > 7 " change background based on the time of day. Windows, man.
-  set background=light
-else
-  set background=dark
-endif
+set background=dark
 set clipboard=unnamed " copy paste to clipboard
+if (strftime('%H') % 17) > 7
+  colo two-firewatch
+  " colo railscasts
+else
+  colo one
+endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
 set hlsearch " highlight search results
@@ -177,7 +179,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste'],
@@ -234,12 +236,6 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
-
-" === vim-one ===
-colo one
-
-" === railscasts ===
-" colo railscasts
 
 " === rainbow_parentheses.vim ===
 augroup rainbow
