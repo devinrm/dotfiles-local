@@ -7,14 +7,17 @@ let g:loaded_ctrlp = 1 " Don't load
 let s:darwin = has('mac')
 
 set autoread
-set background=dark
-" set background=light
+if (strftime('%H') % 17) > 7 " change background based on the time of day. Windows, man.
+  set background=light
+else
+  set background=dark
+endif
 set clipboard=unnamed " copy paste to clipboard
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
 set hlsearch " highlight search results
 set ignorecase " case insensitive pattern matching
-if has("nvim")
+if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 endif
 set matchtime=0 " Speed up escape after (){} chars
@@ -48,9 +51,9 @@ set winheight=999
 " === ALE ===
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
-  \ "mode": "passive",
-  \ "active_filetypes": [],
-  \ "passive_filetypes": [] }
+  \ 'mode': 'passive',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
        \ 'javascript': ['eslint']
@@ -79,7 +82,7 @@ nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " === vim-conflicted ===
-set stl+=%{ConflictedVersion()}
+set statusline+=%{ConflictedVersion()}
 
 " === deoplete ===
 let g:deoplete#enable_at_startup = 1
@@ -95,7 +98,7 @@ nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfi
 autocmd FileType dirvish call fugitive#detect(@%)
 
 " === dispatch.vim ===
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = 'Dispatch rspec {spec}'
 
 " === fzf.vim ===
 nnoremap <C-p> :Files<CR>
@@ -195,12 +198,12 @@ let g:lightline = {
 function! LightLineFilename()
   let git_root = fnamemodify(fugitive#extract_git_dir(expand("%:p")), ":h")
 
-  if expand("%:t") == ""
-    return "[No Name]"
-  elseif git_root != "" && git_root != "."
-    return substitute(expand("%:p"), git_root . "/", "", "")
+  if expand('%:t') == ''
+    return '[No Name]'
+  elseif git_root != '' && git_root != '.'
+    return substitute(expand('%:p'), git_root . '/', '', '')
   else
-    return expand("%:p")
+    return expand('%:p')
   endif
 endfunction
 
@@ -251,12 +254,12 @@ let g:sneak#s_next = 1
 let g:sneak#label = 1
 
 " === vim-test ===
-let test#strategy = "dispatch"
+let test#strategy = 'dispatch'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
-if has("nvim")
+if has('nvim')
   " open vim-test in neovim terminal if using neovim
-  let test#strategy = "neovim"
+  let test#strategy = 'neovim'
 endif
 
 " === vim-tmux-navigator ===
@@ -392,7 +395,7 @@ nnoremap <Leader>ln :set relativenumber!<CR>
 " === make n N nicer ===
 function! s:nice_next(cmd)
   let view = winsaveview()
-  execute "normal! " . a:cmd
+  execute 'normal! ' . a:cmd
   if view.topline != winsaveview().topline
     normal! zz
   endif
@@ -426,7 +429,7 @@ nnoremap <Leader>sc :split db/schema.rb<CR>
 " colorschemes (from @drewneil) ===
 nnoremap <Leader>syn :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
+  if !exists('*synstack')
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
@@ -461,7 +464,7 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 " ||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|
 
-if has("nvim")
+if has('nvim')
   set termguicolors " nvim gui colors
 
   " === the new cursor in 0.2.0 is awesome but might not be default for long so
