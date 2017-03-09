@@ -8,8 +8,11 @@ let s:darwin = has('mac')
 
 set autoread
 if (strftime('%H') % 17) > 7 " change background based on the time of day. Windows, man.
+  colo gruvbox
   set background=light
 else
+  colo one
+  " colo railscasts
   set background=dark
 endif
 set clipboard=unnamed " copy paste to clipboard
@@ -234,12 +237,6 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
-
-" === vim-one ===
-colorscheme one
-
-" === vim-railscasts-theme ===
-" colorscheme railscasts
 
 " === rainbow_parentheses.vim ===
 augroup rainbow
