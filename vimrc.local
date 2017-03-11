@@ -237,11 +237,6 @@ set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
 
-" === rainbow_parentheses.vim ===
-augroup rainbow
-  autocmd BufRead,BufNewFile * RainbowParentheses
-augroup END
-
 " === vim-signify ===
 let g:signify_vcs_list = [ 'git' ]
 
