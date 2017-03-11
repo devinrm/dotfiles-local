@@ -455,6 +455,11 @@ nnoremap Y y$
 " === Make yank behave like yank should ===
 vnoremap <expr>y "my\"" . v:register . "y`y"
 
+" === Get z commands in visual mode
+xnoremap zz :normal zz<CR>
+xnoremap zt :normal zt<CR>
+xnoremap zb :normal zb<CR>
+
 "  ____ ____ ____ ____ ____ ____
 " ||n |||e |||o |||v |||i |||m ||
 " ||__|||__|||__|||__|||__|||__||
