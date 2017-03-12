@@ -11,6 +11,7 @@ set background=dark
 set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
   colo two-firewatch
+  let g:two_firewatch_italics=1
   " colo railscasts
 else
   colo one
