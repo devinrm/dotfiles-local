@@ -7,14 +7,15 @@ let g:loaded_ctrlp = 1 " Don't load
 let s:darwin = has('mac')
 
 set autoread
-set background=dark
 set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
-  colo two-firewatch
-  let g:two_firewatch_italics=1
-  " colo railscasts
+  set background=light
+  colo scheakur
+  " colo seagull
 else
+  set background=dark
   colo one
+  " colo petrel
   let g:one_allow_italics = 1
 endif
 set cursorline " highlight cursorline
