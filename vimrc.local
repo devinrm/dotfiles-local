@@ -10,12 +10,11 @@ set autoread
 set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
   set background=light
-  colo scheakur
-  " colo seagull
+  colo seagull
 else
   set background=dark
-  colo one
-  " colo petrel
+  " colo one
+  colo petrel
   let g:one_allow_italics = 1
 endif
 set cursorline " highlight cursorline

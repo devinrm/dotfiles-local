@@ -1,7 +1,6 @@
 " === colorscheme(s) ===
-Plug 'rakr/vim-one'
 Plug 'nightsense/seabird'
-Plug 'scheakur/vim-scheakur'
+Plug 'rakr/vim-one'
 
 " === completion ===
 Plug 'fishbullet/deoplete-ruby'
@@ -56,3 +55,4 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
 Plug 'justinmk/vim-dirvish'
+Plug 'Olical/vim-enmasse'
