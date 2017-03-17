@@ -7,6 +7,10 @@
   required = true
 [push]
   default = simple
+[merge]
+  ff = false
+[pull]
+  ff = only
 [alias]
   l = log --pretty=colored
   sla = log --oneline --decorate --graph --all

@@ -1,6 +1,7 @@
 " === colorscheme(s) ===
 Plug 'nightsense/seabird'
 Plug 'rakr/vim-one'
+Plug 'scheakur/vim-scheakur'
 
 " === completion ===
 Plug 'fishbullet/deoplete-ruby'

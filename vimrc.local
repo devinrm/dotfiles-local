@@ -14,7 +14,8 @@ if (strftime('%H') % 17) > 7
 else
   set background=dark
   " colo one
-  colo petrel
+  colo scheakur
+  " colo petrel
   let g:one_allow_italics = 1
 endif
 set cursorline " highlight cursorline
