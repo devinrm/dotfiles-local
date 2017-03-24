@@ -11,6 +11,7 @@ Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
 Plug 'rhysd/vim-grammarous'
+Plug 'beloglazov/vim-online-thesaurus'
 
 " === git ===
 Plug 'christoomey/vim-conflicted'
@@ -34,7 +35,7 @@ Plug 'wfleming/vim-codeclimate'
 Plug 'derekprior/vim-trimmer'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-" Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'

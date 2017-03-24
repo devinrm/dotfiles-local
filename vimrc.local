@@ -62,7 +62,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['eslint']
+      \ 'javascript': ['standard', 'eslint']
       \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -114,6 +114,7 @@ nnoremap <C-t> :BTags<CR>
 nnoremap <Leader>f :BLines<CR>
 nnoremap <Leader>c :Commits<CR>
 nnoremap <Leader>old :History<CR>
+nnoremap \ :Rg<SPACE>
 " grep the word under the cursor, select it, and then drop it into a quickfix
 " window
 nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
@@ -173,6 +174,13 @@ command! -nargs=* Ag call fzf#run({
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " === goyo.vim/limelight.vim ===
 autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
@@ -240,6 +248,11 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
+
+" === rainbow_parentheses.vim ===
+ augroup rainbow
+   autocmd BufRead,BufNewFile * RainbowParentheses
+ augroup END
 
 " === vim-signify ===
 let g:signify_vcs_list = [ 'git' ]
