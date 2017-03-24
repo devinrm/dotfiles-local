@@ -25,6 +25,9 @@ export PATH="$PATH:/path/to/elixir/bin"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# yarn
+export PATH="$PATH:`yarn global bin`"
+
 # fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
