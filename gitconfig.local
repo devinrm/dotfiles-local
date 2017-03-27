@@ -1,6 +1,6 @@
 [user]
   name = Devin Morgenstern
-  email = devin.morgenstern@gmail.com
+  email = devin.morgenstern@protonmail.com
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f

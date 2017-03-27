@@ -5,6 +5,9 @@ bind K - kill session
 swap panes
 <C-s>s - swap panes
 
+kill pane
+<C-s>x
+
 switch session
 <C-s>L - move back and forth between tmux sessions
 
