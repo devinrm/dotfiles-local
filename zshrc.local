@@ -31,9 +31,6 @@ export PATH="$PATH:`yarn global bin`"
 # fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# the f*ck - fix your f*ckups
-eval "$(thefuck --alias)"
-
 # Auto-attach new shell sessions in tmux
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 

@@ -62,7 +62,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['standard', 'eslint']
+      \ 'javascript': ['standard']
       \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -248,11 +248,6 @@ set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 set completeopt=menu,preview " Shows menu and any addition tips
-
-" === rainbow_parentheses.vim ===
- augroup rainbow
-   autocmd BufRead,BufNewFile * RainbowParentheses
- augroup END
 
 " === vim-signify ===
 let g:signify_vcs_list = [ 'git' ]
