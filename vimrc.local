@@ -420,7 +420,7 @@ nnoremap <Leader>p "*p
 nmap Q @q
 
 " === Source (reload) your vimrc ===
-nnoremap <Leader>re :source $MYVIMRC<CR>
+command! ReloadVimrc source $MYVIMRC
 
 " === Make it easier to run ruby files inside vim ===
 nnoremap <Leader>ru :!ruby -w %<CR>
