@@ -29,7 +29,6 @@ Plug 'tpope/vim-markdown'
 
 " === linting ===
 Plug 'w0rp/ale'
-Plug 'wfleming/vim-codeclimate'
 
 " === make editing nicer ===
 Plug 'derekprior/vim-trimmer'
