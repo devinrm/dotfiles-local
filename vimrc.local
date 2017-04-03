@@ -66,11 +66,6 @@ let g:ale_linters = {
       \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-" configure Lightline and ALE
-function! g:LightLineAleStatus()
-    let l:s = ALEGetStatusLine()
-    return ('' != l:s ? ['', l:s, '' ] : '')
-endfunction
 let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠ '
 let g:ale_echo_msg_error_str = 'Error'
@@ -227,6 +222,11 @@ function! LightLineFilename()
 endfunction
 
 " configure Lightline and ALE
+function! g:LightLineAleStatus()
+    let l:s = ALEGetStatusLine()
+    return ('' != l:s ? ['', l:s, '' ] : '')
+endfunction
+
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers', 'alestatus': 'g:LightLineAleStatus'}
 
 augroup alestatusupdate
