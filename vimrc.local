@@ -20,6 +20,7 @@ else
 endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
+set guicursor+=a:blinkon0 " Disable blinking cursor
 highlight Comment cterm=italic gui=italic
 set hlsearch " highlight search results
 set ignorecase " case insensitive pattern matching
