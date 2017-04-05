@@ -63,7 +63,8 @@ alias \❯=''
 
 # Open applications I use often
 alias fire="open -a FirefoxDeveloperEdition"
-alias k="open -a KeePassX"
+alias k="open -a KeePassXC"
+alias gh="open https://github.com/devinrm"
 
 alias dotfiles="cd ~/dotfiles-local"
 

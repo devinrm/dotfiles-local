@@ -10,13 +10,16 @@ set autoread
 set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
   set background=light
-  colo seagull
+  colo one
+  " colo seagull
   " colo scheakur
 else
   set background=dark
-  " colo one
-  colo scheakur
+  colo one
   let g:one_allow_italics = 1
+  highlight ColorColumn guibg=#262626
+  highlight CursorLine guibg=#262626
+  " colo scheakur
 endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
@@ -72,6 +75,8 @@ let g:ale_sign_warning = '⚠ '
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 set updatetime=1000
 autocmd BufEnter * set conceallevel=0
 autocmd CursorHold * call ale#Lint()
