@@ -6,7 +6,6 @@ alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pi
 alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 
 # Vim
-alias n="nvim"
 alias vimdiff="nvim -d"
 
 # Reload ZSH
