@@ -339,9 +339,12 @@ endif
 
 " === make tab completion travel in a reasonable direction (from @geoffharcourt) ===
 inoremap <S-Tab> <C-P>
+
 function! s:check_back_space()
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] !~ '\k'
+  let line = getline('.')                         " current line
+  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
+  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  return strlen(substr) == 0
 endfunction
 
 function! InsertTabWrapper()
