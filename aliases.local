@@ -74,4 +74,4 @@ alias db="dynamodb-local"
 
 alias dep="bundle exec dotenv bin/fd app deploy"
 
-alias js='jekyll serve & ; open http://127.0.0.1:4000'
+alias js='bundle exec jekyll serve & ; open http://127.0.0.1:4000'
