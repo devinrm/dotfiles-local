@@ -15,6 +15,7 @@ alias z=". ~/.zshrc"
 alias p="pry"
 alias i="irb"
 alias gsh="gitsh"
+alias aa="gitsh; aa"
 alias ru="rubocop"
 alias da="dasht"
 alias prettyjson="python -m json.tool"
@@ -72,6 +73,8 @@ alias tl="tmux list-sessions"
 
 alias db="dynamodb-local"
 
-alias dep="bundle exec dotenv bin/fd app deploy"
+alias dep="cd ops; bundle exec dotenv bin/fd app deploy"
 
-alias js='bundle exec jekyll serve & ; open http://127.0.0.1:4000'
+alias na="cd node-acceptance"
+
+alias js="bundle exec jekyll serve & ; open http://127.0.0.1:4000"

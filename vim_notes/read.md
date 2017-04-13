@@ -8,10 +8,10 @@ Ruby
 * [x] The Well-Grounded Rubyist
 * [x] Eloquent Ruby
 * [ ] Refactoring Ruby
-* [ ] Design Patterns in Ruby
 * [ ] Metaprogramming Ruby
 * [ ] Exceptional Ruby
 * [ ] MiniTest Cookbook
+* [ ] Clean Ruby
 
 Rails
 
