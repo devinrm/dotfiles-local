@@ -76,7 +76,7 @@ set -g status-bg default
 set -g status-attr bright
 
 # set tab color
-set-window-option -g window-status-current-bg '#80a0ff'
+set-window-option -g window-status-current-bg '#4e4e4e'
 set-window-option -g window-status-current-fg '#000000'
 
 # Bind <c-j> to choose-tree and integrate with fzf
