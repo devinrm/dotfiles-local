@@ -108,6 +108,7 @@ let g:tern_show_signature_in_pum = '0'
 let g:tern#filetypes = [
                 \ 'jsx',
                 \ 'javascript.jsx',
+                \ 'html'
                 \ ]
 
 " === dirvish ===
@@ -277,9 +278,6 @@ set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 " set completeopt=menu,preview " Shows menu and any addition tips
 set completeopt-=preview
-
-" === vim-signify ===
-let g:signify_vcs_list = [ 'git' ]
 
 " === vim-sneak ===
 let g:sneak#s_next = 1
