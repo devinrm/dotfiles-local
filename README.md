@@ -1,5 +1,5 @@
 ## Dotfiles
-===================
+-----------
 Using [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles) as the
 foundation of my personal configuration. These files are the `.local`
 modifications that build on top of the foundation.

@@ -102,6 +102,14 @@ let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 let g:deoplete#max_list = 15
 
+" === deoplete ternjs ===
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ ]
+
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
@@ -267,7 +275,8 @@ set complete+=k~/.vim/dictionaries/rails_spec_completions.txt
 set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
 set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
-set completeopt=menu,preview " Shows menu and any addition tips
+" set completeopt=menu,preview " Shows menu and any addition tips
+set completeopt-=preview
 
 " === vim-signify ===
 let g:signify_vcs_list = [ 'git' ]
