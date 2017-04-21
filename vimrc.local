@@ -66,7 +66,9 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['standard']
+      \ 'javascript': ['standard'],
+      \ 'css': ['stylelint'],
+      \ 'scss': ['stylelint']
       \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '✓']
@@ -77,7 +79,7 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
-set updatetime=1000
+set updatetime=500
 autocmd BufEnter * set conceallevel=0
 autocmd CursorHold * call ale#Lint()
 autocmd CursorHoldI * call ale#Lint()
