@@ -37,8 +37,10 @@ set noshowmode
 set nowrap
 set number
 set relativenumber " Get the best of both worlds with set number and relativenumber
-autocmd InsertEnter * :set number norelativenumber
-autocmd InsertLeave * :set relativenumber
+augroup numbers
+  autocmd InsertEnter * :set number norelativenumber
+  autocmd InsertLeave * :set relativenumber
+augroup END
 set scrolloff=5 " show 5 lines above and below cursor
 set smartcase " overrides ignorecase if pattern contains upcase
 set spelllang=en_us " Set region to US English
@@ -82,11 +84,13 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
 set updatetime=500
-autocmd BufEnter * set conceallevel=0
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-autocmd TextChanged * call ale#Lint()
+augroup alesettings
+  autocmd BufEnter * set conceallevel=0
+  autocmd CursorHold * call ale#Lint()
+  autocmd CursorHoldI * call ale#Lint()
+  autocmd InsertLeave * call ale#Lint()
+  autocmd TextChanged * call ale#Lint()
+augroup END
 let g:ale_lint_on_text_changed = 0
 
 " === colorizer ===
@@ -120,7 +124,9 @@ let g:loaded_netrwPlugin = 1
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
 nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-autocmd FileType dirvish call fugitive#detect(@%)
+augroup dirvishfugitive
+  autocmd FileType dirvish call fugitive#detect(@%)
+augroup END
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
@@ -154,26 +160,26 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Narrow ag results within vim; CTRL-A to select all matches and list them in
 " quickfix window
 function! s:ag_to_qf(line)
-  let parts = split(a:line, ':')
-  return {'filename': parts[0], 'lnum': parts[1], 'col': parts[2],
-        \ 'text': join(parts[3:], ':')}
+  let l:parts = split(a:line, ':')
+  return {'filename': l:parts[0], 'lnum': l:parts[1], 'col': l:parts[2],
+        \ 'text': join(l:parts[3:], ':')}
 endfunction
 
 function! s:ag_handler(lines)
   if len(a:lines) < 2 | return | endif
 
-  let cmd = get({'ctrl-x': 'split',
+  let l:cmd = get({'ctrl-x': 'split',
         \ 'ctrl-v': 'vertical split',
         \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
-  let list = map(a:lines[1:], 's:ag_to_qf(v:val)')
+  let l:list = map(a:lines[1:], 's:ag_to_qf(v:val)')
 
-  let first = list[0]
-  execute cmd escape(first.filename, ' %#\')
-  execute first.lnum
-  execute 'normal!' first.col.'|zz'
+  let l:first = l:list[0]
+  execute l:cmd escape(l:first.filename, ' %#\')
+  execute l:first.lnum
+  execute 'normal!' l:first.col.'|zz'
 
-  if len(list) > 1
-    call setqflist(list)
+  if len(l:list) > 1
+    call setqflist(l:list)
     copen
     wincmd p
   endif
@@ -202,8 +208,10 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 "   \   <bang>0)
 
 " === goyo.vim/limelight.vim ===
-autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
-autocmd! User GoyoLeave Limelight!
+augroup goyolimelight
+  autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
+  autocmd! User GoyoLeave Limelight!
+augroup END
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
