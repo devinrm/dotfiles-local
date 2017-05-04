@@ -66,7 +66,8 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['standard'],
+      \ 'javascript': ['standard', 'xo'],
+      \ 'html': ['standard', 'xo', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint']
       \ }
@@ -451,7 +452,10 @@ nnoremap <Leader>p "*p
 nmap Q @q
 
 " === Source (reload) your vimrc ===
-command! ReloadVimrc source $MYVIMRC
+augroup autosourcing
+  autocmd!
+  autocmd BufWritePost vimrc.local source %
+augroup END
 
 " === Make it easier to run ruby files inside vim ===
 nnoremap <Leader>ru :!ruby -w %<CR>
