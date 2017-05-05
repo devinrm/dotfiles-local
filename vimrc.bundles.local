@@ -1,5 +1,4 @@
 " === colorscheme(s) ===
-Plug 'nightsense/seabird'
 Plug 'rakr/vim-one'
 Plug 'scheakur/vim-scheakur'
 
@@ -13,6 +12,7 @@ Plug 'zchee/deoplete-zsh'
 " === experiments ===
 Plug 'rhysd/vim-grammarous'
 Plug 'beloglazov/vim-online-thesaurus'
+Plug 'hail2u/vim-css3-syntax'
 
 " === git ===
 Plug 'christoomey/vim-conflicted'

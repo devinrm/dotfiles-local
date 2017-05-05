@@ -1,7 +1,7 @@
 # Update packages and gems
 alias brewu="brew update && brew upgrade"
 alias yarnu="yarn global upgrade"
-alias npmu="npm outdated -g --depth=0 && npm update -g"
+
 alias gemu="gem update"
 alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
 alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
@@ -37,7 +37,7 @@ alias ct="cat ~/dotfiles-local/vim_notes/readline.md"
 alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
 alias racer="ruby -r tracer"
-alias ras="rails s"
+alias ras="bundle exec rails s"
 alias rake="RUBYOPT=W0 rake"
 
 # JavaScript
@@ -62,7 +62,7 @@ alias sed="sed -E"
 alias \❯=''
 
 # Open applications I use often
-alias fire="open -a FirefoxDeveloperEdition"
+alias fire="open -a Firefox"
 alias k="open -a KeePassXC"
 alias gh="open https://github.com/devinrm"
 
