@@ -67,10 +67,11 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['standard', 'xo'],
-      \ 'html': ['standard', 'xo', 'tidy', 'htmlhint'],
+      \ 'javascript': ['standard'],
+      \ 'html': ['standard', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
-      \ 'scss': ['stylelint']
+      \ 'scss': ['stylelint'],
+      \ 'ruby': ['rubocop', 'brakeman', 'reek']
       \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['%d Error(s)', '%d Warning(s)', 'o/']
@@ -268,6 +269,11 @@ let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css
 if s:darwin
   let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews on MacOS
 endif
+
+" === neoformat ===
+" augroup prettier
+  " autocmd BufWritePre *.js Neoformat
+" augroup END
 
 " === omnicompletion ===
 filetype plugin on
