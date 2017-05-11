@@ -237,12 +237,12 @@ let g:lightline = {
       \ }
 
 function! LightLineFilename()
-  let git_root = fnamemodify(fugitive#extract_git_dir(expand("%:p")), ":h")
+  let l:git_root = fnamemodify(fugitive#extract_git_dir(expand('%:p')), ':h')
 
-  if expand('%:t') == ''
+  if expand('%:t') ==? ''
     return '[No Name]'
-  elseif git_root != '' && git_root != '.'
-    return substitute(expand('%:p'), git_root . '/', '', '')
+  elseif l:git_root !=? '' && l:git_root !=? '.'
+    return substitute(expand('%:p'), l:git_root . '/', '', '')
   else
     return expand('%:p')
   endif
@@ -251,7 +251,7 @@ endfunction
 " configure Lightline and ALE
 function! g:LightLineAleStatus()
     let l:s = ALEGetStatusLine()
-    return ('' != l:s ? ['', l:s, '' ] : '')
+    return ('' !=? l:s ? ['', l:s, '' ] : '')
 endfunction
 
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers', 'alestatus': 'g:LightLineAleStatus'}
@@ -301,12 +301,12 @@ let g:sneak#s_next = 1
 let g:sneak#label = 1
 
 " === vim-test ===
-let test#strategy = 'dispatch'
+let g:test#strategy = 'dispatch'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
-let test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
+let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 if has('nvim')
   " open vim-test in neovim terminal if using neovim
-  let test#strategy = 'neovim'
+  let g:test#strategy = 'neovim'
 endif
 
 " === vim-tmux-navigator ===
@@ -330,7 +330,9 @@ let g:tmux_navigator_save_on_switch = 1
 " |/__\|/__\|/__\|/__\|
 
 " === automatically rebalance windows on vim resize ===
-autocmd VimResized * :wincmd =
+augroup resize
+  autocmd VimResized * :wincmd =
+augroup END
 
 " === zoom a vim pane, <C-w>= to re-balance ===
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
@@ -365,8 +367,8 @@ endif
 inoremap <S-Tab> <C-P>
 
 function! s:check_back_space()
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] !~ '\k'
+  let l:col = col('.') - 1
+  return !l:col || getline('.')[l:col - 1] !~? '\k'
 endfunction
 
 function! InsertTabWrapper()
@@ -442,9 +444,9 @@ nnoremap <Leader>ln :set relativenumber!<CR>
 
 " === make n N nicer ===
 function! s:nice_next(cmd)
-  let view = winsaveview()
+  let l:view = winsaveview()
   execute 'normal! ' . a:cmd
-  if view.topline != winsaveview().topline
+  if l:view.topline != winsaveview().topline
     normal! zz
   endif
 endfunction
@@ -484,7 +486,7 @@ function! <SID>SynStack()
   if !exists('*synstack')
     return
   endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  echo map(synstack(line('.'), col('.')), "synIDattr(v:val, 'name')")
 endfunc
 
 " === map visual-block to v ===
@@ -525,7 +527,9 @@ if has('nvim')
   set termguicolors " nvim gui colors
 
   " === Neovim terminal mappings for easy navigation ===
-  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  augroup neoterm
+    au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  augroup END
   tnoremap <C-h> <C-\><C-n><C-w>h
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
