@@ -23,6 +23,10 @@ As you might guess, substituting any other number for 0 migrates to that version
 --------------------RSPEC---------------------
 rails new App --skip-tests
 
+or
+
+rails new App -T
+
 --------------------SEE LIST OF ALL RAKE TASKS---------------------
 rake db -T -A
 
