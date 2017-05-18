@@ -74,12 +74,9 @@ let g:ale_linters = {
       \ 'ruby': ['rubocop', 'brakeman', 'reek']
       \ }
 let g:ale_set_quickfix = 0
-let g:ale_statusline_format = ['%d Error(s)', '%d Warning(s)', 'ᕕ( ᐛ )ᕗ']
-" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '✓']
-" let g:ale_sign_error = '⨉'
-" let g:ale_sign_warning = '⚠ '
-let g:ale_echo_msg_error_str = 'Error'
-let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', 'ᕕ( ᐛ )ᕗ']
+let g:ale_sign_error = '⨉'
+let g:ale_sign_warning = '⚠ '
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " highlight clear ALEErrorSign
 " highlight clear ALEWarningSign
@@ -134,7 +131,6 @@ let g:rspec_command = 'Dispatch rspec {spec}'
 " === fzf.vim ===
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <C-i> :Tags<CR>
 nnoremap <C-t> :BTags<CR>
 nnoremap <Leader>f :BLines<CR>
 nnoremap <Leader>c :Commits<CR>
