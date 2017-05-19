@@ -2,6 +2,8 @@
 # that those keys can be used for other things.
 unsetopt flowcontrol
 
+export AWS_DEFAULT_REGION=us-east-1
+
 # setopt auto_cd
 # cdpath=($HOME/code $HOME/code/spree $HOME/code/rails)
 
