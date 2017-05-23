@@ -9,12 +9,12 @@ let s:darwin = has('mac')
 set autoread
 set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
-  set background=light
   colo one
+  set background=light
   " colo scheakur
 else
-  set background=dark
   colo one
+  set background=dark
   let g:one_allow_italics = 1
   highlight ColorColumn guibg=#262626
   highlight CursorLine guibg=#262626
@@ -217,7 +217,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [
       \             ['mode', 'paste', 'alestatus'],
@@ -388,6 +388,7 @@ imap <C-n> <C-o>j
 imap <C-p> <C-o>k
 imap <C-f> <C-o>l
 imap <C-b> <C-o>h
+imap <C-k> <C-o>dd
 
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
@@ -506,6 +507,10 @@ nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
 " === Code notes ===
 nnoremap <Leader>ww :Files ~/dotfiles-local/vim_notes/<CR>
 nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
+
+" === New Split Windows ===
+nnoremap <Leader>wv :vsplit<CR>
+nnoremap <Leader>wh :split<CR>
 
 " === Run vimscript functions ===
 nnoremap <Leader>x :exec getline(".")<CR>

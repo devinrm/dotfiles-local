@@ -61,7 +61,7 @@ set -g status-left " #S Ϟ "
 set-option -g status-left-length 50
 
 # More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "#(battery -p -t -g '#80a0ff')  #(date '+%a, %b %d - %H:%M') "
+set -g status-right "#(battery -p -t -g '#4faaff')  #(date '+%a, %b %d - %H:%M') "
 
 # Change pane border color
 set -g pane-border-fg '#81c079'
@@ -69,7 +69,7 @@ set -g pane-active-border-fg '#c678d7'
 set -g pane-active-border-bg default
 
 # set status bar color
-set -g status-fg '#80a0ff'
+set -g status-fg '#4faaff'
 set -g status-bg default
 set -g status-attr bright
 
