@@ -164,3 +164,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   '(progn
     (require 'tern-auto-complete)
     (tern-ac-setup)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (key-chord autopair tern-auto-complete smooth-scrolling multiple-cursors web-mode highlight-indentation diminish enh-ruby-mode dtrt-indent fiplr scss-mode sass-mode robe helm-ag auto-complete rainbow-delimiters fill-column-indicator jbeans-theme relative-line-numbers tern helm js2-mode projectile magit iedit))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
