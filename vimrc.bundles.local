@@ -49,7 +49,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
 
 " === search ===
-Plug 'henrik/vim-indexed-search'
+UnPlug 'henrik/vim-indexed-search'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
