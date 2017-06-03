@@ -18,7 +18,7 @@ eval "$(rbenv init - --no-rehash)"
 export PATH="$HOME/.node/bin:$PATH"
 
 # go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:~/src/go/bin
 export GOPATH=$HOME/src/go
 
 # elixir
