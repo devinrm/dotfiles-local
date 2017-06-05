@@ -71,7 +71,8 @@ let g:ale_linters = {
       \ 'html': ['standard', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
-      \ 'ruby': ['rubocop', 'reek']
+      \ 'ruby': ['rubocop', 'reek'],
+      \ 'text': ['vale']
       \ }
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['%d Error(s)', '%d Warning(s)', 'ᕕ( ᐛ )ᕗ']
