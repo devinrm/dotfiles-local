@@ -543,7 +543,7 @@ if has('nvim')
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
-  tnoremap <Esc> <C-\><C-n>
+  tnoremap jk <C-\><C-n>
   tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
   " open neovim terminal for whatever reason
