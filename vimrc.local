@@ -543,26 +543,9 @@ if has('nvim')
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
+  tnoremap <Esc> <C-\><C-n>
   tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
   " open neovim terminal for whatever reason
-  nnoremap <Leader>r :sp<CR>:terminal<CR>
-
-  " === NeoVim term colors ===
-  let g:terminal_color_0  = '#282c34' " black
-  let g:terminal_color_1  = '#e26b73' " red
-  let g:terminal_color_2  = '#96c475' " green
-  let g:terminal_color_3  = '#d29b61' " yellow
-  let g:terminal_color_4  = '#5daef2' " blue
-  let g:terminal_color_5  = '#c775e0' " magenta
-  let g:terminal_color_6  = '#51b6c3' " cyan
-  let g:terminal_color_7  = '#abb2bf' " white
-  let g:terminal_color_8  = '#282c34' " brblack
-  let g:terminal_color_9  = '#e26b73' " brred
-  let g:terminal_color_10 = '#96c475' " brgreen
-  let g:terminal_color_11 = '#d29b61' " bryellow
-  let g:terminal_color_12 = '#5daef2' " brblue
-  let g:terminal_color_13 = '#c775e0' " brmagenta
-  let g:terminal_color_14 = '#51b6c3' " brcyan
-  let g:terminal_color_15 = '#abb2bf' " brwhite
+  nnoremap <Leader>r :tabnew<CR>:terminal<CR>
 endif
