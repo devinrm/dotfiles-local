@@ -21,6 +21,16 @@ Plug 'junegunn/gv.vim'
 
 " === language plugins ===
 Plug 'c-brenn/phoenix.vim'
+function! BuildComposer(info)
+  if a:info.status !=? 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'itspriddle/vim-marked'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'
@@ -47,6 +57,7 @@ Plug 'yuttie/comfortable-motion.vim'
 " === other ===
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " === search ===
 UnPlug 'henrik/vim-indexed-search'
@@ -58,14 +69,3 @@ Plug 'junegunn/vim-slash'
 Plug 'justinmk/vim-dirvish'
 Plug 'Olical/vim-enmasse'
 
-function! BuildComposer(info)
-  if a:info.status !=? 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
