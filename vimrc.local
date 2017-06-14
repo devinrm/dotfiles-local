@@ -11,13 +11,15 @@ set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
   colo one
   set background=light
+  " set background=dark
+  " colo nova
   " colo scheakur
 else
   colo one
-  set background=dark
   let g:one_allow_italics = 1
   highlight ColorColumn guibg=#262626
   highlight CursorLine guibg=#262626
+  set background=dark
   " colo scheakur
 endif
 set cursorline " highlight cursorline
@@ -93,6 +95,9 @@ augroup alesettings
   autocmd TextChanged * call ale#Lint()
 augroup END
 let g:ale_lint_on_text_changed = 0
+
+" === vim-closetag ===
+let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
