@@ -26,6 +26,7 @@
   mup = !git checkout master && git pull && git checkout -
   rup = !git checkout release/34 && git pull && git checkout -
   stu = stash -u
+  empty = commit --allow-empty -m "[SPEC-ALL]"
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
   coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr)%C(bold blue)%an%Creset
