@@ -409,7 +409,7 @@ imap <C-n> <C-o>j
 imap <C-p> <C-o>k
 imap <C-f> <C-o>l
 imap <C-b> <C-o>h
-imap <C-k> <C-o>dd
+imap <C-k> <C-o>D
 
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
