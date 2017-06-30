@@ -34,6 +34,7 @@ set nofoldenable
 set noshowmode
 set nowrap
 set number
+set redrawtime=1000
 set relativenumber " Get the best of both worlds with set number and relativenumber
 augroup numbers
   autocmd InsertEnter * :set number norelativenumber
@@ -50,8 +51,7 @@ set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=longest:full,full
 set winwidth=84 " Window size
 set winheight=10
-set winminheight=10
-set winheight=999
+set winminheight=5
 
 "  ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n |||s ||
