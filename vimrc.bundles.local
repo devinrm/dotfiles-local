@@ -1,7 +1,6 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
 Plug 'scheakur/vim-scheakur'
-Plug 'trevordmiller/nova-vim'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }

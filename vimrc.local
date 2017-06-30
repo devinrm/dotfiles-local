@@ -12,15 +12,14 @@ if (strftime('%H') % 17) > 7
   colo one
   set background=light
   " set background=dark
-  " colo nova
   " colo scheakur
 else
-  colo one
-  let g:one_allow_italics = 1
-  highlight ColorColumn guibg=#262626
-  highlight CursorLine guibg=#262626
+  " colo one
+  " let g:one_allow_italics = 1
+  " highlight ColorColumn guibg=#bada55
+  " highlight CursorLine guibg=#bada55
   set background=dark
-  " colo scheakur
+  colo scheakur
 endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
@@ -69,8 +68,8 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['standard', 'prettier', 'prettier-eslint'],
-      \ 'html': ['standard', 'tidy', 'htmlhint'],
+      \ 'javascript': ['standard', 'eslint', 'prettier', 'prettier-eslint'],
+      \ 'html': ['standard', 'eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek'],
