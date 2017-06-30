@@ -122,15 +122,6 @@ let g:tern#filetypes = [
                 \ 'html'
                 \ ]
 
-" === dirvish ===
-let g:loaded_netrwPlugin = 1
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-augroup dirvishfugitive
-  autocmd FileType dirvish call fugitive#detect(@%)
-augroup END
-
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
 
@@ -276,6 +267,13 @@ endif
 " augroup prettier
   " autocmd BufWritePre *.js Neoformat
 " augroup END
+
+" === netrw ===
+let g:netrw_browse_split = 2
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 " === omnicompletion ===
 filetype plugin on
