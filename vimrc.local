@@ -11,8 +11,6 @@ set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
   colo one
   set background=light
-  " set background=dark
-  " colo scheakur
 else
   " colo one
   " let g:one_allow_italics = 1
