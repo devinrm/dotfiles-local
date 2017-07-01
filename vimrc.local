@@ -12,12 +12,12 @@ if (strftime('%H') % 17) > 7
   colo one
   set background=light
 else
-  " colo one
-  " let g:one_allow_italics = 1
-  " highlight ColorColumn guibg=#bada55
-  " highlight CursorLine guibg=#bada55
+  colo quantum
+  let g:quantum_italics=1
+
+  " let g:despacio_Sunset = 1
+  " colo despacio
   set background=dark
-  colo scheakur
 endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
@@ -66,7 +66,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['standard', 'eslint', 'prettier', 'prettier-eslint'],
+      \ 'javascript': ['', 'eslint', 'prettier', 'prettier-eslint'],
       \ 'html': ['standard', 'eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -269,7 +269,7 @@ endif
 " augroup END
 
 " === netrw ===
-let g:netrw_browse_split = 2
+let g:netrw_browse_split = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1

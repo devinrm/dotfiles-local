@@ -1,6 +1,7 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
-Plug 'scheakur/vim-scheakur'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'AlessandroYorba/Despacio'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -57,10 +58,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'yuttie/comfortable-motion.vim'
 
 " === other ===
+Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
 
 " === search ===
 UnPlug 'henrik/vim-indexed-search'
