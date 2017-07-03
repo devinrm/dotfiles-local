@@ -264,9 +264,9 @@ if s:darwin
 endif
 
 " === neoformat ===
-" augroup prettier
-  " autocmd BufWritePre *.js Neoformat
-" augroup END
+augroup prettier
+  autocmd BufWritePre *.js Neoformat
+augroup END
 
 " === netrw ===
 let g:netrw_browse_split = 0
