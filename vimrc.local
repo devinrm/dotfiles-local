@@ -12,11 +12,8 @@ if (strftime('%H') % 17) > 7
   colo one
   set background=light
 else
-  " colo quantum
-  " let g:quantum_italics=1
-
-  let g:sierra_Campfire = 1
-  colo sierra
+  let g:alduin_Contract_Vampirism = 1
+  colorscheme alduin
   highlight ColorColumn guibg=#282c34
 endif
 set cursorline " highlight cursorline

@@ -1,7 +1,6 @@
 " === colorscheme(s) ===
 Plug 'rakr/vim-one'
-Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'AlessandroYorba/Sierra'
+Plug 'AlessandroYorba/Alduin'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
