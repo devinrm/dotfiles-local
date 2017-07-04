@@ -123,9 +123,6 @@ let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
-" === vim-conflicted ===
-set statusline+=%{ConflictedVersion()}
-
 " === deoplete ===
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
@@ -230,11 +227,6 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
-
-" === vim-marked ===
-if s:darwin
-  let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews on MacOS
-endif
 
 " === netrw ===
 let g:netrw_browse_split = 0
