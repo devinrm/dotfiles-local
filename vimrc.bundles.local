@@ -58,8 +58,9 @@ Plug 'yuttie/comfortable-motion.vim'
 " === other ===
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
-Plug 'itchyny/lightline.vim'
+UnPlug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
 
 " === search ===
 UnPlug 'henrik/vim-indexed-search'

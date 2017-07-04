@@ -10,10 +10,12 @@ set autoread
 set clipboard=unnamed " copy paste to clipboard
 if (strftime('%H') % 17) > 7
   colo one
+  let g:airline_theme='one'
   set background=light
 else
   let g:alduin_Contract_Vampirism = 1
   colorscheme alduin
+  let g:airline_theme='alduin'
   highlight ColorColumn guibg=#282c34
 endif
 set cursorline " highlight cursorline
@@ -55,6 +57,19 @@ set winminheight=5
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
+" === vim-airline ===
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_error = '%{ale#statusline#Status()}'
+let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
+
 " === ALE ===
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
@@ -77,16 +92,13 @@ let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --
 nnoremap <Leader>fix :ALEFix<CR>
 
 let g:ale_set_quickfix = 0
-let g:ale_statusline_format = ['%d Error(s)', '%d Warning(s)', 'ᕕ( ᐛ )ᕗ']
-" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '✓']
-" let g:ale_sign_error = '⨉'
-" let g:ale_sign_warning = '⚠ '
+let g:ale_statusline_format = ['✕ %d', '△ %d', 'ᕕ( ᐛ )ᕗ']
+let g:ale_sign_warning = '△'
+let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" highlight clear ALEErrorSign
-" highlight clear ALEWarningSign
-set updatetime=500
+set updatetime=1000
 augroup alesettings
   autocmd BufEnter * set conceallevel=0
   autocmd CursorHold * call ale#Lint()
@@ -216,50 +228,50 @@ augroup END
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [
-      \             ['mode', 'paste', 'alestatus'],
-      \             ['fugitive', 'readonly', 'myfilename', 'modified']
-      \           ]
-      \ },
-      \ 'component': {
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \ },
-      \ 'component_function': {
-      \   'myfilename': 'LightLineFilename',
-      \ },
-      \ 'component_visible_condition': {
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ }
-      \ }
-
-function! LightLineFilename()
-  let l:git_root = fnamemodify(fugitive#extract_git_dir(expand('%:p')), ':h')
-
-  if expand('%:t') ==? ''
-    return '[No Name]'
-  elseif l:git_root !=? '' && l:git_root !=? '.'
-    return substitute(expand('%:p'), l:git_root . '/', '', '')
-  else
-    return expand('%:p')
-  endif
-endfunction
+" let g:lightline = {
+"       \ 'colorscheme': 'one',
+"       \ 'active': {
+"       \   'left': [
+"       \             ['mode', 'paste', 'alestatus'],
+"       \             ['fugitive', 'readonly', 'myfilename', 'modified']
+"       \           ]
+"       \ },
+"       \ 'component': {
+"       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+"       \ },
+"       \ 'component_function': {
+"       \   'myfilename': 'LightLineFilename',
+"       \ },
+"       \ 'component_visible_condition': {
+"       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+"       \ }
+"       \ }
+"
+" function! LightLineFilename()
+"   let l:git_root = fnamemodify(fugitive#extract_git_dir(expand('%:p')), ':h')
+"
+"   if expand('%:t') ==? ''
+"     return '[No Name]'
+"   elseif l:git_root !=? '' && l:git_root !=? '.'
+"     return substitute(expand('%:p'), l:git_root . '/', '', '')
+"   else
+"     return expand('%:p')
+"   endif
+" endfunction
 
 " configure Lightline and ALE
-function! g:LightLineAleStatus()
-    let l:s = ALEGetStatusLine()
-    return ('' !=? l:s ? ['', l:s, '' ] : '')
-endfunction
-
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers', 'alestatus': 'g:LightLineAleStatus'}
-
-augroup alestatusupdate
-    autocmd!
-    autocmd BufEnter,BufRead * call ale#Queue(0)
-    autocmd User ALELint call lightline#update()
-augroup END
+" function! g:LightLineAleStatus()
+"     let l:s = ALEGetStatusLine()
+"     return ('' !=? l:s ? ['', l:s, '' ] : '')
+" endfunction
+"
+" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers', 'alestatus': 'g:LightLineAleStatus'}
+"
+" augroup alestatusupdate
+"     autocmd!
+"     autocmd BufEnter,BufRead * call ale#Queue(0)
+"     autocmd User ALELint call lightline#update()
+" augroup END
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
@@ -275,6 +287,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+let g:netrw_dirhistmax = 0
 
 " === omnicompletion ===
 filetype plugin on
