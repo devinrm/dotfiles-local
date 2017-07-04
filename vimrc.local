@@ -17,6 +17,7 @@ else
 
   let g:sierra_Campfire = 1
   colo sierra
+  highlight ColorColumn guibg=#282c34
 endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
