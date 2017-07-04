@@ -12,12 +12,11 @@ if (strftime('%H') % 17) > 7
   colo one
   set background=light
 else
-  colo quantum
-  let g:quantum_italics=1
+  " colo quantum
+  " let g:quantum_italics=1
 
-  " let g:despacio_Sunset = 1
-  " colo despacio
-  set background=dark
+  let g:sierra_Campfire = 1
+  colo sierra
 endif
 set cursorline " highlight cursorline
 set gdefault " Replace all matches on a line instead of just the first
@@ -66,13 +65,19 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['', 'eslint', 'prettier', 'prettier-eslint'],
+      \ 'javascript': ['', 'eslint', 'prettier-eslint'],
       \ 'html': ['standard', 'eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek'],
       \ 'text': ['vale']
       \ }
+
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 120 --parser flow'
+nnoremap <Leader>fix :ALEFix<CR>
+
 let g:ale_set_quickfix = 0
 let g:ale_statusline_format = ['%d Error(s)', '%d Warning(s)', 'ᕕ( ᐛ )ᕗ']
 " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '✓']
@@ -92,6 +97,9 @@ augroup alesettings
   autocmd TextChanged * call ale#Lint()
 augroup END
 let g:ale_lint_on_text_changed = 0
+
+" === auto-pairs ===
+let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -262,11 +270,6 @@ let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css
 if s:darwin
   let g:marked_app = 'Markoff' " Use thoughtbot's Markoff for markdown previews on MacOS
 endif
-
-" === neoformat ===
-augroup prettier
-  autocmd BufWritePre *.js Neoformat
-augroup END
 
 " === netrw ===
 let g:netrw_browse_split = 0
