@@ -227,52 +227,6 @@ augroup END
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" === lightline.vim ===
-" let g:lightline = {
-"       \ 'colorscheme': 'one',
-"       \ 'active': {
-"       \   'left': [
-"       \             ['mode', 'paste', 'alestatus'],
-"       \             ['fugitive', 'readonly', 'myfilename', 'modified']
-"       \           ]
-"       \ },
-"       \ 'component': {
-"       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-"       \ },
-"       \ 'component_function': {
-"       \   'myfilename': 'LightLineFilename',
-"       \ },
-"       \ 'component_visible_condition': {
-"       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-"       \ }
-"       \ }
-"
-" function! LightLineFilename()
-"   let l:git_root = fnamemodify(fugitive#extract_git_dir(expand('%:p')), ':h')
-"
-"   if expand('%:t') ==? ''
-"     return '[No Name]'
-"   elseif l:git_root !=? '' && l:git_root !=? '.'
-"     return substitute(expand('%:p'), l:git_root . '/', '', '')
-"   else
-"     return expand('%:p')
-"   endif
-" endfunction
-
-" configure Lightline and ALE
-" function! g:LightLineAleStatus()
-"     let l:s = ALEGetStatusLine()
-"     return ('' !=? l:s ? ['', l:s, '' ] : '')
-" endfunction
-"
-" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers', 'alestatus': 'g:LightLineAleStatus'}
-"
-" augroup alestatusupdate
-"     autocmd!
-"     autocmd BufEnter,BufRead * call ale#Queue(0)
-"     autocmd User ALELint call lightline#update()
-" augroup END
-
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
 
