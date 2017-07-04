@@ -13,6 +13,7 @@ Plug 'zchee/deoplete-zsh'
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'hwartig/vim-seeing-is-believing'
+Plug 'airblade/vim-gitgutter'
 
 " === git ===
 Plug 'junegunn/gv.vim'
