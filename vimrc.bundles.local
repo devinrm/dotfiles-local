@@ -11,11 +11,10 @@ Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
 Plug 'beloglazov/vim-online-thesaurus'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'hwartig/vim-seeing-is-believing'
-Plug 'airblade/vim-gitgutter'
 
 " === git ===
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 
 " === language plugins ===
@@ -30,7 +29,7 @@ function! BuildComposer(info)
   endif
 endfunction
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
-Plug 'itspriddle/vim-marked'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'
 Plug 'slashmili/alchemist.vim'
