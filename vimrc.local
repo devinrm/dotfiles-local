@@ -43,7 +43,6 @@ set scrolloff=5 " show 5 lines above and below cursor
 set smartcase " overrides ignorecase if pattern contains upcase
 set spelllang=en_us " Set region to US English
 set ttimeout " Fast timeout
-set ttimeoutlen=1000
 set undodir=$HOME/.undodir
 set undofile
 set wildignore+=tmp/** " Ignore stuff that can't be opened
