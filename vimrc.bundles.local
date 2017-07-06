@@ -12,6 +12,7 @@ Plug 'zchee/deoplete-zsh'
 " === experiments ===
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'hwartig/vim-seeing-is-believing'
+Plug 'floobits/floobits-neovim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
