@@ -3,10 +3,14 @@
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-let g:loaded_ctrlp = 1 " Don't load
 let s:darwin = has('mac')
+
 set autoread
+set autowrite " Automatically :write before running commands
+set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
+set colorcolumn=+1
+
 if (strftime('%H') % 17) > 7
   colo one
   let g:airline_theme='one'
@@ -17,6 +21,7 @@ else
   let g:airline_theme='alduin'
   highlight ColorColumn guibg=#282c34
 endif
+
 " this is very experimental. checks if a file was updated elsewhere like package.json
 " and reflects changes automatically while viewing file
 augroup checkt
@@ -26,35 +31,95 @@ augroup checkt
     call feedkeys("f\e")
   endfunction
 augroup END
+
+set complete+=kspell
 set cursorline " highlight cursorline
+set diffopt+=vertical
+set expandtab
+filetype plugin indent on
 set gdefault " Replace all matches on a line instead of just the first
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
 set guicursor+=a:blinkon0 " Disable blinking cursor
 highlight Comment cterm=italic gui=italic
+set history=50
 set hlsearch " highlight search results
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
+
 if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 endif
+
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+set laststatus=2  " Always display the status line
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+let g:mapleader = ' '
 set matchtime=0 " Speed up escape after (){} chars
 set mouse=a " Turn mouse on for pair programming
+set nobackup
 set nofoldenable
+set nojoinspaces
 set noshowmode
+set noswapfile " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set nowrap
+set nowritebackup
 set number
+set numberwidth=5
 set relativenumber " Get the best of both worlds with set number and relativenumber
+
 augroup numbers
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
 augroup END
+
+set ruler " show the cursor position all the time
+runtime! macros/matchit.vim
 set scrolloff=5 " show 5 lines above and below cursor
+set shiftround
+set shiftwidth=2
+set showcmd " display incomplete commands
 set smartcase " overrides ignorecase if pattern contains upcase
+set spellfile=$HOME/.vim-spell-en.utf-8.add
 set spelllang=en_us " Set region to US English
+set splitbelow
+set splitright
+syntax on
+set tabstop=2
+set textwidth=80
 set ttimeout " Fast timeout
 set undodir=$HOME/.undodir
 set undofile
+
+augroup vimrcEx
+  autocmd!
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
+
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
-set wildmode=longest:full,full
+set wildmode=list:longest,list:full
 set winwidth=84 " Window size
 set winheight=10
 set winminheight=5
@@ -294,6 +359,12 @@ if has('nvim')
   let g:test#strategy = 'neovim'
 endif
 
+nnoremap <silent> <Leader>t :TestFile<CR>
+nnoremap <silent> <Leader>s :TestNearest<CR>
+nnoremap <silent> <Leader>l :TestLast<CR>
+nnoremap <silent> <Leader>a :TestSuite<CR>
+nnoremap <silent> <leader>gt :TestVisit<CR>
+
 " === vim-tmux-navigator ===
 " To use c-h in neovim on OS X
 " (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
@@ -313,6 +384,9 @@ let g:tmux_navigator_save_on_switch = 1
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 
 " === automatically rebalance windows on vim resize ===
 augroup resize
@@ -406,6 +480,12 @@ nnoremap <Leader>i mmgg=G`m
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " === Mappings to move lines. Symbols represent 'alt' because macs are insane ===
 " 'j' = '∆' and 'k' = '˚'

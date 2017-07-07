@@ -29,13 +29,19 @@ function! BuildComposer(info)
     endif
   endif
 endfunction
+Plug 'elixir-lang/vim-elixir'
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
 Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
+Plug 'slim-template/vim-slim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 " === linting ===
 Plug 'w0rp/ale'
@@ -47,7 +53,19 @@ Plug 'junegunn/limelight.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vinegar
+Plug 'janko-m/vim-test'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/tComment'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
@@ -58,7 +76,7 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " === search ===
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
