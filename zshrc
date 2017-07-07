@@ -1,3 +1,46 @@
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
+# extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
+# these are loaded first, second, and third, respectively.
+_load_settings() {
+  _dir="$1"
+  if [ -d "$_dir" ]; then
+    if [ -d "$_dir/pre" ]; then
+      for config in "$_dir"/pre/**/*(N-.); do
+        . $config
+      done
+    fi
+
+    for config in "$_dir"/**/*(N-.); do
+      case "$config" in
+        "$_dir"/pre/*)
+          :
+          ;;
+        "$_dir"/post/*)
+          :
+          ;;
+        *)
+          if [ -f $config ]; then
+            . $config
+          fi
+          ;;
+      esac
+    done
+
+    if [ -d "$_dir/post" ]; then
+      for config in "$_dir"/post/**/*(N-.); do
+        . $config
+      done
+    fi
+  fi
+}
+_load_settings "$HOME/.zsh/configs"
+
+export HOMEBREW_GITHUB_API_TOKEN="f1035918c42a9b60e0d46d35adbbc3c5ad3c056b"
+
 # By default, ^S freezes terminal output and ^Q resumes it. Disable that so
 # that those keys can be used for other things.
 unsetopt flowcontrol
@@ -87,3 +130,6 @@ ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red
+
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases

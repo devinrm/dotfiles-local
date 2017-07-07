@@ -1,3 +1,28 @@
+# Unix
+alias ll="ls -al"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias e="$EDITOR"
+alias v="$VISUAL"
+alias cp="cp -iv"
+alias rm="rm -iv"
+alias mv="mv -iv"
+alias ls="ls -FGh"
+alias du="du -cksh"
+alias df="df -h"
+alias cat="ccat"
+alias help="run-help"
+
+# Bundler
+alias b="bundle"
+
+# Rails
+alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias s="rspec"
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
 # Update packages and gems
 alias brewu="brew update && brew upgrade"
 alias yarnu="yarn global upgrade"
@@ -45,16 +70,6 @@ alias rlog="tail -f log/test.log"
 alias yi="yarn install"
 alias ys="yarn start"
 alias yu="yarn upgrade"
-
-# Unix
-alias cp="cp -iv"
-alias rm="rm -iv"
-alias mv="mv -iv"
-alias ls="ls -FGh"
-alias du="du -cksh"
-alias df="df -h"
-alias cat="ccat"
-alias help="run-help"
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"
