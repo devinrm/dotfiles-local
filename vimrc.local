@@ -41,7 +41,6 @@ set nofoldenable
 set noshowmode
 set nowrap
 set number
-set redrawtime=1000
 set relativenumber " Get the best of both worlds with set number and relativenumber
 augroup numbers
   autocmd InsertEnter * :set number norelativenumber
