@@ -1,3 +1,7 @@
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
 "  ____ ____ ____ ____ ____ ____ ____ ____
 " ||s |||e |||t |||t |||i |||n |||g |||s ||
 " ||__|||__|||__|||__|||__|||__|||__|||__||

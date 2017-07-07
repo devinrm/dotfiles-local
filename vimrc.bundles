@@ -1,6 +1,16 @@
+" Remove declared plugins
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command!  -nargs=1 UnPlug call s:UnPlug(<args>)
+
+call plug#begin('~/.vim/bundle')
+
 " === colorscheme(s) ===
-Plug 'rakr/vim-one'
 Plug 'AlessandroYorba/Alduin'
+Plug 'rakr/vim-one'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -11,8 +21,8 @@ Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
 Plug 'beloglazov/vim-online-thesaurus'
-Plug 'hwartig/vim-seeing-is-believing'
 Plug 'floobits/floobits-neovim'
+Plug 'hwartig/vim-seeing-is-believing'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -29,34 +39,32 @@ function! BuildComposer(info)
     endif
   endif
 endfunction
-Plug 'elixir-lang/vim-elixir'
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
-Plug 'hail2u/vim-css3-syntax'
 Plug 'Keithbsmiley/rspec.vim'
-Plug 'mxw/vim-jsx'
+Plug 'elixir-lang/vim-elixir'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'kchmck/vim-coffee-script'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'slashmili/alchemist.vim'
+Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
-Plug 'slim-template/vim-slim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 
 " === linting ===
 Plug 'w0rp/ale'
 
 " === make editing nicer ===
 Plug 'derekprior/vim-trimmer'
+Plug 'janko-m/vim-test'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar
-Plug 'janko-m/vim-test'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -65,6 +73,8 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/tComment'
 
 " === move ===
@@ -84,3 +94,5 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
+
+call plug#end()
