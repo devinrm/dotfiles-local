@@ -426,21 +426,17 @@ if s:darwin
   inoremap <C-@> <Esc>`^
 endif
 
-" === make tab completion travel in a reasonable direction (from @geoffharcourt) ===
-inoremap <S-Tab> <C-P>
-
-function! s:check_back_space()
-  let l:col = col('.') - 1
-  return !l:col || getline('.')[l:col - 1] !~? '\k'
-endfunction
-
+" === make tab completion travel in a reasonable direction ===
 function! InsertTabWrapper()
-  if s:check_back_space()
-    return "\<Tab>"
-  else
-    return "\<C-n>"
-  endif
+    let l:col = col('.') - 1
+    if !l:col || getline('.')[l:col - 1] !~? '\k'
+        return "\<tab>"
+    else
+        return "\<c-n>"
+    endif
 endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-P>
 
 " === Emacs-like. Experimental, breaks things you might be using. ===
 nnoremap <C-a> ^
@@ -546,7 +542,7 @@ nmap Q @q
 " === Source (reload) your vimrc ===
 augroup autosourcing
   autocmd!
-  autocmd BufWritePost vimrc.local source %
+  autocmd BufWritePost vimrc source %
 augroup END
 command! ReloadVimrc source $MYVIMRC
 
