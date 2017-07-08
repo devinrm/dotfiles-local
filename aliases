@@ -1,35 +1,31 @@
 # Unix
+alias cat="ccat"
+alias cp="cp -iv"
+alias df="df -h"
+alias du="du -cksh"
+alias e="$EDITOR"
+alias help="run-help"
 alias ll="ls -al"
 alias ln="ln -v"
-alias mkdir="mkdir -p"
-alias e="$EDITOR"
-alias v="$VISUAL"
-alias cp="cp -iv"
-alias rm="rm -iv"
-alias mv="mv -iv"
 alias ls="ls -FGh"
-alias du="du -cksh"
-alias df="df -h"
-alias cat="ccat"
-alias help="run-help"
+alias mkdir="mkdir -p"
+alias mv="mv -iv"
+alias rm="rm -iv"
+alias v="$VISUAL"
 
 # Bundler
 alias b="bundle"
-
-# Rails
-alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
-alias s="rspec"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Update packages and gems
 alias brewu="brew update && brew upgrade"
-alias yarnu="yarn global upgrade"
-alias npmu="npm outdated -g --depth=0 && npm update -g"
 alias gemu="gem update"
-alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
+alias npmu="npm outdated -g --depth=0 && npm update -g"
 alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
+alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
+alias yarnu="yarn global upgrade"
 
 # Vim
 alias vimdiff="nvim -d"
@@ -38,33 +34,35 @@ alias vimdiff="nvim -d"
 alias z=". ~/.zshrc"
 
 # Dev Tools
-alias p="pry"
-alias i="irb"
-alias gsh="gitsh"
 alias aa="gitsh; aa"
-alias ru="rubocop"
 alias da="dasht"
+alias gsh="gitsh"
+alias i="irb"
+alias p="pry"
 alias prettyjson="python -m json.tool"
+alias ru="rubocop"
 alias wuzz="$GOPATH/bin/wuzz"
 
 # Weather and the moon, man
-alias weather="curl http://wttr\.in/washington"
 alias moon="curl wttr.in/Moon"
+alias weather="curl http://wttr\.in/washington"
 
 # Code notes
-alias cr="cat ~/dotfiles/laptop/vim_notes/ruby_ref.md"
 alias cg="cat ~/dotfiles/laptop/vim_notes/git.md"
-alias cv="cat ~/dotfiles/laptop/vim_notes/vim.md"
 alias cpr="cat ~/dotfiles/laptop/vim_notes/pry.md"
+alias cr="cat ~/dotfiles/laptop/vim_notes/ruby_ref.md"
 alias ct="cat ~/dotfiles/laptop/vim_notes/readline.md"
+alias cv="cat ~/dotfiles/laptop/vim_notes/vim.md"
 
 # Ruby and RSpec
+alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias racer="ruby -r tracer"
+alias rake="RUBYOPT=W0 rake"
+alias ras="bundle exec rails s"
+alias rlog="tail -f log/test.log"
 alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
-alias racer="ruby -r tracer"
-alias ras="bundle exec rails s"
-alias rake="RUBYOPT=W0 rake"
-alias rlog="tail -f log/test.log"
+alias s="rspec"
 
 # JavaScript
 alias yi="yarn install"
