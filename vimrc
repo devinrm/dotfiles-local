@@ -382,7 +382,7 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 " do nay let the plugin set the mappings
 let g:tmux_navigator_no_mappings = 1
 " Save on switch
-let g:tmux_navigator_save_on_switch = 1
+let g:tmux_navigator_save_on_switch = 2
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -480,12 +480,6 @@ nnoremap <Leader>i mmgg=G`m
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " === Mappings to move lines. Symbols represent 'alt' because macs are insane ===
 " 'j' = '∆' and 'k' = '˚'
