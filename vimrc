@@ -457,7 +457,7 @@ nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 nnoremap <Leader>bu :Bundle<CR>
 
 " === map <ctrl>c to quit ===
-nnoremap <C-c> :q<CR>
+nnoremap <C-c> :x<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>co mmggVG"*y`m
