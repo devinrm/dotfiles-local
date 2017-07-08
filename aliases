@@ -91,3 +91,5 @@ alias dep="cd ops; bundle exec dotenv bin/fd app deploy"
 alias na="cd node-acceptance"
 
 alias js="bundle exec jekyll serve & ; open http://127.0.0.1:4000"
+
+alias dot="cd ~/dotfiles"
