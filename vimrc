@@ -500,11 +500,11 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 vnoremap <A-k> :m '>-2<CR>gv=gv
 vnoremap <A-j> :m '<+1<CR>gv=gv
 
-" === Make esc more user friendly / ii is for Colemak ===
-inoremap jk <esc>:w<CR>
-inoremap ii <esc>:w<CR>
+" === Make esc more user friendly ===
+inoremap jk <Esc>
+inoremap kj <Esc>
 xnoremap jk <Esc>
-xnoremap ii <esc>
+xnoremap kj <Esc>
 
 " === Toggle relative line number for yanking, i.e. :6y ===
 nnoremap <Leader>ln :set relativenumber!<CR>
