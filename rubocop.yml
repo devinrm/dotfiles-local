@@ -1,7 +1,6 @@
 AllCops:
   Exclude:
     - "vimrc"
-    - "vimrc.local"
     - "vendor/**/*"
     - "db/schema.rb"
 
