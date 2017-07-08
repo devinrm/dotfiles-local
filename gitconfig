@@ -17,26 +17,26 @@
   aa = add --all
   ap = add --patch
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
-  ci = commit -v
-  co = checkout
-  pf = push --force-with-lease
-  st = status
-  l = log --pretty=colored
-  sla = log --oneline --decorate --graph --all
-  glog = log -E -i --grep
   car = commit --amend --no-edit
-  unstage = reset
-  uncommit = reset --soft HEAD^
-  mg = merge
+  ci = commit -v
   cm = commit -m
-  upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
-  fall = fetch --all
-  ph = push -u origin head
-  mup = !git checkout master && git pull && git checkout -
-  rup = !git checkout release/34 && git pull && git checkout -
-  stu = stash -u
+  co = checkout
   empty = commit --allow-empty -m "[SPEC-ALL]"
+  fall = fetch --all
+  glog = log -E -i --grep
+  l = log --pretty=colored
+  mg = merge
+  mup = !git checkout master && git pull && git checkout -
+  pf = push --force-with-lease
+  ph = push -u origin head
+  rup = !git checkout release/34 && git pull && git checkout -
   sha = rev-parse --short HEAD
+  sla = log --oneline --decorate --graph --all
+  st = status
+  stu = stash -u
+  uncommit = reset --soft HEAD^
+  unstage = reset
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
   coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr)%C(bold blue)%an%Creset
@@ -49,25 +49,25 @@
 [color]
   ui = always
 [color "diff"]
-  meta = yellow bold
   commit = green bold
   frag = magenta bold
-  old = red bold
+  meta = yellow bold
   new = green bold
+  old = red bold
   whitespace = red reverse
 [diff]
   compactionHeuristic = true
 [color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = "red bold 52"
-  newNormal = "green bold"
   newHighlight = "green bold 22"
+  newNormal = "green bold"
+  oldHighlight = "red bold 52"
+  oldNormal = red bold
 [core]
-  pager = diff-so-fancy | less --tabs=1,5 -RFX
-  show = diff-so-fancy | less --tabs=1,5 -RFX
+  autocrlf = input
   editor = nvim
   excludesfile = ~/.gitignore
-  autocrlf = input
+  pager = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [commit]
   template = ~/.gitmessage
 [fetch]
