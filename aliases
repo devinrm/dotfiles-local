@@ -52,11 +52,11 @@ alias weather="curl http://wttr\.in/washington"
 alias moon="curl wttr.in/Moon"
 
 # Code notes
-alias cr="cat ~/dotfiles-local/vim_notes/ruby_ref.md"
-alias cg="cat ~/dotfiles-local/vim_notes/git.md"
-alias cv="cat ~/dotfiles-local/vim_notes/vim.md"
-alias cpr="cat ~/dotfiles-local/vim_notes/pry.md"
-alias ct="cat ~/dotfiles-local/vim_notes/readline.md"
+alias cr="cat ~/dotfiles/laptop/vim_notes/ruby_ref.md"
+alias cg="cat ~/dotfiles/laptop/vim_notes/git.md"
+alias cv="cat ~/dotfiles/laptop/vim_notes/vim.md"
+alias cpr="cat ~/dotfiles/laptop/vim_notes/pry.md"
+alias ct="cat ~/dotfiles/laptop/vim_notes/readline.md"
 
 # Ruby and RSpec
 alias rsa="SPEC_ALL=true bundle exec rspec"
@@ -81,8 +81,6 @@ alias \❯=''
 alias fire="open -a Firefox"
 alias k="open -a KeePassXC"
 alias gh="open https://github.com/devinrm"
-
-alias dotfiles="cd ~/dotfiles-local"
 
 alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
 

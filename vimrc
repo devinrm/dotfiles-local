@@ -574,12 +574,12 @@ nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " === Open vimrc in new tab ===
-nnoremap <Leader>vi :tabe ~/dotfiles-local/vimrc.local<CR>
-nnoremap <Leader>vb :tabe ~/dotfiles-local/vimrc.bundles.local<CR>
+nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
+nnoremap <Leader>vb :tabe ~/dotfiles/vimrc.bundles<CR>
 
 " === Code notes ===
-nnoremap <Leader>ww :Files ~/dotfiles-local/vim_notes/<CR>
-nnoremap <Leader>wt :Sexplore ~/dotfiles-local/vim_notes/<CR>
+nnoremap <Leader>ww :Files ~/dotfiles/laptop/vim_notes/<CR>
+nnoremap <Leader>wt :Sexplore ~/dotfiles/laptop/vim_notes/<CR>
 
 " === New Split Windows ===
 nnoremap <Leader>wv :vsplit<CR>
