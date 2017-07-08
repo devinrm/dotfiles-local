@@ -608,6 +608,6 @@ if has('nvim')
   tnoremap jk <C-\><C-n>
   tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
-  " open neovim terminal for whatever reason
+  " run commands through neovim term instead of :!
   nnoremap <Leader>r :te<SPACE>
 endif
