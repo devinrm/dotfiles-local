@@ -204,7 +204,7 @@ let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 let g:deoplete#max_list = 15
 
-" === deoplete ternjs ===
+" === deoplete ternjs/tern_for_vim ===
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'
 let g:tern#filetypes = [
@@ -212,6 +212,9 @@ let g:tern#filetypes = [
                 \ 'javascript.jsx',
                 \ 'html'
                 \ ]
+
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
