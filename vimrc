@@ -15,7 +15,7 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'AlessandroYorba/Alduin'
-Plug 'AlessandroYorba/Sierra'
+Plug 'AlessandroYorba/Despacio'
 Plug 'rakr/vim-one'
 
 " === completion ===
@@ -125,9 +125,8 @@ set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
 if (strftime('%H') % 17) > 7
-  let g:sierra_Sunset = 1
-  colo sierra
-  let g:airline_theme='sierra'
+  colo despacio
+  let g:airline_theme='one'
   " colo one
   " set background=light
 else
