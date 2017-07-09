@@ -1,6 +1,114 @@
-if filereadable(expand('~/.vimrc.bundles'))
-  source ~/.vimrc.bundles
+"  ____ ____ ____ ____ ____ ____ ____
+" ||p |||l |||u |||g |||i |||n |||s ||
+" ||__|||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+
+" Remove declared plugins
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command!  -nargs=1 UnPlug call s:UnPlug(<args>)
+
+call plug#begin('~/.vim/bundle')
+
+" === colorscheme(s) ===
+Plug 'AlessandroYorba/Alduin'
+Plug 'rakr/vim-one'
+
+" === completion ===
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'fishbullet/deoplete-ruby'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
+Plug 'Shougo/neco-vim'
+Plug 'ternjs/tern_for_vim'
+Plug 'zchee/deoplete-zsh'
+
+" === experiments ===
+Plug 'beloglazov/vim-online-thesaurus'
+if has('nvim')
+  Plug 'floobits/floobits-neovim'
+endif
+Plug 'hwartig/vim-seeing-is-believing'
+Plug '907th/vim-auto-save'
+
+" === git ===
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim'
+
+" === language plugins ===
+Plug 'c-brenn/phoenix.vim'
+
+function! BuildComposer(info)
+  if a:info.status !=? 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'Keithbsmiley/rspec.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'slashmili/alchemist.vim'
+Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+
+" === linting ===
+Plug 'w0rp/ale'
+
+" === make editing nicer ===
+Plug 'derekprior/vim-trimmer'
+Plug 'janko-m/vim-test'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/tComment'
+
+" === move ===
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-sneak'
+Plug 'yuttie/comfortable-motion.vim'
+
+" === other ===
+Plug 'alvan/vim-closetag'
+Plug 'chrisbra/Colorizer'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+
+" === search ===
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-slash'
+
+call plug#end()
 
 "  ____ ____ ____ ____ ____ ____ ____ ____
 " ||s |||e |||t |||t |||i |||n |||g |||s ||
@@ -128,10 +236,14 @@ set winwidth=84 " Window size
 set winheight=10
 set winminheight=5
 
-"  ____ ____ ____ ____ ____ ____ ____
-" ||p |||l |||u |||g |||i |||n |||s ||
-" ||__|||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+"  ____ ____ ____ ____ ____ ____
+" ||p |||l |||u |||g |||i |||n ||
+" ||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|
+"  ____ ____ ____ ____ ____ ____ ____ ____
+" ||s |||e |||t |||t |||i |||n |||g |||s ||
+" ||__|||__|||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
 let g:airline#extensions#ale#enabled = 1
@@ -541,10 +653,6 @@ nnoremap <Leader>p "*p
 nmap Q @q
 
 " === Source (reload) your vimrc ===
-augroup autosourcing
-  autocmd!
-  autocmd BufWritePost vimrc source %
-augroup END
 command! ReloadVimrc source $MYVIMRC
 
 " === Make it easier to run ruby files inside vim ===
@@ -572,7 +680,6 @@ nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
-nnoremap <Leader>vb :tabe ~/dotfiles/vimrc.bundles<CR>
 
 " === Code notes ===
 nnoremap <Leader>ww :Files ~/dotfiles/laptop/vim_notes/<CR>
