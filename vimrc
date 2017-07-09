@@ -187,6 +187,10 @@ let g:ale_lint_on_text_changed = 0
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
+" === vim-auto-save ===
+let g:auto_save = 1
+let g:auto_save_events = ['CursorHold']
+
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 

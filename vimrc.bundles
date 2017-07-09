@@ -24,6 +24,7 @@ Plug 'zchee/deoplete-zsh'
 Plug 'beloglazov/vim-online-thesaurus'
 Plug 'floobits/floobits-neovim'
 Plug 'hwartig/vim-seeing-is-believing'
+Plug '907th/vim-auto-save'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
