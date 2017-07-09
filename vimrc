@@ -15,6 +15,7 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'AlessandroYorba/Alduin'
+Plug 'AlessandroYorba/Sierra'
 Plug 'rakr/vim-one'
 
 " === completion ===
@@ -124,9 +125,11 @@ set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
 if (strftime('%H') % 17) > 7
-  colo one
-  let g:airline_theme='one'
-  set background=light
+  let g:sierra_Sunset = 1
+  colo sierra
+  let g:airline_theme='sierra'
+  " colo one
+  " set background=light
 else
   let g:alduin_Contract_Vampirism = 1
   colorscheme alduin
@@ -145,7 +148,6 @@ augroup checkt
 augroup END
 
 set complete+=kspell
-set cursorline " highlight cursorline
 set diffopt+=vertical
 set expandtab
 filetype plugin indent on
