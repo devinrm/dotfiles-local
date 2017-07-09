@@ -15,14 +15,18 @@ Plug 'rakr/vim-one'
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'fishbullet/deoplete-ruby'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 Plug 'Shougo/neco-vim'
 Plug 'ternjs/tern_for_vim'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
 Plug 'beloglazov/vim-online-thesaurus'
-Plug 'floobits/floobits-neovim'
+if has('nvim')
+  Plug 'floobits/floobits-neovim'
+endif
 Plug 'hwartig/vim-seeing-is-believing'
 Plug '907th/vim-auto-save'
 
