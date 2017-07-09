@@ -268,8 +268,8 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['', 'eslint', 'prettier-eslint'],
-      \ 'html': ['eslint', 'prettier-eslint', 'tidy', 'htmlhint'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint'],
+      \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek'],
