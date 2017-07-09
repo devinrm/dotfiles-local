@@ -34,7 +34,6 @@ if has('nvim')
   Plug 'floobits/floobits-neovim'
 endif
 Plug 'hwartig/vim-seeing-is-believing'
-Plug '907th/vim-auto-save'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -299,10 +298,6 @@ let g:ale_lint_on_text_changed = 0
 
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-
-" === vim-auto-save ===
-let g:auto_save = 1
-let g:auto_save_events = ['CursorHold']
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -628,6 +623,9 @@ xnoremap kj <Esc>
 
 " === Toggle relative line number for yanking, i.e. :6y ===
 nnoremap <Leader>ln :set relativenumber!<CR>
+
+" === paste flow when I need it ===
+nnoremap <Leader>low O// @flow<Esc>^
 
 " === make n N nicer ===
 function! s:nice_next(cmd)
