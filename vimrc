@@ -617,9 +617,7 @@ vnoremap <A-j> :m '<+1<CR>gv=gv
 
 " === Make esc more user friendly ===
 inoremap jk <Esc>
-inoremap kj <Esc>
 xnoremap jk <Esc>
-xnoremap kj <Esc>
 
 " === Toggle relative line number for yanking, i.e. :6y ===
 nnoremap <Leader>ln :set relativenumber!<CR>
