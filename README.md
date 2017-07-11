@@ -23,14 +23,6 @@ You can safely run `rcup` multiple times to update:
 
     rcup
 
-Credits
+License
 -------
-[Thoughtbot](http://thoughtbot.com).
-
-Chris Toomey
-
-Geoff Harcourt
-
-Ben Orenstein
-
 This software is free and distributable under the MIT license.
