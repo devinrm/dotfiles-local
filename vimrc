@@ -181,7 +181,7 @@ let g:is_posix = 1
 set laststatus=2  " Always display the status line
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
-let g:mapleader = ' '
+let g:mapleader = '<SPACE>'
 set matchtime=0 " Speed up escape after (){} chars
 set mouse=a " Turn mouse on for pair programming
 set nobackup
@@ -266,7 +266,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -330,6 +330,9 @@ let g:tern#arguments = ['--persistent']
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
+
+" === fugitive ===
+nnoremap <Leader>g :Git<SPACE>
 
 " === fzf.vim ===
 nnoremap <C-p> :Files<CR>
