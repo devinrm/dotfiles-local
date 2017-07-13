@@ -181,7 +181,7 @@ let g:is_posix = 1
 set laststatus=2  " Always display the status line
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
-let g:mapleader = '<SPACE>'
+let g:mapleader = ' '
 set matchtime=0 " Speed up escape after (){} chars
 set mouse=a " Turn mouse on for pair programming
 set nobackup
