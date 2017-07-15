@@ -25,7 +25,10 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'Shougo/neco-vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'ternjs/tern_for_vim'
+Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
@@ -266,7 +269,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', ''],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -298,6 +301,9 @@ let g:ale_lint_on_text_changed = 0
 
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+
+" === autocomplete-flow ===
+let g:neosnippet#enable_completed_snippet = 1
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
