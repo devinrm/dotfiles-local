@@ -15,7 +15,6 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'AlessandroYorba/Alduin'
-Plug 'AlessandroYorba/Despacio'
 Plug 'rakr/vim-one'
 
 " === completion ===
@@ -126,17 +125,10 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
-if (strftime('%H') % 17) > 7
-  colo despacio
-  let g:airline_theme='one'
-  " colo one
-  " set background=light
-else
-  let g:alduin_Contract_Vampirism = 1
-  colorscheme alduin
-  let g:airline_theme='alduin'
-  highlight ColorColumn guibg=#282c34
-endif
+let g:alduin_Contract_Vampirism = 1
+colorscheme alduin
+let g:airline_theme='alduin'
+highlight ColorColumn guibg=#282c34
 
 " this is very experimental. checks if a file was updated elsewhere like package.json
 " and reflects changes automatically while viewing file
@@ -554,7 +546,7 @@ endif
 function! InsertTabWrapper()
     let l:col = col('.') - 1
     if !l:col || getline('.')[l:col - 1] !~? '\k'
-        return "\<tab>"
+        return "\<Tab>"
     else
         return "\<c-n>"
     endif
