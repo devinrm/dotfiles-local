@@ -36,6 +36,7 @@ if has('nvim')
   Plug 'floobits/floobits-neovim'
 endif
 Plug 'hwartig/vim-seeing-is-believing'
+Plug 'vim-scripts/YankRing.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -499,6 +500,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 let g:tmux_navigator_no_mappings = 1
 " Save on switch
 let g:tmux_navigator_save_on_switch = 2
+
+" === vim-YankRing ===
+let g:yankring_replace_n_pkey = '<C-l>'
+nnoremap <Leader>yr :YRShow<CR>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
