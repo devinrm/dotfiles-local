@@ -296,7 +296,7 @@ let g:ale_lint_on_text_changed = 0
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
 " === autocomplete-flow ===
-let g:neosnippet#enable_completed_snippet = 1
+" let g:neosnippet#enable_completed_snippet = 1
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -502,7 +502,7 @@ let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 2
 
 " === vim-YankRing ===
-let g:yankring_replace_n_pkey = '<C-l>'
+let g:yankring_replace_n_pkey = '<C-m>'
 nnoremap <Leader>yr :YRShow<CR>
 
 "  ____ ____ ____ ____
