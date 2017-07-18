@@ -208,6 +208,9 @@ set splitbelow
 set splitright
 syntax on
 set tabstop=2
+if has('nvim')
+  set termguicolors " nvim gui colors
+endif
 set textwidth=80
 set ttimeout " Fast timeout
 set undodir=$HOME/.undodir
@@ -594,6 +597,17 @@ nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 " === Open .html pages from vim in browser ===
 nnoremap <Leader>ht :!open '%'<CR>
 
+" === Neovim terminal mappings for easy navigation ===
+augroup neoterm
+  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+augroup END
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+tnoremap jk <C-\><C-n>
+tnoremap <C-d> <C-\><C-n>:bd!<CR>
+
 " === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
 
@@ -654,6 +668,9 @@ nnoremap <Leader>p "*p
 " === qq to record, Q to replay (recursive map due to peekaboo) ===
 nmap Q @q
 
+" run commands through neovim term instead of :!
+nnoremap <Leader>r :te<SPACE>
+
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
 
@@ -704,29 +721,6 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 xnoremap zz :normal zz<CR>
 xnoremap zt :normal zt<CR>
 xnoremap zb :normal zb<CR>
-
-"  ____ ____ ____ ____ ____ ____
-" ||n |||e |||o |||v |||i |||m ||
-" ||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\|
-
-if has('nvim')
-  set termguicolors " nvim gui colors
-
-  " === Neovim terminal mappings for easy navigation ===
-  augroup neoterm
-    au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-  augroup END
-  tnoremap <C-h> <C-\><C-n><C-w>h
-  tnoremap <C-j> <C-\><C-n><C-w>j
-  tnoremap <C-k> <C-\><C-n><C-w>k
-  tnoremap <C-l> <C-\><C-n><C-w>l
-  tnoremap jk <C-\><C-n>
-  tnoremap <C-d> <C-\><C-n>:bd!<CR>
-
-  " run commands through neovim term instead of :!
-  nnoremap <Leader>r :te<SPACE>
-endif
 
 " === this has to come late in order to work ===
 highlight Comment cterm=italic gui=italic
