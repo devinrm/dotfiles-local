@@ -159,7 +159,6 @@ if executable('ag')
 endif
 
 set guicursor+=a:blinkon0 " Disable blinking cursor
-highlight Comment cterm=italic gui=italic
 set history=50
 set hlsearch " highlight search results
 " Treat <li> and <p> tags like the block tags they are
@@ -728,3 +727,6 @@ if has('nvim')
   " run commands through neovim term instead of :!
   nnoremap <Leader>r :te<SPACE>
 endif
+
+" === this has to come late in order to work ===
+highlight Comment cterm=italic gui=italic
