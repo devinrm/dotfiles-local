@@ -131,7 +131,7 @@ colorscheme alduin
 let g:airline_theme='alduin'
 highlight ColorColumn guibg=#282c34
 
-" this is very experimental. checks if a file was updated elsewhere like package.json
+" checks if a file was updated elsewhere like package.json
 " and reflects changes automatically while viewing file
 augroup checkt
   autocmd CursorHold * call Timer()
