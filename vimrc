@@ -31,12 +31,10 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
-Plug 'beloglazov/vim-online-thesaurus'
 if has('nvim')
   Plug 'floobits/floobits-neovim'
 endif
-Plug 'hwartig/vim-seeing-is-believing'
-Plug 'vim-scripts/YankRing.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -100,7 +98,9 @@ Plug 'yuttie/comfortable-motion.vim'
 
 " === other ===
 Plug 'alvan/vim-closetag'
+Plug 'beloglazov/vim-online-thesaurus'
 Plug 'chrisbra/Colorizer'
+Plug 'hwartig/vim-seeing-is-believing'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 
@@ -264,7 +264,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', ''],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -504,9 +504,10 @@ let g:tmux_navigator_no_mappings = 1
 " Save on switch
 let g:tmux_navigator_save_on_switch = 2
 
-" === vim-YankRing ===
-let g:yankring_replace_n_pkey = '<C-m>'
-nnoremap <Leader>yr :YRShow<CR>
+" === vim-Yankstack ===
+nnoremap <Leader>ys :Yanks<CR>
+nmap <C-x> <Plug>yankstack_substitute_older_paste
+nmap <C-m> <Plug>yankstack_substitute_newer_paste
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
