@@ -504,10 +504,10 @@ let g:tmux_navigator_no_mappings = 1
 " Save on switch
 let g:tmux_navigator_save_on_switch = 2
 
-" === vim-Yankstack ===
+" === vim-yankstack ===
 nnoremap <Leader>ys :Yanks<CR>
-nmap <C-x> <Plug>yankstack_substitute_older_paste
-nmap <C-m> <Plug>yankstack_substitute_newer_paste
+nmap < <Plug>yankstack_substitute_older_paste
+nmap > <Plug>yankstack_substitute_newer_paste
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -671,7 +671,7 @@ nnoremap <Leader>p "*p
 nmap Q @q
 
 " run commands through neovim term instead of :!
-nnoremap <Leader>r :te<SPACE>
+nnoremap <Leader>r :sp<CR> :te<SPACE>
 
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
