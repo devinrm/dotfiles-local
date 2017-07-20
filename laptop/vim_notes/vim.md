@@ -1,4 +1,8 @@
 ```vim
+gqG - formats the text from the current position to end of file
+
+gqq - formats the text of the current line
+
 gJ - (with the cursor on the first line of a block) to join a block into a single-line statement.
 
 <C-r>% - insert name of current file
