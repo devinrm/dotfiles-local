@@ -126,7 +126,6 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
-let g:alduin_Contract_Vampirism = 1
 colorscheme alduin
 let g:airline_theme='alduin'
 highlight ColorColumn guibg=#282c34
@@ -505,7 +504,7 @@ let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 2
 
 " === vim-yankstack ===
-nnoremap <Leader>ys :Yanks<CR>
+nnoremap <Leader>ya :Yanks<CR>
 nmap < <Plug>yankstack_substitute_older_paste
 nmap > <Plug>yankstack_substitute_newer_paste
 
@@ -714,7 +713,7 @@ nnoremap <Leader>wh :split<CR>
 nnoremap <Leader>x :exec getline(".")<CR>
 
 " === Yank to end of line instead of whole line (from @geoffharcourt) ===
-nnoremap Y y$
+nmap Y y$
 
 " === Make yank behave like yank should ===
 vnoremap <expr>y "my\"" . v:register . "y`y"
