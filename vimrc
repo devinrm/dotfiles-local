@@ -16,6 +16,7 @@ call plug#begin('~/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'AlessandroYorba/Alduin'
 Plug 'rakr/vim-one'
+Plug 'tyrannicaltoucan/vim-quantum'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -75,6 +76,7 @@ Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
@@ -126,13 +128,14 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
-colorscheme alduin
-let g:airline_theme='alduin'
+colorscheme quantum
+let g:airline_theme='quantum'
 highlight ColorColumn guibg=#282c34
 
 " checks if a file was updated elsewhere like package.json
 " and reflects changes automatically while viewing file
 augroup checkt
+  autocmd!
   autocmd CursorHold * call Timer()
   function! Timer()
     checktime
@@ -190,6 +193,7 @@ set numberwidth=5
 set relativenumber " Get the best of both worlds with set number and relativenumber
 
 augroup numbers
+  autocmd!
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
 augroup END
@@ -263,7 +267,7 @@ let g:syntastic_mode_map = {
       \ 'passive_filetypes': [] }
 
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', ''],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -285,6 +289,7 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 set updatetime=1000
 augroup alesettings
+  autocmd!
   autocmd BufEnter * set conceallevel=0
   autocmd CursorHold * call ale#Lint()
   autocmd CursorHoldI * call ale#Lint()
@@ -415,6 +420,7 @@ let g:gitgutter_signs = 0
 
 " === goyo.vim/limelight.vim ===
 augroup goyolimelight
+  autocmd!
   autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
   autocmd! User GoyoLeave Limelight!
 augroup END
@@ -453,6 +459,14 @@ set complete+=k~/.vim/dictionaries/capybara_matchers.txt
 set complete+=k~/.vim/dictionaries/webdriver_io.txt
 " set completeopt=menu,preview " Shows menu and any addition tips
 set completeopt-=preview
+
+" === rainbow_parentheses ===
+augroup rainbow
+  autocmd!
+  autocmd VimEnter * RainbowParentheses
+augroup END
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+let g:rainbow#max_level = 16
 
 " === vim-seeing-is-believing ===
 augroup seeingIsBelievingSettings
