@@ -36,6 +36,7 @@ if has('nvim')
   Plug 'floobits/floobits-neovim'
 endif
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'ujihisa/neco-look'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -130,9 +131,9 @@ set colorcolumn=+1
 
 colorscheme quantum
 let g:airline_theme='quantum'
-highlight ColorColumn guibg=#282c34
+" highlight ColorColumn guibg=#282c34
 
-" checks if a file was updated elsewhere like package.json
+" checks if a file was updated elsewhere like package.json/Gemfile.lock
 " and reflects changes automatically while viewing file
 augroup checkt
   autocmd!
@@ -260,14 +261,8 @@ let g:airline_section_error = '%{ale#statusline#Status()}'
 let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ALE ===
-" Disable inherited syntastic
-let g:syntastic_mode_map = {
-      \ 'mode': 'passive',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': [] }
-
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', ''],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
