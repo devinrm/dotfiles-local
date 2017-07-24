@@ -28,6 +28,7 @@ Plug 'Shougo/neco-vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'ternjs/tern_for_vim'
+Plug 'ujihisa/neco-look'
 Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-zsh'
 
@@ -35,8 +36,6 @@ Plug 'zchee/deoplete-zsh'
 if has('nvim')
   Plug 'floobits/floobits-neovim'
 endif
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'ujihisa/neco-look'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -512,11 +511,6 @@ let g:tmux_navigator_no_mappings = 1
 " Save on switch
 let g:tmux_navigator_save_on_switch = 2
 
-" === vim-yankstack ===
-nnoremap <Leader>ya :Yanks<CR>
-nmap < <Plug>yankstack_substitute_older_paste
-nmap > <Plug>yankstack_substitute_newer_paste
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -722,7 +716,7 @@ nnoremap <Leader>wh :split<CR>
 nnoremap <Leader>x :exec getline(".")<CR>
 
 " === Yank to end of line instead of whole line (from @geoffharcourt) ===
-nmap Y y$
+nnoremap Y y$
 
 " === Make yank behave like yank should ===
 vnoremap <expr>y "my\"" . v:register . "y`y"
