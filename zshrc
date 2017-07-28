@@ -102,9 +102,6 @@ prompt pure
 # Hub
 eval "$(hub alias -s)"
 
-# Vim-Conflicted
-function conflicted { nvim +Conflicted }
-
 # Git wrapper
 export PATH="$HOME/bin:$PATH"
 
