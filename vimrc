@@ -294,6 +294,7 @@ let g:ale_lint_on_text_changed = 0
 
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+inoremap ( ()<SPACE><Esc>i
 
 " === autocomplete-flow ===
 " let g:neosnippet#enable_completed_snippet = 1
