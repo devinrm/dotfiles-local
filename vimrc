@@ -190,13 +190,13 @@ set nowrap
 set nowritebackup
 set number
 set numberwidth=5
-" set relativenumber " Get the best of both worlds with set number and relativenumber
+set relativenumber " Get the best of both worlds with set number and relativenumber
 
-" augroup numbers
-"   autocmd!
-"   autocmd InsertEnter * :set number norelativenumber
-"   autocmd InsertLeave * :set relativenumber
-" augroup END
+augroup numbers
+  autocmd!
+  autocmd InsertEnter * :set number norelativenumber
+  autocmd InsertLeave * :set relativenumber
+augroup END
 
 set ruler " show the cursor position all the time
 runtime! macros/matchit.vim
