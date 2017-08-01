@@ -261,7 +261,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ALE ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -294,7 +294,7 @@ let g:ale_lint_on_text_changed = 0
 
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-inoremap ( ()<SPACE><Esc>i
+inoremap ( ()<Esc>i
 
 " === autocomplete-flow ===
 " let g:neosnippet#enable_completed_snippet = 1
