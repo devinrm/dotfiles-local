@@ -29,6 +29,7 @@ alias yarnu="yarn global upgrade"
 
 # Vim
 alias vimdiff="nvim -d"
+alias nr="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
 
 # Reload ZSH
 alias z=". ~/.zshrc"
