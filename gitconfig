@@ -64,7 +64,7 @@
   oldNormal = red bold
 [core]
   autocrlf = input
-  editor = nvim
+  editor = nvr --remote-wait-silent
   excludesfile = ~/.gitignore
   pager = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX

@@ -35,6 +35,7 @@ Plug 'zchee/deoplete-zsh'
 " === experiments ===
 if has('nvim')
   Plug 'floobits/floobits-neovim'
+  Plug 'mhinz/neovim-remote'
 endif
 
 " === git ===
@@ -425,6 +426,11 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
+
+" === neovim-remote ===
+if has('nvim')
+  let $VISUAL = 'nvr -cc split --remote-wait'
+endif
 
 " === netrw ===
 let g:netrw_browse_split = 0
