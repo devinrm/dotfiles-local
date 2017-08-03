@@ -39,6 +39,7 @@ if has('nvim')
 endif
 Plug 'mbbill/undotree'
 Plug 'justinmk/vim-dirvish'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -442,6 +443,18 @@ let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
 endif
+
+" === nerdtree ===
+augroup nerd_loader
+  autocmd!
+  autocmd VimEnter * silent! autocmd! FileExplorer
+  autocmd BufEnter,BufNew *
+        \  if isdirectory(expand('<amatch>'))
+        \|   call plug#load('nerdtree')
+        \|   execute 'autocmd! nerd_loader'
+        \| endif
+augroup END
+nnoremap _ :NERDTreeToggle<cr>
 
 " === netrw ===
 let g:netrw_browse_split = 0
