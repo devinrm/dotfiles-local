@@ -37,6 +37,8 @@ if has('nvim')
   Plug 'floobits/floobits-neovim'
   Plug 'mhinz/neovim-remote'
 endif
+Plug 'mbbill/undotree'
+Plug 'justinmk/vim-dirvish'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -333,6 +335,15 @@ let g:tern#arguments = ['--persistent']
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
 
+" === vim-dirvish ===
+let g:loaded_netrwPlugin = 1
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+augroup dirvishfugitive
+  autocmd FileType dirvish call fugitive#detect(@%)
+augroup END
+
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
 
@@ -517,6 +528,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 let g:tmux_navigator_no_mappings = 1
 " Save on switch
 let g:tmux_navigator_save_on_switch = 2
+
+" === undotree===
+let g:undotree_WindowLayout = 2
+nnoremap U :UndotreeToggle<CR>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
