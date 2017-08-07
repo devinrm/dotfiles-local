@@ -132,8 +132,8 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
-colorscheme quantum
-let g:airline_theme='quantum'
+colorscheme alduin
+let g:airline_theme='alduin'
 " highlight ColorColumn guibg=#282c34
 
 " checks if a file was updated elsewhere like package.json/Gemfile.lock
@@ -284,17 +284,17 @@ let g:ale_sign_warning = '△'
 let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-set updatetime=1000
+let g:ale_echo_msg_format = '[%linter%] %s'
 augroup alesettings
   autocmd!
+  set updatetime=1000
+  let g:ale_lint_on_text_changed = 0
   autocmd BufEnter * set conceallevel=0
   autocmd CursorHold * call ale#Lint()
   autocmd CursorHoldI * call ale#Lint()
   autocmd InsertLeave * call ale#Lint()
   autocmd TextChanged * call ale#Lint()
 augroup END
-let g:ale_lint_on_text_changed = 0
 
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
