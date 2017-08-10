@@ -132,8 +132,8 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
-colorscheme alduin
-let g:airline_theme='alduin'
+colorscheme quantum
+let g:airline_theme='quantum'
 " highlight ColorColumn guibg=#282c34
 
 " checks if a file was updated elsewhere like package.json/Gemfile.lock
@@ -265,7 +265,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ALE ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
