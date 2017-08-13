@@ -761,5 +761,8 @@ xnoremap zz :normal zz<CR>
 xnoremap zt :normal zt<CR>
 xnoremap zb :normal zb<CR>
 
+" === racket ===
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
+
 " === this has to come late in order to work ===
 highlight Comment cterm=italic gui=italic
