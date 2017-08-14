@@ -353,7 +353,7 @@ nnoremap <Leader>g :Git<SPACE>
 " === fzf.vim ===
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <C-t> :BTags<CR>
+nnoremap <C-t> :Tags<CR>
 nnoremap <Leader>f :BLines<CR>
 nnoremap <Leader>c :Commits<CR>
 nnoremap <Leader>old :History<CR>
@@ -363,6 +363,7 @@ nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
 
 let g:fzf_colors =
       \ { 'hl': ['fg', 'Exception'] }
+let g:fzf_tags_command = 'ctags -R'
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
 xmap <Leader><tab> <plug>(fzf-maps-x)
