@@ -17,6 +17,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'AlessandroYorba/Alduin'
 Plug 'rakr/vim-one'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'morhetz/gruvbox'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -132,8 +133,8 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 
-colorscheme quantum
-let g:airline_theme='quantum'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 " highlight ColorColumn guibg=#282c34
 
 " checks if a file was updated elsewhere like package.json/Gemfile.lock
