@@ -130,6 +130,7 @@ let s:darwin = has('mac')
 set autoread
 set autowrite " Automatically :write before running commands
 set backspace=2 " Backspace deletes like most programs in insert mode
+set background=dark
 set clipboard=unnamed " copy paste to clipboard
 set colorcolumn=+1
 

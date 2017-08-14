@@ -1,4 +1,9 @@
 ```vim
+
+* - search word under cursor - fwd
+
+# - search word under cursor - backward
+
 gqG - formats the text from the current position to end of file
 
 gqq - formats the text of the current line
