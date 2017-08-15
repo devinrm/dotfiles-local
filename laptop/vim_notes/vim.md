@@ -1,5 +1,7 @@
 ```vim
 
+c-n/cp - move up and down in fzf search window
+
 * - search word under cursor - fwd
 
 # - search word under cursor - backward
