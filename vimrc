@@ -127,16 +127,15 @@ call plug#end()
 
 let s:darwin = has('mac')
 
-set autoread
+set autoread " Automatically read file if it has been changed outside of vim
 set autowrite " Automatically :write before running commands
 set backspace=2 " Backspace deletes like most programs in insert mode
-set background=dark
-set clipboard=unnamed " copy paste to clipboard
-set colorcolumn=+1
+set background=dark " Use colors that look good on a dark background
+set clipboard=unnamed " copy paste to system clipboard
+set colorcolumn=+1 " highlight column after 'textwidth'
 
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
-" highlight ColorColumn guibg=#282c34
 
 " checks if a file was updated elsewhere like package.json/Gemfile.lock
 " and reflects changes automatically while viewing file
@@ -149,10 +148,10 @@ augroup checkt
   endfunction
 augroup END
 
-set complete+=kspell
-set diffopt+=vertical
-set expandtab
-filetype plugin indent on
+set complete+=kspell " Set the matches for Insert mode completion.
+set diffopt+=vertical " Start diff mode with vertical splits
+set expandtab " Use the appropriate number of spaces to insert a <Tab>.
+filetype plugin indent on " load indent file for language
 set gdefault " Replace all matches on a line instead of just the first
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -166,8 +165,8 @@ if executable('ag')
   endif
 endif
 
-set guicursor+=a:blinkon0 " Disable blinking cursor
-set history=50
+set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
+set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -184,20 +183,21 @@ let g:is_posix = 1
 set laststatus=2  " Always display the status line
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
-let g:mapleader = ' '
+let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
-set mouse=a " Turn mouse on for pair programming
-set nobackup
-set nofoldenable
-set nojoinspaces
-set noshowmode
+set mouse=a " Turn mouse on
+set nobackup " Don't make a backup before overwriting a file
+set nofoldenable " Leave open all folds
+set nojoinspaces " Insert one space after a '.', '?' and '!' with a join command.
+set noshowmode " If in Insert, Replace or Visual mode don't put a message on the last line.
 set noswapfile " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set nowrap
-set nowritebackup
-set number
-set numberwidth=5
-set relativenumber " Get the best of both worlds with set number and relativenumber
+set nowrap " Don't wrap lines longer than the width of the window
+set nowritebackup " Don't make a backup before overwriting a file.
+set number " Turn on line numbers
+set numberwidth=5 " Minimal number of columns to use for the line number.
+set relativenumber " Show the line number relative to the line with the cursor in front of each line.
 
+" Get the best of both worlds with set number and relativenumber
 augroup numbers
   autocmd!
   autocmd InsertEnter * :set number norelativenumber
@@ -205,25 +205,25 @@ augroup numbers
 augroup END
 
 set ruler " show the cursor position all the time
-runtime! macros/matchit.vim
+runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set scrolloff=5 " show 5 lines above and below cursor
-set shiftround
-set shiftwidth=2
+set shiftround " Round indent to multiple of 'shiftwidth'.
+set shiftwidth=2 " Returns the effective value of 'shiftwidth'
 set showcmd " display incomplete commands
 set smartcase " overrides ignorecase if pattern contains upcase
-set spellfile=$HOME/.vim-spell-en.utf-8.add
+set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
 set spelllang=en_us " Set region to US English
-set splitbelow
-set splitright
-syntax on
-set tabstop=2
+set splitbelow " When on, splitting a window will put the new window below the current one.
+set splitright " When on, splitting a window will put the new window right of the current one.
+syntax on " Turn on syntax highlighting.
+set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
 if has('nvim')
   set termguicolors " nvim gui colors
 endif
-set textwidth=80
-set ttimeout " Fast timeout
-set undodir=$HOME/.undodir
-set undofile
+set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
+set undodir=$HOME/.undodir " directory name for undo file.
+set undofile " Automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
 
 augroup vimrcEx
   autocmd!
@@ -267,7 +267,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ALE ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint'],
+      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
