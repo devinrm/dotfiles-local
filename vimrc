@@ -26,8 +26,6 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'Shougo/neco-vim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'ternjs/tern_for_vim'
 Plug 'ujihisa/neco-look'
 Plug 'wokalski/autocomplete-flow'
@@ -36,11 +34,7 @@ Plug 'zchee/deoplete-zsh'
 " === experiments ===
 if has('nvim')
   Plug 'floobits/floobits-neovim'
-  Plug 'mhinz/neovim-remote'
 endif
-Plug 'mbbill/undotree'
-Plug 'justinmk/vim-dirvish'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -97,6 +91,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/tComment'
+Plug 'mbbill/undotree'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
@@ -117,6 +112,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
+Plug 'justinmk/vim-dirvish'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
 
@@ -217,9 +214,9 @@ set splitbelow " When on, splitting a window will put the new window below the c
 set splitright " When on, splitting a window will put the new window right of the current one.
 syntax on " Turn on syntax highlighting.
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
-if has('nvim')
-  set termguicolors " nvim gui colors
-endif
+" if has('nvim')
+  " set termguicolors " nvim gui colors / disabled for now cause Gruvbox looks better without it
+" endif
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
 set undodir=$HOME/.undodir " directory name for undo file.
@@ -302,9 +299,6 @@ augroup END
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 inoremap ( ()<Esc>i
 
-" === autocomplete-flow ===
-" let g:neosnippet#enable_completed_snippet = 1
-
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
@@ -319,7 +313,7 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 " === deoplete ===
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
+" let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 let g:deoplete#max_list = 15
 
 " === deoplete ternjs/tern_for_vim ===
@@ -469,24 +463,7 @@ let g:netrw_dirhistmax = 0
 
 " === omnicompletion ===
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-inoremap <c-c> <c-x><c-o>
-set complete=.,b,u,w,t,] " Pull from keywords in the current file and from the current tags file
-set complete+=k~/.vim/dictionaries/array_methods.txt
-set complete+=k~/.vim/dictionaries/float_methods.txt
-set complete+=k~/.vim/dictionaries/hash_methods.txt
-set complete+=k~/.vim/dictionaries/integer_methods.txt
-set complete+=k~/.vim/dictionaries/string_methods.txt
-set complete+=k~/.vim/dictionaries/rails_controller_completions.txt
-set complete+=k~/.vim/dictionaries/rails_mailer_completions.txt
-set complete+=k~/.vim/dictionaries/rails_migration_completions.txt
-set complete+=k~/.vim/dictionaries/rails_model_completions.txt
-set complete+=k~/.vim/dictionaries/rails_spec_completions.txt
-set complete+=k~/.vim/dictionaries/ruby_template_completions.txt
-set complete+=k~/.vim/dictionaries/capybara_matchers.txt
-set complete+=k~/.vim/dictionaries/webdriver_io.txt
-" set completeopt=menu,preview " Shows menu and any addition tips
-set completeopt-=preview
+set completeopt=menu,preview " Shows menu and any addition tips
 
 " === rainbow_parentheses ===
 augroup rainbow

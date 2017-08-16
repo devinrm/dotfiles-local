@@ -105,9 +105,6 @@ eval "$(hub alias -s)"
 # Git wrapper
 export PATH="$HOME/bin:$PATH"
 
-# neovim-remote
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-
 # color man pages
 man() {
     env \
