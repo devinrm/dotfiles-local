@@ -418,25 +418,8 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
 let g:netrw_dirhistmax = 0
-function! ToggleLExplorer()
-  if exists('t:expl_buf_num')
-    let l:expl_win_num = bufwinnr(t:expl_buf_num)
-    if l:expl_win_num != -1
-      let l:cur_win_nr = winnr()
-      exec l:expl_win_num . 'wincmd w'
-      close
-      exec l:cur_win_nr . 'wincmd w'
-      unlet t:expl_buf_num
-    else
-      unlet t:expl_buf_num
-    endif
-  else
-    exec '1wincmd w'
-    Lexplore
-    let t:expl_buf_num = bufnr('%')
-  endif
-endfunction
-nnoremap _ :call ToggleLExplorer()<CR>
+nnoremap - :Lexplore<CR>
+nnoremap _ :Lexplore!<CR>
 
 " === omnicompletion ===
 filetype plugin on
