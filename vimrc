@@ -15,9 +15,10 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'AlessandroYorba/Alduin'
+Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline-themes'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -112,8 +113,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
-Plug 'justinmk/vim-dirvish'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
 
@@ -234,7 +233,7 @@ augroup END
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'zenburn'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -299,7 +298,7 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
-let g:deoplete#max_list = 15
+let g:deoplete#max_list = 3
 
 " === deoplete ternjs/tern_for_vim ===
 let g:tern_request_timeout = 1
@@ -316,15 +315,6 @@ let g:tern#arguments = ['--persistent']
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
-
-" === vim-dirvish ===
-let g:loaded_netrwPlugin = 1
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-augroup dirvishfugitive
-  autocmd FileType dirvish call fugitive#detect(@%)
-augroup END
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -421,30 +411,32 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
 
-" === neovim-remote ===
-if has('nvim')
-  let $VISUAL = 'nvr -cc split --remote-wait'
-endif
-
-" === nerdtree ===
-augroup nerd_loader
-  autocmd!
-  autocmd VimEnter * silent! autocmd! FileExplorer
-  autocmd BufEnter,BufNew *
-        \  if isdirectory(expand('<amatch>'))
-        \|   call plug#load('nerdtree')
-        \|   execute 'autocmd! nerd_loader'
-        \| endif
-augroup END
-nnoremap _ :NERDTreeToggle<cr>
-
 " === netrw ===
-let g:netrw_browse_split = 0
+let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
-let g:netrw_winsize = 25
+let g:netrw_winsize = 15
 let g:netrw_dirhistmax = 0
+function! ToggleLExplorer()
+  if exists('t:expl_buf_num')
+    let l:expl_win_num = bufwinnr(t:expl_buf_num)
+    if l:expl_win_num != -1
+      let l:cur_win_nr = winnr()
+      exec l:expl_win_num . 'wincmd w'
+      close
+      exec l:cur_win_nr . 'wincmd w'
+      unlet t:expl_buf_num
+    else
+      unlet t:expl_buf_num
+    endif
+  else
+    exec '1wincmd w'
+    Lexplore
+    let t:expl_buf_num = bufnr('%')
+  endif
+endfunction
+nnoremap _ :call ToggleLExplorer()<CR>
 
 " === omnicompletion ===
 filetype plugin on
