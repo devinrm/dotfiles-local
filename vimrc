@@ -130,56 +130,25 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-
 colorscheme gruvbox
-let g:airline_theme='gruvbox'
-
-" checks if a file was updated elsewhere like package.json/Gemfile.lock
-" and reflects changes automatically while viewing file
-augroup checkt
-  autocmd!
-  autocmd CursorHold * call Timer()
-  function! Timer()
-    checktime
-    call feedkeys("f\e")
-  endfunction
-augroup END
-
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
 set gdefault " Replace all matches on a line instead of just the first
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  if !exists(':Ag')
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
+let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
-
 if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
+  set termguicolors " nvim gui colors / disabled for now cause Gruvbox looks better without it
 endif
-
-" When the type of shell script is /bin/sh, assume a POSIX-compatible
-" shell for syntax highlighting purposes.
-let g:is_posix = 1
-set laststatus=2  " Always display the status line
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
+set laststatus=2 " Always display the status line
+set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
 set mouse=a " Turn mouse on
@@ -187,20 +156,17 @@ set nobackup " Don't make a backup before overwriting a file
 set nofoldenable " Leave open all folds
 set nojoinspaces " Insert one space after a '.', '?' and '!' with a join command.
 set noshowmode " If in Insert, Replace or Visual mode don't put a message on the last line.
-set noswapfile " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile " Do not create a swapfile for a new buffer.
 set nowrap " Don't wrap lines longer than the width of the window
 set nowritebackup " Don't make a backup before overwriting a file.
 set number " Turn on line numbers
 set numberwidth=5 " Minimal number of columns to use for the line number.
 set relativenumber " Show the line number relative to the line with the cursor in front of each line.
-
-" Get the best of both worlds with set number and relativenumber
-augroup numbers
+augroup numbers " Get the best of both worlds with set number and relativenumber
   autocmd!
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
 augroup END
-
 set ruler " show the cursor position all the time
 runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set scrolloff=5 " show 5 lines above and below cursor
@@ -214,31 +180,49 @@ set splitbelow " When on, splitting a window will put the new window below the c
 set splitright " When on, splitting a window will put the new window right of the current one.
 syntax on " Turn on syntax highlighting.
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
-" if has('nvim')
-  " set termguicolors " nvim gui colors / disabled for now cause Gruvbox looks better without it
-" endif
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
 set undodir=$HOME/.undodir " directory name for undo file.
 set undofile " Automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
-
-augroup vimrcEx
-  autocmd!
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-augroup END
-
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
 set winwidth=84 " Window size
 set winheight=10
 set winminheight=5
+
+" checks if a file was updated elsewhere like package.json/Gemfile.lock
+" and reflects changes automatically while viewing file
+augroup checkt
+  autocmd!
+  autocmd CursorHold * call Timer()
+  function! Timer()
+    checktime
+    call feedkeys("f\e")
+  endfunction
+augroup END
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  if !exists(':Ag')
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it for commit messages, when the position is invalid, or when
+" inside an event handler.
+augroup vimrcEx
+  autocmd!
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
 "  ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n ||
@@ -250,6 +234,7 @@ set winminheight=5
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -744,5 +729,5 @@ xnoremap zb :normal zb<CR>
 " === racket ===
 autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
 
-" === this has to come late in order to work ===
+" === this has to come late in order to work (from @geoffharcourt) ===
 highlight Comment cterm=italic gui=italic
