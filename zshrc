@@ -120,13 +120,6 @@ man() {
 
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_STYLES[line]=none
-ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
