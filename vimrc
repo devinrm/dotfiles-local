@@ -166,6 +166,7 @@ augroup END
 set ruler " show the cursor position all the time
 runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set scrolloff=5 " show 5 lines above and below cursor
+scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
 set showcmd " display incomplete commands
@@ -187,8 +188,8 @@ set winwidth=84 " Window size
 set winheight=10
 set winminheight=5
 
-" checks if a file was updated elsewhere like package.json/Gemfile.lock
-" and reflects changes automatically while viewing file
+" checks if a file was updated elsewhere like package.json/Gemfile.lock and
+" reflects changes automatically while viewing file
 augroup checkt
   autocmd!
   autocmd CursorHold * call Timer()
@@ -200,9 +201,7 @@ augroup END
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
+  set grepprg=ag\ --nogroup\ --nocolor " Use Ag over Grep
   if !exists(':Ag')
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     nnoremap \ :Ag<SPACE>
@@ -243,7 +242,7 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_error = '%{ale#statusline#Status()}'
 let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
-" === ALE ===
+" === ale ===
 let g:ale_linters = {
       \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
       \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
