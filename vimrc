@@ -15,6 +15,7 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'chriskempson/base16-vim'
+Plug 'whatyouhide/vim-gotham'
 
 " === completion ===
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -125,7 +126,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme base16-atelier-estuary
+colorscheme gotham
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -229,7 +230,7 @@ augroup END
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
-" let g:airline_theme = 'zenburn'
+let g:airline_theme = 'gotham'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
