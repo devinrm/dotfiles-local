@@ -323,8 +323,7 @@ nnoremap <C-t> :Tags<CR>
 nnoremap <Leader>f :BLines<CR>
 nnoremap <Leader>c :Commits<CR>
 nnoremap <Leader>old :History<CR>
-" grep the word under the cursor, select it, and then drop it into a quickfix
-" window
+" grep the word under the cursor, select it, and then drop it into a quickfix window
 nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
 
 let g:fzf_colors =
@@ -342,8 +341,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
-" Narrow ag results within vim; CTRL-A to select all matches and list them in
-" quickfix window
+" Narrow ag results within vim; CTRL-A to select all matches and list them in quickfix window
 function! s:ag_to_qf(line)
   let l:parts = split(a:line, ':')
   return {'filename': l:parts[0], 'lnum': l:parts[1], 'col': l:parts[2],
@@ -396,9 +394,9 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 let g:gitgutter_signs = 0
 
 " === goyo.vim/limelight.vim ===
-augroup goyolimelight
+augroup goyolimelight " Integrate limelight and goyo
   autocmd!
-  autocmd! User GoyoEnter Limelight " Integrate limelight and goyo
+  autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
 augroup END
 
@@ -420,7 +418,7 @@ nnoremap _ :Lexplore!<CR>
 
 " === omnicompletion ===
 filetype plugin on
-set completeopt=menu,preview " Shows menu and any addition tips
+set completeopt=menu,preview " Shows menu and any additional tips
 
 " === rainbow_parentheses ===
 augroup rainbow
@@ -454,8 +452,7 @@ let g:test#strategy = 'dispatch'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 if has('nvim')
-  " open vim-test in neovim terminal if using neovim
-  let g:test#strategy = 'neovim'
+  let g:test#strategy = 'neovim' " open vim-test in neovim terminal if using neovim
 endif
 
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -474,10 +471,8 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR> TODO: fix this
-" do nay let the plugin set the mappings
-let g:tmux_navigator_no_mappings = 1
-" Save on switch
-let g:tmux_navigator_save_on_switch = 2
+let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
+let g:tmux_navigator_save_on_switch = 2 " Save on switch
 
 " === undotree===
 let g:undotree_WindowLayout = 2
@@ -488,7 +483,7 @@ nnoremap U :UndotreeToggle<CR>
 " ||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|
 
-" Switch between the last two files
+" === Switch between the last two files ===
 nnoremap <leader><leader> <c-^>
 
 " === automatically rebalance windows on vim resize ===
@@ -647,6 +642,9 @@ nmap Q @q
 " run commands through neovim term instead of :!
 nnoremap <Leader>r :sp<CR> :te<SPACE>
 
+" === racket ===
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
+
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
 
@@ -697,9 +695,6 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 xnoremap zz :normal zz<CR>
 xnoremap zt :normal zt<CR>
 xnoremap zb :normal zb<CR>
-
-" === racket ===
-autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
 
 " === this has to come late in order to work (from @geoffharcourt) ===
 highlight Comment cterm=italic gui=italic
