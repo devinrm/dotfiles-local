@@ -407,6 +407,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
 
 " === nerdtreee ===
+let g:NERDTreeWinSize=20
 nnoremap - :NERDTreeToggle<CR>
 
 " === netrw ===
