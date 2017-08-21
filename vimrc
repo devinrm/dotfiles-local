@@ -33,6 +33,7 @@ Plug 'zchee/deoplete-zsh'
 if has('nvim')
   Plug 'floobits/floobits-neovim'
 endif
+Plug 'scrooloose/nerdtree'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -405,15 +406,19 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
 
+" === nerdtreee ===
+nnoremap - :NERDTreeToggle<CR>
+
 " === netrw ===
+let g:loaded_netrwPlugin = 1
 let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
 let g:netrw_dirhistmax = 0
-nnoremap - :Lexplore<CR>
-nnoremap _ :Lexplore!<CR>
+" nnoremap - :Lexplore<CR>
+" nnoremap _ :Lexplore!<CR>
 
 " === omnicompletion ===
 filetype plugin on
