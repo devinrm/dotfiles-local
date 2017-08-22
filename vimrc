@@ -415,7 +415,7 @@ function! ToggleNERDTreeFind()
         execute ':NERDTreeFind'
     endif
 endfunction
-nnoremap - :call ToggleNERDTreeFind()<CR>
+nnoremap - :call ToggleNERDTreeFind()<CR>^
 
 " === netrw ===
 let g:loaded_netrwPlugin = 1
