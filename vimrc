@@ -100,7 +100,7 @@ Plug 'yuttie/comfortable-motion.vim'
 " === other ===
 Plug 'alvan/vim-closetag'
 Plug 'beloglazov/vim-online-thesaurus'
-Plug 'chrisbra/Colorizer'
+UnPlug 'chrisbra/Colorizer'
 Plug 'hwartig/vim-seeing-is-believing'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -408,7 +408,14 @@ let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css
 
 " === nerdtreee ===
 let g:NERDTreeWinSize=20
-nnoremap - :NERDTreeToggle<CR>
+function! ToggleNERDTreeFind()
+    if g:NERDTree.IsOpen()
+        execute ':NERDTreeClose'
+    else
+        execute ':NERDTreeFind'
+    endif
+endfunction
+nnoremap - :call ToggleNERDTreeFind()<CR>
 
 " === netrw ===
 let g:loaded_netrwPlugin = 1
