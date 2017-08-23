@@ -128,7 +128,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme gotham
+colorscheme base16-ashes
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -548,13 +548,13 @@ inoremap <S-Tab> <c-P>
 " === Emacs-like. Experimental, breaks things you might be using. ===
 nnoremap <C-a> ^
 nnoremap <C-e> $
-imap <C-a> <C-o>^
-imap <C-e> <C-o>$
+imap <C-a> <Home>
+imap <C-e> <End>
 nnoremap <C-w> db
-imap <C-n> <C-o>j
-imap <C-p> <C-o>k
-imap <C-f> <C-o>l
-imap <C-b> <C-o>h
+imap <C-n> <Down>
+imap <C-p> <Up>
+imap <C-f> <Right>
+imap <C-b> <Left>
 imap <C-k> <C-o>D
 
 " === Require pry (from @christoomey) ===
