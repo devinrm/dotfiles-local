@@ -18,11 +18,13 @@ Plug 'chriskempson/base16-vim'
 Plug 'whatyouhide/vim-gotham'
 
 " === completion ===
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'fishbullet/deoplete-ruby'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
+Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-vim'
 Plug 'ternjs/tern_for_vim'
 Plug 'ujihisa/neco-look'
@@ -31,7 +33,7 @@ Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
 if has('nvim')
-  Plug 'floobits/floobits-neovim'
+  Plug 'floobits/floobits-neovim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'scrooloose/nerdtree'
 
@@ -231,7 +233,7 @@ augroup END
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
-let g:airline_theme = 'gotham'
+" let g:airline_theme = 'gotham'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -403,6 +405,19 @@ augroup END
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" === LanguageClient-neovim ===
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript.jsx': ['/usr/local/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ }
+
+let g:LanguageClient_autoStart = 1 " Automatically start language servers.
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
