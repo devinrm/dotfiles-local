@@ -65,6 +65,7 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+Plug 'wlangstroth/vim-racket'
 
 " === linting ===
 Plug 'w0rp/ale'
@@ -653,9 +654,6 @@ nmap Q @q
 
 " run commands through neovim term instead of :!
 nnoremap <Leader>r :sp<CR> :te<SPACE>
-
-" === racket ===
-autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
 
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
