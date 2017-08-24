@@ -298,7 +298,7 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
-let g:deoplete#max_list = 3
+let g:deoplete#max_list = 5
 
 " === deoplete ternjs/tern_for_vim ===
 let g:tern_request_timeout = 1
