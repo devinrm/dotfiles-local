@@ -27,7 +27,6 @@ endif
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-vim'
 Plug 'ternjs/tern_for_vim'
-Plug 'ujihisa/neco-look'
 Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-zsh'
 
