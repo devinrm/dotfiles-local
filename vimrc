@@ -129,12 +129,13 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme base16-ashes
+colorscheme gotham
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
 set gdefault " Replace all matches on a line instead of just the first
+let g:gonvim_draw_statusline = 0
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
@@ -603,7 +604,7 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
-tnoremap jk <C-\><C-n>
+tnoremap kj <C-\><C-n>
 tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
 " === Indent the whole file ===
