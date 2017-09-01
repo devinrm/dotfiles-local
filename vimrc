@@ -15,10 +15,9 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'chriskempson/base16-vim'
-Plug 'whatyouhide/vim-gotham'
 
 " === completion ===
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" UnPlug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'fishbullet/deoplete-ruby'
 if has('nvim')
@@ -129,13 +128,13 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme gotham
+colorscheme base16-ir-black
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
 set gdefault " Replace all matches on a line instead of just the first
-let g:gonvim_draw_statusline = 0
+" let g:gonvim_draw_statusline = 0
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
@@ -233,7 +232,7 @@ augroup END
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
-" let g:airline_theme = 'gotham'
+" let g:airline_theme = ''
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -248,8 +247,8 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier-eslint', 'standard'],
-      \ 'html': ['eslint', 'prettier-eslint', 'flow', 'tidy', 'htmlhint'],
+      \ 'javascript': ['flow', 'eslint', 'prettier'],
+      \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek'],
@@ -268,16 +267,18 @@ let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-augroup alesettings
-  autocmd!
-  set updatetime=1000
-  let g:ale_lint_on_text_changed = 0
-  autocmd BufEnter * set conceallevel=0
-  autocmd CursorHold * call ale#Lint()
-  autocmd CursorHoldI * call ale#Lint()
-  autocmd InsertLeave * call ale#Lint()
-  autocmd TextChanged * call ale#Lint()
-augroup END
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+" augroup alesettings
+"   autocmd!
+"   set updatetime=1000
+"   let g:ale_lint_on_text_changed = 0
+"   autocmd BufEnter * set conceallevel=0
+"   autocmd CursorHold * call ale#Lint()
+"   autocmd CursorHoldI * call ale#Lint()
+"   autocmd InsertLeave * call ale#Lint()
+"   autocmd TextChanged * call ale#Lint()
+" augroup END
 
 " === auto-pairs ===
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
@@ -407,34 +408,27 @@ augroup END
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === LanguageClient-neovim ===
-set hidden
+" set hidden
 
-let g:LanguageClient_serverCommands = {
-    \ 'javascript.jsx': ['/usr/local/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+    " \ 'javascript.jsx': ['/usr/local/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    " \ }
 
-let g:LanguageClient_autoStart = 1 " Automatically start language servers.
+" let g:LanguageClient_autoStart = 1 " Automatically start language servers.
 
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
 
 " === nerdtreee ===
-let g:NERDTreeWinSize=20
-function! ToggleNERDTreeFind()
-    if g:NERDTree.IsOpen()
-        execute ':NERDTreeClose'
-    else
-        execute ':NERDTreeFind'
-    endif
-endfunction
-nnoremap - :call ToggleNERDTreeFind()<CR>^
+nnoremap - :NERDTreeToggle<CR>
+nnoremap <F10> :NERDTreeFind<CR>
 
 " === netrw ===
-let g:loaded_netrwPlugin = 1
+" let g:loaded_netrwPlugin = 1
 let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -571,6 +565,7 @@ imap <C-p> <Up>
 imap <C-f> <Right>
 imap <C-b> <Left>
 imap <C-k> <C-o>D
+imap <C-x> <Del>
 
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
