@@ -29,6 +29,8 @@ alias yarnu="yarn global upgrade"
 
 # Vim
 alias vimdiff="nvim -d"
+alias linkvim="ln -s ~/.vim ~/.config/nvim"
+alias linkvimrc="ln -s ~/.vimrc ~/.config/nvim/init.vim"
 
 # Reload ZSH
 alias z=". ~/.zshrc"
