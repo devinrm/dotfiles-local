@@ -15,6 +15,7 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " === completion ===
 " UnPlug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
@@ -37,7 +38,6 @@ Plug 'scrooloose/nerdtree'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
 
 " === language plugins ===
 Plug 'c-brenn/phoenix.vim'
@@ -100,8 +100,7 @@ Plug 'yuttie/comfortable-motion.vim'
 
 " === other ===
 Plug 'alvan/vim-closetag'
-Plug 'beloglazov/vim-online-thesaurus'
-UnPlug 'chrisbra/Colorizer'
+Plug 'chrisbra/Colorizer'
 Plug 'hwartig/vim-seeing-is-believing'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -128,7 +127,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme base16-ir-black
+colorscheme base16-default-dark
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -251,7 +250,7 @@ let g:ale_linters = {
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
-      \ 'ruby': ['rubocop', 'reek'],
+      \ 'ruby': ['rubocop', 'reek', 'rails_best_practices'],
       \ 'text': ['vale']
       \ }
 
@@ -578,6 +577,9 @@ nnoremap <C-c> :x<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>co mmggVG"*y`m
+
+" === add debugger anywhere ===
+nnoremap <Leader>d odebugger;<esc>^
 
 " === Run them migrations ===
 nnoremap <Leader>dm :! rails db:migrate<CR>
