@@ -102,7 +102,6 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
 Plug 'hwartig/vim-seeing-is-believing'
-Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 
 " === search ===
@@ -278,10 +277,6 @@ let g:ale_lint_on_enter = 0
 "   autocmd InsertLeave * call ale#Lint()
 "   autocmd TextChanged * call ale#Lint()
 " augroup END
-
-" === auto-pairs ===
-let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-inoremap ( ()<Esc>i
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -503,6 +498,14 @@ nnoremap U :UndotreeToggle<CR>
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|
+
+" === auto-pairs ===
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+inoremap ` ``<Esc>i
 
 " === Switch between the last two files ===
 nnoremap <leader><leader> <c-^>
