@@ -315,12 +315,12 @@ let g:rspec_command = 'Dispatch rspec {spec}'
 nnoremap <Leader>g :Git<SPACE>
 
 " === fzf.vim ===
-nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-t> :Tags<CR>
+nnoremap <C-p> :wa<CR>:Files<CR>
+nnoremap <C-b> :wa<CR>:Buffers<CR>
+nnoremap <C-t> :wa<CR>:Tags<CR>
 nnoremap <Leader>f :BLines<CR>
-nnoremap <Leader>c :Commits<CR>
-nnoremap <Leader>old :History<CR>
+nnoremap <Leader>c :wa<CR>:Commits<CR>
+nnoremap <Leader>old :wa<CR>:History<CR>
 " grep the word under the cursor, select it, and then drop it into a quickfix window
 nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
 
