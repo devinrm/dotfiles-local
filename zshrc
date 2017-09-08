@@ -53,27 +53,9 @@ export AWS_DEFAULT_REGION=us-east-1
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# rbenv
-export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
-
-# node
-export PATH="$HOME/.node/bin:$PATH"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# go
-export PATH=$PATH:~/src/go/bin
-export GOPATH=$HOME/src/go
-
-# elixir
-export PATH="$PATH:/path/to/elixir/bin"
-
-# rust
-export PATH="$HOME/.cargo/bin:$PATH"
+# asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 # yarn
 export PATH="$PATH:`yarn global bin`"

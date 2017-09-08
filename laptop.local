@@ -152,8 +152,6 @@ brew install pygtk
 brew install python
 brew install qt
 brew install ranger
-brew install rbenv
-brew install rbenv-ctags
 brew install rcm
 brew install readline
 brew install reattach-to-user-namespace
@@ -361,8 +359,6 @@ python
 python3
 qt
 ranger
-rbenv
-rbenv-ctags
 rcm
 readline
 reattach-to-user-namespace
