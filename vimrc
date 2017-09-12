@@ -35,6 +35,7 @@ if has('nvim')
   Plug 'floobits/floobits-neovim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'scrooloose/nerdtree'
+Plug 'jelera/vim-javascript-syntax'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -166,7 +167,7 @@ augroup numbers " Get the best of both worlds with set number and relativenumber
 augroup END
 set ruler " show the cursor position all the time
 runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
-set scrolloff=5 " show 5 lines above and below cursor
+set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'

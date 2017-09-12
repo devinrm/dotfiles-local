@@ -2,3 +2,5 @@ ruby 2.4.1
 rust 1.20.0
 golang 1.9
 nodejs 8.4.0
+python 3.6.2
+python 2.7.13
