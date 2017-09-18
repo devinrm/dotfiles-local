@@ -133,7 +133,7 @@ set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
 set gdefault " Replace all matches on a line instead of just the first
-" let g:gonvim_draw_statusline = 0
+let g:gonvim_draw_statusline = 0
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
@@ -560,6 +560,8 @@ inoremap <S-Tab> <c-P>
 " === Emacs-like. Experimental, breaks things you might be using. ===
 nnoremap <C-a> ^
 nnoremap <C-e> $
+xnoremap <C-a> ^
+xnoremap <C-e> $
 imap <C-a> <Home>
 imap <C-e> <End>
 nnoremap <C-w> db

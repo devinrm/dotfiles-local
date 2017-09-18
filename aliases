@@ -101,3 +101,5 @@ alias dot="cd ~/dotfiles"
 alias wifi-ip="ipconfig getifaddr en0"
 
 alias racket="racket -i -p neil/sicp -l xrepl"
+
+alias gonvim="open /Applications/gonvim.app"
