@@ -246,7 +246,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier'],
+      \ 'javascript': ['flow', 'eslint', 'prettier', 'standard'],
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -254,8 +254,10 @@ let g:ale_linters = {
       \ 'text': ['vale']
       \ }
 
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'html': ['prettier']
+      \ }
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 120 --parser flow'
 nnoremap <Leader>fix :ALEFix<CR>
 
