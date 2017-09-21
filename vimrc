@@ -36,6 +36,7 @@ if has('nvim')
 endif
 Plug 'scrooloose/nerdtree'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'itchyny/calendar.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -132,6 +133,8 @@ set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
+set foldmethod=expr
+set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 set gdefault " Replace all matches on a line instead of just the first
 let g:gonvim_draw_statusline = 0
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
@@ -246,7 +249,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier', 'standard'],
+      \ 'javascript': ['flow', 'eslint', 'prettier'],
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -720,6 +723,9 @@ nnoremap Y y$
 
 " === Make yank behave like yank should ===
 vnoremap <expr>y "my\"" . v:register . "y`y"
+
+" === Open folds easily ===
+nnoremap <Space> za
 
 " === Get z commands in visual mode
 xnoremap zz :normal zz<CR>

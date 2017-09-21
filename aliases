@@ -79,6 +79,24 @@ alias sed="sed -E"
 # Copy-pasting '$ ruby something.rb' works
 alias \❯=''
 
+# Git
+alias push="git push"
+alias ph="git ph"
+alias pull="git pull"
+alias fall="git fall"
+alias aa="git add --all"
+alias ci="git ci"
+alias pf="git pf"
+alias rup="git rup"
+alias st="git st"
+alias stu="git stu"
+alias uncommit="git uncommit"
+alias unstage="git unstage"
+alias cm="git cm"
+alias co="git co"
+alias branches="git branches"
+alias mg="git mg"
+
 # Open applications I use often
 alias fire="open -a Firefox"
 alias k="open -a KeePassXC"
