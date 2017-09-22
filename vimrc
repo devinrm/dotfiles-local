@@ -14,6 +14,7 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
+Plug 'ayu-theme/ayu-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -128,7 +129,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme base16-default-dark
+colorscheme base16-atelier-sulphurpool
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
