@@ -105,6 +105,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
 ###-begin-npm-completion-###
 #
 # npm command completion script

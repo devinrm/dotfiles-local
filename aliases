@@ -96,6 +96,7 @@ alias cm="git cm"
 alias co="git co"
 alias branches="git branches"
 alias mg="git mg"
+alias diff="git diff"
 
 # Open applications I use often
 alias fire="open -a Firefox"
