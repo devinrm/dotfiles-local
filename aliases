@@ -95,6 +95,7 @@ alias unstage="git unstage"
 alias cm="git cm"
 alias co="git co"
 alias branches="git branches"
+alias branch="git branch"
 alias mg="git mg"
 alias diff="git diff"
 
