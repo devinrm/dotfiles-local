@@ -14,8 +14,8 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'ayu-theme/ayu-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
 
 " === completion ===
@@ -36,7 +36,6 @@ if has('nvim')
   Plug 'floobits/floobits-neovim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'scrooloose/nerdtree'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'itchyny/calendar.vim'
 
 " === git ===
@@ -59,6 +58,7 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -129,7 +129,8 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme base16-atelier-sulphurpool
+colorscheme neodark
+let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -250,7 +251,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier', 'standard'],
+      \ 'javascript': ['flow', 'eslint', 'prettier'],
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -272,18 +273,18 @@ let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-" augroup alesettings
-"   autocmd!
-"   set updatetime=1000
-"   let g:ale_lint_on_text_changed = 0
-"   autocmd BufEnter * set conceallevel=0
-"   autocmd CursorHold * call ale#Lint()
-"   autocmd CursorHoldI * call ale#Lint()
-"   autocmd InsertLeave * call ale#Lint()
-"   autocmd TextChanged * call ale#Lint()
-" augroup END
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 0
+augroup alesettings
+  autocmd!
+  set updatetime=1000
+  let g:ale_lint_on_text_changed = 0
+  autocmd BufEnter * set conceallevel=0
+  autocmd CursorHold * call ale#Lint()
+  autocmd CursorHoldI * call ale#Lint()
+  autocmd InsertLeave * call ale#Lint()
+  autocmd TextChanged * call ale#Lint()
+augroup END
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -301,6 +302,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
 let g:deoplete#max_list = 5
+let g:python_host_prog = '/Users/devinmorgenstern/.asdf/shims/python2'
+let g:python3_host_prog = '/Users/devinmorgenstern/.asdf/shims/python3'
 
 " === deoplete ternjs/tern_for_vim ===
 let g:tern_request_timeout = 1
