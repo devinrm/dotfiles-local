@@ -251,7 +251,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier'],
+      \ 'javascript': ['flow', 'eslint', 'prettier', 'standard'],
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -273,18 +273,8 @@ let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_on_enter = 0
-augroup alesettings
-  autocmd!
-  set updatetime=10000
-  let g:ale_lint_on_text_changed = 0
-  autocmd BufEnter * set conceallevel=0
-  autocmd CursorHold * call ale#Lint()
-  autocmd CursorHoldI * call ale#Lint()
-  autocmd InsertLeave * call ale#Lint()
-  autocmd TextChanged * call ale#Lint()
-augroup END
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_enter = 0
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
