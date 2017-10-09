@@ -277,7 +277,7 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 " let g:ale_lint_on_enter = 0
 augroup alesettings
   autocmd!
-  set updatetime=1000
+  set updatetime=10000
   let g:ale_lint_on_text_changed = 0
   autocmd BufEnter * set conceallevel=0
   autocmd CursorHold * call ale#Lint()
