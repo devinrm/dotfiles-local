@@ -29,8 +29,8 @@
   mup = !git checkout master && git pull && git checkout -
   pf = push --force-with-lease
   ph = push -u origin head
-  rup = !git checkout release/36 && git pull && git checkout -
-  fup = !git checkout feature/36 && git pull && git merge -
+  rup = !git checkout release/37 && git pull && git checkout -
+  fup = !git checkout feature/37 && git pull && git merge -
   sha = rev-parse --short HEAD
   sla = log --oneline --decorate --graph --all
   st = status
