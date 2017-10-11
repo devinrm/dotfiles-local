@@ -80,7 +80,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mbbill/undotree'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'radenling/vim-dispatch-neovim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-dispatch'
@@ -94,7 +96,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'mbbill/undotree'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
@@ -456,9 +457,6 @@ let g:sneak#label = 1
 let g:test#strategy = 'dispatch'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
-if has('nvim')
-  let g:test#strategy = 'neovim' " open vim-test in neovim terminal if using neovim
-endif
 
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
