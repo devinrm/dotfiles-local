@@ -195,17 +195,6 @@ set winwidth=84 " Window size
 set winheight=10
 set winminheight=5
 
-" checks if a file was updated elsewhere like package.json/Gemfile.lock and
-" reflects changes automatically while viewing file
-augroup checkt
-  autocmd!
-  autocmd CursorHold * call Timer()
-  function! Timer()
-    checktime
-    call feedkeys("f\e")
-  endfunction
-augroup END
-
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor " Use Ag over Grep
@@ -251,7 +240,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier', 'standard'],
+      \ 'javascript': ['flow', 'eslint', 'prettier'],
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
