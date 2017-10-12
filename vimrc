@@ -17,6 +17,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'chriskempson/base16-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'roosta/vim-srcery'
 
 " === completion ===
 " UnPlug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
@@ -37,6 +38,7 @@ if has('nvim')
 endif
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/calendar.vim'
+Plug 'wfleming/vim-codeclimate'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -130,7 +132,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme neodark
+colorscheme srcery
 let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
@@ -226,7 +228,7 @@ augroup END
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
-" let g:airline_theme = ''
+let g:airline_theme = 'base16'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -241,7 +243,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'prettier'],
+      \ 'javascript': ['flow', 'eslint', 'prettier', 'standard'],
       \ 'html': ['eslint', 'prettier', 'flow', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
