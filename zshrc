@@ -61,15 +61,15 @@ export EDITOR="$VISUAL"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Auto-attach new shell sessions in tmux
-_not_inside_tmux() { [[ -z "$TMUX" ]] }
-
-ensure_tmux_is_running() {
-  if _not_inside_tmux; then
-    tat
-  fi
-}
-
-ensure_tmux_is_running
+# _not_inside_tmux() { [[ -z "$TMUX" ]] }
+#
+# ensure_tmux_is_running() {
+#   if _not_inside_tmux; then
+#     tat
+#   fi
+# }
+#
+# ensure_tmux_is_running
 
 # make nvim the manpager
 export MANPAGER="nvim -c 'set ft=man' -"
