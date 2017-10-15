@@ -33,12 +33,9 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
-if has('nvim')
-  Plug 'floobits/floobits-neovim', { 'do': ':UpdateRemotePlugins' }
-endif
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/calendar.vim'
-Plug 'wfleming/vim-codeclimate'
+Plug 'cyansprite/Extract'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -60,17 +57,12 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'slashmili/alchemist.vim'
-Plug 'slim-template/vim-slim'
-Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'wlangstroth/vim-racket'
 
 " === linting ===
 Plug 'w0rp/ale'
@@ -82,7 +74,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'mbbill/undotree'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'tomtom/tcomment_vim'
@@ -228,7 +219,7 @@ augroup END
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === vim-airline ===
-let g:airline_theme = 'base16'
+let g:airline_theme = 'atomic'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -478,10 +469,6 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 " nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR> TODO: fix this
 let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
 let g:tmux_navigator_save_on_switch = 2 " Save on switch
-
-" === undotree===
-let g:undotree_WindowLayout = 2
-nnoremap U :UndotreeToggle<CR>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
