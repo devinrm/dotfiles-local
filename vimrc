@@ -35,7 +35,6 @@ Plug 'zchee/deoplete-zsh'
 " === experiments ===
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/calendar.vim'
-Plug 'cyansprite/Extract'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -695,7 +694,7 @@ nnoremap Y y$
 vnoremap <expr>y "my\"" . v:register . "y`y"
 
 " === Open folds easily ===
-nnoremap <Space> za
+nnoremap , za
 
 " === Get z commands in visual mode
 xnoremap zz :normal zz<CR>
