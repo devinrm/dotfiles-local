@@ -342,14 +342,6 @@ command! -nargs=* Ag call fzf#run({
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
-" Ripgrep
-" command! -bang -nargs=* Rg
-"   \ call fzf#vim#grep(
-"   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-"   \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"   \   <bang>0)
-
 " === vim-gitgutter ===
 let g:gitgutter_signs = 0
 
