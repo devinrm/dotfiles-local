@@ -9,6 +9,7 @@ npm i -g prettier
 npm i -g eslint-plugin-prettier
 npm i -g eslint-config-prettier
 npm i -g javascript-typescript-langserver
+npm i -g flow-bin
 
 (
   export PKG=eslint-config-airbnb;
