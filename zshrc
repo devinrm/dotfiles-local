@@ -59,6 +59,7 @@ export EDITOR="$VISUAL"
 
 # fuzzyfinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Auto-attach new shell sessions in tmux
 # _not_inside_tmux() { [[ -z "$TMUX" ]] }
