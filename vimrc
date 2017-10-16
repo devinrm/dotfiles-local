@@ -20,15 +20,16 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'roosta/vim-srcery'
 
 " === completion ===
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fishbullet/deoplete-ruby'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neco-vim'
-Plug 'zchee/deoplete-zsh'
+Plug 'Shougo/neoinclude.vim'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'calebeby/ncm-css'
+Plug 'roxma/ncm-flow', {'do': 'npm i -g flow-bin'}
+Plug 'roxma/ncm-rct-complete'
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'roxma/nvim-completion-manager'
 
 " === experiments ===
 Plug 'scrooloose/nerdtree'
@@ -142,6 +143,8 @@ if has('nvim')
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
+let g:python_host_prog = '/Users/devinmorgenstern/.asdf/shims/python2'
+let g:python3_host_prog = '/Users/devinmorgenstern/.asdf/shims/python3'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
@@ -266,14 +269,6 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
-
-" === deoplete ===
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-" let g:deoplete#disable_auto_complete = 1 " only show comp menu on <tab>
-let g:deoplete#max_list = 5
-let g:python_host_prog = '/Users/devinmorgenstern/.asdf/shims/python2'
-let g:python3_host_prog = '/Users/devinmorgenstern/.asdf/shims/python3'
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
