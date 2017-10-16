@@ -20,16 +20,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'roosta/vim-srcery'
 
 " === completion ===
-" UnPlug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neco-vim'
-Plug 'ternjs/tern_for_vim'
-Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-zsh'
 
 " === experiments ===
@@ -277,19 +275,6 @@ let g:deoplete#max_list = 5
 let g:python_host_prog = '/Users/devinmorgenstern/.asdf/shims/python2'
 let g:python3_host_prog = '/Users/devinmorgenstern/.asdf/shims/python3'
 
-" === deoplete ternjs/tern_for_vim ===
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'
-let g:tern#filetypes = [
-                \ 'js',
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'html'
-                \ ]
-
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
-
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
 
@@ -384,17 +369,17 @@ augroup END
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === LanguageClient-neovim ===
-" set hidden
+set hidden
 
-" let g:LanguageClient_serverCommands = {
-    " \ 'javascript.jsx': ['/usr/local/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
-    " \ }
+let g:LanguageClient_serverCommands = {
+    \ 'javascript.jsx': ['/usr/local/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ }
 
-" let g:LanguageClient_autoStart = 1 " Automatically start language servers.
+let g:LanguageClient_autoStart = 1 " Automatically start language servers.
 
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
