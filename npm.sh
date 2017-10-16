@@ -8,6 +8,7 @@ npm i -g tern
 npm i -g prettier
 npm i -g eslint-plugin-prettier
 npm i -g eslint-config-prettier
+npm i -g javascript-typescript-langserver
 
 (
   export PKG=eslint-config-airbnb;
