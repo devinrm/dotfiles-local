@@ -246,7 +246,7 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'html': ['prettier']
       \ }
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 120 --parser flow'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
 nnoremap <Leader>fix :ALEFix<CR>
 
 let g:ale_set_quickfix = 0
