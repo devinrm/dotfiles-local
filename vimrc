@@ -24,7 +24,6 @@ Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'calebeby/ncm-css'
 Plug 'roxma/ncm-flow', {'do': 'npm i -g flow-bin'}
 Plug 'roxma/ncm-rct-complete'
@@ -354,19 +353,6 @@ augroup END
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
-" === LanguageClient-neovim ===
-set hidden
-
-let g:LanguageClient_serverCommands = {
-    \ 'javascript.jsx': ['/usr/local/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
-    \ }
-
-let g:LanguageClient_autoStart = 1 " Automatically start language servers.
-
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " === vim-markdown ===
 let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
