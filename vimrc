@@ -100,7 +100,6 @@ Plug 'hwartig/vim-seeing-is-believing'
 Plug 'vim-airline/vim-airline'
 
 " === search ===
-Plug 'brooth/far.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -235,7 +234,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint'],
+      \ 'javascript': ['flow', 'eslint', 'standard'],
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
