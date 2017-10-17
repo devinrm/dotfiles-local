@@ -7,6 +7,8 @@ zR - open all folds
 zM - close all folds
 zv - expand folds to reveal cursor
 
+xp - swap characters
+
 c-n/cp - move up and down in fzf search window
 
 * - search word under cursor - fwd

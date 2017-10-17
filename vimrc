@@ -100,6 +100,7 @@ Plug 'hwartig/vim-seeing-is-believing'
 Plug 'vim-airline/vim-airline'
 
 " === search ===
+Plug 'brooth/far.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
