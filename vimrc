@@ -18,6 +18,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'roosta/vim-srcery'
+Plug 'nightsense/strawberry'
 
 " === completion ===
 Plug 'Shougo/echodoc.vim'
@@ -120,7 +121,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme neodark
+colorscheme strawberry-dark
 let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
@@ -129,7 +130,6 @@ filetype plugin indent on " load indent file for language
 set foldmethod=expr
 set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 set gdefault " Replace all matches on a line instead of just the first
-let g:gonvim_draw_statusline = 0
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
@@ -233,7 +233,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint'],
+      \ 'javascript': ['flow', 'eslint', 'standard'],
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -299,43 +299,6 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
-" Narrow ag results within vim; CTRL-A to select all matches and list them in quickfix window
-function! s:ag_to_qf(line)
-  let l:parts = split(a:line, ':')
-  return {'filename': l:parts[0], 'lnum': l:parts[1], 'col': l:parts[2],
-        \ 'text': join(l:parts[3:], ':')}
-endfunction
-
-function! s:ag_handler(lines)
-  if len(a:lines) < 2 | return | endif
-
-  let l:cmd = get({'ctrl-x': 'split',
-        \ 'ctrl-v': 'vertical split',
-        \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
-  let l:list = map(a:lines[1:], 's:ag_to_qf(v:val)')
-
-  let l:first = l:list[0]
-  execute l:cmd escape(l:first.filename, ' %#\')
-  execute l:first.lnum
-  execute 'normal!' l:first.col.'|zz'
-
-  if len(l:list) > 1
-    call setqflist(l:list)
-    copen
-    wincmd p
-  endif
-endfunction
-
-command! -nargs=* Ag call fzf#run({
-      \ 'source':  printf('ag --nogroup --column --color "%s"',
-      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
-      \ 'sink*':    function('<sid>ag_handler'),
-      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-      \            '--color hl:68,hl+:110',
-      \ 'down':    '50%'
-      \ })
 
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
