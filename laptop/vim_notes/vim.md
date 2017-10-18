@@ -1,5 +1,10 @@
 ```vim
 
+global search and replace
+:Ag --js function
+:cfdo %s/function/class/gc
+:cfdo update
+
 zi - switch folding on or off
 za - toggle current fold open/closed
 zc - close current fold

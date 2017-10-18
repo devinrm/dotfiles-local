@@ -18,7 +18,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'roosta/vim-srcery'
-Plug 'nightsense/strawberry'
 
 " === completion ===
 Plug 'Shougo/echodoc.vim'
@@ -121,7 +120,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme strawberry-dark
+colorscheme neodark
 let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
