@@ -530,7 +530,7 @@ xnoremap jk <Esc>
 nnoremap <Leader>ln :set relativenumber!<CR>
 
 " === paste flow when I need it ===
-nnoremap <Leader>low O// @flow<Esc>^
+nnoremap <Leader>flo O// @flow<Esc>^
 
 " === make n N nicer ===
 function! s:nice_next(cmd)
@@ -549,6 +549,10 @@ nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 " === open and close location list ===
 nnoremap <Leader>o :lopen<CR>
 nnoremap <Leader>oo :lclose<CR>
+
+" === open and close quickfix ===
+nnoremap <Leader>q :copen<CR>
+nnoremap <Leader>qq :cclose<CR>
 
 " === Set paste so paste works properly ===
 nnoremap <Leader>p "*p
