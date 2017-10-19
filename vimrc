@@ -395,14 +395,6 @@ let g:tmux_navigator_save_on_switch = 2 " Save on switch
 " ||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|
 
-" === auto-pairs ===
-" inoremap ( ()<Esc>i
-" inoremap [ []<Esc>i
-" inoremap { {}<Esc>i
-" inoremap " ""<Esc>i
-" inoremap ' ''<Esc>i
-" inoremap ` ``<Esc>i
-
 " === Switch between the last two files ===
 nnoremap <leader><leader> <c-^>
 
