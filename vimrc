@@ -33,6 +33,7 @@ Plug 'roxma/nvim-completion-manager'
 " === experiments ===
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/calendar.vim'
+Plug 'cohama/lexima.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -232,7 +233,7 @@ let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'standard'],
+      \ 'javascript': ['flow', 'eslint'],
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
@@ -395,12 +396,12 @@ let g:tmux_navigator_save_on_switch = 2 " Save on switch
 " |/__\|/__\|/__\|/__\|
 
 " === auto-pairs ===
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-inoremap ` ``<Esc>i
+" inoremap ( ()<Esc>i
+" inoremap [ []<Esc>i
+" inoremap { {}<Esc>i
+" inoremap " ""<Esc>i
+" inoremap ' ''<Esc>i
+" inoremap ` ``<Esc>i
 
 " === Switch between the last two files ===
 nnoremap <leader><leader> <c-^>
