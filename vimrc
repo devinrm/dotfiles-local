@@ -265,6 +265,8 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_enter = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
