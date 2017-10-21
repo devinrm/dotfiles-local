@@ -173,6 +173,7 @@ scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
 set showcmd " display incomplete commands
+set showtabline=2
 set smartcase " overrides ignorecase if pattern contains upcase
 set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
 set spelllang=en_us " Set region to US English
