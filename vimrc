@@ -122,7 +122,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme blaquemagick
+colorscheme sourcerer
 let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
@@ -641,6 +641,9 @@ nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
 " === sed it up ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
+
+" === Make it easier to run js files inside vim ===
+nnoremap <Leader>js :!node %<CR>
 
 " === open and close location list ===
 nnoremap <Leader>o :lopen<CR>
