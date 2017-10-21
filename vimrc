@@ -16,7 +16,6 @@ call plug#begin('~/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'chriskempson/base16-vim'
 Plug 'KeitaNakamura/neodark.vim'
-UnPlug 'vim-airline/vim-airline-themes'
 Plug 'roosta/vim-srcery'
 Plug 'xero/blaquemagick.vim'
 Plug 'xero/sourcerer.vim'
@@ -99,7 +98,6 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
 Plug 'hwartig/vim-seeing-is-believing'
-UnPlug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 
 " === search ===
@@ -221,20 +219,6 @@ augroup END
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-" === vim-airline ===
-" let g:airline_theme = 'atomic'
-" let g:airline#extensions#ale#enabled = 1
-" let g:airline#extensions#branch#enabled = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#show_buffers = 0
-" let g:airline#extensions#tabline#show_splits = 0
-" let g:airline#extensions#tabline#show_tab_type = 0
-" let g:airline#extensions#whitespace#enabled = 0
-" let g:airline_section_error = '%{ale#statusline#Status()}'
-" let g:airline_section_z = '%#__accent_bold#%l%#__restore__#:%c'
-
 " === ale ===
 let g:ale_linters = {
       \ 'javascript': ['flow', 'eslint', 'standard'],
@@ -249,15 +233,12 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'html': ['prettier']
       \ }
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
 
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
 let g:ale_javascript_standard_executable = 'special-standard'
 let g:ale_javascript_standard_use_global = 0
 
-nnoremap <Leader>fix :ALEFix<CR>
-
 let g:ale_set_quickfix = 0
-" let g:ale_statusline_format = ['✕ %d', '△ %d', '=_=']
 let g:ale_sign_warning = '△'
 let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
@@ -587,6 +568,9 @@ nnoremap <Leader>d odebugger;<esc>^
 
 " === Run them migrations ===
 nnoremap <Leader>dm :! rails db:migrate<CR>
+
+" === ALE fixer
+nnoremap <Leader>fix :ALEFix<CR>
 
 " === Try for a better gJ ===
 nnoremap gj gJ<BS>
