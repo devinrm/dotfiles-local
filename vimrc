@@ -297,6 +297,9 @@ inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
 " === vim-gitgutter ===
 let g:gitgutter_signs = 0
+let g:gitgutter_sign_added = "\u271a"
+let g:gitgutter_sign_modified = "\u279c"
+let g:gitgutter_sign_removed = "\u2718"
 
 " === goyo.vim/limelight.vim ===
 augroup goyolimelight " Integrate limelight and goyo
@@ -403,7 +406,7 @@ endfunction
 
 function! WizErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? '' : printf('×%d', l:counts.total)
+  return l:counts.total == 0 ? '' : printf('✕ %d', l:counts.total)
 endfunction
 
 function! MyGitGutter()
@@ -426,7 +429,6 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
-
 
 augroup alestatus
   au!
