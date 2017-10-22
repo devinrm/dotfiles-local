@@ -296,7 +296,7 @@ inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
 " === vim-gitgutter ===
-" let g:gitgutter_signs = 0
+let g:gitgutter_signs = 0
 
 " === goyo.vim/limelight.vim ===
 augroup goyolimelight " Integrate limelight and goyo
@@ -346,7 +346,7 @@ let g:lightline = {
       \ 'colorscheme': 'sourcerer',
       \ 'active': {
       \   'left': [ [ 'filename' ],
-      \             [ 'linter',  'gitbranch' ] ],
+      \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
       \   'right': [ [ 'percent', 'lineinfo' ],
       \              [ 'fileencoding', 'filetype' ] ]
       \ },
@@ -358,6 +358,7 @@ let g:lightline = {
       \   'filetype': 'WizType',
       \   'fileencoding': 'WizEncoding',
       \   'mode': 'WizMode',
+      \   'gitgutter': 'MyGitGutter',
       \ },
       \ 'component_expand': {
       \   'linter': 'WizErrors',
@@ -404,6 +405,28 @@ function! WizErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   return l:counts.total == 0 ? '' : printf('×%d', l:counts.total)
 endfunction
+
+function! MyGitGutter()
+  if ! exists('*GitGutterGetHunkSummary')
+        \ || ! get(g:, 'gitgutter_enabled', 0)
+        \ || winwidth('.') <= 90
+    return ''
+  endif
+  let symbols = [
+        \ g:gitgutter_sign_added . ' ',
+        \ g:gitgutter_sign_modified . ' ',
+        \ g:gitgutter_sign_removed . ' '
+        \ ]
+  let hunks = GitGutterGetHunkSummary()
+  let ret = []
+  for i in [0, 1, 2]
+    if hunks[i] > 0
+      call add(ret, symbols[i] . hunks[i])
+    endif
+  endfor
+  return join(ret, ' ')
+endfunction
+
 
 augroup alestatus
   au!
