@@ -122,7 +122,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme sourcerer
+colorscheme srcery
 let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
@@ -309,20 +309,20 @@ augroup END
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim compliments of @xero ===
-let s:base03 = [ '#151513', 233 ]
-let s:base02 = [ '#222222', 0 ]
-let s:base01 = [ '#4e4e43', 239 ]
-let s:base00 = [ '#666656', 242  ]
-let s:base0 = [ '#808070', 244 ]
-let s:base1 = [ '#949484', 246 ]
-let s:base2 = [ '#a8a897', 248 ]
-let s:base3 = [ '#e8e8d3', 253 ]
-let s:yellow = [ '#7A7A57', 11 ]
-let s:orange = [ '#7A7A57', 3 ]
-let s:red = [ '#5F8787', 1 ]
-let s:magenta = [ '#8181A6', 13 ]
-let s:cyan = [ '#87ceeb', 12 ]
-let s:green = [ '#7A7A57', 3 ]
+let s:base03 =  [ '#151513', 233 ]
+let s:base02 =  [ '#222222', 0   ]
+let s:base01 =  [ '#4e4e43', 239 ]
+let s:base00 =  [ '#666656', 242 ]
+let s:base0 =   [ '#808070', 244 ]
+let s:base1 =   [ '#949484', 246 ]
+let s:base2 =   [ '#a8a897', 248 ]
+let s:base3 =   [ '#e8e8d3', 253 ]
+let s:yellow =  [ '#7A7A57', 11  ]
+let s:orange =  [ '#7A7A57', 3   ]
+let s:red =     [ '#5F8787', 1   ]
+let s:magenta = [ '#8181A6', 13  ]
+let s:cyan =    [ '#87ceeb', 12  ]
+let s:green =   [ '#7A7A57', 3   ]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 let s:p.normal.left = [ [ s:base02, s:magenta ], [ s:base3, s:base01 ] ]
