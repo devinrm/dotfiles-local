@@ -119,7 +119,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme srcery
+colorscheme sourcerer
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -135,7 +135,7 @@ set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
 if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
-  " set termguicolors " nvim gui colors
+  set termguicolors " nvim gui colors
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
@@ -580,7 +580,7 @@ imap <C-p> <Up>
 imap <C-f> <Right>
 imap <C-b> <Left>
 imap <C-k> <C-o>D
-imap <C-x> <Del>
+imap <C-x> <Bs>
 
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
