@@ -57,9 +57,20 @@ export EDITOR="$VISUAL"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# fuzzyfinder
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob \!.git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+_fzf_compgen_path() {
+  rg --files "$1" | with-dir "$1"
+}
+
+# Use rg to generate the list for directory completion
+_fzf_compgen_dir() {
+  rg --files "$1" | only-dir "$1"
+}
 
 # Auto-attach new shell sessions in tmux
 # _not_inside_tmux() { [[ -z "$TMUX" ]] }
