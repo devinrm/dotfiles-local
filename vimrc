@@ -14,8 +14,6 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'chriskempson/base16-vim'
-Plug 'KeitaNakamura/neodark.vim'
 Plug 'roosta/vim-srcery'
 Plug 'xero/blaquemagick.vim'
 Plug 'xero/sourcerer.vim'
@@ -122,7 +120,6 @@ set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 colorscheme srcery
-let g:neodark#solid_vertsplit = 1
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.

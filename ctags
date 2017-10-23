@@ -57,13 +57,15 @@
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
 
 --exclude=min
+--exclude=packs/*
 --exclude=vendor
 --exclude=\*.min.\*
 --exclude=\*.map
 --exclude=\*.swp
 --exclude=\*.bak
 --exclude=tags
---exclude=node_modules
---exclude=bower_components
+--exclude=packs-test/*
+--exclude=node_modules/*
+--exclude=bower_components/*
 --exclude=test
 --exclude=tests
