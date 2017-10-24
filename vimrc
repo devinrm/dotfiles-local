@@ -135,7 +135,7 @@ set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
 if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
-  set termguicolors " nvim gui colors
+  " set termguicolors " nvim gui colors
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
@@ -494,6 +494,8 @@ let g:sneak#label = 1
 let g:test#strategy = 'dispatch'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
+let g:test#runner_commands = ['Jest']
+nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '-- -u'<CR><CR>
 
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
