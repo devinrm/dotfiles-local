@@ -19,9 +19,6 @@ Plug 'xero/blaquemagick.vim'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neco-vim'
-Plug 'Shougo/neoinclude.vim'
 Plug 'calebeby/ncm-css'
 Plug 'roxma/ncm-flow', {'do': 'npm i -g flow-bin'}
 Plug 'roxma/ncm-rct-complete'
@@ -51,12 +48,9 @@ endfunction
 
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'Keithbsmiley/rspec.vim'
-Plug 'elixir-lang/vim-elixir'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'slashmili/alchemist.vim'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 
@@ -66,8 +60,6 @@ Plug 'w0rp/ale'
 " === make editing nicer ===
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
@@ -94,7 +86,6 @@ Plug 'yuttie/comfortable-motion.vim'
 " === other ===
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
-Plug 'hwartig/vim-seeing-is-believing'
 Plug 'itchyny/lightline.vim'
 
 " === search ===
@@ -133,9 +124,9 @@ set hlsearch " highlight search results
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
-if has('nvim')
-  set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
-  " set termguicolors " nvim gui colors
+set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
+if (has('termguicolors'))
+  set termguicolors " nvim gui colors
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
@@ -154,6 +145,7 @@ set nowrap " Don't wrap lines longer than the width of the window
 set nowritebackup " Don't make a backup before overwriting a file.
 set number " Turn on line numbers
 set numberwidth=5 " Minimal number of columns to use for the line number.
+set redrawtime=1000 " Stop highlighting if it takes more than a second
 set relativenumber " Show the line number relative to the line with the cursor in front of each line.
 augroup numbers " Get the best of both worlds with set number and relativenumber
   autocmd!
@@ -307,13 +299,6 @@ let g:gitgutter_sign_added = "\u271a"
 let g:gitgutter_sign_modified = "\u279c"
 let g:gitgutter_sign_removed = "\u2718"
 
-" === goyo.vim/limelight.vim ===
-augroup goyolimelight " Integrate limelight and goyo
-  autocmd!
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
-augroup END
-
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
@@ -441,9 +426,6 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
-" === vim-markdown ===
-let g:markdown_fenced_languages = ['html', 'ruby', 'bash=sh', 'javascript', 'css', 'sql', 'vim']
-
 " === nerdtreee ===
 nnoremap - :NERDTreeToggle<CR>
 nnoremap <F10> :NERDTreeFind<CR>
@@ -470,21 +452,6 @@ augroup rainbow
 augroup END
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 let g:rainbow#max_level = 16
-
-" === vim-seeing-is-believing ===
-augroup seeingIsBelievingSettings
-  autocmd!
-
-  autocmd FileType ruby nmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
-  autocmd FileType ruby xmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
-
-  autocmd FileType ruby nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-  autocmd FileType ruby xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-  autocmd FileType ruby imap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-
-  autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
-  autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
-augroup END
 
 " === vim-sneak ===
 let g:sneak#s_next = 1
