@@ -11,6 +11,7 @@ npm i -g javascript-typescript-langserver
 npm i -g flow-bin
 npm i -g eslint-plugin-flowtype
 npm i -g babel-eslint
+npm i -g pure-prompt
 
 (
   export PKG=eslint-config-airbnb;
