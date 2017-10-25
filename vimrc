@@ -494,6 +494,7 @@ let g:sneak#label = 1
 let g:test#strategy = 'dispatch'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
+" update jest snapshots with vim-test
 let g:test#runner_commands = ['Jest']
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '-- -u'<CR><CR>
 
