@@ -496,7 +496,7 @@ let g:test#strategy = 'dispatch'
 let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 " update jest snapshots with vim-test
 let g:test#runner_commands = ['Jest']
-nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '-- -u'<CR><CR>
+nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
 
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
