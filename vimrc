@@ -26,9 +26,6 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/nvim-completion-manager'
 
 " === experiments ===
-Plug 'scrooloose/nerdtree'
-Plug 'itchyny/calendar.vim'
-Plug 'cohama/lexima.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -58,6 +55,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 
 " === make editing nicer ===
+Plug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -81,6 +79,7 @@ Plug 'tpope/vim-vinegar'
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
+Plug 'scrooloose/nerdtree'
 Plug 'yuttie/comfortable-motion.vim'
 
 " === other ===
