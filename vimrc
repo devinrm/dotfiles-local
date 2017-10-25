@@ -80,7 +80,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
 Plug 'scrooloose/nerdtree'
-Plug 'yuttie/comfortable-motion.vim'
 
 " === other ===
 Plug 'alvan/vim-closetag'
@@ -242,11 +241,6 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
-" === comfortable-motion.vim ===
-let g:comfortable_motion_no_default_key_mappings = 1
-nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
-
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
 
@@ -270,8 +264,8 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" command! -bang -nargs=? -complete=dir Files
+  " \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 let g:fzf_colors =
       \ { 'hl': ['fg', 'Exception'] }
