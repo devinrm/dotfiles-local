@@ -31,8 +31,6 @@ Plug 'roxma/nvim-completion-manager'
 Plug 'airblade/vim-gitgutter'
 
 " === language plugins ===
-Plug 'c-brenn/phoenix.vim'
-
 function! BuildComposer(info)
   if a:info.status !=? 'unchanged' || a:info.force
     if has('nvim')
