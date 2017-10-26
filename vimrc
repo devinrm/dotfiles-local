@@ -89,7 +89,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/vim-slash'
+UnPlug 'junegunn/vim-slash'
 
 call plug#end()
 
