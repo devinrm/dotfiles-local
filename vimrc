@@ -106,7 +106,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme srcery
+colorscheme sourcerer
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -122,7 +122,7 @@ set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
 set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 if (has('termguicolors'))
-  set termguicolors " nvim gui colors
+  " set termguicolors " nvim gui colors
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
@@ -228,10 +228,16 @@ let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 'normal'
+" let g:ale_lint_on_enter = 0
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+set updatetime=1000
+let g:ale_lint_on_text_changed = 0
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertEnter * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
