@@ -15,7 +15,6 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'roosta/vim-srcery'
-Plug 'xero/blaquemagick.vim'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
@@ -173,15 +172,6 @@ set winwidth=84 " Window size
 set winheight=10
 set winminheight=5
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor " Use Ag over Grep
-  if !exists(':Ag')
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
 " inside an event handler.
@@ -267,8 +257,34 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" command! -bang -nargs=? -complete=dir Files
-  " \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -nargs=+ -complete=file A call fzf#vim#ag_raw(<q-args>)?
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor " Use Ag over Grep
+  if !exists(':Ag')
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+" Search neighboring files
+function! s:fzf_neighbouring_files()
+  let current_file =expand("%")
+  let cwd = fnamemodify(current_file, ':p:h')
+  let command = 'ag -g "" -f ' . cwd . ' --depth 0'
+
+  call fzf#run({
+        \ 'source': command,
+        \ 'sink':   'e',
+        \ 'options': '-m -x +s',
+        \ 'window':  'enew' })
+endfunction
+
+command! FZFNeigh call s:fzf_neighbouring_files()
 
 let g:fzf_colors =
       \ { 'hl': ['fg', 'Exception'] }
