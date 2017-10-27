@@ -124,8 +124,8 @@ if (has('termguicolors'))
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
-let g:python_host_prog = '/Users/devinmorgenstern/.asdf/shims/python2'
-let g:python3_host_prog = '/Users/devinmorgenstern/.asdf/shims/python3'
+let g:python_host_prog = $HOME."/.asdf/shims/python2"
+let g:python3_host_prog = $HOME."/.asdf/shims/python3"
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
