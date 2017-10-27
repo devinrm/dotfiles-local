@@ -124,8 +124,8 @@ if (has('termguicolors'))
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
-let g:python_host_prog = $HOME."/.asdf/shims/python2"
-let g:python3_host_prog = $HOME."/.asdf/shims/python3"
+let g:python_host_prog = $HOME.'/.asdf/shims/python2'
+let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
@@ -223,10 +223,12 @@ highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 set updatetime=1000
 let g:ale_lint_on_text_changed = 0
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertEnter * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
+augroup ALEExecute
+  autocmd CursorHold * call ale#Lint()
+  autocmd CursorHoldI * call ale#Lint()
+  autocmd InsertEnter * call ale#Lint()
+  autocmd InsertLeave * call ale#Lint()
+augroup end
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -273,12 +275,12 @@ endif
 
 " Search neighboring files
 function! s:fzf_neighbouring_files()
-  let current_file =expand("%")
-  let cwd = fnamemodify(current_file, ':p:h')
-  let command = 'ag -g "" -f ' . cwd . ' --depth 0'
+  let l:current_file =expand('%')
+  let l:cwd = fnamemodify(l:current_file, ':p:h')
+  let l:command = 'ag -g "" -f ' . l:cwd . ' --depth 0'
 
   call fzf#run({
-        \ 'source': command,
+        \ 'source': l:command,
         \ 'sink':   'e',
         \ 'options': '-m -x +s',
         \ 'window':  'enew' })
@@ -379,11 +381,11 @@ let g:lightline = {
       " \ 'separator': { 'left': '▊▋▌▍▎', 'right': '▎▍▌▋▊' },
 
 function! WizMod()
-  return &ft =~ '' ? '' : &modified ? '» ' : &modifiable ? '' : ''
+  return &filetype =~? '' ? '' : &modified ? '» ' : &modifiable ? '' : ''
 endfunction
 
 function! WizRO()
-  return &ft !~? '' && &readonly ? '× ' : ''
+  return &filetype !~? '' && &readonly ? '× ' : ''
 endfunction
 
 function! WizGit()
@@ -392,11 +394,11 @@ endfunction
 
 function! WizName()
   let l:name = expand('%:t')
-  if l:name =~ 'NetrwTreeListing'
+  if l:name =~? 'NetrwTreeListing'
     return ''
   endif
-  return ('' != WizRO() ? WizRO() : WizMod()) .
-        \ ('' != expand('%:t') ? expand('%:t') : '[none]')
+  return ('' !=? WizRO() ? WizRO() : WizMod()) .
+        \ ('' !=? expand('%:t') ? expand('%:t') : '[none]')
 endfunction
 
 function! WizType()
@@ -404,7 +406,7 @@ function! WizType()
 endfunction
 
 function! WizEncoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &enc : &enc) : ''
+  return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
 endfunction
 
 function! WizErrors() abort
@@ -418,19 +420,19 @@ function! MyGitGutter()
         \ || winwidth('.') <= 90
     return ''
   endif
-  let symbols = [
+  let l:symbols = [
         \ g:gitgutter_sign_added . ' ',
         \ g:gitgutter_sign_modified . ' ',
         \ g:gitgutter_sign_removed . ' '
         \ ]
-  let hunks = GitGutterGetHunkSummary()
-  let ret = []
-  for i in [0, 1, 2]
-    if hunks[i] > 0
-      call add(ret, symbols[i] . hunks[i])
+  let l:hunks = GitGutterGetHunkSummary()
+  let l:ret = []
+  for l:i in [0, 1, 2]
+    if l:hunks[l:i] > 0
+      call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
     endif
   endfor
-  return join(ret, ' ')
+  return join(l:ret, ' ')
 endfunction
 
 augroup alestatus
