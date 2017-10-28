@@ -119,9 +119,7 @@ let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags t
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
 set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
-if (has('termguicolors'))
-  " set termguicolors " nvim gui colors
-endif
+" set termguicolors " nvim gui colors
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
@@ -212,7 +210,7 @@ let g:ale_javascript_standard_executable = 'special-standard'
 let g:ale_javascript_standard_use_global = 0
 
 let g:ale_set_quickfix = 0
-let g:ale_sign_warning = '△'
+let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
@@ -220,7 +218,7 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 " let g:ale_lint_on_text_changed = 'normal'
 " let g:ale_lint_on_enter = 0
 highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+" highlight clear ALEWarningSign
 set updatetime=1000
 let g:ale_lint_on_text_changed = 0
 augroup ALEExecute
@@ -316,7 +314,8 @@ let g:gitgutter_sign_removed = "\u2718"
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" === lightline.vim compliments of @xero ===
+" === lightline.vim ===
+" sourcer lightline colorscheme by @xero
 let s:base03 =  [ '#151513', 233 ]
 let s:base02 =  [ '#222222', 0   ]
 let s:base01 =  [ '#4e4e43', 239 ]
