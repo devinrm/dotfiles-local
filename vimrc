@@ -451,6 +451,10 @@ nnoremap _ :Lexplore<CR>
 nnoremap - :Sexplore<CR>
 nnoremap <F10> :q<CR>
 
+" === nvim-completion-manager ===
+set pumheight=5
+let g:cm_refresh_length = 2
+
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu,preview " Shows menu and any additional tips
