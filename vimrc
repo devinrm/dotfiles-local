@@ -25,6 +25,7 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/nvim-completion-manager'
 
 " === experiments ===
+Plug 'romainl/vim-cool'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
