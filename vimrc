@@ -209,17 +209,13 @@ let g:ale_fixers = {
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
 let g:ale_javascript_standard_executable = 'special-standard'
 let g:ale_javascript_standard_use_global = 0
-
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✕'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-" let g:ale_lint_on_text_changed = 'normal'
-" let g:ale_lint_on_enter = 0
 highlight clear ALEErrorSign
-" highlight clear ALEWarningSign
 set updatetime=1000
 let g:ale_lint_on_text_changed = 0
 augroup ALEExecute
@@ -228,6 +224,9 @@ augroup ALEExecute
   autocmd InsertEnter * call ale#Lint()
   autocmd InsertLeave * call ale#Lint()
 augroup end
+
+nmap <silent> [r <Plug>(ale_previous_wrap)
+nmap <silent> ]r <Plug>(ale_next_wrap)
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
