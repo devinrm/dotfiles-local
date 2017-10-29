@@ -56,7 +56,6 @@ Plug 'w0rp/ale'
 Plug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'radenling/vim-dispatch-neovim'
@@ -458,14 +457,6 @@ let g:cm_refresh_length = 2
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu,preview " Shows menu and any additional tips
-
-" === rainbow_parentheses ===
-augroup rainbow
-  autocmd!
-  autocmd VimEnter * RainbowParentheses
-augroup END
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-let g:rainbow#max_level = 16
 
 " === vim-sneak ===
 let g:sneak#s_next = 1
