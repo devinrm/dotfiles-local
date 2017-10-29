@@ -42,7 +42,6 @@ endfunction
 
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'Keithbsmiley/rspec.vim'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-rails'
