@@ -223,8 +223,8 @@ augroup ALEExecute
   autocmd InsertLeave * call ale#Lint()
 augroup end
 
-nmap <silent> [r <Plug>(ale_previous_wrap)
-nmap <silent> ]r <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
@@ -450,8 +450,9 @@ nnoremap - :Sexplore<CR>
 nnoremap <F10> :q<CR>
 
 " === nvim-completion-manager ===
-set pumheight=5
 let g:cm_refresh_length = 2
+set pumheight=5
+set shortmess+=c
 
 " === omnicompletion ===
 filetype plugin on
