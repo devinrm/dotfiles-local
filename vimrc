@@ -578,7 +578,7 @@ nnoremap <Leader>dm :! rails db:migrate<CR>
 nnoremap <Leader>fix :ALEFix<CR>
 
 " === Try for a better gJ ===
-nnoremap gj gJ<BS>
+nnoremap gj gJ
 
 " === Convert Ruby 1.8 to 1.9 Hash Syntax ===
 nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
