@@ -192,12 +192,15 @@ augroup END
 " === ale ===
 let g:ale_linters = {
       \ 'javascript': ['flow', 'eslint', 'standard'],
+      \ 'jsx': ['stylelint', 'eslint', 'standard'],
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek', 'rails_best_practices'],
       \ 'text': ['vale']
       \ }
+
+let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
@@ -222,6 +225,11 @@ augroup ALEExecute
   autocmd InsertEnter * call ale#Lint()
   autocmd InsertLeave * call ale#Lint()
 augroup end
+
+augroup FiletypeGroup
+  autocmd!
+  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)

@@ -2,6 +2,9 @@
 
 npm i -g npm
 npm i -g stylelint
+npm i -g stylelint-processor-styled-components
+npm i -g stylelint-config-styled-components
+npm i -g stylelint-config-standard
 npm i -g heroku-cli
 npm i -g tern
 npm i -g prettier
