@@ -3,11 +3,13 @@
     "plugin:flowtype/recommended",
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:no-unsanitized/DOM"
   ],
   "plugins": [
     "flowtype",
-    "prettier"
+    "prettier",
+    "no-unsanitized"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
