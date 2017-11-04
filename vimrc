@@ -25,7 +25,6 @@ Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/nvim-completion-manager', { 'do' : 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
-Plug 'jungomi/vim-mdnquery'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -74,12 +73,13 @@ Plug 'tpope/vim-vinegar'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 
 " === other ===
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
+Plug 'jungomi/vim-mdnquery'
 
 " === search ===
 Plug 'henrik/vim-indexed-search'
@@ -242,6 +242,10 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
+
+" === easymotion ===
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -465,10 +469,6 @@ set shortmess+=c
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu,preview " Shows menu and any additional tips
-
-" === vim-sneak ===
-let g:sneak#s_next = 1
-let g:sneak#label = 1
 
 " === vim-test ===
 let g:test#strategy = 'dispatch'
