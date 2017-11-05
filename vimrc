@@ -82,7 +82,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'jungomi/vim-mdnquery'
 
 " === search ===
-Plug 'henrik/vim-indexed-search'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -244,8 +243,14 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 let g:rspec_command = 'Dispatch rspec {spec}'
 
 " === easymotion ===
+map <F9> <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+let g:EasyMotion_smartcase = 1
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -641,17 +646,6 @@ nnoremap <Leader>ln :set relativenumber!<CR>
 
 " === paste flow when I need it ===
 nnoremap <Leader>flo O// @flow<Esc>^
-
-" === make n N nicer ===
-function! s:nice_next(cmd)
-  let l:view = winsaveview()
-  execute 'normal! ' . a:cmd
-  if l:view.topline != winsaveview().topline
-    normal! zz
-  endif
-endfunction
-nnoremap <silent> n :call <SID>nice_next('n')<CR>
-nnoremap <silent> N :call <SID>nice_next('N')<CR>
 
 " === sed it up ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
