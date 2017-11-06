@@ -203,7 +203,9 @@ let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
-      \ 'html': ['prettier']
+      \ 'html': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'scss': ['prettier']
       \ }
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
@@ -230,6 +232,7 @@ augroup FiletypeGroup
   au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 
+nnoremap <Leader>fix :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
@@ -587,9 +590,6 @@ nnoremap <Leader>d odebugger;<esc>^
 
 " === Run them migrations ===
 nnoremap <Leader>dm :! rails db:migrate<CR>
-
-" === ALE fixer
-nnoremap <Leader>fix :ALEFix<CR>
 
 " === Try for a better gJ ===
 nnoremap gj gJ
