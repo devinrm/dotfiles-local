@@ -71,6 +71,7 @@
   show = diff-so-fancy | less --tabs=1,5 -RFX
 [commit]
   template = ~/.gitmessage
+  gpgsign = true
 [fetch]
   prune = true
 [rebase]
