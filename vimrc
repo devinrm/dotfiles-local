@@ -395,7 +395,6 @@ let g:lightline = {
       \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
       \ 'subseparator': { 'left': '▒', 'right': '░' }
       \ }
-      " \ 'separator': { 'left': '▊▋▌▍▎', 'right': '▎▍▌▋▊' },
 
 function! WizMod()
   return &filetype =~? '' ? '' : &modified ? '» ' : &modifiable ? '' : ''
