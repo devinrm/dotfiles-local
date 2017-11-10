@@ -30,9 +30,6 @@ alias linkvimrc="ln -s ~/.vimrc ~/.config/nvim/init.vim"
 alias z=". ~/.zshrc"
 
 # Dev Tools
-alias aa="gitsh; aa"
-alias da="dasht"
-alias gsh="gitsh"
 alias i="irb"
 alias p="pry"
 alias prettyjson="python -m json.tool"
@@ -104,16 +101,8 @@ alias tl="tmux list-sessions"
 
 alias db="dynamodb-local"
 
-alias dep="cd ops; bundle exec dotenv bin/fd app deploy"
-
-alias na="cd node-acceptance"
-
 alias js="bundle exec jekyll serve & ; open http://127.0.0.1:4000"
 
 alias dot="cd ~/dotfiles"
 
 alias wifi-ip="ipconfig getifaddr en0"
-
-alias racket="racket -i -p neil/sicp -l xrepl"
-
-alias syncthing="cd ~/.config/syncthing; ./syncthing"
