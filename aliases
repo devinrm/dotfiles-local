@@ -21,14 +21,6 @@ alias b="bundle"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# Update packages and gems
-alias brewu="brew update && brew upgrade"
-alias gemu="gem update"
-alias npmu="npm outdated -g --depth=0 && npm update -g"
-alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
-alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
-alias yarnu="yarn global upgrade"
-
 # Vim
 alias vimdiff="nvim -d"
 alias linkvim="ln -s ~/.vim ~/.config/nvim"
