@@ -263,7 +263,7 @@ nnoremap <C-p> :wa<CR>:Files<CR>
 nnoremap <C-b> :wa<CR>:Buffers<CR>
 nnoremap <C-t> :wa<CR>:Tags<CR>
 nnoremap <Leader>p :BLines<CR>
-nnoremap <Leader>c :wa<CR>:Commits<CR>
+nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 " grep the word under the cursor, select it, and then drop it into a quickfix window
 nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
@@ -576,7 +576,10 @@ nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 nnoremap <C-c> :x<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
-nnoremap <Leader>co mmggVG"*y`m
+nnoremap <Leader>c mmggVG"*y`m
+
+" === console.log word or function under cursor ===
+nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
