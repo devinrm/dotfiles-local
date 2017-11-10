@@ -631,7 +631,7 @@ inoremap jk <Esc>
 nnoremap <Leader>ln :set relativenumber!<CR>
 
 " === paste flow when I need it ===
-nnoremap <Leader>flo O// @flow<Esc>^
+nnoremap <Leader>fl O// @flow<Esc>^
 
 " === sed it up ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
@@ -657,7 +657,7 @@ nnoremap <Leader>r :sp<CR> :te<SPACE>
 command! ReloadVimrc source $MYVIMRC
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>ru :sp<CR> :te ruby -w %<CR>
+nnoremap <Leader>rb :sp<CR> :te ruby -w %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :split db/schema.rb<CR>
