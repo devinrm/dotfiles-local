@@ -232,7 +232,7 @@ augroup FiletypeGroup
   au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 
-nnoremap <Leader>fix :ALEFix<CR>
+nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
@@ -262,9 +262,9 @@ nnoremap <Leader>g :Git<SPACE>
 nnoremap <C-p> :wa<CR>:Files<CR>
 nnoremap <C-b> :wa<CR>:Buffers<CR>
 nnoremap <C-t> :wa<CR>:Tags<CR>
-nnoremap <Leader>f :BLines<CR>
+nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>c :wa<CR>:Commits<CR>
-nnoremap <Leader>old :wa<CR>:History<CR>
+nnoremap <Leader>hi :wa<CR>:History<CR>
 " grep the word under the cursor, select it, and then drop it into a quickfix window
 nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
 
@@ -523,9 +523,6 @@ nnoremap <Leader>= :wincmd =<CR>
 " === Get dot command repeatability in visual mode (from @geoffharcourt) ===
 xnoremap . :normal.<CR>
 
-" === Toggle spell checking on and off ===
-nnoremap <silent> <Leader>, :set spell!<CR>
-
 " === Comment/un-comment like Sublime (from @geoffharcourt) ===
 nnoremap <C-\> :TComment<CR>
 vnoremap <C-\> :TComment<CR>
@@ -575,9 +572,6 @@ imap <C-x> <Bs>
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
-" === Let's stop typing ':Bundle' ===
-nnoremap <Leader>bu :Bundle<CR>
-
 " === map <ctrl>c to quit ===
 nnoremap <C-c> :x<CR>
 
@@ -587,17 +581,11 @@ nnoremap <Leader>co mmggVG"*y`m
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
 
-" === Run them migrations ===
-nnoremap <Leader>dm :! rails db:migrate<CR>
-
 " === Try for a better gJ ===
 nnoremap gj gJ
 
-" === Convert Ruby 1.8 to 1.9 Hash Syntax ===
-nnoremap <Leader>h :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
-
 " === Open .html pages from vim in browser ===
-nnoremap <Leader>ht :!open '%'<CR>
+nnoremap <Leader>h :!open '%'<CR>
 
 " === Neovim terminal mappings for easy navigation ===
 augroup neoterm
@@ -638,7 +626,6 @@ vnoremap <A-j> :m '<+1<CR>gv=gv
 
 " === Make esc more user friendly ===
 inoremap jk <Esc>
-xnoremap jk <Esc>
 
 " === Toggle relative line number for yanking, i.e. :6y ===
 nnoremap <Leader>ln :set relativenumber!<CR>
@@ -659,9 +646,6 @@ nnoremap <Leader>oo :lclose<CR>
 " === open and close quickfix ===
 nnoremap <Leader>q :copen<CR>
 nnoremap <Leader>qq :cclose<CR>
-
-" === Set paste so paste works properly ===
-nnoremap <Leader>p "*p
 
 " === qq to record, Q to replay (recursive map due to peekaboo) ===
 nmap Q @q
