@@ -577,6 +577,21 @@ nnoremap <Leader>c mmggVG"*y`m
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
+" === ctags ===
+let g:Tlist_Ctags_Cmd='ctags'
+
+function! ReindexCtags()
+  let l:ctags_hook = '$(git rev-parse --show-toplevel)/.git/hooks/ctags'
+
+  if exists(l:ctags_hook)
+    exec '!'. l:ctags_hook
+  else
+    exec '!ctags -R .'
+  endif
+endfunction
+
+nmap <Leader>ct :call ReindexCtags()<CR>
+
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
 
