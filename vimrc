@@ -262,8 +262,6 @@ nnoremap <C-t> :wa<CR>:Tags<CR>
 nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
-" grep the word under the cursor, select it, and then drop it into a quickfix window
-nnoremap \\ :Ag <C-r><C-w><CR><C-a><CR>
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -283,6 +281,8 @@ if executable('ag')
   if !exists(':Ag')
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     nnoremap \ :Ag<SPACE>
+    " grep the word under the cursor, select it, and then drop it into a quickfix window
+    nnoremap \\ :Ag<SPACE><C-r><C-w><CR><C-a><CR>
   endif
 endif
 
