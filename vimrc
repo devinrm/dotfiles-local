@@ -134,7 +134,7 @@ set noswapfile " Do not create a swapfile for a new buffer.
 set nowrap " Don't wrap lines longer than the width of the window
 set nowritebackup " Don't make a backup before overwriting a file.
 set number " Turn on line numbers
-set numberwidth=5 " Minimal number of columns to use for the line number.
+set numberwidth=1 " Minimal number of columns to use for the line number.
 set redrawtime=1000 " Stop highlighting if it takes more than a second
 set relativenumber " Show the line number relative to the line with the cursor in front of each line.
 augroup numbers " Get the best of both worlds with set number and relativenumber
