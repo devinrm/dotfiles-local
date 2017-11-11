@@ -180,14 +180,10 @@ augroup vimrcEx
         \ endif
 augroup END
 
-"  ____ ____ ____ ____ ____ ____
-" ||p |||l |||u |||g |||i |||n ||
-" ||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\|
-"  ____ ____ ____ ____ ____ ____ ____ ____
-" ||s |||e |||t |||t |||i |||n |||g |||s ||
-" ||__|||__|||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+"  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
+" ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
+" ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\| |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === ale ===
 let g:ale_linters = {
@@ -248,8 +244,8 @@ let g:rspec_command = 'Dispatch rspec {spec}'
 
 " === easymotion ===
 map <F9> <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
+nnoremap s <Plug>(easymotion-s2)
+nnoremap t <Plug>(easymotion-t2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
@@ -560,15 +556,14 @@ nnoremap <C-a> ^
 nnoremap <C-e> $
 xnoremap <C-a> ^
 xnoremap <C-e> $
-imap <C-a> <Home>
-imap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 nnoremap <C-w> db
-imap <C-n> <Down>
-imap <C-p> <Up>
-imap <C-f> <Right>
-imap <C-b> <Left>
-imap <C-k> <C-o>D
-imap <C-x> <Bs>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-k> <C-o>D
 
 " === Require pry (from @christoomey) ===
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
