@@ -4,7 +4,7 @@
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " Remove declared plugins
-function! s:UnPlug(plug_name)
+function! s:UnPlug(plug_name) abort
   if has_key(g:plugs, a:plug_name)
     call remove(g:plugs, a:plug_name)
   endif
@@ -30,7 +30,7 @@ Plug 'roxma/nvim-completion-manager', { 'do' : 'pip3 install neovim psutil setpr
 Plug 'airblade/vim-gitgutter'
 
 " === language plugins ===
-function! BuildComposer(info)
+function! BuildComposer(info) abort
   if a:info.status !=? 'unchanged' || a:info.force
     if has('nvim')
       !cargo build --release
@@ -290,7 +290,7 @@ if executable('ag')
 endif
 
 " Search neighboring files
-function! s:fzf_neighbouring_files()
+function! s:fzf_neighbouring_files() abort
   let l:current_file =expand('%')
   let l:cwd = fnamemodify(l:current_file, ':p:h')
   let l:command = 'ag -g "" -f ' . l:cwd . ' --depth 0'
@@ -396,19 +396,19 @@ let g:lightline = {
       \ 'subseparator': { 'left': '▒', 'right': '░' }
       \ }
 
-function! WizMod()
+function! WizMod() abort
   return &filetype =~? '' ? '' : &modified ? '» ' : &modifiable ? '' : ''
 endfunction
 
-function! WizRO()
+function! WizRO() abort
   return &filetype !~? '' && &readonly ? '× ' : ''
 endfunction
 
-function! WizGit()
+function! WizGit() abort
   return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
-function! WizName()
+function! WizName() abort
   let l:name = expand('%:t')
   if l:name =~? 'NetrwTreeListing'
     return ''
@@ -417,11 +417,11 @@ function! WizName()
         \ ('' !=? expand('%:t') ? expand('%:t') : '[none]')
 endfunction
 
-function! WizType()
+function! WizType() abort
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
 endfunction
 
-function! WizEncoding()
+function! WizEncoding() abort
   return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
 endfunction
 
@@ -430,7 +430,7 @@ function! WizErrors() abort
   return l:counts.total == 0 ? '' : printf('✕ %d', l:counts.total)
 endfunction
 
-function! MyGitGutter()
+function! MyGitGutter() abort
   if ! exists('*GitGutterGetHunkSummary')
         \ || ! get(g:, 'gitgutter_enabled', 0)
         \ || winwidth('.') <= 90
@@ -543,7 +543,7 @@ if s:darwin
 endif
 
 " === make tab completion travel in a reasonable direction ===
-function! InsertTabWrapper()
+function! InsertTabWrapper() abort
   let l:col = col('.') - 1
   if !l:col || getline('.')[l:col - 1] !~? '\k'
     return "\<Tab>"
@@ -668,7 +668,7 @@ nnoremap <Leader>sc :split db/schema.rb<CR>
 " === Show syntax highlighting groups for word under cursor, useful for editing
 " colorschemes (from @drewneil) ===
 nnoremap <Leader>syn :call <SID>SynStack()<CR>
-function! <SID>SynStack()
+function! <SID>SynStack() abort
   if !exists('*synstack')
     return
   endif
