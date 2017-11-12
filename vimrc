@@ -14,7 +14,6 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'AlessandroYorba/Sierra'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
@@ -102,8 +101,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-let g:sierra_Sunset = 1
-colorscheme sierra
+colorscheme sourcerer
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -333,7 +331,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " === lightline.vim ===
 " sourcer lightline colorscheme
 let s:base03 =  [ '#151513', 233 ]
-let s:base02 =  [ '#222222', 235 ]
+let s:base02 =  [ '#222222', 0   ]
 let s:base01 =  [ '#4e4e43', 239 ]
 let s:base00 =  [ '#666656', 242 ]
 let s:base0 =   [ '#808070', 244 ]
