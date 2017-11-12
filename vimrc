@@ -333,7 +333,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " === lightline.vim ===
 " sourcer lightline colorscheme
 let s:base03 =  [ '#151513', 233 ]
-let s:base02 =  [ '#222222', 0   ]
+let s:base02 =  [ '#222222', 235 ]
 let s:base01 =  [ '#4e4e43', 239 ]
 let s:base00 =  [ '#666656', 242 ]
 let s:base0 =   [ '#808070', 244 ]
