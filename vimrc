@@ -245,8 +245,8 @@ let g:rspec_command = 'Dispatch rspec {spec}'
 
 " === easymotion ===
 map <F9> <Plug>(easymotion-prefix)
-nnoremap s <Plug>(easymotion-s2)
-nnoremap t <Plug>(easymotion-t2)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
