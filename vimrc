@@ -650,7 +650,7 @@ nnoremap <Leader>fl O// @flow<Esc>^
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
-nnoremap <Leader>js :sp<CR> :te node %<CR>
+nnoremap <Leader>js :sp<CR>:te node %<CR>
 
 " === open and close location list ===
 nnoremap <Leader>o :lopen<CR>
@@ -670,7 +670,7 @@ nnoremap <Leader>r :sp<CR> :te<SPACE>
 command! ReloadVimrc source $MYVIMRC
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>rb :sp<CR> :te ruby -w %<CR>
+nnoremap <Leader>rb :sp<CR>:te ruby -w %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :split db/schema.rb<CR>
