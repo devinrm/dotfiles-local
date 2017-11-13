@@ -195,7 +195,7 @@ let g:ale_linters = {
       \ 'text': ['vale']
       \ }
 
-let g:ale_linter_aliases = {'jsx': 'css'}
+" let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
@@ -214,7 +214,6 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 highlight clear ALEWarningSign
-set updatetime=1000
 let g:ale_lint_on_text_changed = 0
 augroup ALEExecute
   autocmd CursorHold * call ale#Lint()
@@ -222,11 +221,6 @@ augroup ALEExecute
   autocmd InsertEnter * call ale#Lint()
   autocmd InsertLeave * call ale#Lint()
 augroup end
-
-augroup FiletypeGroup
-  autocmd!
-  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
