@@ -664,7 +664,7 @@ nnoremap <Leader>qq :cclose<CR>
 nmap Q @q
 
 " run commands through neovim term instead of :!
-nnoremap <Leader>r :sp<CR> :te<SPACE>
+nnoremap <Leader>r :sp<CR>:te<SPACE>
 
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
