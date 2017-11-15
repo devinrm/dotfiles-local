@@ -254,28 +254,61 @@ nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
+" neovim fzf window
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
 
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 command! -nargs=+ -complete=file A call fzf#vim#ag_raw(<q-args>)?
+nnoremap \ :Ag<SPACE>
+nnoremap \\ :Ag<SPACE><C-r><C-w><CR><C-a><CR>
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor " Use Ag over Grep
-  if !exists(':Ag')
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-    " grep the word under the cursor, select it, and then drop it into a quickfix window
-    nnoremap \\ :Ag<SPACE><C-r><C-w><CR><C-a><CR>
+" Narrow ag results within vim; CTRL-A to select all matches and list them in quickfix window
+function! s:ag_to_qf(line)
+  let l:parts = split(a:line, ':')
+  return {'filename': l:parts[0], 'lnum': l:parts[1], 'col': l:parts[2],
+        \ 'text': join(l:parts[3:], ':')}
+endfunction
+
+function! s:ag_handler(lines)
+  if len(a:lines) < 2 | return | endif
+
+  let l:cmd = get({'ctrl-x': 'split',
+        \ 'ctrl-v': 'vertical split',
+        \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
+  let l:list = map(a:lines[1:], 's:ag_to_qf(v:val)')
+
+  let l:first = l:list[0]
+  execute l:cmd escape(l:first.filename, ' %#\')
+  execute l:first.lnum
+  execute 'normal!' l:first.col.'|zz'
+
+  if len(l:list) > 1
+    call setqflist(l:list)
+    copen
+    wincmd p
   endif
-endif
+endfunction
+
+command! -nargs=* Ag call fzf#run({
+      \ 'source':  printf('ag --nogroup --column --color "%s"',
+      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
+      \ 'sink*':    function('<sid>ag_handler'),
+      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+      \            '--color hl:68,hl+:110',
+      \ 'down':    '50%'
+      \ })
 
 " Search neighboring files
 function! s:fzf_neighbouring_files() abort
@@ -450,7 +483,7 @@ let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
-let g:netrw_winsize = 15
+let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
 nnoremap _ :Lexplore<CR>
 nnoremap - :Sexplore<CR>
