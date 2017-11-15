@@ -15,6 +15,9 @@ yarn add --dev eslint-plugin-react ;
 yarn add --dev flow-bin ;
 yarn add --dev prettier ;
 
+yarn add --dev webpack;
+yarn add --dev webpack-dev-server;
+
 yarn add --dev babel-core ;
 yarn add --dev babel-loader ;
 yarn add --dev babel-plugin-transform-runtime ;
