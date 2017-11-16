@@ -13,4 +13,4 @@ yarn add --dev flow-bin ;
 yarn add --dev prettier ;
 yarn add --dev babel-preset-env ;
 yarn add --dev babel-preset-react ;
-yarn add --dev babel-preset-stage-1 ;
+yarn add --dev babel-preset-stage-1
