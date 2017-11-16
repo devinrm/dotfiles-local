@@ -258,6 +258,10 @@ nnoremap <Leader>hi :wa<CR>:History<CR>
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '15split enew' }
+augroup fzfstatus
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
+augroup END
 
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
