@@ -257,7 +257,7 @@ nnoremap <Leader>hi :wa<CR>:History<CR>
 " neovim fzf window
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10split enew' }
+let g:fzf_layout = { 'window': '15split enew' }
 
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
