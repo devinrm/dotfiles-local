@@ -6,6 +6,7 @@
 )
 
 npm i -g babel-eslint ;
+npm i -g babel-cli ;
 npm i -g create-react-app ;
 npm i -g eslint-config-prettier ;
 npm i -g eslint-plugin-flow ;
