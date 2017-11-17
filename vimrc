@@ -18,7 +18,7 @@ Plug 'xero/sourcerer.vim'
 
 " === completion ===
 Plug 'calebeby/ncm-css'
-Plug 'roxma/ncm-flow', {'do': 'npm i -g flow-bin'}
+" Plug 'roxma/ncm-flow', {'do': 'npm i -g flow-bin'}
 Plug 'roxma/ncm-rct-complete'
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/nvim-completion-manager', { 'do' : 'pip3 install neovim psutil setproctitle' }
