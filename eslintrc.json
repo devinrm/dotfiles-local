@@ -1,13 +1,11 @@
 {
   "extends": [
-    "plugin:flowtype/recommended",
     "airbnb",
     "prettier",
     "prettier/react",
     "plugin:no-unsanitized/DOM"
   ],
   "plugins": [
-    "flowtype",
     "prettier",
     "no-unsanitized"
   ],
