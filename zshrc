@@ -1,4 +1,7 @@
+# kitty needs this
 PATH="/usr/local/bin:$PATH"
+[ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
