@@ -18,6 +18,7 @@ npm i -g eslint-plugin-react ;
 npm i -g flow-bin ;
 npm i -g heroku-cli ;
 npm i -g javascript-typescript-langserver ;
+npm i -g neovim ;
 npm i -g npm ;
 npm i -g prettier ;
 npm i -g pure-prompt ;
