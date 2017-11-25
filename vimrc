@@ -208,8 +208,8 @@ let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --
 let g:ale_javascript_standard_executable = 'special-standard'
 let g:ale_javascript_standard_use_global = 0
 let g:ale_set_quickfix = 0
-let g:ale_sign_warning = '⚠'
-let g:ale_sign_error = '✕'
+let g:ale_sign_warning = '・'
+let g:ale_sign_error = '・'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
@@ -425,11 +425,12 @@ function! WizMod() abort
 endfunction
 
 function! WizRO() abort
-  return &filetype !~? '' && &readonly ? '× ' : ''
+  return &filetype !~? '' && &readonly ? '• ' : ''
 endfunction
 
 function! WizGit() abort
-  return exists('*fugitive#head') ? fugitive#head() : ''
+  let l:head = fugitive#head()
+  return empty(l:head) ? '' : ' ⎇ '.l:head . ' '
 endfunction
 
 function! WizName() abort
@@ -438,7 +439,7 @@ function! WizName() abort
     return ''
   endif
   return ('' !=? WizRO() ? WizRO() : WizMod()) .
-        \ ('' !=? expand('%:t') ? expand('%:t') : '[none]')
+        \ ('' !=? expand('%:t') ? expand('%:t') : 'nvim')
 endfunction
 
 function! WizType() abort
@@ -451,7 +452,7 @@ endfunction
 
 function! WizErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? '' : printf('✕ %d', l:counts.total)
+  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
 endfunction
 
 function! MyGitGutter() abort
