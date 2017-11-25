@@ -348,10 +348,11 @@ inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
 " === vim-gitgutter ===
+let g:gitgutter_max_signs = 1500
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
 let g:gitgutter_signs = 0
-let g:gitgutter_sign_added = "\u271a"
-let g:gitgutter_sign_modified = "\u279c"
-let g:gitgutter_sign_removed = "\u2718"
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
