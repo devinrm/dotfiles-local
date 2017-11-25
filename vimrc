@@ -255,7 +255,7 @@ nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
 " neovim fzf window
-" let g:fzf_layout = { 'window': '15split enew' }
+let g:fzf_layout = { 'window': '15split enew' }
 
 augroup fzfstatus
   autocmd! FileType fzf
