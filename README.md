@@ -13,9 +13,9 @@ Then clone:
 
     git clone git://github.com/devinrm/dotfiles.git ~/dotfiles
 
-And re-run rcup to link:
+Install the dotfiles:
 
-    rcup
+env RCRC=$HOME/dotfiles/rcrc rcup
 
 This will create symlinks for config files in your home directory
 
