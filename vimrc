@@ -421,11 +421,11 @@ let g:lightline = {
       \ }
 
 function! WizMod() abort
-  return &filetype =~? '' ? '' : &modified ? '» ' : &modifiable ? '' : ''
+  return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
 endfunction
 
 function! WizRO() abort
-  return &filetype !~? '' && &readonly ? '• ' : ''
+  return &filetype !~? &readonly ? '' : '• '
 endfunction
 
 function! WizGit() abort
