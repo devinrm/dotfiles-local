@@ -3,9 +3,11 @@
     "airbnb",
     "prettier",
     "prettier/react",
+    "plugin:flowtype/recommended",
     "plugin:no-unsanitized/DOM"
   ],
   "plugins": [
+    "flowtype",
     "prettier",
     "no-unsanitized"
   ],
@@ -22,5 +24,11 @@
     "browser": true,
     "node": true,
     "jest": true
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }]
   }
 }
