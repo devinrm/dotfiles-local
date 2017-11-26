@@ -426,7 +426,7 @@ function! WizMod() abort
 endfunction
 
 function! WizRO() abort
-  return &filetype !~? &readonly ? '' : '• '
+  return &filetype !~? &readonly ? '' : '● '
 endfunction
 
 function! WizGit() abort
@@ -452,7 +452,7 @@ endfunction
 
 function! WizErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
+  return l:counts.total == 0 ? '' : printf('● %d', l:counts.total)
 endfunction
 
 function! MyGitGutter() abort
