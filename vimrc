@@ -430,8 +430,7 @@ function! WizRO() abort
 endfunction
 
 function! WizGit() abort
-  let l:head = fugitive#head()
-  return empty(l:head) ? '' : ' ⎇ '.l:head . ' '
+  return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
 function! WizName() abort
