@@ -116,7 +116,7 @@ let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags t
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
 set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
-" set termguicolors " nvim gui colors
+set termguicolors " nvim gui colors
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
@@ -213,8 +213,8 @@ let g:ale_sign_error = '•'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-highlight ALEWarningSign ctermbg=237
-highlight ALEErrorSign ctermbg=237
+highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
+highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
 let g:ale_lint_on_text_changed = 0
 augroup ALEExecute
   autocmd CursorHold * call ale#Lint()
