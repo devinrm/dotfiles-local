@@ -208,12 +208,13 @@ let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --
 let g:ale_javascript_standard_executable = 'special-standard'
 let g:ale_javascript_standard_use_global = 0
 let g:ale_set_quickfix = 0
-let g:ale_sign_warning = '・'
-let g:ale_sign_error = '・'
+let g:ale_sign_warning = '•'
+let g:ale_sign_error = '•'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-highlight clear ALEWarningSign
+highlight ALEWarningSign ctermbg=237
+highlight ALEErrorSign ctermbg=237
 let g:ale_lint_on_text_changed = 0
 augroup ALEExecute
   autocmd CursorHold * call ale#Lint()
@@ -426,7 +427,7 @@ function! WizMod() abort
 endfunction
 
 function! WizRO() abort
-  return &filetype !~? &readonly ? '' : '● '
+  return &filetype !~? &readonly ? '' : '• '
 endfunction
 
 function! WizGit() abort
@@ -452,7 +453,7 @@ endfunction
 
 function! WizErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? '' : printf('● %d', l:counts.total)
+  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
 endfunction
 
 function! MyGitGutter() abort
@@ -462,9 +463,9 @@ function! MyGitGutter() abort
     return ''
   endif
   let l:symbols = [
-        \ g:gitgutter_sign_added . ' ',
-        \ g:gitgutter_sign_modified . ' ',
-        \ g:gitgutter_sign_removed . ' '
+        \ g:gitgutter_sign_added . '',
+        \ g:gitgutter_sign_modified . '',
+        \ g:gitgutter_sign_removed . ''
         \ ]
   let l:hunks = GitGutterGetHunkSummary()
   let l:ret = []
