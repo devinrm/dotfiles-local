@@ -441,7 +441,7 @@ function! WizName() abort
     return ''
   endif
   return ('' !=? WizRO() ? WizRO() : WizMod()) .
-        \ ('' !=? expand('%:t') ? expand('%:t') : 'nvim')
+        \ ('' !=? expand('%:t') ? expand('%:t') : '[No Name]')
 endfunction
 
 function! WizType() abort
