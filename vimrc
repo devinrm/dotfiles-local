@@ -191,7 +191,7 @@ let g:ale_linters = {
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
-      \ 'ruby': ['rubocop', 'reek', 'rails_best_practices'],
+      \ 'ruby': ['rubocop', 'reek', 'rails_best_practices', 'brakeman'],
       \ 'text': ['vale']
       \ }
 
@@ -201,7 +201,8 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'html': ['prettier'],
       \ 'css': ['prettier'],
-      \ 'scss': ['prettier']
+      \ 'scss': ['prettier'],
+      \ 'ruby': ['rubocop']
       \ }
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
@@ -256,7 +257,7 @@ nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
 " neovim fzf window
-let g:fzf_layout = { 'window': '15split enew' }
+" let g:fzf_layout = { 'window': '15split enew' }
 
 augroup fzfstatus
   autocmd! FileType fzf
