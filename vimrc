@@ -24,7 +24,6 @@ Plug 'roxma/nvim-cm-tern'
 Plug 'roxma/nvim-completion-manager', { 'do' : 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -484,30 +483,17 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
-" === nerdtree ===
-let g:NERDTreeWinSize=25
-augroup nerd_loader
-  autocmd!
-  autocmd VimEnter * silent! autocmd! FileExplorer
-  autocmd BufEnter,BufNew *
-        \  if isdirectory(expand('<amatch>'))
-        \|   call plug#load('nerdtree')
-        \|   execute 'autocmd! nerd_loader'
-        \| endif
-augroup END
-nnoremap - :NERDTreeToggle<cr>
-
 " === netrw ===
-let g:loaded_netrwPlugin = 1
-" let g:netrw_browse_split = 4
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_altv = 1
-" let g:netrw_winsize = 25
-" let g:netrw_dirhistmax = 0
-" nnoremap _ :Lexplore<CR>
-" nnoremap - :Sexplore<CR>
-" nnoremap <F10> :q<CR>
+" let g:loaded_netrwPlugin = 1
+let g:netrw_browse_split = 4
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 35
+let g:netrw_dirhistmax = 0
+nnoremap - :Lexplore<CR>
+nnoremap _ :Sexplore<CR>
+nnoremap <F10> :q<CR>
 
 " === nvim-completion-manager ===
 let g:cm_refresh_length = 2
@@ -613,7 +599,7 @@ inoremap <C-k> <C-o>D
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
 " === map <ctrl>c to quit ===
-nnoremap <C-c> :wq<CR>
+nnoremap <C-c> :q<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>c mmggVG"*y`m
