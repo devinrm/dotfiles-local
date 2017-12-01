@@ -47,7 +47,8 @@ Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 
 " === linting ===
-Plug 'w0rp/ale'
+UnPlug 'w0rp/ale'
+Plug 'devinrm/ale'
 
 " === make editing nicer ===
 Plug 'cohama/lexima.vim'
