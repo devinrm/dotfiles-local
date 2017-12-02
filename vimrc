@@ -751,3 +751,6 @@ nnoremap , za
 xnoremap zz :normal zz<CR>
 xnoremap zt :normal zt<CR>
 xnoremap zb :normal zb<CR>
+
+highlight Comment cterm=italic
+highlight Comment gui=italic
