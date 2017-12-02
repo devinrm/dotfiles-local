@@ -56,7 +56,6 @@ Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'radenling/vim-dispatch-neovim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-dispatch'
@@ -506,7 +505,7 @@ filetype plugin on
 set completeopt=menu,preview " Shows menu and any additional tips
 
 " === vim-test ===
-let g:test#strategy = 'dispatch'
+let g:test#strategy = 'neovim'
 " this rspec command is SpreeCommerce specific. Don't copy unless you need to
 let g:test#ruby#rspec#executable = 'SPEC_ALL=true bundle exec rspec'
 " update jest snapshots with vim-test
@@ -682,7 +681,7 @@ nnoremap <Leader>fl O// @flow<Esc>^
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
-nnoremap <Leader>js :sp<CR>:te node %<CR>
+nnoremap <Leader>js :10sp<CR>:te node %<CR>
 
 " === open and close location list ===
 nnoremap <Leader>o :lopen<CR>
@@ -696,13 +695,13 @@ nnoremap <Leader>qq :cclose<CR>
 nmap Q @q
 
 " run commands through neovim term instead of :!
-nnoremap <Leader>r :sp<CR>:te<SPACE>
+nnoremap <Leader>r :10sp<CR>:te<CR>i
 
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>rb :sp<CR>:te ruby -w %<CR>
+nnoremap <Leader>rb :10sp<CR>:te ruby -w %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :split db/schema.rb<CR>
@@ -751,6 +750,24 @@ nnoremap , za
 xnoremap zz :normal zz<CR>
 xnoremap zt :normal zt<CR>
 xnoremap zb :normal zb<CR>
+
+" === nvim :terminal colors ===
+let g:terminal_color_0  = '#25272c'
+let g:terminal_color_1  = '#ba2a2a'
+let g:terminal_color_2  = '#008542'
+let g:terminal_color_3  = '#eac06e'
+let g:terminal_color_4  = '#0088cc'
+let g:terminal_color_5  = '#8d4888'
+let g:terminal_color_6  = '#006596'
+let g:terminal_color_7  = '#53586f'
+let g:terminal_color_8  = '#354151'
+let g:terminal_color_9  = '#c95f5f'
+let g:terminal_color_10 = '#73ba25'
+let g:terminal_color_11 = '#f07d30'
+let g:terminal_color_12 = '#81a3cf'
+let g:terminal_color_13 = '#e35682'
+let g:terminal_color_14 = '#25b8a5'
+let g:terminal_color_15 = '#f6f9fc'
 
 highlight Comment cterm=italic
 highlight Comment gui=italic
