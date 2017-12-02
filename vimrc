@@ -420,8 +420,8 @@ let g:lightline = {
       \   'readonly': 'error',
       \   'linter': 'error'
       \ },
-      \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
-      \ 'subseparator': { 'left': '▒', 'right': '░' }
+      \ 'separator': { 'left': '▊▋▌▍▎', 'right': '▎▍▌▋▊' },
+      \ 'subseparator': { 'left': '▎', 'right': '▎' }
       \ }
 
 function! WizMod() abort
@@ -490,7 +490,7 @@ let g:netrw_browse_split = 4
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
-let g:netrw_winsize = 35
+let g:netrw_winsize = 30
 let g:netrw_dirhistmax = 0
 nnoremap - :Lexplore<CR>
 nnoremap _ :Sexplore<CR>
