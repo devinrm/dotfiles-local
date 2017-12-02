@@ -24,6 +24,7 @@ Plug 'roxma/nvim-cm-tern'
 Plug 'roxma/nvim-completion-manager', { 'do' : 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
+Plug 'justinmk/vim-dirvish'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -234,6 +235,15 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
+" === vim-dirvish ===
+let g:loaded_netrwPlugin = 1
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+augroup dirvishfugitive
+  autocmd FileType dirvish call fugitive#detect(@%)
+augroup END
+
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
 
@@ -437,7 +447,7 @@ endfunction
 
 function! WizName() abort
   let l:name = expand('%:t')
-  if l:name =~? 'NetrwTreeListing'
+  if l:name =~? 'Dirvish'
     return ''
   endif
   return ('' !=? WizRO() ? WizRO() : WizMod()) .
@@ -482,18 +492,6 @@ augroup alestatus
   au!
   autocmd User ALELint call lightline#update()
 augroup end
-
-" === netrw ===
-" let g:loaded_netrwPlugin = 1
-let g:netrw_browse_split = 4
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_altv = 1
-let g:netrw_winsize = 30
-let g:netrw_dirhistmax = 0
-nnoremap - :Lexplore<CR>
-nnoremap _ :Sexplore<CR>
-nnoremap <F10> :q<CR>
 
 " === nvim-completion-manager ===
 let g:cm_refresh_length = 2
