@@ -61,8 +61,8 @@ alias s="rspec"
 alias yi="yarn install"
 alias ys="yarn start"
 alias yu="yarn upgrade"
-alias update="~/dotfiles/bin/update_packages.sh"
 alias cra_eslint="~/dotfiles/bin/create_react_app_eslint_config.sh"
+alias npm_install="~/dotfiles/bin/npm.sh"
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"
@@ -101,10 +101,10 @@ alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; 
 
 alias tl="tmux list-sessions"
 
-alias db="dynamodb-local"
-
 alias js="bundle exec jekyll serve & ; open http://127.0.0.1:4000"
 
 alias dot="cd ~/dotfiles"
 
 alias wifi-ip="ipconfig getifaddr en0"
+
+alias update="~/dotfiles/bin/update_packages.sh"
