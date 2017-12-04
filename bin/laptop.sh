@@ -178,6 +178,7 @@ p11-kit
 packer
 pandoc
 pango
+par
 parallel
 pcre
 pdf2htmlex

@@ -108,6 +108,7 @@ set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
 set foldmethod=expr
 set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
+set formatprg=par
 set gdefault " Replace all matches on a line instead of just the first
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
