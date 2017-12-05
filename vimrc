@@ -188,15 +188,13 @@ augroup END
 " === ale ===
 let g:ale_linters = {
       \ 'javascript': ['flow', 'eslint', 'standard'],
-      \ 'jsx': ['stylelint', 'eslint', 'standard'],
+      \ 'jsx': ['stylelint', 'eslint'],
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek', 'rails_best_practices', 'brakeman'],
       \ 'text': ['vale']
       \ }
-
-" let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
@@ -205,6 +203,19 @@ let g:ale_fixers = {
       \ 'scss': ['prettier'],
       \ 'ruby': ['rubocop']
       \ }
+
+" use stylelint and eslint within jsx
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+let g:ale_linter_aliases = {'jsx': 'css'}
+
+" Do not lint or fix minified files.
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
 let g:ale_javascript_standard_executable = 'special-standard'
@@ -217,13 +228,6 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
 highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
-let g:ale_lint_on_text_changed = 0
-augroup ALEExecute
-  autocmd CursorHold * call ale#Lint()
-  autocmd CursorHoldI * call ale#Lint()
-  autocmd InsertEnter * call ale#Lint()
-  autocmd InsertLeave * call ale#Lint()
-augroup end
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
