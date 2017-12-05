@@ -275,9 +275,10 @@ augroup fzfstatus
   autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
 augroup END
 
+" You can pass rg arguments like so: :Rg -F components -g '*jsx'
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   'rg --column --line-number --no-heading --color=always '.(<q-args>), 1,
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
@@ -285,46 +286,17 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-command! -nargs=+ -complete=file A call fzf#vim#ag_raw(<q-args>)?
+" Pass commands to ag by using :Ag command i.e. :Ag --js components
+function! s:fzf_ag_raw(cmd)
+  call fzf#vim#ag_raw('--noheading '. a:cmd)
+endfunction
+augroup ag_commands_with_fzf
+  autocmd! VimEnter * command! -nargs=* -complete=file Ag :call s:fzf_ag_raw(<q-args>)
+augroup END
+
+" Call :Ag
 nnoremap \ :Ag<SPACE>
 nnoremap \\ :Ag<SPACE><C-r><C-w><CR><C-a><CR>
-
-" Narrow ag results within vim; CTRL-A to select all matches and list them in quickfix window
-function! s:ag_to_qf(line)
-  let l:parts = split(a:line, ':')
-  return {'filename': l:parts[0], 'lnum': l:parts[1], 'col': l:parts[2],
-        \ 'text': join(l:parts[3:], ':')}
-endfunction
-
-function! s:ag_handler(lines)
-  if len(a:lines) < 2 | return | endif
-
-  let l:cmd = get({'ctrl-x': 'split',
-        \ 'ctrl-v': 'vertical split',
-        \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
-  let l:list = map(a:lines[1:], 's:ag_to_qf(v:val)')
-
-  let l:first = l:list[0]
-  execute l:cmd escape(l:first.filename, ' %#\')
-  execute l:first.lnum
-  execute 'normal!' l:first.col.'|zz'
-
-  if len(l:list) > 1
-    call setqflist(l:list)
-    copen
-    wincmd p
-  endif
-endfunction
-
-command! -nargs=* Ag call fzf#run({
-      \ 'source':  printf('ag --nogroup --column --color "%s"',
-      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
-      \ 'sink*':    function('<sid>ag_handler'),
-      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-      \            '--color hl:68,hl+:110',
-      \ 'down':    '50%'
-      \ })
 
 " Search neighboring files
 function! s:fzf_neighbouring_files() abort
