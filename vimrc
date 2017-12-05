@@ -205,11 +205,11 @@ let g:ale_fixers = {
       \ }
 
 " use stylelint and eslint within jsx
-augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
-let g:ale_linter_aliases = {'jsx': 'css'}
+" augroup FiletypeGroup
+"     autocmd!
+"     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" augroup END
+" let g:ale_linter_aliases = {'jsx': 'css'}
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
