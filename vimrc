@@ -406,7 +406,7 @@ let g:lightline = {
       \   'readonly': 'error',
       \   'linter': 'error'
       \ },
-      \ 'separator': { 'left': '▊▋▌▍▎', 'right': '▎▍▌▋▊' },
+      \ 'separator': { 'left': '▉▊▋▌', 'right': '▌▋▊▉' },
       \ 'subseparator': { 'left': '▎', 'right': '▎' }
       \ }
 
