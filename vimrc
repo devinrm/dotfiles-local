@@ -611,7 +611,6 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap kj <C-\><C-n>
-tnoremap <C-d> <C-\><C-n>:bd!<CR>
 
 " === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
