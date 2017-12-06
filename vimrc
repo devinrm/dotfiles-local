@@ -247,7 +247,7 @@ nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfi
 augroup dirvishfugitive
   autocmd FileType dirvish call fugitive#detect(@%)
 augroup END
-nnoremap - :25vsp<CR>:Dirvish %<CR>
+nnoremap - :35vsp<CR>:Dirvish %<CR>
 
 " === dispatch.vim ===
 let g:rspec_command = 'Dispatch rspec {spec}'
