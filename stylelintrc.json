@@ -1,8 +1,8 @@
 {
-  "processors": ["/Users/devinmorgenstern/.asdf/installs/nodejs/8.9.1/.npm/lib/node_modules/stylelint-processor-styled-components"],
+  "processors": ["/Users/devinmorgenstern/.asdf/installs/nodejs/8.9.2/.npm/lib/node_modules/stylelint-processor-styled-components"],
   "extends": [
-    "/Users/devinmorgenstern/.asdf/installs/nodejs/8.9.1/.npm/lib/node_modules/stylelint-config-standard",
-    "/Users/devinmorgenstern/.asdf/installs/nodejs/8.9.1/.npm/lib/node_modules/stylelint-config-styled-components"
+    "/Users/devinmorgenstern/.asdf/installs/nodejs/8.9.2/.npm/lib/node_modules/stylelint-config-standard",
+    "/Users/devinmorgenstern/.asdf/installs/nodejs/8.9.2/.npm/lib/node_modules/stylelint-config-styled-components"
   ],
   "syntax": "scss",
   "rules": {
