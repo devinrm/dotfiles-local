@@ -180,7 +180,7 @@ augroup END
 
 " === ale ===
 let g:ale_linters = {
-      \ 'javascript': ['flow', 'eslint', 'standard'],
+      \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
       \ 'html': ['eslint', 'tidy', 'htmlhint'],
       \ 'css': ['stylelint'],
@@ -211,8 +211,6 @@ let g:ale_pattern_options = {
 \}
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
-let g:ale_javascript_standard_executable = 'special-standard'
-let g:ale_javascript_standard_use_global = 0
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
