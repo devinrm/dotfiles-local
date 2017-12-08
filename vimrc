@@ -59,7 +59,6 @@ Plug 'justinmk/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -248,9 +247,6 @@ augroup dirvishfugitive
   autocmd FileType dirvish call fugitive#detect(@%)
 augroup END
 nnoremap - :35vsp<CR>:Dirvish %<CR>
-
-" === dispatch.vim ===
-let g:rspec_command = 'Dispatch rspec {spec}'
 
 " === easymotion ===
 map <F9> <Plug>(easymotion-prefix)
