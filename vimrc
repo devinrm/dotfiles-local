@@ -49,7 +49,6 @@ Plug 'vim-ruby/vim-ruby'
 
 " === linting ===
 Plug 'w0rp/ale'
-UnPlug 'devinrm/ale'
 
 " === make editing nicer ===
 Plug 'cohama/lexima.vim'
@@ -58,16 +57,11 @@ Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
@@ -524,6 +518,10 @@ xnoremap . :normal.<CR>
 " === Comment/un-comment like Sublime (from @geoffharcourt) ===
 nnoremap <C-\> :TComment<CR>
 vnoremap <C-\> :TComment<CR>
+
+" === Make a new line above or below in normal mode ===
+nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 " === Use C-Space to Esc out of any mode (from @christoomey) ===
 nnoremap <C-Space> <Esc>:noh<CR>
