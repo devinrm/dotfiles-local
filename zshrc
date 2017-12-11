@@ -92,7 +92,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 # Pure: Pretty, minimal and fast ZSH prompt
 autoload -U promptinit && promptinit
-PURE_PROMPT_SYMBOL='⟩'
 prompt pure
 
 # Hub
