@@ -49,11 +49,6 @@ export HOMEBREW_GITHUB_API_TOKEN="f1035918c42a9b60e0d46d35adbbc3c5ad3c056b"
 # that those keys can be used for other things.
 unsetopt flowcontrol
 
-export AWS_DEFAULT_REGION=us-east-1
-
-# setopt auto_cd
-# cdpath=($HOME/code $HOME/code/spree $HOME/code/rails)
-
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
@@ -97,9 +92,6 @@ prompt pure
 
 # Hub
 eval "$(hub alias -s)"
-
-# Git wrapper
-export PATH="$HOME/bin:$PATH"
 
 # color man pages
 man() {
