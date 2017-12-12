@@ -21,7 +21,7 @@ Plug 'calebeby/ncm-css'
 Plug 'roxma/ncm-flow'
 Plug 'roxma/ncm-rct-complete'
 Plug 'roxma/nvim-cm-tern'
-Plug 'roxma/nvim-completion-manager', { 'do' : 'pip3 install neovim psutil setproctitle' }
+Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
 Plug 'justinmk/vim-dirvish'

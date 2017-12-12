@@ -26,8 +26,8 @@ You can safely run `rcup` multiple times to update:
 Acknowledgments
 ---------------
 I've borrowed much from thoughtbot's
-[dotfiles](https://github.com/thoughtbot/dotfiles), as well as [Ben Orenstein](https://github.com/r00k/dotfiles),
-[Geoff Harcourt](https://github.com/geoffharcourt/dotfiles-local), and [Chris Toomey](https://github.com/christoomey/dotfiles).
+[dotfiles](https://github.com/thoughtbot/dotfiles), as well as [Geoff Harcourt](https://github.com/geoffharcourt/dotfiles-local)
+and [Chris Toomey](https://github.com/christoomey/dotfiles).
 I recommend checking them out.
 
 License
