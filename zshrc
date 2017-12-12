@@ -1,5 +1,5 @@
 # kitty needs this
-PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 [ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
 # load custom executable functions
@@ -92,6 +92,7 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 # Pure: Pretty, minimal and fast ZSH prompt
 autoload -U promptinit && promptinit
+PURE_PROMPT_SYMBOL='⟩'
 prompt pure
 
 # Hub
