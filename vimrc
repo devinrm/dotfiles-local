@@ -24,7 +24,7 @@ Plug 'roxma/nvim-cm-tern'
 Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
-Plug 'justinmk/vim-dirvish'
+Plug 'scrooloose/nerdtree'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -229,16 +229,6 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
-
-" === vim-dirvish ===
-let g:loaded_netrwPlugin = 1
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-augroup dirvishfugitive
-  autocmd FileType dirvish call fugitive#detect(@%)
-augroup END
-nnoremap - :35vsp<CR>:Dirvish %<CR>
 
 " === easymotion ===
 map <F9> <Plug>(easymotion-prefix)
@@ -458,6 +448,18 @@ augroup alestatus
   au!
   autocmd User ALELint call lightline#update()
 augroup end
+
+" === nerdtreee ===
+let g:loaded_netrwPlugin = 1
+let g:NERDTreeWinSize=25
+function! ToggleNERDTreeFind()
+  if g:NERDTree.IsOpen()
+    execute ':NERDTreeClose'
+  else
+    execute ':NERDTreeFind'
+  endif
+endfunction
+nnoremap - :call ToggleNERDTreeFind()<CR>
 
 " === nvim-completion-manager ===
 let g:cm_refresh_length = 2
