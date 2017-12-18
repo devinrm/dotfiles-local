@@ -3,12 +3,10 @@ bundler
 bundler-audit
 fastri
 gem-browse
-gem-ctags
-haml_lint
 mdl
 mdn_query
 neovim
 rcodetools
 reek
 rubocop
-slim_lint
+redis-stat

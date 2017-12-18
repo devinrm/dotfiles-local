@@ -71,7 +71,7 @@ alias sed="sed -E"
 alias \⟩=''
 
 # Git
-alias aa="git add --all"
+alias aa="git add --patch"
 alias add="git add"
 alias ap="git add --patch"
 alias branch="git branch"
