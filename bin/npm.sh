@@ -7,6 +7,7 @@ set -e
   npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install -g "$PKG@latest"
 )
 
+npm i -g alex ;
 npm i -g babel-cli ;
 npm i -g babel-eslint ;
 npm i -g create-react-app ;
@@ -19,6 +20,7 @@ npm i -g eslint-plugin-prettier ;
 npm i -g eslint-plugin-react ;
 npm i -g flow-bin ;
 npm i -g heroku-cli ;
+npm i -g htmlhint ;
 npm i -g javascript-typescript-langserver ;
 npm i -g neovim ;
 npm i -g npm ;
@@ -28,5 +30,6 @@ npm i -g stylelint ;
 npm i -g stylelint-config-standard ;
 npm i -g stylelint-config-styled-components ;
 npm i -g stylelint-processor-styled-components ;
-npm i -g tern;
-npm i -g tldr
+npm i -g tern ;
+npm i -g tldr ;
+npm i -g write-good

@@ -1,6 +1,8 @@
 brakeman
 bundler
 bundler-audit
+erubi
+erubis
 fastri
 gem-browse
 mdl

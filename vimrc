@@ -182,11 +182,12 @@ augroup END
 let g:ale_linters = {
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'html': ['eslint', 'tidy', 'htmlhint'],
+      \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'css': ['stylelint'],
       \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek', 'rails_best_practices', 'brakeman'],
-      \ 'text': ['vale']
+      \ 'text': ['vale', 'write-good', 'alex'],
+      \ 'erb': ['erubi', 'erubis']
       \ }
 
 let g:ale_fixers = {
