@@ -180,22 +180,23 @@ augroup END
 
 " === ale ===
 let g:ale_linters = {
+      \ 'css': ['stylelint'],
+      \ 'erb': ['erubi', 'erubis'],
+      \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
-      \ 'css': ['stylelint'],
-      \ 'scss': ['stylelint'],
       \ 'ruby': ['rubocop', 'reek', 'rails_best_practices', 'brakeman'],
-      \ 'text': ['vale', 'write-good', 'alex'],
-      \ 'erb': ['erubi', 'erubis']
+      \ 'scss': ['stylelint'],
+      \ 'text': ['vale', 'write-good', 'alex']
       \ }
 
 let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'html': ['prettier'],
       \ 'css': ['prettier'],
-      \ 'scss': ['prettier'],
-      \ 'ruby': ['rubocop']
+      \ 'html': ['prettier'],
+      \ 'javascript': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'ruby': ['rubocop'],
+      \ 'scss': ['prettier']
       \ }
 
 " use stylelint and eslint within jsx
@@ -207,9 +208,9 @@ let g:ale_fixers = {
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
-\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-\}
+      \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+      \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+      \}
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --tab-width 2 --print-width 100 --parser flow'
 let g:ale_set_quickfix = 0
