@@ -25,6 +25,7 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 
 " === experiments ===
 Plug 'scrooloose/nerdtree'
+Plug 'thiagoalessio/rainbow_levels.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -471,6 +472,19 @@ set shortmess+=c
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu,preview " Shows menu and any additional tips
+
+" === rainbow_levels ===
+let g:rainbow_levels = [
+    \{'ctermfg': 84,  'guifg': '#50fa7b'},
+    \{'ctermfg': 117, 'guifg': '#8be9fd'},
+    \{'ctermfg': 61,  'guifg': '#6272a4'},
+    \{'ctermfg': 212, 'guifg': '#ff79c6'},
+    \{'ctermfg': 203, 'guifg': '#ffb86c'},
+    \{'ctermfg': 228, 'guifg': '#f1fa8c'},
+    \{'ctermfg': 15,  'guifg': '#f8f8f2'},
+    \{'ctermfg': 231, 'guifg': '#525563'}]
+
+nnoremap <leader>z :RainbowLevelsToggle<cr>
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
