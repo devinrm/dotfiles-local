@@ -18,14 +18,15 @@ Plug 'xero/sourcerer.vim'
 
 " === completion ===
 Plug 'calebeby/ncm-css'
-Plug 'roxma/ncm-flow'
+Plug 'roxma/ncm-flow', { 'do': 'npm install' }
 Plug 'roxma/ncm-rct-complete'
-Plug 'roxma/nvim-cm-tern'
+Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
 Plug 'scrooloose/nerdtree'
 Plug 'thiagoalessio/rainbow_levels.vim'
+Plug 'ruby-formatter/rufo-vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -89,8 +90,8 @@ call plug#end()
 
 let s:darwin = has('mac')
 
-set autoread " Automatically read file if it has been changed outside of vim
-set autowrite " Automatically :write before running commands
+" set autoread " Automatically read file if it has been changed outside of vim
+" set autowrite " Automatically :write before running commands
 set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamed " copy paste to system clipboard
@@ -282,7 +283,8 @@ augroup END
 
 " Call :Ag
 nnoremap \ :Ag<SPACE>
-nnoremap \\ :Ag<SPACE><C-r><C-w><CR><C-a><CR>
+" grep the word under the cursor
+nnoremap gr :Ag<SPACE>'\b<cword>\b' *<CR>
 
 " Search neighboring files
 function! s:fzf_neighbouring_files() abort
