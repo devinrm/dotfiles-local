@@ -12,3 +12,4 @@ rcodetools
 reek
 rubocop
 redis-stat
+sqlint
