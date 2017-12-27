@@ -585,7 +585,7 @@ inoremap <C-k> <C-o>D
 nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
 " === map <ctrl>c to quit ===
-nnoremap <C-c> :x<CR>
+nnoremap <C-c> :q!<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>c mmggVG"*y`m
@@ -727,6 +727,10 @@ nnoremap Y y$
 
 " === Make yank behave like yank should ===
 vnoremap <expr>y "my\"" . v:register . "y`y"
+
+" === Buffer prev/next ===
+nnoremap <C-x> :bnext<CR>
+nnoremap <C-z> :bprev<CR>
 
 " === Open folds easily ===
 nnoremap , za
