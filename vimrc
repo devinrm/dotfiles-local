@@ -15,6 +15,7 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'xero/sourcerer.vim'
+Plug 'thiagoalessio/rainbow_levels.vim'
 
 " === completion ===
 Plug 'calebeby/ncm-css'
@@ -25,8 +26,8 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 
 " === experiments ===
 Plug 'scrooloose/nerdtree'
-Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'ruby-formatter/rufo-vim'
+Plug 'rhysd/devdocs.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
