@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #!/usr/bin/env ruby
 # Usage: git publish <remote-branch-name>
 # Open the pull request page for <branch>, or the current branch if not
@@ -10,7 +12,7 @@ end
 
 def main
   current_branch = get_current_branch
-  if current_branch == 'master'
+  if current_branch == "master"
     $stderr.puts "Currently on master, aborting."
     exit 1
   else

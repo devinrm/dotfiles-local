@@ -91,10 +91,11 @@ call plug#end()
 
 let s:darwin = has('mac')
 
-" set autoread " Automatically read file if it has been changed outside of vim
-" set autowrite " Automatically :write before running commands
+set autoread " Automatically read file if it has been changed outside of vim
+set autowrite " Automatically :write before running commands
 set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
+set backupcopy=yes
 set clipboard=unnamed " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 colorscheme sourcerer

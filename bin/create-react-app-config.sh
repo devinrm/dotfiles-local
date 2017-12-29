@@ -16,4 +16,4 @@ yarn add --dev eslint-plugin-flowtype ;
 yarn add --dev eslint-plugin-no-unsanitized ;
 yarn add --dev eslint-plugin-prettier ;
 yarn add --dev flow-bin ;
-yarn add --dev prettier ;
+yarn add --dev prettier
