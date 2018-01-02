@@ -55,6 +55,7 @@
   old = red bold
   whitespace = red reverse
 [diff]
+  colorMoved = zebra
   compactionHeuristic = true
 [color "diff-highlight"]
   newHighlight = "green bold 22"
