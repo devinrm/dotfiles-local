@@ -28,6 +28,7 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 Plug 'scrooloose/nerdtree'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'rhysd/devdocs.vim'
+Plug 'bergercookie/vim-debugstring'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
