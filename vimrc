@@ -135,10 +135,12 @@ set number " Turn on line numbers
 set numberwidth=1 " Minimal number of columns to use for the line number.
 set redrawtime=1000 " Stop highlighting if it takes more than a second
 set relativenumber " Show the line number relative to the line with the cursor in front of each line.
-augroup numbers " Get the best of both worlds with set number and relativenumber
+augroup numbers
   autocmd!
+  " === Toggle relative line number for yanking, i.e. :6y ===
   autocmd CmdlineEnter * set norelativenumber | redraw
   autocmd CmdlineLeave * set relativenumber
+  " === Get the best of both worlds with set number and relativenumber ===
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
 augroup END
@@ -660,9 +662,6 @@ vnoremap <A-j> :m '<+1<CR>gv=gv
 
 " === Make esc more user friendly ===
 inoremap jk <Esc>
-
-" === Toggle relative line number for yanking, i.e. :6y ===
-nnoremap <Leader>ln :set relativenumber!<CR>
 
 " === paste flow when I need it ===
 nnoremap <Leader>fl O// @flow<Esc>^
