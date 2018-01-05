@@ -182,6 +182,13 @@ augroup vimrcEx
         \ endif
 augroup END
 
+" Make comments italic
+augroup ItalicComments
+  autocmd!
+  autocmd ColorScheme * highlight Comment gui=italic
+  autocmd ColorScheme * highlight Comment cterm=italic
+augroup END
+
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
 " ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
@@ -761,6 +768,3 @@ let g:terminal_color_12 = '#81a3cf'
 let g:terminal_color_13 = '#e35682'
 let g:terminal_color_14 = '#25b8a5'
 let g:terminal_color_15 = '#f6f9fc'
-
-highlight Comment cterm=italic
-highlight Comment gui=italic
