@@ -1,7 +1,7 @@
-"  ____ ____ ____ ____ ____ ____ ____
-" ||p |||l |||u |||g |||i |||n |||s ||
-" ||__|||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+"    .
+" ._ |. . _ *._  __
+" [_)|(_|(_]|[ )_)
+" |      ._|
 
 " Remove declared plugins
 function! s:UnPlug(plug_name) abort
@@ -85,10 +85,10 @@ Plug 'junegunn/vim-pseudocl'
 
 call plug#end()
 
-"  ____ ____ ____ ____ ____ ____ ____ ____
-" ||s |||e |||t |||t |||i |||n |||g |||s ||
-" ||__|||__|||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+"        ,  ,
+"  __ _ -+--+-*._  _  __
+" _) (/, |  | |[ )(_]_)
+"                 ._|
 
 let s:darwin = has('mac')
 
@@ -189,10 +189,10 @@ augroup ItalicComments
   autocmd ColorScheme * highlight Comment cterm=italic
 augroup END
 
-"  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
-" ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
-" ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|/__\|/__\| |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+"    .                   ,  ,
+" ._ |. . _ *._    __ _ -+--+-*._  _  __
+" [_)|(_|(_]|[ )  _) (/, |  | |[ )(_]_)
+" |      ._|                      ._|
 
 " === ale ===
 let g:ale_linters = {
@@ -526,10 +526,9 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
 let g:tmux_navigator_save_on_switch = 2 " Save on switch
 
-"  ____ ____ ____ ____
-" ||m |||a |||p |||s ||
-" ||__|||__|||__|||__||
-" |/__\|/__\|/__\|/__\|
+" ._ _  _.._  __
+" [ | )(_][_)_)
+"         |
 
 " === Switch between the last two files ===
 nnoremap <leader><leader> <c-^>
