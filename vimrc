@@ -137,6 +137,8 @@ set redrawtime=1000 " Stop highlighting if it takes more than a second
 set relativenumber " Show the line number relative to the line with the cursor in front of each line.
 augroup numbers " Get the best of both worlds with set number and relativenumber
   autocmd!
+  autocmd CmdlineEnter * set norelativenumber | redraw
+  autocmd CmdlineLeave * set relativenumber
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
 augroup END
