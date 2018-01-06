@@ -13,4 +13,5 @@ tmp/**/*
 *.pyc
 node_modules
 .tool-versions
+.tool-versions-e
 latest.dump
