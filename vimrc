@@ -388,17 +388,17 @@ let g:lightline = {
       \              [ 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
-      \   'modified': 'WizMod',
-      \   'readonly': 'WizRO',
-      \   'gitbranch': 'WizGit',
-      \   'filename': 'WizName',
-      \   'filetype': 'WizType',
-      \   'fileencoding': 'WizEncoding',
-      \   'mode': 'WizMode',
+      \   'modified': 'LightMod',
+      \   'readonly': 'LightRO',
+      \   'gitbranch': 'LightGit',
+      \   'filename': 'LightName',
+      \   'filetype': 'LightType',
+      \   'fileencoding': 'LightEncoding',
+      \   'mode': 'LightMode',
       \   'gitgutter': 'MyGitGutter',
       \ },
       \ 'component_expand': {
-      \   'linter': 'WizErrors',
+      \   'linter': 'LightErrors',
       \ },
       \ 'component_type': {
       \   'readonly': 'error',
@@ -408,36 +408,36 @@ let g:lightline = {
       \ 'subseparator': { 'left': '▎', 'right': '▎' }
       \ }
 
-function! WizMod() abort
+function! LightMod() abort
   return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
 endfunction
 
-function! WizRO() abort
+function! LightRO() abort
   return &filetype !~? &readonly ? '' : '• '
 endfunction
 
-function! WizGit() abort
+function! LightGit() abort
   return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
-function! WizName() abort
-  let l:name = expand('%:t')
-  if l:name =~? 'Dirvish'
+function! LightName() abort
+  let l:name = expand('%:p:.')
+  if l:name =~? 'b:NERDTree'
     return ''
   endif
-  return ('' !=? WizRO() ? WizRO() : WizMod()) .
-        \ ('' !=? expand('%:t') ? expand('%:t') : '[No Name]')
+  return ('' !=? LightRO() ? LightRO() : LightMod()) .
+        \ ('' !=? expand('%:p:.') ? expand('%:p:.') : '[No Name]')
 endfunction
 
-function! WizType() abort
+function! LightType() abort
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
 endfunction
 
-function! WizEncoding() abort
+function! LightEncoding() abort
   return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
 endfunction
 
-function! WizErrors() abort
+function! LightErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
 endfunction
