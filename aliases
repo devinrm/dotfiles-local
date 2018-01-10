@@ -53,9 +53,7 @@ alias racer="ruby -r tracer"
 alias rake="RUBYOPT=W0 rake"
 alias ras="bundle exec rails s"
 alias rlog="tail -f log/test.log"
-alias rsa="SPEC_ALL=true bundle exec rspec"
 alias ruby="ruby -w"
-alias s="rspec"
 
 # JavaScript
 alias yi="yarn install"

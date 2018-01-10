@@ -504,8 +504,9 @@ nnoremap <leader>z :RainbowLevelsToggle<cr>
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
+let test#ruby#rspec#executable = 'bundle exec rspec'
 " update jest snapshots with vim-test
-let g:test#runner_commands = ['Jest']
+let g:test#runner_commands = ['Jest', 'RSpec']
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
 
 nnoremap <silent> <Leader>t :TestFile<CR>
