@@ -26,7 +26,6 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 
 " === experiments ===
 Plug 'scrooloose/nerdtree'
-Plug 'ruby-formatter/rufo-vim'
 Plug 'rhysd/devdocs.vim'
 Plug 'bergercookie/vim-debugstring'
 
@@ -207,12 +206,10 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \ 'css': ['prettier'],
-      \ 'html': ['prettier'],
+      \ 'css': ['stylelint'],
       \ 'javascript': ['prettier'],
-      \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
-      \ 'scss': ['prettier']
+      \ 'scss': ['stylelint']
       \ }
 
 " use stylelint and eslint within jsx
@@ -268,8 +265,8 @@ nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
 " neovim fzf window
-let g:fzf_layout = { 'window': '15split enew' }
-let $FZF_DEFAULT_OPTS .= ' --no-height'
+" let g:fzf_layout = { 'window': '15split enew' }
+" let $FZF_DEFAULT_OPTS .= ' --no-height'
 
 augroup fzfstatus
   autocmd! FileType fzf
