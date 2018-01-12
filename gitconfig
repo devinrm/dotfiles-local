@@ -10,8 +10,6 @@
 [push]
   default = simple
 [merge]
-  ff = false
-[pull]
   ff = only
 [alias]
   aa = add --all
