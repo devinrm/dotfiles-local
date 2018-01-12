@@ -225,7 +225,7 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
       \}
 
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --tab-width 2 --print-width 80 --parser flow'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --tab-width 2 --parser flow'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
