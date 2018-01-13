@@ -26,8 +26,8 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 
 " === experiments ===
 Plug 'scrooloose/nerdtree'
-Plug 'rhysd/devdocs.vim'
 Plug 'bergercookie/vim-debugstring'
+Plug 'sunaku/vim-dasht'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -74,7 +74,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
-Plug 'jungomi/vim-mdnquery'
 
 " === search ===
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -244,6 +243,9 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
+
+" === dasht ===
+nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')])<CR>
 
 " === easymotion ===
 map <F9> <Plug>(easymotion-prefix)

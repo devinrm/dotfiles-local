@@ -106,6 +106,12 @@ man() {
             man "$@"
 }
 
+# Include dasht in $PATH.
+[ -d "${HOME}/dasht/bin" ] && PATH="${PATH}:${HOME}/dasht/bin"
+
+# Include dasht in $MANPATH.
+[ -d "${HOME}/dasht/man" ] && MANPATH="${HOME}/dasht/man:$MANPATH"
+
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
