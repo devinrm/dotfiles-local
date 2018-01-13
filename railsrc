@@ -1,0 +1,4 @@
+--database=postgresql
+--skip-test-unit
+--skip-turbolinks
+--webpack=react

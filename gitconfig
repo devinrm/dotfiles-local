@@ -11,6 +11,8 @@
   default = simple
 [merge]
   ff = only
+[pull]
+  rebase = true
 [alias]
   aa = add --all
   ap = add --patch
