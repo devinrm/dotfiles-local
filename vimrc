@@ -469,7 +469,6 @@ augroup end
 
 " === nerdtreee ===
 let g:loaded_netrwPlugin = 1
-let g:NERDTreeWinSize=25
 function! ToggleNERDTreeFind()
   if g:NERDTree.IsOpen()
     execute ':NERDTreeClose'
@@ -499,7 +498,7 @@ let g:rainbow_levels = [
     \{'ctermfg': 15,  'guifg': '#f8f8f2'},
     \{'ctermfg': 231, 'guifg': '#525563'}]
 
-nnoremap <leader>z :RainbowLevelsToggle<cr>
+nnoremap , :RainbowLevelsToggle<cr>
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
@@ -744,7 +743,7 @@ nnoremap <C-x> :bnext<CR>
 nnoremap <C-z> :bprev<CR>
 
 " === Open folds easily ===
-nnoremap , za
+nnoremap <Leader>z za
 
 " === Get z commands in visual mode
 xnoremap zz :normal zz<CR>
