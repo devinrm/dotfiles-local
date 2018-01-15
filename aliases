@@ -27,7 +27,7 @@ alias linkvim="ln -s ~/.vim ~/.config/nvim"
 alias linkvimrc="ln -s ~/.vimrc ~/.config/nvim/init.vim"
 
 # Reload ZSH
-alias z=". ~/.zshrc"
+alias z="source ~/.zshrc"
 
 # Dev Tools
 alias i="irb"
