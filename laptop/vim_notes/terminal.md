@@ -20,5 +20,5 @@ ESC + T : Swap the last two words before the cursor.
 CTRL + H : Delete the letter starting at cursor.
 
 -------Symbolic links-----------
-ln -s code/dotfiles/vim/vimrc ~/vimrc
+ln code/dotfiles/vim/vimrc ~/vimrc
 ```
