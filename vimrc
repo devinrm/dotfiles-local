@@ -470,7 +470,8 @@ augroup end
 " === nerdcommenter ===
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
-let g:NERDCustomDelimiters = { 'javascript.jsx': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' } }
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = { 'javascript.jsx': { 'left': '{/*', 'right': '*/}' } }
 
 " === nerdtree ===
 let g:loaded_netrwPlugin = 1
