@@ -59,7 +59,7 @@ Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -467,7 +467,12 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
-" === nerdtreee ===
+" === nerdcommenter ===
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCustomDelimiters = { 'javascript.jsx': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' } }
+
+" === nerdtree ===
 let g:loaded_netrwPlugin = 1
 function! ToggleNERDTreeFind()
   if g:NERDTree.IsOpen()
@@ -546,8 +551,8 @@ nnoremap <Leader>= :wincmd =<CR>
 xnoremap . :normal.<CR>
 
 " === Comment/un-comment like Sublime (from @geoffharcourt) ===
-nnoremap <C-\> :TComment<CR>
-vnoremap <C-\> :TComment<CR>
+nmap <C-\> <plug>NERDCommenterToggle
+vmap <C-\> <plug>NERDCommenterToggle
 
 " === Make a new line above or below in normal mode ===
 nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
