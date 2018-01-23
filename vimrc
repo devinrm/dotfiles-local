@@ -90,8 +90,7 @@ call plug#end()
 
 let s:darwin = has('mac')
 
-" set autoread " Automatically read file if it has been changed outside of vim
-" set autowrite " Automatically :write before running commands
+set autoread " Automatically read file if it has been changed outside of vim
 set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamedplus " copy paste to system clipboard
@@ -112,6 +111,7 @@ let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags t
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
 set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
+set lazyredraw
 set termguicolors " nvim gui colors
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line

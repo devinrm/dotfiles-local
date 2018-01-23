@@ -2,10 +2,6 @@ Pry.config.editor = "nvim"
 
 require 'rubygems'
 require 'pp'
-require 'awesome_print'
-require 'interactive_editor'
-
-AwesomePrint.pry!
 
 color_escape_codes = {
   black: "\033[0;30m",
