@@ -28,6 +28,8 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 Plug 'scrooloose/nerdtree'
 Plug 'bergercookie/vim-debugstring'
 Plug 'sunaku/vim-dasht'
+Plug 'AndrewRadev/switch.vim'
+Plug 'wsdjeg/FlyGrep.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -257,6 +259,9 @@ let g:EasyMotion_smartcase = 1
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
+
+" === FlyGrep ===
+nnoremap ; :FlyGrep<CR>
 
 " === fzf.vim ===
 nnoremap <C-p> :wa<CR>:Files<CR>
