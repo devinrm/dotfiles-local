@@ -29,7 +29,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'bergercookie/vim-debugstring'
 Plug 'sunaku/vim-dasht'
 Plug 'AndrewRadev/switch.vim'
-Plug 'wsdjeg/FlyGrep.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -149,6 +148,7 @@ set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
+set shortmess=a
 set showcmd " display incomplete commands
 set showtabline=2
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
@@ -260,9 +260,6 @@ let g:EasyMotion_smartcase = 1
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
 
-" === FlyGrep ===
-nnoremap ; :FlyGrep<CR>
-
 " === fzf.vim ===
 nnoremap <C-p> :wa<CR>:Files<CR>
 nnoremap <C-b> :wa<CR>:Buffers<CR>
@@ -303,6 +300,11 @@ augroup END
 nnoremap \ :Ag<SPACE>
 " grep the word under the cursor
 nnoremap gr :Ag<SPACE>'\b<cword>\b' *<CR>
+
+" Press ; and then start typing to fzf search the whole project for a word or
+" string
+command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+nnoremap ; :Fg<CR>
 
 " Search neighboring files
 function! s:fzf_neighbouring_files() abort
@@ -598,7 +600,6 @@ xnoremap <C-a> ^
 xnoremap <C-e> $
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-nnoremap <C-w> db
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-f> <Right>
@@ -735,10 +736,6 @@ nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
 " === Code notes ===
 nnoremap <Leader>ww :Files ~/dotfiles/laptop/vim_notes/<CR>
 nnoremap <Leader>wt :Sexplore ~/dotfiles/laptop/vim_notes/<CR>
-
-" === New Split Windows ===
-nnoremap <Leader>wv :vsplit<CR>
-nnoremap <Leader>wh :split<CR>
 
 " === Run vimscript functions ===
 nnoremap <Leader>x :exec getline(".")<CR>

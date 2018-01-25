@@ -48,12 +48,14 @@ alias ct="cat ~/dotfiles/laptop/vim_notes/readline.md"
 alias cv="cat ~/dotfiles/laptop/vim_notes/vim.md"
 
 # Ruby and Rails
+alias be="bundle exec"
 alias ber="bundle exec rspec"
 alias irb='irb --readline -r irb/completion'
-alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
+alias migrate="bundle exec rake db:migrate db:rollback && bundle exec rake db:migrate db:test:prepare"
 alias racer="ruby -r tracer"
 alias rake="RUBYOPT=W0 rake"
 alias ras="bundle exec rails s"
+alias rc="rails console"
 alias ruby="ruby -w"
 alias taild='tail -f log/development.log'
 alias tailt='tail -f log/test.log'
