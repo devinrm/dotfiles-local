@@ -60,7 +60,7 @@ Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -320,6 +320,7 @@ function! s:fzf_neighbouring_files() abort
 endfunction
 
 command! FZFNeigh call s:fzf_neighbouring_files()
+nnoremap ' :FZFNeigh<CR>
 
 let g:fzf_colors =
       \ { 'hl': ['fg', 'Exception'] }
@@ -474,12 +475,6 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
-" === nerdcommenter ===
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCustomDelimiters = { 'javascript.jsx': { 'left': '{/*', 'right': '*/}' } }
-
 " === nerdtree ===
 let g:loaded_netrwPlugin = 1
 function! ToggleNERDTreeFind()
@@ -559,8 +554,8 @@ nnoremap <Leader>= :wincmd =<CR>
 xnoremap . :normal.<CR>
 
 " === Comment/un-comment like Sublime (from @geoffharcourt) ===
-nmap <C-\> <plug>NERDCommenterToggle
-vmap <C-\> <plug>NERDCommenterToggle
+nmap <C-\> :TComment<CR>
+vmap <C-\> :TComment<CR>
 
 " === Make a new line above or below in normal mode ===
 nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>

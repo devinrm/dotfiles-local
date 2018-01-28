@@ -15,19 +15,25 @@ read -r username
 echo What is the name of the database you would like to import?
 read -r database
 
-cd "$HOME" ;
+cd "$HOME"
 mkdir "$database"_schema_spy
+cd "$database"_schema_spy
 
-curl -O https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc2/schemaspy-6.0.0-rc2.jar ;
-curl -O https://jdbc.postgresql.org/download/postgresql-42.1.4.jar ;
-curl -O https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz ;
+curl -s https://api.github.com/repos/schemaspy/schemaspy/releases/latest \
+  | grep browser_download_url \
+  | cut -d '"' -f 4 \
+  | wget -qi -
 
-tar -zxvf graphviz.tar.gz ;
-cd graphviz-2.40.1 ;
-./configure ;
-make ;
-make install ;
+curl -O https://jdbc.postgresql.org/download/postgresql-42.1.4.jar
+curl -O https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
 
-java -jar schemaspy-6.0.0-rc2.jar -t pgsql -s public -db "$database" -u "$username" -host localhost -o "$HOME" -dp "$HOME"/postgresql-42.1.4.jar ;
+tar -zxvf graphviz.tar.gz
+cd graphviz-2.40.1
+./configure
+make
+make install
 
-echo Open ~/"$database"_schema_spy/index.html to view SchemaSpy dashboard.
+cd "$HOME/$database"_schema_spy
+java -jar schemaspy-6.0.0-rc2.jar -t pgsql -s public -db "$database" -u "$username" -host localhost -o "$database" -dp "$HOME/$database"_schema_spy/postgresql-42.1.4.jar
+
+echo Open "$HOME"/"$database"_schema_spy/"$database"/index.html to view SchemaSpy dashboard.
