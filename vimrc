@@ -269,8 +269,8 @@ nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
 " neovim fzf window
-let g:fzf_layout = { 'window': '20split enew' }
-let $FZF_DEFAULT_OPTS .= ' --no-height'
+" let g:fzf_layout = { 'window': '20split enew' }
+" let $FZF_DEFAULT_OPTS .= ' --no-height'
 
 augroup fzfstatus
   autocmd! FileType fzf
