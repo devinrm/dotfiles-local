@@ -269,8 +269,8 @@ nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
 " neovim fzf window
-" let g:fzf_layout = { 'window': '15split enew' }
-" let $FZF_DEFAULT_OPTS .= ' --no-height'
+let g:fzf_layout = { 'window': '20split enew' }
+let $FZF_DEFAULT_OPTS .= ' --no-height'
 
 augroup fzfstatus
   autocmd! FileType fzf
@@ -340,6 +340,19 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " Complete from open tmux panes (from @junegunn)
 inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
 inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
+
+" TODO: work on this:
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
+    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
+    \ fzf#wrap({'dir': expand('%:p:h')}))
+
+" Better command history with q:
+command! CmdHist call fzf#vim#command_history({'right': '40'})
+nnoremap q: :CmdHist<CR>
+
+" Better search history
+command! QHist call fzf#vim#search_history({'right': '40'})
+nnoremap q/ :QHist<CR>
 
 " === vim-gitgutter ===
 let g:gitgutter_max_signs = 1500

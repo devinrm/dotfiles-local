@@ -71,17 +71,6 @@ _fzf_compgen_dir() {
   rg --files "$1" | only-dir "$1"
 }
 
-# Auto-attach new shell sessions in tmux
-# _not_inside_tmux() { [[ -z "$TMUX" ]] }
-#
-# ensure_tmux_is_running() {
-#   if _not_inside_tmux; then
-#     tat
-#   fi
-# }
-#
-# ensure_tmux_is_running
-
 # make nvim the manpager
 export MANPAGER="nvim -c 'set ft=man' -"
 
