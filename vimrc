@@ -29,6 +29,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'bergercookie/vim-debugstring'
 Plug 'sunaku/vim-dasht'
 Plug 'AndrewRadev/switch.vim'
+Plug 'stefanoverna/vim-i18n'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -69,7 +70,7 @@ Plug 'tpope/vim-rhubarb'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 
 " === other ===
 Plug 'alvan/vim-closetag'
@@ -247,15 +248,7 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " === dasht ===
-nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')])<CR>
-
-" === easymotion ===
-map <F9> <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-let g:EasyMotion_smartcase = 1
+nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -360,6 +353,10 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_signs = 0
+
+" === vim-i18n ===
+vmap <Leader>z :call I18nTranslateString()<CR>
+vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -520,6 +517,9 @@ let g:rainbow_levels = [
     \{'ctermfg': 231, 'guifg': '#525563'}]
 
 nnoremap , :RainbowLevelsToggle<cr>
+
+" === vim-sneak ===
+let g:sneak#label = 1
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
