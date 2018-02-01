@@ -5,6 +5,7 @@ bundler-audit
 erubi
 erubis
 fastri
+flog
 gem-browse
 interactive_editor
 mdl

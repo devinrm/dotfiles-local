@@ -105,3 +105,11 @@ The classical approach to object oriented programming is:
 3. Organize and associate the verbs with the nouns.
 4. The nouns are the classes and the verbs are the behaviors or methods.
 
+RSpec
+a.equal?(b) # object identity - a and b refer to the same object
+a.eql?(b) # object equivalence - a and b have the same value
+a == b # object equivalence - a and b have the same value with type conversions]
+
+eq uses the == operator for comparison, and eql ignores type conversions.
+
+
