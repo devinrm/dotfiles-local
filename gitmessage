@@ -9,3 +9,6 @@
 # * Are there any side effects?
 #
 # Include a link to the ticket, if any.
+#
+# Need to add a co-author?
+# Co-authored-by: First Last <email@example.com>

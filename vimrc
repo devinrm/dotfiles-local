@@ -56,7 +56,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 
 " === make editing nicer ===
-Plug 'cohama/lexima.vim'
+UnPlug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'

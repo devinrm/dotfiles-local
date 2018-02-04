@@ -12,7 +12,7 @@
 [merge]
   ff = only
 [pull]
-  rebase = true
+ ff = only
 [alias]
   aa = add --all
   ap = add --patch
