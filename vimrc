@@ -663,6 +663,17 @@ tnoremap kj <C-\><C-n>
 " === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
 
+" === import I18n in React files ===
+function! ImportI18n()
+    call append(0, "import I18n from 'i18n-js';")
+    call append(1, "")
+    call append(2, "import translations from '../../utils/translations';")
+    call append(3, "")
+    call append(4, "I18n.locale = window.locale;")
+    call append(5, "I18n.translations = translations;")
+endfunction
+nnoremap <Leader>8 :call ImportI18n()<CR>
+
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
@@ -709,8 +720,17 @@ nnoremap <Leader>qq :cclose<CR>
 " === qq to record, Q to replay (recursive map due to peekaboo) ===
 nmap Q @q
 
-" run commands through neovim term instead of :!
+" === run commands through neovim term instead of :! ===
 nnoremap <Leader>r :10sp<CR>:te<CR>i
+
+" === import react boilerplate ===
+function! ImportReact()
+    call append(0, "import PropTypes from 'prop-types';")
+    call append(1, "import React from 'react';")
+    call append(2, "")
+    call append(3, "const { Component } = react;")
+endfunction
+nnoremap <Leader>9 :call ImportReact()<CR>
 
 " === Source (reload) your vimrc ===
 command! ReloadVimrc source $MYVIMRC
