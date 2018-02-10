@@ -38,6 +38,7 @@
   uncommit = reset --soft HEAD^
   unstage = reset
   upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+  delete = branch -D
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
   coloredwithrefs = format:%Cred%h%Creset %Cblue%d%Creset %s %Cgreen(%cr)%C(bold blue)%an%Creset
