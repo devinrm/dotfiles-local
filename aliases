@@ -73,7 +73,7 @@ alias npm_install="~/dotfiles/bin/npm.sh"
 alias sed="sed -E"
 
 # Copy-pasting '$ ruby something.rb' works
-alias \⟩=''
+alias \❯=''
 
 # Git
 alias aa="git add --all"
