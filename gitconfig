@@ -10,9 +10,9 @@
 [push]
   default = simple
 [merge]
-  ff = only
+  ff = false
 [pull]
- ff = only
+  ff = only
 [alias]
   aa = add --all
   ap = add --patch
