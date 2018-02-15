@@ -1,5 +1,4 @@
-"  ____ ____ ____ ____ ____ ____ ____
-" ||p |||l |||u |||g |||i |||n |||s ||
+"  ____ ____ ____ ____ ____ ____ ____ ||p |||l |||u |||g |||i |||n |||s ||
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
@@ -197,11 +196,11 @@ augroup END
 " === ale ===
 let g:ale_linters = {
       \ 'css': ['stylelint'],
-      \ 'erb': ['erubi', 'erubis'],
+      \ 'erb': ['erubi'],
       \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'ruby': ['rubocop', 'reek', 'rails_best_practices', 'brakeman'],
+      \ 'ruby': ['rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'text': ['vale', 'write-good', 'alex'],
       \ 'yml': ['yamllint']

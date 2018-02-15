@@ -2,8 +2,7 @@
 
 global search and replace
 :Ag --js function
-:cfdo %s/function/class/gc
-:cfdo update
+:cdo s/function/class/g | update
 
 zi - switch folding on or off
 za - toggle current fold open/closed
