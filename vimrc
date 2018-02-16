@@ -19,7 +19,7 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 " === completion ===
 Plug 'calebeby/ncm-css'
 Plug 'roxma/ncm-flow', { 'do': 'npm install' }
-Plug 'roxma/ncm-rct-complete'
+Plug 'roxma/ncm-rct-complete', { 'do': 'gem install rcodetools' }
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 
@@ -55,7 +55,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 
 " === make editing nicer ===
-UnPlug 'cohama/lexima.vim'
+Plug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
