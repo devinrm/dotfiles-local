@@ -1,4 +1,5 @@
-"  ____ ____ ____ ____ ____ ____ ____ ||p |||l |||u |||g |||i |||n |||s ||
+"  ____ ____ ____ ____ ____ ____ ____
+" ||p |||l |||u |||g |||i |||n |||s ||
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
@@ -24,11 +25,7 @@ Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 
 " === experiments ===
-Plug 'scrooloose/nerdtree'
-Plug 'bergercookie/vim-debugstring'
-Plug 'sunaku/vim-dasht'
-Plug 'AndrewRadev/switch.vim'
-Plug 'stefanoverna/vim-i18n'
+Plug 'justinmk/vim-dirvish'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -72,9 +69,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
 
 " === other ===
+Plug 'AndrewRadev/switch.vim'
 Plug 'alvan/vim-closetag'
+Plug 'bergercookie/vim-debugstring'
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
+Plug 'stefanoverna/vim-i18n'
+Plug 'sunaku/vim-dasht'
 
 " === search ===
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -248,6 +249,17 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
+
+" === dirvish ===
+let g:loaded_netrwPlugin = 1
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+augroup dirvishfugitive
+  autocmd FileType dirvish call fugitive#detect(@%)
+augroup END
+nnoremap - :Sexplore<CR>
+nnoremap _ :Vexplore<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -438,7 +450,7 @@ endfunction
 
 function! LightName() abort
   let l:name = expand('%:p:.')
-  if l:name =~? 'b:NERDTree'
+  if l:name =~? 'Dirvish'
     return ''
   endif
   return ('' !=? LightRO() ? LightRO() : LightMod()) .
@@ -483,17 +495,6 @@ augroup alestatus
   au!
   autocmd User ALELint call lightline#update()
 augroup end
-
-" === nerdtree ===
-let g:loaded_netrwPlugin = 1
-function! ToggleNERDTreeFind()
-  if g:NERDTree.IsOpen()
-    execute ':NERDTreeClose'
-  else
-    execute ':NERDTreeFind'
-  endif
-endfunction
-nnoremap - :call ToggleNERDTreeFind()<CR>
 
 " === nvim-completion-manager ===
 let g:cm_refresh_length = 2
