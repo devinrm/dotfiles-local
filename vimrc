@@ -26,6 +26,7 @@ Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setpro
 
 " === experiments ===
 Plug 'justinmk/vim-dirvish'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -643,9 +644,6 @@ nmap <Leader>ct :call ReindexCtags()<CR>
 
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
-
-" === Try for a better gJ ===
-nnoremap gj gJ
 
 " === Open .html pages from vim in browser ===
 nnoremap <Leader>h :!open '%'<CR>
