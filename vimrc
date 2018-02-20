@@ -259,8 +259,8 @@ nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfi
 augroup dirvishfugitive
   autocmd FileType dirvish call fugitive#detect(@%)
 augroup END
-nnoremap - :Sexplore<CR>
-nnoremap _ :Vexplore<CR>
+nnoremap - :Sexplore %<CR>
+nnoremap _ :Vexplore %<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -620,6 +620,12 @@ nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
 
 " === map <ctrl>c to quit ===
 nnoremap <C-c> :x<CR>
+
+" === require rails_helper ===
+function! RequireRailsHelper()
+    call append(0, 'require "rails_helper"')
+endfunction
+nnoremap <Leader>7 :call RequireRailsHelper()<CR>
 
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>c mmggVG"*y`m
