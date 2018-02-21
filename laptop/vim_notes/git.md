@@ -1,16 +1,16 @@
 THOUGHTBOT WORKFLOW
-  Start with a branch:         co -d <branch>
-  Check git diff before push:  Gdiff master
-  Push up PR with tracking:    push -u origin <branch>
-  Open pr:                     pr or hub pull-request
-  Rebase for FF merge          mup
-  Interactive Rebase           rebase -i master
-  Force push branch            pf
-  Merge ff                     co master
-                               merge -
-  Push master                  push
-  Delete local branch          branch -d <branch>
-  Delete remote branch         push origin -d <branch>
+  Start with a branch:         git checkout -d <branch>
+  Check git diff before push:  git diff master
+  Push up PR with tracking:    git push -u origin <branch>
+  Open pr:                     Use github or hub pull-request
+  Rebase for FF merge          !git checkout master && git pull && git checkout <branch>
+  Interactive Rebase           git rebase -i origin/master
+  Force push branch            git push --force-with-lease
+  Merge ff                     git checkout master
+                               git merge <branch>
+  Push master                  git push
+  Delete local branch          git branch -d <branch>
+  Delete remote branch         git push origin -d <branch>
 
 HUB
 create-branch: alias to create feature branches.
