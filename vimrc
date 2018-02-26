@@ -16,13 +16,17 @@ call plug#begin('~/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'xero/sourcerer.vim'
 Plug 'thiagoalessio/rainbow_levels.vim'
+Plug 'protesilaos/tempus-themes-vim'
 
 " === completion ===
-Plug 'calebeby/ncm-css'
-Plug 'roxma/ncm-flow', { 'do': 'npm install' }
-Plug 'roxma/ncm-rct-complete', { 'do': 'gem install rcodetools' }
-Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
-Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
+" Plug 'calebeby/ncm-css'
+" Plug 'roxma/ncm-flow', { 'do': 'npm install' }
+" Plug 'roxma/ncm-rct-complete', { 'do': 'gem install rcodetools' }
+" Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
+" Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'uplus/deoplete-solargraph'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
 
 " === experiments ===
 Plug 'justinmk/vim-dirvish'
@@ -98,7 +102,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme sourcerer
+colorscheme tempus_winter
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -235,8 +239,13 @@ let g:ale_sign_error = '•'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
-highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
+" sourcerer
+" highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
+" highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
+
+" tempus_winter
+highlight ALEWarningSign ctermbg=237 guibg='#1b2431'
+highlight ALEErrorSign ctermbg=237 guibg='#1b2431'
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
@@ -250,6 +259,26 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
+
+" === deoplete ===
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#auto_complete_delay = 10
+let g:deoplete#max_list = 20
+let g:tern_show_signature_in_pum = 0
+let g:deoplete#sources#ternjs#timeout = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ ]
 
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
@@ -498,13 +527,40 @@ augroup alestatus
 augroup end
 
 " === nvim-completion-manager ===
-let g:cm_refresh_length = 2
-set pumheight=5
-set shortmess+=c
-
+" let g:cm_refresh_length = 2
+" set pumheight=5
+" set shortmess+=c
+" " force init deoplete then hack deoplete's mapping
+" call deoplete#enable()
+"
+" " register as ncm source
+" au User CmSetup call cm#register_source({'name' : 'deoplete',
+"         \ 'priority': 7,
+"         \ 'abbreviation': '',
+"         \ })
+"
+" " hack deoplete's mapping
+" inoremap <silent> <Plug>_ <C-r>=g:Deoplete_ncm()<CR>
+"
+" func! g:Deoplete_ncm()
+"   " forward to ncm
+"   call cm#complete('deoplete', cm#context(), g:deoplete#_context.complete_position + 1, g:deoplete#_context.candidates)
+"   return ''
+" endfunc
+" let g:deoplete#ignore_sources = {}
+" let g:deoplete#ignore_sources = [
+"       \   'buffer',
+"       \   'member',
+"       \   'tag',
+"       \   'file',
+"       \   'around',
+"        \ ]
+"
 " === omnicompletion ===
 filetype plugin on
-set completeopt=menu,preview " Shows menu and any additional tips
+set completeopt=menu " Shows menu and any additional tips
+set completeopt-=preview
+
 
 " === rainbow_levels ===
 let g:rainbow_levels = [
