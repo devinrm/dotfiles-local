@@ -16,3 +16,4 @@ node_modules
 .tool-versions-e
 latest.dump
 .env.local
+logfile
