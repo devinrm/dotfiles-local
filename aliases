@@ -119,4 +119,4 @@ alias wifi-ip="ipconfig getifaddr en0"
 
 alias update="~/dotfiles/bin/update_packages.sh"
 
-alias pg-start="/$HOME/.asdf/installs/postgres/10.1/bin/pg_ctl -D /$HOME/.asdf/installs/postgres/10.1/data -l logfile start"
+alias pg-start="/$HOME/.asdf/installs/postgres/9.6.7/bin/pg_ctl -D /Users/gandalf/.asdf/installs/postgres/9.6.7/data -l logfile start"
