@@ -1,5 +1,4 @@
 "  ____ ____ ____ ____ ____ ____ ____
-" Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 " ||p |||l |||u |||g |||i |||n |||s ||
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
