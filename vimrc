@@ -3,20 +3,11 @@
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-" Remove declared plugins
-function! s:UnPlug(plug_name) abort
-  if has_key(g:plugs, a:plug_name)
-    call remove(g:plugs, a:plug_name)
-  endif
-endfunction
-command!  -nargs=1 UnPlug call s:UnPlug(<args>)
-
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'xero/sourcerer.vim'
 Plug 'thiagoalessio/rainbow_levels.vim'
-Plug 'protesilaos/tempus-themes-vim'
 
 " === completion ===
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -97,7 +88,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme tempus_winter
+colorscheme sourcerer
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -235,12 +226,8 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 " sourcerer
-" highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
-" highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
-
-" tempus_winter
-highlight ALEWarningSign ctermbg=237 guibg='#1b2431'
-highlight ALEErrorSign ctermbg=237 guibg='#1b2431'
+highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
+highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)

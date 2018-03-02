@@ -17,3 +17,4 @@ reek
 rubocop
 sqlint
 wirble
+solargraph
