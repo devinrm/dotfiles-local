@@ -158,9 +158,6 @@ set undofile " Automatically saves undo history to an undo file when writing a b
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
-set winwidth=84 " Window size
-set winheight=10
-set winminheight=5
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
@@ -271,7 +268,7 @@ augroup dirvishfugitive
   autocmd FileType dirvish call fugitive#detect(@%)
 augroup END
 nnoremap - :Sexplore %<CR>
-nnoremap _ :Vexplore %<CR>
+nnoremap _ :Vexplore %<CR> :vertical resize 20<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
