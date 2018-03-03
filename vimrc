@@ -58,6 +58,7 @@ Plug 'tpope/vim-rhubarb'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-sneak'
 
 " === other ===
 Plug 'AndrewRadev/switch.vim'
@@ -267,8 +268,8 @@ nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfi
 augroup dirvishfugitive
   autocmd FileType dirvish call fugitive#detect(@%)
 augroup END
-nnoremap - :Sexplore %<CR>
-nnoremap _ :Vexplore %<CR> :vertical resize 20<CR>
+nnoremap _ :Sexplore %<CR>
+nnoremap - :Vexplore %<CR> :vertical resize 20<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -522,6 +523,19 @@ let g:rainbow_levels = [
     \{'ctermfg': 231, 'guifg': '#525563'}]
 
 nnoremap , :RainbowLevelsToggle<cr>
+
+" === vim-sneak ===
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+
+nmap f <Plug>Sneak_s
+nmap F <Plug>Sneak_S
+" visual-mode
+xmap f <Plug>Sneak_s
+xmap F <Plug>Sneak_S
+" operator-pending-mode
+omap f <Plug>Sneak_s
+omap F <Plug>Sneak_S
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
