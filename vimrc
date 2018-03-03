@@ -43,11 +43,12 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 
 " === make editing nicer ===
-Plug 'cohama/lexima.vim'
+" Plug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'rstacruz/vim-closer'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
@@ -57,7 +58,6 @@ Plug 'tpope/vim-rhubarb'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'justinmk/vim-sneak'
 
 " === other ===
 Plug 'AndrewRadev/switch.vim'
@@ -128,8 +128,8 @@ set relativenumber " Show the line number relative to the line with the cursor i
 augroup numbers
   autocmd!
   " === Toggle relative line number for yanking, i.e. :6y ===
-  " autocmd CmdlineEnter * set norelativenumber | redraw
-  " autocmd CmdlineLeave * set relativenumber
+  autocmd CmdlineEnter * set norelativenumber | redraw
+  autocmd CmdlineLeave * set relativenumber
   " === Get the best of both worlds with set number and relativenumber ===
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
@@ -513,7 +513,6 @@ filetype plugin on
 set completeopt=menu " Shows menu and any additional tips
 set completeopt-=preview
 
-
 " === rainbow_levels ===
 let g:rainbow_levels = [
     \{'ctermfg': 84,  'guifg': '#50fa7b'},
@@ -526,9 +525,6 @@ let g:rainbow_levels = [
     \{'ctermfg': 231, 'guifg': '#525563'}]
 
 nnoremap , :RainbowLevelsToggle<cr>
-
-" === vim-sneak ===
-let g:sneak#label = 1
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
