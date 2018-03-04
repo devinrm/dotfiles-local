@@ -528,14 +528,24 @@ nnoremap , :RainbowLevelsToggle<cr>
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
+" 1-character enhanced 'f'
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
 " visual-mode
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
 " operator-pending-mode
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+
+nmap q <Plug>Sneak_s
+nmap Q <Plug>Sneak_S
+" visual-mode
+xmap q <Plug>Sneak_s
+xmap Q <Plug>Sneak_S
+" operator-pending-mode
+omap q <Plug>Sneak_s
+omap Q <Plug>Sneak_S
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
