@@ -11,8 +11,10 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 
 " === completion ===
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'calebeby/ncm-css'
+Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
+Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 Plug 'uplus/deoplete-solargraph'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
 
 " === experiments ===
 Plug 'justinmk/vim-dirvish'
@@ -506,6 +508,36 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
+" === nvim-completion-manager ===
+let g:cm_refresh_length = 2
+set pumheight=5
+set shortmess+=c
+" force init deoplete then hack deoplete's mapping
+call deoplete#enable()
+
+" register as ncm source
+au User CmSetup call cm#register_source({'name' : 'deoplete',
+      \ 'priority': 7,
+      \ 'abbreviation': '',
+      \ })
+
+" hack deoplete's mapping
+inoremap <silent> <Plug>_ <C-r>=g:Deoplete_ncm()<CR>
+
+func! g:Deoplete_ncm()
+  " forward to ncm
+  call cm#complete('deoplete', cm#context(), g:deoplete#_context.complete_position + 1, g:deoplete#_context.candidates)
+  return ''
+endfunc
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources = [
+      \   'buffer',
+      \   'member',
+      \   'tag',
+      \   'file',
+      \   'around',
+      \ ]
+
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu " Shows menu and any additional tips
@@ -549,7 +581,6 @@ omap Q <Plug>Sneak_S
 
 " === vim-test ===
 let g:test#strategy = 'neovim'
-let test#ruby#rspec#executable = 'bundle exec rspec'
 " update jest snapshots with vim-test
 let g:test#runner_commands = ['Jest', 'RSpec']
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
