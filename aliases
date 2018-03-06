@@ -60,6 +60,7 @@ alias rc="rails console"
 alias ruby="ruby -w"
 alias taild='tail -f log/development.log'
 alias tailt='tail -f log/test.log'
+alias taila="admin tail"
 
 # JavaScript
 alias yi="yarn install"

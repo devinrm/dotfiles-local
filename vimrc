@@ -67,8 +67,10 @@ Plug 'alvan/vim-closetag'
 Plug 'bergercookie/vim-debugstring'
 Plug 'chrisbra/Colorizer'
 Plug 'itchyny/lightline.vim'
+Plug 'radenling/vim-dispatch-neovim'
 Plug 'stefanoverna/vim-i18n'
 Plug 'sunaku/vim-dasht'
+Plug 'tpope/vim-dispatch'
 
 " === search ===
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -556,7 +558,7 @@ let g:rainbow_levels = [
 nnoremap , :RainbowLevelsToggle<cr>
 
 " === vim-test ===
-let g:test#strategy = 'neovim'
+let g:test#strategy = 'dispatch'
 " update jest snapshots with vim-test
 let g:test#runner_commands = ['Jest', 'RSpec']
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
@@ -643,8 +645,8 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-k> <C-o>D
 
-" === Require pry (from @christoomey) ===
-nnoremap <Leader>b orequire 'pry'; binding.pry<esc>^
+" === Require pry ===
+nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
 
 " === map <ctrl>c to quit ===
 nnoremap <C-c> :x<CR>
