@@ -60,7 +60,6 @@ Plug 'tpope/vim-rhubarb'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'justinmk/vim-sneak'
 
 " === other ===
 Plug 'AndrewRadev/switch.vim'
@@ -556,29 +555,6 @@ let g:rainbow_levels = [
 
 nnoremap , :RainbowLevelsToggle<cr>
 
-" === vim-sneak ===
-let g:sneak#label = 1
-let g:sneak#s_next = 1
-
-" 1-character enhanced 'f'
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-" visual-mode
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-" operator-pending-mode
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-
-nmap q <Plug>Sneak_s
-nmap Q <Plug>Sneak_S
-" visual-mode
-xmap q <Plug>Sneak_s
-xmap Q <Plug>Sneak_S
-" operator-pending-mode
-omap q <Plug>Sneak_s
-omap Q <Plug>Sneak_S
-
 " === vim-test ===
 let g:test#strategy = 'neovim'
 " update jest snapshots with vim-test
@@ -592,10 +568,6 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 
 " === vim-tmux-navigator ===
-" To use c-h in neovim on OS X
-" (https://github.com/neovim/neovim/issues/2048#issuecomment-78045837):
-" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-" tic $TERM.ti
 nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
