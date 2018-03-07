@@ -132,8 +132,8 @@ set relativenumber " Show the line number relative to the line with the cursor i
 augroup numbers
   autocmd!
   " === Toggle relative line number for yanking, i.e. :6y ===
-  autocmd CmdlineEnter * set norelativenumber | redraw
-  autocmd CmdlineLeave * set relativenumber
+  " autocmd CmdlineEnter * set norelativenumber | redraw
+  " autocmd CmdlineLeave * set relativenumber
   " === Get the best of both worlds with set number and relativenumber ===
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
@@ -193,7 +193,7 @@ let g:ale_linters = {
       \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'ruby': ['rubocop', 'rails_best_practices', 'brakeman'],
+      \ 'ruby': ['rubocop', 'rails_best_practices', 'reek', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'text': ['vale', 'write-good', 'alex'],
       \ 'yml': ['yamllint']
@@ -226,6 +226,7 @@ let g:ale_sign_error = '•'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
+
 " sourcerer
 highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
 highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
