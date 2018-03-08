@@ -12,8 +12,6 @@ alias mkdir="mkdir -p"
 alias mv="mv -iv"
 alias rm="rm -i"
 alias v="$VISUAL"
-alias vi="$VISUAL"
-alias vim="$VISUAL"
 alias img="kitty icat"
 
 # Bundler

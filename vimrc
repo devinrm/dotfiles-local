@@ -10,11 +10,13 @@ Plug 'xero/sourcerer.vim'
 Plug 'thiagoalessio/rainbow_levels.vim'
 
 " === completion ===
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'calebeby/ncm-css'
-Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
-Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
-Plug 'uplus/deoplete-solargraph'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'calebeby/ncm-css'
+  Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
+  Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
+  Plug 'uplus/deoplete-solargraph'
+endif
 
 " === experiments ===
 Plug 'justinmk/vim-dirvish'
@@ -46,7 +48,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
 
 " === make editing nicer ===
-" Plug 'cohama/lexima.vim'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
@@ -108,7 +109,9 @@ set hlsearch " highlight search results
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
-set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
+if has('nvim')
+  set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
+endif
 set lazyredraw
 set termguicolors " nvim gui colors
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
@@ -246,6 +249,7 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
 
 " === deoplete ===
+if has('nvim')
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_refresh_always = 1
@@ -264,6 +268,7 @@ let g:deoplete#sources#ternjs#filetypes = [
                 \ 'jsx',
                 \ 'javascript.jsx',
                 \ ]
+endif
 
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
@@ -512,34 +517,37 @@ augroup alestatus
 augroup end
 
 " === nvim-completion-manager ===
-let g:cm_refresh_length = 2
-set pumheight=5
-set shortmess+=c
-" force init deoplete then hack deoplete's mapping
-call deoplete#enable()
+if has('nvim')
+  let g:cm_refresh_length = 2
+  set pumheight=5
+  set shortmess+=c
 
-" register as ncm source
-au User CmSetup call cm#register_source({'name' : 'deoplete',
-      \ 'priority': 7,
-      \ 'abbreviation': '',
-      \ })
+  " force init deoplete then hack deoplete's mapping
+  call deoplete#enable()
 
-" hack deoplete's mapping
-inoremap <silent> <Plug>_ <C-r>=g:Deoplete_ncm()<CR>
+  " register as ncm source
+  au User CmSetup call cm#register_source({'name' : 'deoplete',
+        \ 'priority': 7,
+        \ 'abbreviation': '',
+        \ })
 
-func! g:Deoplete_ncm()
-  " forward to ncm
-  call cm#complete('deoplete', cm#context(), g:deoplete#_context.complete_position + 1, g:deoplete#_context.candidates)
-  return ''
-endfunc
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources = [
-      \   'buffer',
-      \   'member',
-      \   'tag',
-      \   'file',
-      \   'around',
-      \ ]
+  " hack deoplete's mapping
+  inoremap <silent> <Plug>_ <C-r>=g:Deoplete_ncm()<CR>
+
+  func! g:Deoplete_ncm()
+    " forward to ncm
+    call cm#complete('deoplete', cm#context(), g:deoplete#_context.complete_position + 1, g:deoplete#_context.candidates)
+    return ''
+  endfunc
+  let g:deoplete#ignore_sources = {}
+  let g:deoplete#ignore_sources = [
+        \   'buffer',
+        \   'member',
+        \   'tag',
+        \   'file',
+        \   'around',
+        \ ]
+endif
 
 " === omnicompletion ===
 filetype plugin on
