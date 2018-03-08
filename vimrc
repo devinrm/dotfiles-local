@@ -19,6 +19,7 @@ Plug 'uplus/deoplete-solargraph'
 " === experiments ===
 Plug 'justinmk/vim-dirvish'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'justinmk/vim-sneak'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -193,7 +194,7 @@ let g:ale_linters = {
       \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'ruby': ['rubocop', 'rails_best_practices', 'reek', 'brakeman'],
+      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'text': ['vale', 'write-good', 'alex'],
       \ 'yml': ['yamllint']
@@ -398,7 +399,7 @@ let s:base2 =   [ '#a8a897', 248 ]
 let s:base3 =   [ '#e8e8d3', 253 ]
 let s:yellow =  [ '#ebc168', 11  ]
 let s:orange =  [ '#d98800', 3   ]
-let s:red =     [ '#e55481', 1   ]
+let s:red =     [ '#8a708d', 1   ]
 let s:magenta = [ '#8181A6', 13  ]
 let s:cyan =    [ '#87ceeb', 12  ]
 let s:green =   [ '#7A7A57', 3   ]
@@ -557,6 +558,16 @@ let g:rainbow_levels = [
     \{'ctermfg': 231, 'guifg': '#525563'}]
 
 nnoremap , :RainbowLevelsToggle<cr>
+
+" === vim-sneak ===
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+
+nmap cc <Plug>Sneak_s
+nmap CC <Plug>Sneak_S
 
 " === vim-test ===
 let g:test#strategy = 'dispatch'
