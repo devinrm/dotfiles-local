@@ -1,5 +1,5 @@
-# kitty needs this
-export PATH="/usr/local/bin:$PATH"
+# add bin and local/bin to path
+[ -d "/usr/local/bin" ] && PATH="/usr/local/bin:${PATH}"
 [ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
 # load custom executable functions

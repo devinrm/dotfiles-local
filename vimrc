@@ -6,8 +6,8 @@
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'xero/sourcerer.vim'
 Plug 'thiagoalessio/rainbow_levels.vim'
+Plug 'xero/sourcerer.vim'
 
 " === completion ===
 if has('nvim')
@@ -19,8 +19,8 @@ if has('nvim')
 endif
 
 " === experiments ===
-Plug 'justinmk/vim-dirvish'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 
 " === git ===
@@ -223,7 +223,7 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
       \}
 
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 100 --parser flow'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
