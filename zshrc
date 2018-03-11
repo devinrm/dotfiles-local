@@ -49,6 +49,9 @@ export HOMEBREW_GITHUB_API_TOKEN="f1035918c42a9b60e0d46d35adbbc3c5ad3c056b"
 # that those keys can be used for other things.
 unsetopt flowcontrol
 
+# https://github.com/gabebw/dotfiles/commit/91b44c5cb4896e2b00e56d71e1436f6bb4eed099
+unsetopt multios
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 

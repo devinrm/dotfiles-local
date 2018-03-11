@@ -163,6 +163,8 @@ set textwidth=80 " Maximum width of text that is being inserted. A longer line w
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
 set undodir=$HOME/.undodir " directory name for undo file.
 set undofile " Automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
+set undolevels=500
+set undoreload=500
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
@@ -734,22 +736,22 @@ nnoremap k gk
 
 " === Mappings to move lines. Symbols represent 'alt' because macs are insane ===
 " 'j' = '∆' and 'k' = '˚'
-" http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
+" Note: this only works in neovim
 if s:darwin
-  nnoremap ˚ :m .-2<CR>==
-  nnoremap ∆ :m .+1<CR>==
-  inoremap ˚ <Esc>:m .-2<CR>==gi
-  inoremap ∆ <Esc>:m .+1<CR>==gi
+  nnoremap ˚ :m -2<CR>==
+  nnoremap ∆ :m +<CR>==
+  inoremap ˚ <Esc>:m -2<CR>==gi
+  inoremap ∆ <Esc>:m +<CR>==gi
   vnoremap ˚ :m '>-2<CR>gv=gv
-  vnoremap ∆ :m '<+1<CR>gv=gv
+  vnoremap ∆ :m '<+<CR>gv=gv
 endif
 " For Linux
-nnoremap <A-k> :m .-2<CR>==
-nnoremap <A-j> :m .+1<CR>==
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-inoremap <A-j> <Esc>:m .+1<CR>==gi
+nnoremap <A-k> :m -2<CR>==
+nnoremap <A-j> :m +<CR>==
+inoremap <A-k> <Esc>:m -2<CR>==gi
+inoremap <A-j> <Esc>:m +<CR>==gi
 vnoremap <A-k> :m '>-2<CR>gv=gv
-vnoremap <A-j> :m '<+1<CR>gv=gv
+vnoremap <A-j> :m '<+<CR>gv=gv
 
 " === Make esc more user friendly ===
 inoremap jk <Esc>
