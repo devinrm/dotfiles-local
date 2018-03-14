@@ -1,6 +1,6 @@
 ruby 2.5.0
 python 3.6.3 2.7.14
-nodejs 8.9.4
+nodejs 8.10.0
 golang 1.9.2
 rust 1.23.0
 postgres 9.6.7

@@ -17,3 +17,4 @@ node_modules
 latest.dump
 .env.local
 logfile
+yarn-error.log
