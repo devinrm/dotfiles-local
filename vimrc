@@ -22,6 +22,7 @@ endif
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
+Plug 'andymass/vim-matchup'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -143,7 +144,6 @@ augroup numbers
   autocmd InsertLeave * :set relativenumber
 augroup END
 set ruler " show the cursor position all the time
-runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
