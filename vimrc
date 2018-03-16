@@ -715,6 +715,11 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap kj <C-\><C-n>
+tnoremap <C-s><C-l> clear<CR>
+nnoremap <C-s>- :sp<CR>:term<CR>i
+nnoremap <C-s>\ :vsp<CR>:term<CR>i
+nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
+nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
 
 " === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
@@ -775,9 +780,6 @@ nnoremap <Leader>qq :cclose<CR>
 
 " === qq to record, Q to replay (recursive map due to peekaboo) ===
 nmap Q @q
-
-" === run commands through neovim term instead of :! ===
-nnoremap <Leader>r :10sp<CR>:te<CR>i
 
 " === import react boilerplate ===
 function! ImportReact()
