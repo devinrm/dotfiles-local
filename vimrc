@@ -714,7 +714,9 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
-tnoremap kj <C-\><C-n>
+" This allows you to nest nvim sessions such as in git commits and still save
+" and exit properly
+tnoremap <Esc><Esc> <C-\><C-n>
 tnoremap <C-s><C-l> clear<CR>
 nnoremap <C-s>- :sp<CR>:term<CR>i
 nnoremap <C-s>\ :vsp<CR>:term<CR>i
@@ -759,7 +761,7 @@ vnoremap <A-k> :m '>-2<CR>gv=gv
 vnoremap <A-j> :m '<+<CR>gv=gv
 
 " === Make esc more user friendly ===
-inoremap jk <Esc>
+inoremap jk <Esc><Esc>
 
 " === paste flow when I need it ===
 nnoremap <Leader>fl O// @flow<Esc>^
