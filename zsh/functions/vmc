@@ -1,6 +1,6 @@
 # Remove one or more versions of specified language
-# e.g. `vmi ruby` # => fzf multimode, tab to mark, enter to remove
-# if no plugin is supplied (e.g. `vmi<CR>`), fzf will list them for you
+# e.g. `vmc ruby` # => fzf multimode, tab to mark, enter to remove
+# if no plugin is supplied (e.g. `vmc<CR>`), fzf will list them for you
 # Mnemonic [V]ersion [M]anager [C]lean
 
 vmc() {

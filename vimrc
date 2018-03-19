@@ -760,6 +760,12 @@ inoremap <A-j> <Esc>:m +<CR>==gi
 vnoremap <A-k> :m '>-2<CR>gv=gv
 vnoremap <A-j> :m '<+<CR>gv=gv
 
+" === Use h, j, k, l to navigate panes
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+
 " === Make esc more user friendly ===
 inoremap jk <Esc><Esc>
 
