@@ -28,17 +28,7 @@ Plug 'andymass/vim-matchup'
 Plug 'airblade/vim-gitgutter'
 
 " === language plugins ===
-function! BuildComposer(info) abort
-  if a:info.status !=? 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'iamcco/markdown-preview.vim'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
