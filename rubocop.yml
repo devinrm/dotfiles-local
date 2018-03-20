@@ -539,7 +539,7 @@ Lint/RequireParentheses:
   Description: >-
                  Use parentheses in the method call to avoid confusion
                  about precedence.
-  Enabled: false
+  Enabled: true
 
 Lint/UnderscorePrefixedVariableName:
   Description: 'Do not use prefix `_` for a variable that is used.'
