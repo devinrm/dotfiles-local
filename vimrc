@@ -23,6 +23,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'andymass/vim-matchup'
+Plug 'vimwiki/vimwiki'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -140,7 +141,7 @@ set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
 set shortmess=a
 set showcmd " display incomplete commands
-set showtabline=2
+set showtabline=1
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
 set smartcase " overrides ignorecase if pattern contains upcase
 set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
@@ -589,6 +590,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
 let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
 let g:tmux_navigator_save_on_switch = 2 " Save on switch
 
+" === vimwiki ===
+let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -818,8 +823,8 @@ nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
 
 " === Code notes ===
-nnoremap <Leader>ww :Files ~/dotfiles/laptop/vim_notes/<CR>
-nnoremap <Leader>wt :Sexplore ~/dotfiles/laptop/vim_notes/<CR>
+" nnoremap <Leader>ww :Files ~/dotfiles/laptop/vim_notes/<CR>
+" nnoremap <Leader>wt :Sexplore ~/dotfiles/laptop/vim_notes/<CR>
 
 " === Run vimscript functions ===
 nnoremap <Leader>x :exec getline(".")<CR>

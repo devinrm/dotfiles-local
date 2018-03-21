@@ -31,7 +31,7 @@ enum.`find` { |e| e > 1 } => Returns the value of first e for which the block re
 enum.`find_index` { |e| e > 1 } => Returns the index of first e for which the block returns true.
 
 enum.`find_all` { |e| e > 1 } => Returns an array with values of e for which the block returns true. (Same as `select` and `keep_if`.)
-  
+
 enum.`take_while` { |e| e > 1 } => Returns an array with values of e for which the block return true;
                                    however if/when false is returned, iteration over the enum halts.
 
@@ -80,7 +80,7 @@ enum.`each_slice(n)` { |x|  } - Executes block on each slice of size n. I.e. n=3
 
 enum.`each_with_index` { |obj, index|  }
 
-enum.`each_with_obj([])` { |x, memo_obj| memo_obj << x.methods } => Returns value of memo_obj. 
+enum.`each_with_obj([])` { |x, memo_obj| memo_obj << x.methods } => Returns value of memo_obj.
 
 -
 
@@ -115,19 +115,19 @@ str.`concat(' x')` => Returns str with ' x' concatennated.
 str.`prepend('x ')` => Returns ste with 'x ' prepended.
 
 "#{str} x" - Returns string interpolated str and 'x'.
- 
+
 -
 
 str `=~` /\d/ => Returns start position of match or nil.
 
 -
-  
+
 str[n] => Returns n-th char of str.
 
 str[n] = x  or  str[n..m] = x => Replaces n or n..m with x.
 
 str.`insert(3, 'x')` => Returns str with 'x' inserted at index 3.
-  
+
 -
 
 str.`capitalize` => Returns and capitalizes first char (if it's a letter) and lower cases the remainder of str. capitalize! mutates.
@@ -225,7 +225,7 @@ str.`to_i(n)` => Returns base-10 Integer of leading numbers in str interpreted i
 str.`to_sym` => Returns str as a Symbol.
 
 -
-  
+
 Is a char a letter, number, or something else?
 
 str.downcase =~ /[a-z]/
