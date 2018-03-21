@@ -24,6 +24,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'andymass/vim-matchup'
 Plug 'vimwiki/vimwiki'
+Plug 'jreybert/vimagit'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -670,7 +671,7 @@ nnoremap <C-c> :x<CR>
 
 " === require rails_helper ===
 function! RequireRailsHelper()
-    call append(0, 'require "rails_helper"')
+  call append(0, 'require "rails_helper"')
 endfunction
 nnoremap <Leader>7 :call RequireRailsHelper()<CR>
 
@@ -723,12 +724,12 @@ nnoremap <Leader>i mmgg=G`m
 
 " === import I18n in React files ===
 function! ImportI18n()
-    call append(0, "import I18n from 'i18n-js';")
-    call append(1, "")
-    call append(2, "import translations from '../../utils/translations';")
-    call append(3, "")
-    call append(4, "I18n.locale = window.locale;")
-    call append(5, "I18n.translations = translations;")
+  call append(0, "import I18n from 'i18n-js';")
+  call append(1, "")
+  call append(2, "import translations from '../../utils/translations';")
+  call append(3, "")
+  call append(4, "I18n.locale = window.locale;")
+  call append(5, "I18n.translations = translations;")
 endfunction
 nnoremap <Leader>8 :call ImportI18n()<CR>
 
@@ -786,10 +787,10 @@ nmap Q @q
 
 " === import react boilerplate ===
 function! ImportReact()
-    call append(0, "import PropTypes from 'prop-types';")
-    call append(1, "import React from 'react';")
-    call append(2, "")
-    call append(3, "const { Component } = react;")
+  call append(0, "import PropTypes from 'prop-types';")
+  call append(1, "import React from 'react';")
+  call append(2, "")
+  call append(3, "const { Component } = react;")
 endfunction
 nnoremap <Leader>9 :call ImportReact()<CR>
 
