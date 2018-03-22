@@ -8,6 +8,7 @@ call plug#begin('~/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
+Plug 'nightsense/vimspectr'
 
 " === completion ===
 if has('nvim')
@@ -87,7 +88,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set background=dark " Use colors that look good on a dark background
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme sourcerer
+colorscheme vimspectr210-dark
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -226,8 +227,12 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
 " sourcerer
-highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
-highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
+" highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
+" highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
+
+" vimspectr210-dark
+highlight ALEWarningSign ctermbg=237 guibg='#202830'
+highlight ALEErrorSign ctermbg=237 guibg='#202830'
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
@@ -421,8 +426,42 @@ let s:p.normal.error = [ [ s:base02, s:orange ] ]
 let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
 let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
+" vimspectr210-dark lightline colorscheme - WIP
+let s:base03 =  [ '#151513', 233 ]
+let s:base02 =  [ '#10161c', 0   ]
+let s:base01 =  [ '#5a6978', 239 ]
+let s:base00 =  [ '#666656', 242 ]
+let s:base0 =   [ '#808070', 244 ]
+let s:base1 =   [ '#7b8794', 246 ]
+let s:base2 =   [ '#d2e8ff', 248 ]
+let s:base3 =   [ '#d2e8ff', 253 ]
+let s:yellow =  [ '#6d8b50', 11  ]
+let s:orange =  [ '#b5744c', 3   ]
+let s:red =     [ '#8b699e', 1   ]
+let s:magenta = [ '#8181A6', 13  ]
+let s:cyan =    [ '#6a839e', 12  ]
+let s:green =   [ '#518a82', 3   ]
+
+let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+let s:p.normal.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
+let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
+let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
+let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
+let s:p.insert.left = [ [ s:base02, s:cyan ], [ s:base3, s:base01 ] ]
+let s:p.replace.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
+let s:p.visual.left = [ [ s:base02, s:yellow ], [ s:base3, s:base01 ] ]
+let s:p.normal.middle = [ [ s:base0, s:base02 ] ]
+let s:p.inactive.middle = [ [ s:base00, s:base02 ] ]
+let s:p.tabline.left = [ [ s:base3, s:base00 ] ]
+let s:p.tabline.tabsel = [ [ s:base3, s:base02 ] ]
+let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
+let s:p.tabline.right = copy(s:p.normal.right)
+let s:p.normal.error = [ [ s:base02, s:orange ] ]
+let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
+let g:lightline#colorscheme#vimspectr210#palette = lightline#colorscheme#flatten(s:p)
+
 let g:lightline = {
-      \ 'colorscheme': 'sourcerer',
+      \ 'colorscheme': 'vimspectr210',
       \ 'active': {
       \   'left': [ [ 'filename' ],
       \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
