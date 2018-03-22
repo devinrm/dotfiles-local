@@ -15,6 +15,6 @@ rcodetools
 redis-stat
 reek
 rubocop
+solargraph
 sqlint
 wirble
-solargraph
