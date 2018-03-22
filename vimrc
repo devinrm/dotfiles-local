@@ -13,9 +13,7 @@ Plug 'nightsense/vimspectr'
 " === completion ===
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'calebeby/ncm-css'
-  Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
-  Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
   Plug 'uplus/deoplete-solargraph'
 endif
 
@@ -249,24 +247,26 @@ nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
 
 " === deoplete ===
 if has('nvim')
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#auto_complete_delay = 10
-let g:deoplete#max_list = 20
-let g:tern_show_signature_in_pum = 0
-let g:deoplete#sources#ternjs#timeout = 1
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#case_insensitive = 1
-let g:deoplete#sources#ternjs#omit_object_prototype = 0
-let g:deoplete#sources#ternjs#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ ]
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_refresh_always = 1
+  let g:deoplete#enable_ignore_case = 1
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#enable_camel_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#auto_complete_delay = 10
+  let g:deoplete#max_list = 10
+  let g:tern_show_signature_in_pum = 0
+  let g:deoplete#sources = {}
+  let g:deoplete#sources._=['omni', 'buffer', 'member', 'tag', 'file']
+  let g:deoplete#sources#ternjs#timeout = 1
+  let g:deoplete#sources#ternjs#types = 1
+  let g:deoplete#sources#ternjs#case_insensitive = 1
+  let g:deoplete#sources#ternjs#omit_object_prototype = 0
+  let g:deoplete#sources#ternjs#filetypes = [
+        \ 'jsx',
+        \ 'javascript.jsx',
+        \ ]
 endif
 
 " === dirvish ===
@@ -549,43 +549,11 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
-" === nvim-completion-manager ===
-if has('nvim')
-  let g:cm_refresh_length = 2
-  set pumheight=5
-  set shortmess+=c
-
-  " force init deoplete then hack deoplete's mapping
-  call deoplete#enable()
-
-  " register as ncm source
-  au User CmSetup call cm#register_source({'name' : 'deoplete',
-        \ 'priority': 7,
-        \ 'abbreviation': '',
-        \ })
-
-  " hack deoplete's mapping
-  inoremap <silent> <Plug>_ <C-r>=g:Deoplete_ncm()<CR>
-
-  func! g:Deoplete_ncm()
-    " forward to ncm
-    call cm#complete('deoplete', cm#context(), g:deoplete#_context.complete_position + 1, g:deoplete#_context.candidates)
-    return ''
-  endfunc
-  let g:deoplete#ignore_sources = {}
-  let g:deoplete#ignore_sources = [
-        \   'buffer',
-        \   'member',
-        \   'tag',
-        \   'file',
-        \   'around',
-        \ ]
-endif
-
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu " Shows menu and any additional tips
 set completeopt-=preview
+set omnifunc=syntaxcomplete#Complete
 
 " === rainbow_levels ===
 let g:rainbow_levels = [
