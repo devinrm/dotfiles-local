@@ -11,9 +11,9 @@ Plug 'xero/sourcerer.vim'
 
 " === completion ===
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
-  Plug 'uplus/deoplete-solargraph', { 'do': 'pip install solargraph-utils.py' }
+  Plug 'calebeby/ncm-css'
+  Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
+  Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
 endif
 
 " === experiments ===
@@ -239,29 +239,6 @@ let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
-
-" === deoplete ===
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#enable_refresh_always = 1
-  let g:deoplete#enable_ignore_case = 1
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#enable_camel_case = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  let g:deoplete#auto_complete_delay = 10
-  let g:deoplete#max_list = 10
-  let g:tern_show_signature_in_pum = 0
-  let g:deoplete#sources = {}
-  let g:deoplete#sources#ternjs#timeout = 1
-  let g:deoplete#sources#ternjs#types = 1
-  let g:deoplete#sources#ternjs#case_insensitive = 1
-  let g:deoplete#sources#ternjs#omit_object_prototype = 0
-  let g:deoplete#sources#ternjs#filetypes = [
-        \ 'jsx',
-        \ 'javascript.jsx',
-        \ ]
-endif
 
 " === dirvish ===
 let g:loaded_netrwPlugin = 1
@@ -509,6 +486,20 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
+" === nvim-completion-manager ===
+if has('nvim')
+  let g:cm_refresh_length = 2
+  set pumheight=5
+  set shortmess+=c
+endif
+
+" hide the completion menu and also start a new line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu " Shows menu and any additional tips
@@ -604,18 +595,6 @@ if s:darwin
   cnoremap <C-@> <C-c>
   inoremap <C-@> <Esc>`^
 endif
-
-" === make tab completion travel in a reasonable direction ===
-function! InsertTabWrapper() abort
-  let l:col = col('.') - 1
-  if !l:col || getline('.')[l:col - 1] !~? '\k'
-    return "\<Tab>"
-  else
-    return "\<c-n>"
-  endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-P>
 
 " === Emacs-like. Experimental, breaks things you might be using. ===
 nnoremap <C-a> ^
