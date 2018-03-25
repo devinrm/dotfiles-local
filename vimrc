@@ -18,11 +18,11 @@ endif
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'andymass/vim-matchup'
+Plug 'jreybert/vimagit'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
-Plug 'andymass/vim-matchup'
 Plug 'vimwiki/vimwiki'
-Plug 'jreybert/vimagit'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -492,9 +492,6 @@ if has('nvim')
   set pumheight=5
   set shortmess+=c
 endif
-
-" hide the completion menu and also start a new line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
