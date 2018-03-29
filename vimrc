@@ -11,9 +11,11 @@ Plug 'xero/sourcerer.vim'
 
 " === completion ===
 if has('nvim')
-  Plug 'calebeby/ncm-css'
-  Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
-  Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
+  if !exists("g:gui_oni")
+    Plug 'calebeby/ncm-css'
+    Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
+    Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
+  endif
 endif
 
 " === experiments ===
@@ -140,7 +142,7 @@ set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
 set shortmess=a
 set showcmd " display incomplete commands
-set showtabline=1
+set showtabline=2
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
 set smartcase " overrides ignorecase if pattern contains upcase
 set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
@@ -249,7 +251,7 @@ augroup dirvishfugitive
   autocmd FileType dirvish call fugitive#detect(@%)
 augroup END
 nnoremap _ :Sexplore %<CR>
-nnoremap - :Vexplore %<CR> :vertical resize 20<CR>
+nnoremap - :Vexplore %<CR> :vertical resize 35<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -488,20 +490,42 @@ augroup end
 
 " === nvim-completion-manager ===
 if has('nvim')
-  let g:cm_refresh_length = 2
-  set pumheight=5
-  set shortmess+=c
-endif
+  if !exists("g:gui_oni")
+    let g:cm_refresh_length = 2
+    set pumheight=5
+    set shortmess+=c
 
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " Use <TAB> to select the popup menu:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+    au User CmSetup call cm#register_source({'name' : 'cm-ruby',
+          \ 'priority': 9,
+          \ 'scoping': 1,
+          \ 'scopes': ['ruby','eruby'],
+          \ 'abbreviation': 'css',
+          \ 'word_pattern': '[\w\-]+',
+          \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
+          \ 'cm_refresh': {'omnifunc': 'rubycomplete#Complete'},
+          \ })
+
+    let g:cm_sources_override = {
+          \ 'cm-tags': {'enable':0}
+          \ }
+  endif
+endif
 
 " === omnicompletion ===
 filetype plugin on
 set completeopt=menu " Shows menu and any additional tips
 set completeopt-=preview
 set omnifunc=syntaxcomplete#Complete
+augroup rubycompletion
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+  autocmd FileType ruby compiler ruby
+augroup end
 
 " === rainbow_levels ===
 let g:rainbow_levels = [

@@ -67,6 +67,7 @@ alias yu="yarn upgrade"
 alias yw="yarn watch"
 alias cra_eslint="~/dotfiles/bin/create_react_app_eslint_config.sh"
 alias npm_install="~/dotfiles/bin/npm.sh"
+alias unfuck_node="rm -rf node_modules"
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"
