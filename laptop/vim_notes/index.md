@@ -27,6 +27,7 @@
   * [ruby_debugging](ruby_debugging)
   * [ruby_methods_by_behavior](ruby_methods_by_behavior)
   * [ruby_ref](ruby_ref)
+  * [scratch](scratch)
   * [sql](sql)
   * [sql_examples](sql_examples)
   * [terminal](terminal)

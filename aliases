@@ -55,9 +55,11 @@ alias racer="ruby -r tracer"
 alias rake="RUBYOPT=W0 rake"
 alias ras="bundle exec rails s"
 alias rc="rails console"
+alias reds="redis-server"
 alias ruby="ruby -w"
-alias taild='tail -f log/development.log'
-alias tailt='tail -f log/test.log'
+alias sk="bundle exec sidekiq"
+alias taild="tail -f log/development.log"
+alias tailt="tail -f log/test.log"
 alias taila="admin tail"
 
 # JavaScript

@@ -1,5 +1,5 @@
-ruby 2.5.0
-python 3.6.3 2.7.14
+ruby 2.5.1
+python 3.6.4 2.7.14
 nodejs 8.11.0
 golang 1.9.2
 rust 1.23.0

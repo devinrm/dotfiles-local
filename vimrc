@@ -106,7 +106,9 @@ if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 endif
 set lazyredraw
-set termguicolors " nvim gui colors
+if has('nvim')
+  set termguicolors " nvim gui colors
+endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
