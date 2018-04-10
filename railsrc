@@ -2,4 +2,5 @@
 --skip-test-unit
 --skip-turbolinks
 --skip-sprockets
+--skip-coffee
 --webpack=react
