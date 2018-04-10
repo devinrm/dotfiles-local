@@ -10,13 +10,7 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
-if has('nvim')
-  if !exists("g:gui_oni")
-    Plug 'calebeby/ncm-css'
-    Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
-    Plug 'roxma/nvim-completion-manager', { 'do': 'pip3 install neovim psutil setproctitle' }
-  endif
-endif
+Plug 'ajh17/VimCompletesMe'
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
@@ -106,7 +100,7 @@ if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 endif
 set lazyredraw
-if has('nvim')
+if has('nvim') || has('termguicolors')
   set termguicolors " nvim gui colors
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
@@ -443,12 +437,12 @@ function! LightGit() abort
 endfunction
 
 function! LightName() abort
-  let l:name = expand('%:p:.')
+  let l:name = expand('%:t:.')
   if l:name =~? 'Dirvish'
     return ''
   endif
   return ('' !=? LightRO() ? LightRO() : LightMod()) .
-        \ ('' !=? expand('%:p:.') ? expand('%:p:.') : '[No Name]')
+        \ ('' !=? expand('%:t:.') ? expand('%:t:.') : '[No Name]')
 endfunction
 
 function! LightType() abort
@@ -490,44 +484,28 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
-" === nvim-completion-manager ===
-if has('nvim')
-  if !exists("g:gui_oni")
-    let g:cm_refresh_length = 2
-    set pumheight=5
-    set shortmess+=c
-
-    " Use <TAB> to select the popup menu:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-    au User CmSetup call cm#register_source({'name' : 'cm-ruby',
-          \ 'priority': 9,
-          \ 'scoping': 1,
-          \ 'scopes': ['ruby','eruby'],
-          \ 'abbreviation': 'css',
-          \ 'word_pattern': '[\w\-]+',
-          \ 'cm_refresh_patterns':['[\w\-]+\s*:\s+'],
-          \ 'cm_refresh': {'omnifunc': 'rubycomplete#Complete'},
-          \ })
-
-    let g:cm_sources_override = {
-          \ 'cm-tags': {'enable':0}
-          \ }
-  endif
-endif
-
 " === omnicompletion ===
-filetype plugin on
-set completeopt=menu " Shows menu and any additional tips
-set completeopt-=preview
-set omnifunc=syntaxcomplete#Complete
-augroup rubycompletion
+augroup omnifuncs
+  au!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby compiler ruby
 augroup end
+filetype plugin on
+set completeopt=menu " Shows menu and any additional tips
+set completeopt-=preview
+set omnifunc=syntaxcomplete#Complete
+set pumheight=5
+set shortmess+=c
+augroup completionhide
+  au!
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+augroup end
+let b:vcm_tab_complete = 'omni'
 
 " === rainbow_levels ===
 let g:rainbow_levels = [
