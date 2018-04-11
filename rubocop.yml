@@ -420,6 +420,13 @@ Layout/AlignHash:
   Enabled: true
   EnforcedLastArgumentHashStyle: ignore_implicit
 
+Layout/ConditionPosition:
+  Description: >-
+                 Checks for condition placed in a confusing position relative to
+                 the keyword.
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#same-line-condition'
+  Enabled: false
+
 Layout/DotPosition:
   Description: 'Checks the position of the dot in multi-line method calls.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains'
@@ -442,6 +449,18 @@ Layout/MultilineMethodCallIndentation:
                  that span more than one line.
   Enabled: true
   EnforcedStyle: indented
+
+Layout/IndentationConsistency:
+  Description: >-
+    Checks for inconsistent indentation.
+  Enabled: true
+  EnforcedStyle: normal
+
+Layout/IndentationWidth:
+  Description: >-
+    Checks for indentation that doesn't use the specified number of spaces.
+  Enabled: true
+  Width: 2
 
 Layout/InitialIndentation:
   Description: >-
@@ -470,13 +489,6 @@ Lint/AssignmentInCondition:
 
 Lint/CircularArgumentReference:
   Description: "Don't refer to the keyword argument in the default value."
-  Enabled: false
-
-Lint/ConditionPosition:
-  Description: >-
-                 Checks for condition placed in a confusing position relative to
-                 the keyword.
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#same-line-condition'
   Enabled: false
 
 Lint/DeprecatedClassMethods:

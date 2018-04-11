@@ -750,6 +750,10 @@ nnoremap <Leader>rb :10sp<CR>:te ruby -w %<CR>
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :split db/schema.rb<CR>
 
+" === `sort` case-insensitive ===
+nmap :sort :sort i
+vmap :sort :sort i
+
 " === Show syntax highlighting groups for word under cursor, useful for editing
 " colorschemes (from @drewneil) ===
 nnoremap <Leader>syn :call <SID>SynStack()<CR>
