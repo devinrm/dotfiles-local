@@ -64,8 +64,7 @@ alias taila="admin tail"
 
 # JavaScript
 alias yi="yarn install"
-alias ys="yarn start"
-alias yu="yarn upgrade"
+alias yb="yarn build-local"
 alias yw="yarn watch"
 alias cra_eslint="~/dotfiles/bin/create_react_app_eslint_config.sh"
 alias npm_install="~/dotfiles/bin/npm.sh"
