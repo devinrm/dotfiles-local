@@ -10,7 +10,7 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
-Plug 'ajh17/VimCompletesMe'
+Plug 'lifepillar/vim-mucomplete'
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
@@ -45,7 +45,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
@@ -141,13 +140,14 @@ set showcmd " display incomplete commands
 set showtabline=2
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
 set smartcase " overrides ignorecase if pattern contains upcase
+set spell
 set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
 set spelllang=en_us " Set region to US English
 set splitbelow " When on, splitting a window will put the new window below the current one.
 set splitright " When on, splitting a window will put the new window right of the current one.
 syntax on " Turn on syntax highlighting.
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
-set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+set textwidth=81 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
 set undodir=$HOME/.undodir " directory name for undo file.
 set undofile " Automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
@@ -484,28 +484,36 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
+" === MUcomplete ===
+let g:mucomplete#enable_auto_at_startup = 1
+" this is necessary for overriding mucomplete mappings
+imap <F5> <plug>(MUcompletePopupCancel)
+imap <F4> <plug>(MUcompleteCR)
+
 " === omnicompletion ===
 augroup omnifuncs
   au!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby compiler ruby
 augroup end
 filetype plugin on
-set completeopt=menu " Shows menu and any additional tips
+set completeopt=menuone " Shows menu and any additional tips
+set completeopt+=noselect
+set completeopt+=noinsert
 set completeopt-=preview
 set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
+
 augroup completionhide
   au!
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 augroup end
-let b:vcm_tab_complete = 'omni'
 
 " === rainbow_levels ===
 let g:rainbow_levels = [
