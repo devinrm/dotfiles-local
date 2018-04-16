@@ -22,6 +22,7 @@
   * [react](react)
   * [read](read)
   * [readline](readline)
+  * [retro](retro)
   * [ruby](ruby)
   * [ruby_debugging](ruby_debugging)
   * [ruby_methods_by_behavior](ruby_methods_by_behavior)

@@ -6,6 +6,7 @@
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
+Plug 'rakr/vim-one'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
 
@@ -24,6 +25,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'airblade/vim-gitgutter'
 
 " === language plugins ===
+Plug 'hail2u/vim-css3-syntax'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'Keithbsmiley/rspec.vim'
 Plug 'mxw/vim-jsx'
@@ -76,11 +78,11 @@ call plug#end()
 let s:darwin = has('mac')
 
 set autoread " Automatically read file if it has been changed outside of vim
+set background=light " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
-set background=dark " Use colors that look good on a dark background
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme sourcerer
+colorscheme one
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -221,9 +223,15 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-" sourcerer
-highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
-highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
+if g:colors_name == 'sourcerer'
+  highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
+  highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
+endif
+
+if g:colors_name == 'one'
+  highlight ALEWarningSign ctermbg=237 guibg='#fafafa'
+  highlight ALEErrorSign ctermbg=237 guibg='#fafafa'
+endif
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
@@ -396,7 +404,7 @@ let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
 let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
 let g:lightline = {
-      \ 'colorscheme': 'sourcerer',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'filename' ],
       \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
