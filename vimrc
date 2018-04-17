@@ -272,6 +272,22 @@ nnoremap <Leader>hi :wa<CR>:History<CR>
 " let g:fzf_layout = { 'window': '20split enew' }
 " let $FZF_DEFAULT_OPTS .= ' --no-height'
 
+" match fzf colors to colorscheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Exception'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Statement'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 augroup fzfstatus
   autocmd! FileType fzf
   autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
@@ -322,8 +338,6 @@ endfunction
 command! FZFNeigh call s:fzf_neighbouring_files()
 nnoremap ' :FZFNeigh<CR>
 
-let g:fzf_colors =
-      \ { 'hl': ['fg', 'Exception'] }
 let g:fzf_tags_command = 'ctags -R'
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
