@@ -12,6 +12,7 @@ Plug 'xero/sourcerer.vim'
 
 " === completion ===
 Plug 'lifepillar/vim-mucomplete'
+Plug 'ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
@@ -559,6 +560,9 @@ nmap F <Plug>Sneak_F
 
 nmap cc <Plug>Sneak_s
 nmap CC <Plug>Sneak_S
+
+" === tern_for_vim ===
+let g:tern#command = ['tern']
 
 " === vim-test ===
 let g:test#strategy = 'dispatch'
