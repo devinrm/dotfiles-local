@@ -66,3 +66,9 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 zle -N edit-command-line
+
+# Pure: Pretty, minimal and fast ZSH prompt
+autoload -U promptinit && promptinit
+prompt pure
+# PURE_PROMPT_SYMBOL='⟩'
+

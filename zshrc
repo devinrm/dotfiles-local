@@ -1,7 +1,3 @@
-# add bin and local/bin to path
-[ -d "/usr/local/bin" ] && PATH="/usr/local/bin:${PATH}"
-[ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
-
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
@@ -43,25 +39,22 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-export HOMEBREW_GITHUB_API_TOKEN="f1035918c42a9b60e0d46d35adbbc3c5ad3c056b"
-
-# By default, ^S freezes terminal output and ^Q resumes it. Disable that so
-# that those keys can be used for other things.
-unsetopt flowcontrol
-
-# https://github.com/gabebw/dotfiles/commit/91b44c5cb4896e2b00e56d71e1436f6bb4eed099
-unsetopt multios
-
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+# add bin and local/bin to path
+[ -d "/usr/local/bin" ] && PATH="/usr/local/bin:${PATH}"
+[ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Include dasht in $PATH.
+[ -d "${HOME}/dasht/bin" ] && PATH="${PATH}:${HOME}/dasht/bin"
 
+# Include dasht in $MANPATH.
+[ -d "${HOME}/dasht/man" ] && MANPATH="${HOME}/dasht/man:$MANPATH"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob \!.git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -74,38 +67,18 @@ _fzf_compgen_dir() {
   rg --files "$1" | only-dir "$1"
 }
 
-# make nvim the manpager
-export MANPAGER="nvim -c 'set ft=man' -"
+export FZF_DEFAULT_OPTS='
+  --color=light
+'
 
-# Pure: Pretty, minimal and fast ZSH prompt
-autoload -U promptinit && promptinit
-prompt pure
-# PURE_PROMPT_SYMBOL='⟩'
+# syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Hub
 eval "$(hub alias -s)"
 
-# color man pages
-man() {
-    env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;31m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
-            man "$@"
-}
-
-# Include dasht in $PATH.
-[ -d "${HOME}/dasht/bin" ] && PATH="${PATH}:${HOME}/dasht/bin"
-
-# Include dasht in $MANPATH.
-[ -d "${HOME}/dasht/man" ] && MANPATH="${HOME}/dasht/man:$MANPATH"
-
-# syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN="f1035918c42a9b60e0d46d35adbbc3c5ad3c056b"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
