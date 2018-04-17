@@ -6,7 +6,7 @@
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'rakr/vim-one'
+Plug 'lifepillar/vim-solarized8'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
 
@@ -82,7 +82,7 @@ set background=light " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme one
+colorscheme solarized8_flat
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -142,7 +142,7 @@ set showcmd " display incomplete commands
 set showtabline=2
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
 set smartcase " overrides ignorecase if pattern contains upcase
-set spell
+" set spell
 set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
 set spelllang=en_us " Set region to US English
 set splitbelow " When on, splitting a window will put the new window below the current one.
@@ -228,9 +228,9 @@ if g:colors_name == 'sourcerer'
   highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
 endif
 
-if g:colors_name == 'one'
-  highlight ALEWarningSign ctermbg=237 guibg='#fafafa'
-  highlight ALEErrorSign ctermbg=237 guibg='#fafafa'
+if g:colors_name == 'solarized8_flat'
+  highlight ALEWarningSign ctermbg=237 guibg='#fdf6e3'
+  highlight ALEErrorSign ctermbg=237 guibg='#fdf6e3'
 endif
 
 nnoremap <Leader>f :ALEFix<CR>
@@ -418,7 +418,7 @@ let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
 let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'filename' ],
       \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
