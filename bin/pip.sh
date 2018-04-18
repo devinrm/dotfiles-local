@@ -7,4 +7,6 @@ pip3 install neovim ;
 pip install yamllint ;
 pip install awscli --upgrade ;
 pip install solargraph-utils.py ;
-pip install pgcli
+pip install pgcli ;
+pip2 install --upgrade pip ;
+pip3 install --upgrade pip
