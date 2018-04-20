@@ -62,6 +62,7 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'stefanoverna/vim-i18n'
 Plug 'sunaku/vim-dasht'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-rhubarb'
 
 " === search ===
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -509,9 +510,16 @@ augroup end
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
+
 " this is necessary for overriding mucomplete mappings
 imap <F5> <plug>(MUcompletePopupCancel)
 imap <F4> <plug>(MUcompleteCR)
+
+" make it work with rhubarb
+augroup rhumu
+  autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
+augroup end
+
 
 " === omnicompletion ===
 augroup omnifuncs

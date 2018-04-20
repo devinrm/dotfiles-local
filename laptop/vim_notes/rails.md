@@ -20,13 +20,6 @@ To go all the way back to the beginning, we can use
 
 As you might guess, substituting any other number for 0 migrates to that version number, where the version numbers come from listing the migrations sequentially.
 
---------------------RSPEC---------------------
-rails new App --skip-tests
-
-or
-
-rails new App -T
-
 --------------------SEE LIST OF ALL RAKE TASKS---------------------
 rake db -T -A
 
@@ -104,18 +97,11 @@ end
 -------------------PUSH LOCAL DB TO HEROKU--------------------
 heroku pg:push localdb_development DATABASE_URL
 
-------------------START RAILS APP WITH PG DB------------------
-rails new appname -d postgresql
-
 -----------------RESOURCE or RESOURCES---------------------
 If the object your talking about doesn't happen to have an id, you're talking
 about a singleton resource.
 
------------------attr_accessible----------------------
-Replaced by strong params in Rails 4, so be mindful of which rails version your
-app is on.
-
-----------------difference between new action and createaction-------------
+----------------difference between new action and create action-------------
 “the new action creates an Order object in memory simply to give the template
 code something to work with. Once the response is sent to the browser, that
 particular object gets abandoned, and it’ll eventually be reaped by Ruby’s
