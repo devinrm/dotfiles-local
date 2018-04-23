@@ -18,3 +18,4 @@ rubocop
 solargraph
 sqlint
 wirble
+scss_lint

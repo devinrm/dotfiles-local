@@ -17,13 +17,16 @@ Plug 'ternjs/tern_for_vim'
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'andymass/vim-matchup'
-Plug 'jreybert/vimagit'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'vimwiki/vimwiki'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " === language plugins ===
 Plug 'hail2u/vim-css3-syntax'
@@ -46,7 +49,6 @@ Plug 'rstacruz/vim-closer'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 
 " === move ===
@@ -62,7 +64,6 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'stefanoverna/vim-i18n'
 Plug 'sunaku/vim-dasht'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-rhubarb'
 
 " === search ===
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -510,41 +511,36 @@ augroup end
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#smart_enter = 1
+let g:mucomplete#chains = {}
+let g:mucomplete#chains.default  = ['omni', 'tags', 'path', 'uspl', 'keyn', 'dict']
 
-" this is necessary for overriding mucomplete mappings
-imap <F5> <plug>(MUcompletePopupCancel)
-imap <F4> <plug>(MUcompleteCR)
+" this is necessary for overriding mucomplete mappingss
+imap <F4> <plug>(MUcompletePopupCancel)
+imap <F5> <plug>(MUcompleteCR)
 
 " make it work with rhubarb
 augroup rhumu
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
 augroup end
 
-
 " === omnicompletion ===
 augroup omnifuncs
   au!
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby compiler ruby
 augroup end
 filetype plugin on
-set completeopt=menuone " Shows menu and any additional tips
-set completeopt+=noselect
-set completeopt+=noinsert
+set completeopt+=noselect,noinsert,menuone
 set completeopt-=preview
 set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
-
-augroup completionhide
-  au!
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-augroup end
 
 " === rainbow_levels ===
 let g:rainbow_levels = [
@@ -669,21 +665,6 @@ nnoremap <Leader>c mmggVG"*y`m
 
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
-
-" === ctags ===
-let g:Tlist_Ctags_Cmd='ctags'
-
-function! ReindexCtags()
-  let l:ctags_hook = '$(git rev-parse --show-toplevel)/.git/hooks/ctags'
-
-  if exists(l:ctags_hook)
-    exec '!'. l:ctags_hook
-  else
-    exec '!ctags -R .'
-  endif
-endfunction
-
-nmap <Leader>ct :call ReindexCtags()<CR>
 
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
