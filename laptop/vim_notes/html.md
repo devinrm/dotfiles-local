@@ -66,4 +66,55 @@ reference to a linked resource.
   <a href="#top">Back to top</a>
   ...
 </body>
+
+
+
+%% role attributes:
+
+Widget roles include:
+
+alert
+alertdialog
+button
+checkbox
+combobox
+dialog
+marquee
+menuitem
+menuitemcheckbox
+menuitemradio
+option
+progressbar
+radio
+scrollbar
+slider
+spinbutton
+status
+tab
+tabpanel
+textbox
+timer
+tooltip
+treeitem
+
+Landmark roles include:
+
+banner
+complementary
+contentinfo
+main
+navigation
+search
+
+Document structure roles include:
+
+article
+group
+heading
+list
+listitem
+note
+presentation
+separator
+
 ```

@@ -11,15 +11,13 @@ Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
+Plug 'andymass/vim-matchup'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'andymass/vim-matchup'
-Plug 'justinmk/vim-dirvish'
-Plug 'justinmk/vim-sneak'
-Plug 'vimwiki/vimwiki'
+Plug 'airblade/vim-localorie'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -44,12 +42,14 @@ Plug 'w0rp/ale'
 Plug 'derekprior/vim-trimmer'
 Plug 'janko-m/vim-test'
 Plug 'justinmk/vim-highlightedyank'
+Plug 'justinmk/vim-sneak'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'rstacruz/vim-closer'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
+Plug 'vimwiki/vimwiki'
 
 " === move ===
 Plug 'christoomey/vim-tmux-navigator'
@@ -70,6 +70,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
 
@@ -509,6 +510,10 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup end
 
+" === vim-localorie ===
+nnoremap <silent> <leader>lt :call localorie#translate()<CR>
+nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
+
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#smart_enter = 1
@@ -531,9 +536,6 @@ augroup omnifuncs
   autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-  autocmd FileType ruby compiler ruby
 augroup end
 filetype plugin on
 set completeopt+=noselect,noinsert,menuone
@@ -696,7 +698,7 @@ nnoremap <Leader>i mmgg=G`m
 function! ImportI18n()
   call append(0, "import I18n from 'i18n-js';")
   call append(1, "")
-  call append(2, "import translations from '../../utils/translations';")
+  call append(2, "import translations from 'utils/translations';")
   call append(3, "")
   call append(4, "I18n.locale = window.locale;")
   call append(5, "I18n.translations = translations;")
