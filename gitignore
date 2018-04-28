@@ -19,3 +19,6 @@ latest.dump
 logfile
 yarn-error.log
 .scss-lint.yml
+/public/packs
+/public/packs-test
+/node_modules

@@ -12,12 +12,13 @@ Plug 'xero/sourcerer.vim'
 
 " === completion ===
 Plug 'andymass/vim-matchup'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'ternjs/tern_for_vim'
+" if !exists("g:gui_oni")
+  Plug 'lifepillar/vim-mucomplete'
+  Plug 'ternjs/tern_for_vim'
+" endif
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'airblade/vim-localorie'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -59,7 +60,9 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'alvan/vim-closetag'
 Plug 'bergercookie/vim-debugstring'
 Plug 'chrisbra/Colorizer'
-Plug 'itchyny/lightline.vim'
+if !exists("g:gui_oni")
+  Plug 'itchyny/lightline.vim'
+endif
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'stefanoverna/vim-i18n'
 Plug 'sunaku/vim-dasht'
@@ -110,8 +113,10 @@ if has('nvim') || has('termguicolors')
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
+let g:node_host_prog = $HOME.'/.asdf/shims/neovim-node-host'
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
 let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
+let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
@@ -387,138 +392,137 @@ vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
-" sourcer lightline colorscheme
-let s:base03 =  [ '#151513', 233 ]
-let s:base02 =  [ '#222222', 0   ]
-let s:base01 =  [ '#4e4e43', 239 ]
-let s:base00 =  [ '#666656', 242 ]
-let s:base0 =   [ '#808070', 244 ]
-let s:base1 =   [ '#949484', 246 ]
-let s:base2 =   [ '#a8a897', 248 ]
-let s:base3 =   [ '#e8e8d3', 253 ]
-let s:yellow =  [ '#ebc168', 11  ]
-let s:orange =  [ '#d98800', 3   ]
-let s:red =     [ '#8a708d', 1   ]
-let s:magenta = [ '#8181A6', 13  ]
-let s:cyan =    [ '#87ceeb', 12  ]
-let s:green =   [ '#7A7A57', 3   ]
+if !exists("g:gui_oni")
+  " sourcer lightline colorscheme
+  let s:base03 =  [ '#151513', 233 ]
+  let s:base02 =  [ '#222222', 0   ]
+  let s:base01 =  [ '#4e4e43', 239 ]
+  let s:base00 =  [ '#666656', 242 ]
+  let s:base0 =   [ '#808070', 244 ]
+  let s:base1 =   [ '#949484', 246 ]
+  let s:base2 =   [ '#a8a897', 248 ]
+  let s:base3 =   [ '#e8e8d3', 253 ]
+  let s:yellow =  [ '#ebc168', 11  ]
+  let s:orange =  [ '#d98800', 3   ]
+  let s:red =     [ '#8a708d', 1   ]
+  let s:magenta = [ '#8181A6', 13  ]
+  let s:cyan =    [ '#87ceeb', 12  ]
+  let s:green =   [ '#7A7A57', 3   ]
 
-let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
-let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
-let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
-let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
-let s:p.insert.left = [ [ s:base02, s:cyan ], [ s:base3, s:base01 ] ]
-let s:p.replace.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
-let s:p.visual.left = [ [ s:base02, s:yellow ], [ s:base3, s:base01 ] ]
-let s:p.normal.middle = [ [ s:base0, s:base02 ] ]
-let s:p.inactive.middle = [ [ s:base00, s:base02 ] ]
-let s:p.tabline.left = [ [ s:base3, s:base00 ] ]
-let s:p.tabline.tabsel = [ [ s:base3, s:base02 ] ]
-let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
-let s:p.tabline.right = copy(s:p.normal.right)
-let s:p.normal.error = [ [ s:base02, s:orange ] ]
-let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
-let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
+  let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+  let s:p.normal.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
+  let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
+  let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
+  let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
+  let s:p.insert.left = [ [ s:base02, s:cyan ], [ s:base3, s:base01 ] ]
+  let s:p.replace.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
+  let s:p.visual.left = [ [ s:base02, s:yellow ], [ s:base3, s:base01 ] ]
+  let s:p.normal.middle = [ [ s:base0, s:base02 ] ]
+  let s:p.inactive.middle = [ [ s:base00, s:base02 ] ]
+  let s:p.tabline.left = [ [ s:base3, s:base00 ] ]
+  let s:p.tabline.tabsel = [ [ s:base3, s:base02 ] ]
+  let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
+  let s:p.tabline.right = copy(s:p.normal.right)
+  let s:p.normal.error = [ [ s:base02, s:orange ] ]
+  let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
+  let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ [ 'filename' ],
-      \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
-      \   'right': [ [ 'percent', 'lineinfo' ],
-      \              [ 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'LightMod',
-      \   'readonly': 'LightRO',
-      \   'gitbranch': 'LightGit',
-      \   'filename': 'LightName',
-      \   'filetype': 'LightType',
-      \   'fileencoding': 'LightEncoding',
-      \   'mode': 'LightMode',
-      \   'gitgutter': 'MyGitGutter',
-      \ },
-      \ 'component_expand': {
-      \   'linter': 'LightErrors',
-      \ },
-      \ 'component_type': {
-      \   'readonly': 'error',
-      \   'linter': 'error'
-      \ },
-      \ 'separator': { 'left': '▉▊▋▌', 'right': '▌▋▊▉' },
-      \ 'subseparator': { 'left': '▎', 'right': '▎' }
-      \ }
+  let g:lightline = {
+        \ 'colorscheme': 'solarized',
+        \ 'active': {
+        \   'left': [ [ 'filename' ],
+        \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
+        \   'right': [ [ 'percent', 'lineinfo' ],
+        \              [ 'fileencoding', 'filetype' ] ]
+        \ },
+        \ 'component_function': {
+        \   'modified': 'LightMod',
+        \   'readonly': 'LightRO',
+        \   'gitbranch': 'LightGit',
+        \   'filename': 'LightName',
+        \   'filetype': 'LightType',
+        \   'fileencoding': 'LightEncoding',
+        \   'mode': 'LightMode',
+        \   'gitgutter': 'MyGitGutter',
+        \ },
+        \ 'component_expand': {
+        \   'linter': 'LightErrors',
+        \ },
+        \ 'component_type': {
+        \   'readonly': 'error',
+        \   'linter': 'error'
+        \ },
+        \ 'separator': { 'left': '▉▊▋▌', 'right': '▌▋▊▉' },
+        \ 'subseparator': { 'left': '▎', 'right': '▎' }
+        \ }
 
-function! LightMod() abort
-  return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
-endfunction
+  function! LightMod() abort
+    return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
+  endfunction
 
-function! LightRO() abort
-  return &filetype !~? &readonly ? '' : '• '
-endfunction
+  function! LightRO() abort
+    return &filetype !~? &readonly ? '' : '• '
+  endfunction
 
-function! LightGit() abort
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
+  function! LightGit() abort
+    return exists('*fugitive#head') ? fugitive#head() : ''
+  endfunction
 
-function! LightName() abort
-  let l:name = expand('%:t:.')
-  if l:name =~? 'Dirvish'
-    return ''
-  endif
-  return ('' !=? LightRO() ? LightRO() : LightMod()) .
-        \ ('' !=? expand('%:t:.') ? expand('%:t:.') : '[No Name]')
-endfunction
-
-function! LightType() abort
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
-endfunction
-
-function! LightEncoding() abort
-  return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
-endfunction
-
-function! LightErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
-endfunction
-
-function! MyGitGutter() abort
-  if ! exists('*GitGutterGetHunkSummary')
-        \ || ! get(g:, 'gitgutter_enabled', 0)
-        \ || winwidth('.') <= 90
-    return ''
-  endif
-  let l:symbols = [
-        \ g:gitgutter_sign_added . '',
-        \ g:gitgutter_sign_modified . '',
-        \ g:gitgutter_sign_removed . ''
-        \ ]
-  let l:hunks = GitGutterGetHunkSummary()
-  let l:ret = []
-  for l:i in [0, 1, 2]
-    if l:hunks[l:i] > 0
-      call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
+  function! LightName() abort
+    let l:name = expand('%:t:.')
+    if l:name =~? 'Dirvish'
+      return ''
     endif
-  endfor
-  return join(l:ret, ' ')
-endfunction
+    return ('' !=? LightRO() ? LightRO() : LightMod()) .
+          \ ('' !=? expand('%:t:.') ? expand('%:t:.') : '[No Name]')
+  endfunction
 
-augroup alestatus
-  au!
-  autocmd User ALELint call lightline#update()
-augroup end
+  function! LightType() abort
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
+  endfunction
 
-" === vim-localorie ===
-nnoremap <silent> <leader>lt :call localorie#translate()<CR>
-nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
+  function! LightEncoding() abort
+    return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
+  endfunction
+
+  function! LightErrors() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
+  endfunction
+
+  function! MyGitGutter() abort
+    if ! exists('*GitGutterGetHunkSummary')
+          \ || ! get(g:, 'gitgutter_enabled', 0)
+          \ || winwidth('.') <= 90
+      return ''
+    endif
+    let l:symbols = [
+          \ g:gitgutter_sign_added . '',
+          \ g:gitgutter_sign_modified . '',
+          \ g:gitgutter_sign_removed . ''
+          \ ]
+    let l:hunks = GitGutterGetHunkSummary()
+    let l:ret = []
+    for l:i in [0, 1, 2]
+      if l:hunks[l:i] > 0
+        call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
+      endif
+    endfor
+    return join(l:ret, ' ')
+  endfunction
+
+  augroup alestatus
+    au!
+    autocmd User ALELint call lightline#update()
+  augroup end
+endif
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#smart_enter = 1
+let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['omni', 'tags', 'path', 'uspl', 'keyn', 'dict']
+let g:mucomplete#chains.default  = ['path', 'omni', 'keyn', 'dict', 'uspl', 'tags']
 
 " this is necessary for overriding mucomplete mappingss
 imap <F4> <plug>(MUcompletePopupCancel)
