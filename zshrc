@@ -68,7 +68,7 @@ _fzf_compgen_dir() {
 }
 
 export FZF_DEFAULT_OPTS='
-  --color=light
+  --color=dark
 '
 
 # syntax highlighting

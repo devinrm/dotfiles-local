@@ -57,7 +57,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'alvan/vim-closetag'
 Plug 'bergercookie/vim-debugstring'
 Plug 'chrisbra/Colorizer'
-if !exists("g:gui_oni")
+if !exists('g:gui_oni')
   Plug 'itchyny/lightline.vim'
 endif
 Plug 'radenling/vim-dispatch-neovim'
@@ -198,6 +198,7 @@ let g:ale_linters = {
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'text': ['vale', 'write-good', 'alex'],
+      \ 'vim': ['vint'],
       \ 'yml': ['yamllint']
       \ }
 
@@ -229,7 +230,7 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-if g:colors_name == 'sourcerer'
+if g:colors_name ==# 'sourcerer'
   highlight ALEWarningSign ctermbg=237 guibg='#222222' guifg='#d98800'
   highlight ALEErrorSign ctermbg=237 guibg='#222222' guifg='#d98800'
   highlight LineNr ctermbg=0 guibg='#222222'
@@ -385,7 +386,7 @@ vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
-if !exists("g:gui_oni")
+if !exists('g:gui_oni')
   " sourcer lightline colorscheme
   let s:base03 =  [ '#151513', 233 ]
   let s:base02 =  [ '#222222', 0   ]
@@ -580,7 +581,7 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 
 " === vim-tmux-navigator ===
-if !exists("g:gui_oni")
+if !exists('g:gui_oni')
   nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
   nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
   nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
@@ -696,11 +697,11 @@ nnoremap <Leader>i mmgg=G`m
 " === import I18n in React files ===
 function! ImportI18n()
   call append(0, "import I18n from 'i18n-js';")
-  call append(1, "")
+  call append(1, '')
   call append(2, "import translations from 'utils/translations';")
-  call append(3, "")
-  call append(4, "I18n.locale = window.locale;")
-  call append(5, "I18n.translations = translations;")
+  call append(3, '')
+  call append(4, 'I18n.locale = window.locale;')
+  call append(5, 'I18n.translations = translations;')
 endfunction
 nnoremap <Leader>8 :call ImportI18n()<CR>
 
@@ -728,12 +729,23 @@ vnoremap <A-k> :m '>-2<CR>gv=gv
 vnoremap <A-j> :m '<+<CR>gv=gv
 
 " === Use h, j, k, l to navigate panes
-if exists("g:gui_oni")
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
-endif
+function! WinMove(key)
+  let t:curwin = winnr()
+  exec 'wincmd '.a:key
+  if (t:curwin == winnr())
+    if (match(a:key,'[jk]'))
+      wincmd v
+    else
+      wincmd s
+    endif
+    exec 'wincmd '.a:key
+  endif
+endfunction
+
+nnoremap <silent> <C-h> :call WinMove('h')<cr>
+nnoremap <silent> <C-j> :call WinMove('j')<cr>
+nnoremap <silent> <C-k> :call WinMove('k')<cr>
+nnoremap <silent> <C-l> :call WinMove('l')<cr>
 
 " === Make esc more user friendly ===
 inoremap jk <Esc><Esc>
@@ -762,8 +774,8 @@ nmap Q @q
 function! ImportReact()
   call append(0, "import PropTypes from 'prop-types';")
   call append(1, "import React from 'react';")
-  call append(2, "")
-  call append(3, "const { Component } = react;")
+  call append(2, '')
+  call append(3, 'const { Component } = react;')
 endfunction
 nnoremap <Leader>9 :call ImportReact()<CR>
 
