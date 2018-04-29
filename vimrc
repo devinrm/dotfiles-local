@@ -6,16 +6,13 @@
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'lifepillar/vim-solarized8'
 Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'xero/sourcerer.vim'
 
 " === completion ===
 Plug 'andymass/vim-matchup'
-" if !exists("g:gui_oni")
-  Plug 'lifepillar/vim-mucomplete'
-  Plug 'ternjs/tern_for_vim'
-" endif
+Plug 'lifepillar/vim-mucomplete'
+Plug 'ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'AndrewRadev/splitjoin.vim'
@@ -85,11 +82,11 @@ call plug#end()
 let s:darwin = has('mac')
 
 set autoread " Automatically read file if it has been changed outside of vim
-set background=light " Use colors that look good on a dark background
+set background=dark " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme solarized8_flat
+colorscheme sourcerer
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -233,13 +230,9 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
 if g:colors_name == 'sourcerer'
-  highlight ALEWarningSign ctermbg=237 guibg='#3a3a3a'
-  highlight ALEErrorSign ctermbg=237 guibg='#3a3a3a'
-endif
-
-if g:colors_name == 'solarized8_flat'
-  highlight ALEWarningSign ctermbg=237 guibg='#fdf6e3'
-  highlight ALEErrorSign ctermbg=237 guibg='#fdf6e3'
+  highlight ALEWarningSign ctermbg=237 guibg='#222222' guifg='#d98800'
+  highlight ALEErrorSign ctermbg=237 guibg='#222222' guifg='#d98800'
+  highlight LineNr ctermbg=0 guibg='#222222'
 endif
 
 nnoremap <Leader>f :ALEFix<CR>
@@ -399,19 +392,19 @@ if !exists("g:gui_oni")
   let s:base01 =  [ '#4e4e43', 239 ]
   let s:base00 =  [ '#666656', 242 ]
   let s:base0 =   [ '#808070', 244 ]
-  let s:base1 =   [ '#949484', 246 ]
+  let s:base1 =   [ '#222222', 246 ]
   let s:base2 =   [ '#a8a897', 248 ]
   let s:base3 =   [ '#e8e8d3', 253 ]
   let s:yellow =  [ '#ebc168', 11  ]
   let s:orange =  [ '#d98800', 3   ]
-  let s:red =     [ '#8a708d', 1   ]
+  let s:red =     [ '#8a708d', 5   ]
   let s:magenta = [ '#8181A6', 13  ]
   let s:cyan =    [ '#87ceeb', 12  ]
   let s:green =   [ '#7A7A57', 3   ]
 
   let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
   let s:p.normal.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
-  let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
+  let s:p.normal.right = [ [ s:base2, s:base01 ], [ s:base2, s:base01 ] ]
   let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
   let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
   let s:p.insert.left = [ [ s:base02, s:cyan ], [ s:base3, s:base01 ] ]
@@ -428,7 +421,7 @@ if !exists("g:gui_oni")
   let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
   let g:lightline = {
-        \ 'colorscheme': 'solarized',
+        \ 'colorscheme': 'sourcerer',
         \ 'active': {
         \   'left': [ [ 'filename' ],
         \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
@@ -587,12 +580,14 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 
 " === vim-tmux-navigator ===
-nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
-nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
-nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
-let g:tmux_navigator_save_on_switch = 2 " Save on switch
+if !exists("g:gui_oni")
+  nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+  nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
+  nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
+  nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+  let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
+  let g:tmux_navigator_save_on_switch = 2 " Save on switch
+endif
 
 " === vimwiki ===
 let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
@@ -733,10 +728,12 @@ vnoremap <A-k> :m '>-2<CR>gv=gv
 vnoremap <A-j> :m '<+<CR>gv=gv
 
 " === Use h, j, k, l to navigate panes
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
+if exists("g:gui_oni")
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+endif
 
 " === Make esc more user friendly ===
 inoremap jk <Esc><Esc>
@@ -833,7 +830,7 @@ let g:terminal_color_0  = '#25272c'
 let g:terminal_color_1  = '#ba2a2a'
 let g:terminal_color_2  = '#008542'
 let g:terminal_color_3  = '#eac06e'
-let g:terminal_color_4  = '#0088cc'
+let g:terminal_color_4  = '#7e8aa2'
 let g:terminal_color_5  = '#8d4888'
 let g:terminal_color_6  = '#006596'
 let g:terminal_color_7  = '#53586f'
