@@ -7,7 +7,8 @@ call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'thiagoalessio/rainbow_levels.vim'
-Plug 'xero/sourcerer.vim'
+Plug 'devinrm/necromancer.vim'
+Plug 'morhetz/gruvbox'
 
 " === completion ===
 Plug 'andymass/vim-matchup'
@@ -15,11 +16,10 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'ternjs/tern_for_vim'
 
 " === experiments ===
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'stefandtw/quickfix-reflector.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -55,7 +55,6 @@ Plug 'christoomey/vim-tmux-navigator'
 " === other ===
 Plug 'AndrewRadev/switch.vim'
 Plug 'alvan/vim-closetag'
-Plug 'bergercookie/vim-debugstring'
 Plug 'chrisbra/Colorizer'
 if !exists('g:gui_oni')
   Plug 'itchyny/lightline.vim'
@@ -82,11 +81,11 @@ call plug#end()
 let s:darwin = has('mac')
 
 set autoread " Automatically read file if it has been changed outside of vim
-set background=dark " Use colors that look good on a dark background
+set background=light " Use colors that look good on a dark/light background
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme sourcerer
+colorscheme gruvbox
 set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -139,6 +138,10 @@ augroup numbers
   autocmd InsertLeave * :set relativenumber
 augroup END
 set ruler " show the cursor position all the time
+augroup SaveOnFocusLost
+  autocmd!
+  autocmd FocusLost * :wa
+augroup END
 set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
@@ -198,8 +201,7 @@ let g:ale_linters = {
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'text': ['vale', 'write-good', 'alex'],
-      \ 'vim': ['vint'],
-      \ 'yml': ['yamllint']
+      \ 'vim': ['vint']
       \ }
 
 let g:ale_fixers = {
@@ -230,10 +232,11 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-if g:colors_name ==# 'sourcerer'
-  highlight ALEWarningSign ctermbg=237 guibg='#222222' guifg='#d98800'
-  highlight ALEErrorSign ctermbg=237 guibg='#222222' guifg='#d98800'
-  highlight LineNr ctermbg=0 guibg='#222222'
+if g:colors_name ==# 'necromancer'
+  highlight ALEWarningSign ctermbg=237 guibg='#282828' guifg='#d98800'
+  highlight ALEErrorSign ctermbg=237 guibg='#282828' guifg='#d98800'
+  highlight LineNr ctermbg=0 guibg='#282828'
+  highlight Normal guibg='#282828'
 endif
 
 nnoremap <Leader>f :ALEFix<CR>
@@ -389,11 +392,11 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 if !exists('g:gui_oni')
   " sourcer lightline colorscheme
   let s:base03 =  [ '#151513', 233 ]
-  let s:base02 =  [ '#222222', 0   ]
+  let s:base02 =  [ '#282828', 0   ]
   let s:base01 =  [ '#4e4e43', 239 ]
   let s:base00 =  [ '#666656', 242 ]
   let s:base0 =   [ '#808070', 244 ]
-  let s:base1 =   [ '#222222', 246 ]
+  let s:base1 =   [ '#282828', 246 ]
   let s:base2 =   [ '#a8a897', 248 ]
   let s:base3 =   [ '#e8e8d3', 253 ]
   let s:yellow =  [ '#ebc168', 11  ]
@@ -422,7 +425,7 @@ if !exists('g:gui_oni')
   let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
   let g:lightline = {
-        \ 'colorscheme': 'sourcerer',
+        \ 'colorscheme': 'gruvbox',
         \ 'active': {
         \   'left': [ [ 'filename' ],
         \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
@@ -656,12 +659,6 @@ nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
 " === map <ctrl>c to quit ===
 nnoremap <C-c> :x<CR>
 
-" === require rails_helper ===
-function! RequireRailsHelper()
-  call append(0, 'require "rails_helper"')
-endfunction
-nnoremap <Leader>7 :call RequireRailsHelper()<CR>
-
 " === Copy the entire buffer into the system register (from @R00k) ===
 nnoremap <Leader>c mmggVG"*y`m
 
@@ -685,6 +682,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " This allows you to nest nvim sessions such as in git commits and still save
 " and exit properly
 tnoremap <Esc><Esc> <C-\><C-n>
+tnoremap <C-r> <C-r><C-r>
 tnoremap <C-s><C-l> clear<CR>
 nnoremap <C-s>- :sp<CR>:term<CR>i
 nnoremap <C-s>\ :vsp<CR>:term<CR>i
@@ -729,23 +727,23 @@ vnoremap <A-k> :m '>-2<CR>gv=gv
 vnoremap <A-j> :m '<+<CR>gv=gv
 
 " === Use h, j, k, l to navigate panes
-function! WinMove(key)
-  let t:curwin = winnr()
-  exec 'wincmd '.a:key
-  if (t:curwin == winnr())
-    if (match(a:key,'[jk]'))
-      wincmd v
-    else
-      wincmd s
-    endif
-    exec 'wincmd '.a:key
-  endif
-endfunction
-
-nnoremap <silent> <C-h> :call WinMove('h')<cr>
-nnoremap <silent> <C-j> :call WinMove('j')<cr>
-nnoremap <silent> <C-k> :call WinMove('k')<cr>
-nnoremap <silent> <C-l> :call WinMove('l')<cr>
+" function! WinMove(key)
+"   let t:curwin = winnr()
+"   exec 'wincmd '.a:key
+"   if (t:curwin == winnr())
+"     if (match(a:key,'[jk]'))
+"       wincmd v
+"     else
+"       wincmd s
+"     endif
+"     exec 'wincmd '.a:key
+"   endif
+" endfunction
+"
+" nnoremap <silent> <C-h> :call WinMove('h')<cr>
+" nnoremap <silent> <C-j> :call WinMove('j')<cr>
+" nnoremap <silent> <C-k> :call WinMove('k')<cr>
+" nnoremap <silent> <C-l> :call WinMove('l')<cr>
 
 " === Make esc more user friendly ===
 inoremap jk <Esc><Esc>
@@ -811,10 +809,6 @@ nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
-
-" === Code notes ===
-" nnoremap <Leader>ww :Files ~/dotfiles/laptop/vim_notes/<CR>
-" nnoremap <Leader>wt :Sexplore ~/dotfiles/laptop/vim_notes/<CR>
 
 " === Run vimscript functions ===
 nnoremap <Leader>x :exec getline(".")<CR>

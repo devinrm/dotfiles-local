@@ -5,9 +5,9 @@
   email = devin.morgenstern@protonmail.com
 [filter "lfs"]
   clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
+	smudge = git-lfs smudge -- %f
   required = true
-  process = git-lfs filter-process
+	process = git-lfs filter-process
 [push]
   default = simple
 [merge]

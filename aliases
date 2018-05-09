@@ -63,7 +63,7 @@ alias tailt="tail -f log/test.log"
 alias taila="admin tail"
 
 # JavaScript
-alias yi="yarn install"
+alias yi="yarn install --ignore-engines"
 alias yb="yarn build-local"
 alias yw="yarn watch"
 alias cra_eslint="~/dotfiles/bin/create_react_app_eslint_config.sh"
