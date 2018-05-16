@@ -17,6 +17,9 @@ Plug 'ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'tpope/vim-surround'
+Plug 'romainl/vim-cool'
+Plug 'VincentCordobes/vim-translate'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -94,6 +97,8 @@ set foldmethod=expr
 set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 set formatprg=par
 set gdefault " Replace all matches on a line instead of just the first
+set grepprg=rg\ --vimgrep\ --no-heading
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 set guicursor+=a:blinkon0 " Disable blinking cursor on nvim
 set history=50 " remember the last 50 command-lines in the history table
 set hlsearch " highlight search results
@@ -249,6 +254,9 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
 
+" === vim-cool ===
+let g:CoolTotalMatches = 1
+
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
 
@@ -318,10 +326,10 @@ augroup ag_commands_with_fzf
   autocmd! VimEnter * command! -nargs=* -complete=file Ag :call s:fzf_ag_raw(<q-args>)
 augroup END
 
-" Call :Ag
-nnoremap \ :Ag<SPACE>
+" Call :Rg
+nnoremap \ :Rg<SPACE>
 " grep the word under the cursor
-nnoremap gr :Ag<SPACE>'\b<cword>\b' *<CR>
+:nnoremap gr :Rg <C-R><C-W><CR>
 
 " Press ; and then start typing to fzf search the whole project for a word or
 " string
@@ -671,6 +679,23 @@ nnoremap <Leader>d odebugger;<esc>^
 " === Open .html pages from vim in browser ===
 nnoremap <Leader>h :!open '%'<CR>
 
+" === tab mappings to match tmux
+" nnoremap <C-s>1 1gt
+" nnoremap <C-s>2 2gt
+" nnoremap <C-s>3 3gt
+" nnoremap <C-s>4 4gt
+" nnoremap <C-s>5 5gt
+" nnoremap <C-s>6 6gt
+" nnoremap <C-s>t :tabnew<CR>
+"
+" tnoremap <C-s>1 <C-\><C-n>1gt
+" tnoremap <C-s>2 <C-\><C-n>2gt
+" tnoremap <C-s>3 <C-\><C-n>3gt
+" tnoremap <C-s>4 <C-\><C-n>4gt
+" tnoremap <C-s>5 <C-\><C-n>5gt
+" tnoremap <C-s>6 <C-\><C-n>6gt
+" tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
+
 " === Neovim terminal mappings for easy navigation ===
 augroup neoterm
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
@@ -684,6 +709,8 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 tnoremap <Esc><Esc> <C-\><C-n>
 tnoremap <C-r> <C-r><C-r>
 tnoremap <C-s><C-l> clear<CR>
+tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>i
+tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>i
 nnoremap <C-s>- :sp<CR>:term<CR>i
 nnoremap <C-s>\ :vsp<CR>:term<CR>i
 nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>

@@ -24,6 +24,7 @@
   co = checkout
   empty = commit --allow-empty -m "[retry]"
   fall = fetch --all
+  gcon = git rebase --continue
   glog = log -E -i --grep
   l = log --pretty=colored
   mg = merge

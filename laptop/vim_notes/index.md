@@ -30,6 +30,7 @@
   * [sql](sql)
   * [sql_examples](sql_examples)
   * [terminal](terminal)
+  * [terminalvim](terminalvim)
   * [this_js](this_js)
   * [tmux](tmux)
   * [types](types)

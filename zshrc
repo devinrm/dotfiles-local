@@ -82,3 +82,5 @@ export HOMEBREW_GITHUB_API_TOKEN="f1035918c42a9b60e0d46d35adbbc3c5ad3c056b"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
