@@ -12,6 +12,7 @@
   * [git](git)
   * [how_to_level_up](how_to_level_up)
   * [how_to_read_source_code](how_to_read_source_code)
+  * [heroku](heroku)
   * [html](html)
   * [index](index)
   * [javascript](javascript)

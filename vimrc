@@ -20,6 +20,7 @@ Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tpope/vim-surround'
 Plug 'romainl/vim-cool'
 Plug 'VincentCordobes/vim-translate'
+Plug 'ludovicchabant/vim-gutentags'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -89,7 +90,6 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 colorscheme gruvbox
-set complete+=kspell " Set the matches for Insert mode completion.
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
@@ -352,7 +352,7 @@ endfunction
 command! FZFNeigh call s:fzf_neighbouring_files()
 nnoremap ' :FZFNeigh<CR>
 
-let g:fzf_tags_command = 'ctags -R'
+" let g:fzf_tags_command = 'ctags -R'
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
 xmap <Leader><tab> <plug>(fzf-maps-x)
@@ -548,7 +548,7 @@ augroup omnifuncs
 augroup end
 filetype plugin on
 set completeopt+=noselect,noinsert,menuone
-set completeopt-=preview
+set completeopt-=i,t,preview
 set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
@@ -581,8 +581,10 @@ let g:tern#command = ['tern']
 
 " === vim-test ===
 let g:test#strategy = 'dispatch'
-" update jest snapshots with vim-test
 let g:test#runner_commands = ['Jest', 'RSpec']
+let g:test#ruby#rspec#executable = 'RUBYOPT="-W0" rspec'
+
+" update jest snapshots with vim-test
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
 
 nnoremap <silent> <Leader>t :TestFile<CR>
