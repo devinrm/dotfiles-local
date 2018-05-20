@@ -1,6 +1,7 @@
+--api
 --database=postgresql
+--skip-coffee
+--skip-sprockets
 --skip-test-unit
 --skip-turbolinks
---skip-sprockets
---skip-coffee
 --webpack=react
