@@ -527,7 +527,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#smart_enter = 1
 let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['path', 'omni', 'keyn', 'dict', 'uspl', 'tags']
+let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'path']
 
 " this is necessary for overriding mucomplete mappingss
 imap <F4> <plug>(MUcompletePopupCancel)
