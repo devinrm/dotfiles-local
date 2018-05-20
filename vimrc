@@ -582,7 +582,6 @@ let g:tern#command = ['tern']
 " === vim-test ===
 let g:test#strategy = 'dispatch'
 let g:test#runner_commands = ['Jest', 'RSpec']
-let g:test#ruby#rspec#executable = 'RUBYOPT="-W0" rspec'
 
 " update jest snapshots with vim-test
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
