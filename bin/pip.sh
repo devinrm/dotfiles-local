@@ -4,7 +4,7 @@ set -e
 
 pip2 install neovim ;
 pip3 install neovim ;
-# pip install yamllint ;
+pip install yamllint ;
 pip2 install awscli --upgrade ;
 pip3 install awscli --upgrade ;
 pip install solargraph-utils.py ;

@@ -2,6 +2,6 @@
 --database=postgresql
 --skip-coffee
 --skip-sprockets
---skip-test-unit
+--skip-test
 --skip-turbolinks
 --webpack=react
