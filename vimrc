@@ -88,7 +88,7 @@ set autoread " Automatically read file if it has been changed outside of vim
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-if strftime("%H") < 18
+if strftime("%H") < 15
   set background=light " Use colors that look good on a light background
   colorscheme gruvbox
 else
@@ -413,8 +413,8 @@ if !exists('g:gui_oni')
   let s:base2 =   [ '#a8a897', 248 ]
   let s:base3 =   [ '#e8e8d3', 253 ]
   let s:yellow =  [ '#ebc168', 11  ]
-  let s:orange =  [ '#d98800', 3   ]
-  let s:red =     [ '#8a708d', 5   ]
+  let s:orange =  [ '#cc8800', 3   ]
+  let s:red =     [ '#7271a1', 5   ]
   let s:magenta = [ '#8181A6', 13  ]
   let s:cyan =    [ '#87ceeb', 12  ]
   let s:green =   [ '#7A7A57', 3   ]
@@ -525,12 +525,15 @@ if !exists('g:gui_oni')
     autocmd User ALELint call lightline#update()
   augroup end
 
-  if strftime("%H") < 18
+  if strftime("%H") < 15
     let g:lightline.colorscheme = 'gruvbox'
   else
     let g:lightline.colorscheme = 'sourcerer'
   endif
 endif
+
+" === matchup ===
+let g:matchup_matchparen_deferred = 1
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1

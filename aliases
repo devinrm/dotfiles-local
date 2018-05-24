@@ -88,6 +88,7 @@ alias clone="git clone"
 alias cm="git cm"
 alias co="git co"
 alias del="git branch -D"
+alias dt="git dt"
 alias diff="git diff"
 alias mup="git mup"
 alias fall="git fetch --all"
@@ -106,6 +107,9 @@ alias st="git st"
 alias stu="git stu"
 alias uncommit="git uncommit"
 alias unstage="git unstage"
+
+# kittens
+alias d="kitty +kitten diff"
 
 # random
 alias gh="open https://github.com/devinrm"

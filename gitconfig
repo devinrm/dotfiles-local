@@ -22,6 +22,7 @@
   ci = commit -v
   cm = commit -m
   co = checkout
+  dt = difftool --no-symlinks --dir-diff
   empty = commit --allow-empty -m "[retry]"
   fall = fetch --all
   gcon = git rebase --continue
@@ -61,8 +62,17 @@
   old = red bold
   whitespace = red reverse
 [diff]
+  tool = kitty
+  guitool = kitty.gui
   colorMoved = zebra
   compactionHeuristic = true
+[difftool]
+  prompt = false
+  trustExitCode = true
+[difftool "kitty"]
+  cmd = kitty +kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+  cmd = kitty kitty +kitten diff $LOCAL $REMOTE
 [color "diff-highlight"]
   newHighlight = "green bold 22"
   newNormal = "green bold"
