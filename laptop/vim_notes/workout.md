@@ -1,0 +1,194 @@
+# Day One:
+GENERAL PULLUP
+sets
+5
+reps
+20, 15, 12, 10, 10
+
+BARBELL BENCH PRESS
+sets
+8
+reps
+12, 10, 10, 8, 8, 6, 4, 4
+
+BACK SQUAT
+sets
+7
+reps
+10, 8, 6, 5, 4, 3, 3
+
+MILITARY PRESS
+sets
+7
+reps
+10, 8, 6, 5, 4, 3, 3
+
+BARBELL BICEPS CURL
+sets
+3
+reps
+10
+
+GENERAL PLANK
+reps
+60 sec
+
+# Day Two:
+GENERAL PUSHUP
+sets
+5
+reps
+20
+
+WARRIOR FIT INCLINE DUMBBELL BENCH PRESS
+sets
+4
+reps
+12
+
+LEG PRESS
+sets
+1
+reps
+Failure
+
+ARNOLD PRESS
+sets
+4
+reps
+12
+
+SKULL CRUSHER
+sets
+3
+reps
+10
+
+HANGING LEG RAISE
+reps
+12
+
+# Day Three
+HAMMER STRENGTH TWO-ARM ROW
+sets
+4
+reps
+12
+
+HAMMER STRENGTH CHEST PRESS
+sets
+4
+reps
+15
+
+BODYWEIGHT WALKING LUNGE
+sets
+4
+reps
+20
+
+BARBELL SHRUG
+sets
+4
+reps
+12
+
+EZ-BAR PREACHER CURL
+sets
+3
+reps
+10
+
+GENERAL SIDE PLANK
+reps
+60 sec
+
+# Day Four
+DUMBBELL ROW
+sets
+4
+reps
+12
+
+WEIGHTED DIP
+sets
+4
+reps
+10
+
+SINGLE-LEG CURL
+sets
+3
+reps
+20
+
+DUMBBELL LATERAL RAISE
+sets
+3
+reps
+15
+
+DUMBBELL FRONT RAISE
+sets
+3
+reps
+15
+
+DUMBBELL LYING TRICEPS EXTENSION
+sets
+3
+reps
+10
+
+TOES TO BAR
+reps
+12
+
+# Day Five
+SWISS BALL HYPEREXTENSION
+sets
+4
+reps
+25, 20, 15, 15
+
+CABLE FLYE
+sets
+4
+reps
+12
+
+STANDING CALF RAISE
+sets
+3
+reps
+20
+
+DUMBBELL REAR DELT FLYE
+sets
+3
+reps
+15
+
+DUMBBELL HAMMER CURL
+sets
+3
+reps
+12
+
+ROPE PRESSDOWN
+sets
+3
+reps
+12
+
+BARBELL WRIST CURL
+sets
+3
+reps
+20
+
+BARBELL REVERSE WRIST CURL
+sets
+3
+reps
+20

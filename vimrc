@@ -21,6 +21,7 @@ Plug 'tpope/vim-surround'
 Plug 'romainl/vim-cool'
 Plug 'VincentCordobes/vim-translate'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'othree/html5.vim'
 
 " === git ===
 Plug 'airblade/vim-gitgutter'
@@ -166,6 +167,7 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where w
 set spelllang=en_us " Set region to US English
 set splitbelow " When on, splitting a window will put the new window below the current one.
 set splitright " When on, splitting a window will put the new window right of the current one.
+set synmaxcol=200
 syntax on " Turn on syntax highlighting.
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
@@ -230,8 +232,8 @@ let g:ale_fixers = {
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
-      \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-      \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+      \ '\.min\.css$': {'ale_enabled': 0},
+      \ '\.min\.js$': {'ale_enabled': 0},
       \}
 
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
@@ -398,6 +400,9 @@ let g:gitgutter_signs = 0
 vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
+" === vim-javascript ===
+let g:javascript_plugin_flow = 1
+
 " === vim-jsx ===
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
@@ -551,6 +556,9 @@ augroup rhumu
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
 augroup end
 
+" make it work with peakaboo in insert mode
+let g:peekaboo_ins_prefix = '<c-x>'
+
 " === omnicompletion ===
 augroup omnifuncs
   au!
@@ -618,6 +626,9 @@ endif
 " === vimwiki ===
 let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
                        \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" === clear all registers ===
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||

@@ -34,4 +34,3 @@ npm i -g tern ;
 npm i -g tern-jsx ;
 npm i -g tldr ;
 npm i -g write-good ;
-npm i -g yarn

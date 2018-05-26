@@ -38,3 +38,4 @@
   * [vim](vim)
   * [vim_galore](vim_galore)
   * [writing_code_well](writing_code_well)
+  * [workout](workout)
