@@ -628,7 +628,7 @@ let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
                        \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " === clear all registers ===
-command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+command! RegClear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
