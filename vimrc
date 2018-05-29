@@ -120,7 +120,7 @@ if has('nvim')
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
-let g:node_host_prog = $HOME.'/.asdf/shims/neovim-node-host'
+" let g:node_host_prog = $HOME.'/.asdf/shims/neovim-node-host'
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
 let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
@@ -142,8 +142,8 @@ set relativenumber " Show the line number relative to the line with the cursor i
 augroup numbers
   autocmd!
   " === Toggle relative line number for yanking, i.e. :6y ===
-  " autocmd CmdlineEnter * set norelativenumber | redraw
-  " autocmd CmdlineLeave * set relativenumber
+  autocmd CmdlineEnter * set norelativenumber | redraw
+  autocmd CmdlineLeave * set relativenumber
   " === Get the best of both worlds with set number and relativenumber ===
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
@@ -483,12 +483,12 @@ if !exists('g:gui_oni')
   endfunction
 
   function! LightName() abort
-    let l:name = expand('%:t:.')
+    let l:name = expand('%:p:.')
     if l:name =~? 'Dirvish'
       return ''
     endif
     return ('' !=? LightRO() ? LightRO() : LightMod()) .
-          \ ('' !=? expand('%:t:.') ? expand('%:t:.') : '[No Name]')
+          \ ('' !=? expand('%:p:.') ? expand('%:p:.') : '[No Name]')
   endfunction
 
   function! LightType() abort
