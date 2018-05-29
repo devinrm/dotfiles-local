@@ -528,7 +528,7 @@ if !exists('g:gui_oni')
   augroup alestatus
     au!
     autocmd User ALELint call lightline#update()
-  augroup end
+  augroup END
 
   if strftime("%H") < 15
     let g:lightline.colorscheme = 'gruvbox'
