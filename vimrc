@@ -6,75 +6,75 @@
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'thiagoalessio/rainbow_levels.vim'
-Plug 'devinrm/necromancer.vim'
-Plug 'morhetz/gruvbox'
+Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
+Plug 'https://github.com/devinrm/necromancer.vim'
+Plug 'https://github.com/morhetz/gruvbox'
 
 " === completion ===
-Plug 'andymass/vim-matchup'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'ternjs/tern_for_vim'
+Plug 'https://github.com/andymass/vim-matchup'
+Plug 'https://github.com/lifepillar/vim-mucomplete'
+Plug 'https://github.com/ternjs/tern_for_vim'
 
 " === experiments ===
-Plug 'stefandtw/quickfix-reflector.vim'
-Plug 'tpope/vim-surround'
-Plug 'romainl/vim-cool'
-Plug 'VincentCordobes/vim-translate'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'othree/html5.vim'
+Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/romainl/vim-cool'
+Plug 'https://github.com/VincentCordobes/vim-translate'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'https://github.com/othree/html5.vim'
 
 " === git ===
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/junegunn/gv.vim'
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-rhubarb'
 
 " === language plugins ===
-Plug 'hail2u/vim-css3-syntax'
-Plug 'iamcco/markdown-preview.vim'
-Plug 'Keithbsmiley/rspec.vim'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+Plug 'https://github.com/hail2u/vim-css3-syntax'
+Plug 'https://github.com/iamcco/markdown-preview.vim'
+Plug 'https://github.com/Keithbsmiley/rspec.vim'
+Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/tpope/vim-rails'
+Plug 'https://github.com/vim-ruby/vim-ruby'
 
 " === linting ===
-Plug 'w0rp/ale'
+Plug 'https://github.com/w0rp/ale'
 
 " === make editing nicer ===
-Plug 'derekprior/vim-trimmer'
-Plug 'janko-m/vim-test'
-Plug 'justinmk/vim-highlightedyank'
-Plug 'justinmk/vim-sneak'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'rstacruz/vim-closer'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'vimwiki/vimwiki'
+Plug 'https://github.com/derekprior/vim-trimmer'
+Plug 'https://github.com/janko-m/vim-test'
+Plug 'https://github.com/justinmk/vim-highlightedyank'
+Plug 'https://github.com/justinmk/vim-sneak'
+Plug 'https://github.com/pbrisbin/vim-mkdir'
+Plug 'https://github.com/rstacruz/vim-closer'
+Plug 'https://github.com/tomtom/tcomment_vim'
+Plug 'https://github.com/tpope/vim-endwise'
+Plug 'https://github.com/tpope/vim-eunuch'
+Plug 'https://github.com/tpope/vim-repeat'
+Plug 'https://github.com/vimwiki/vimwiki'
 
 " === move ===
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'https://github.com/christoomey/vim-tmux-navigator'
 
 " === other ===
-Plug 'AndrewRadev/switch.vim'
-Plug 'alvan/vim-closetag'
-Plug 'chrisbra/Colorizer'
+Plug 'https://github.com/AndrewRadev/switch.vim'
+Plug 'https://github.com/alvan/vim-closetag'
+Plug 'https://github.com/chrisbra/Colorizer'
 if !exists('g:gui_oni')
-  Plug 'itchyny/lightline.vim'
+  Plug 'https://github.com/itchyny/lightline.vim'
 endif
-Plug 'radenling/vim-dispatch-neovim'
-Plug 'stefanoverna/vim-i18n'
-Plug 'sunaku/vim-dasht'
-Plug 'tpope/vim-dispatch'
+Plug 'https://github.com/radenling/vim-dispatch-neovim'
+Plug 'https://github.com/stefanoverna/vim-i18n'
+Plug 'https://github.com/sunaku/vim-dasht'
+Plug 'https://github.com/tpope/vim-dispatch'
 
 " === search ===
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-pseudocl'
-Plug 'justinmk/vim-dirvish'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/vim-peekaboo'
+Plug 'https://github.com/junegunn/vim-pseudocl'
+Plug 'https://github.com/justinmk/vim-dirvish'
 
 call plug#end()
 
@@ -90,8 +90,8 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 if strftime("%H") < 15
-  set background=light " Use colors that look good on a light background
-  colorscheme gruvbox
+  " set background=light " Use colors that look good on a light background
+  colorscheme necromancer
 else
   set background=dark " Use colors that look good on a dark background
   colorscheme necromancer
@@ -205,13 +205,13 @@ augroup END
 
 " === ale ===
 let g:ale_linters = {
-      \ 'css': ['stylelint'],
+      \ 'css': ['scsslint'],
       \ 'erb': ['erubi'],
       \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
-      \ 'scss': ['stylelint'],
+      \ 'scss': ['scsslint'],
       \ 'text': ['vale', 'write-good', 'alex'],
       \ 'vim': ['vint']
       \ }
@@ -531,7 +531,7 @@ if !exists('g:gui_oni')
   augroup END
 
   if strftime("%H") < 15
-    let g:lightline.colorscheme = 'gruvbox'
+    let g:lightline.colorscheme = 'sourcerer'
   else
     let g:lightline.colorscheme = 'sourcerer'
   endif
