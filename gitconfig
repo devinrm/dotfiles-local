@@ -23,7 +23,7 @@
   cm = commit -m
   co = checkout
   dt = difftool --no-symlinks --dir-diff
-  empty = commit --allow-empty -m "[retry]"
+  empty = commit --allow-empty -m "[rebuild]"
   fall = fetch --all
   gcon = git rebase --continue
   glog = log -E -i --grep

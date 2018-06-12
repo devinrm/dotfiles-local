@@ -90,8 +90,8 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 if strftime("%H") < 15
-  " set background=light " Use colors that look good on a light background
-  colorscheme necromancer
+  set background=light " Use colors that look good on a light background
+  colorscheme gruvbox
 else
   set background=dark " Use colors that look good on a dark background
   colorscheme necromancer
@@ -531,7 +531,7 @@ if !exists('g:gui_oni')
   augroup END
 
   if strftime("%H") < 15
-    let g:lightline.colorscheme = 'sourcerer'
+    let g:lightline.colorscheme = 'gruvbox'
   else
     let g:lightline.colorscheme = 'sourcerer'
   endif
@@ -705,21 +705,21 @@ nnoremap <Leader>d odebugger;<esc>^
 nnoremap <Leader>h :!open '%'<CR>
 
 " === tab mappings to match tmux
-" nnoremap <C-s>1 1gt
-" nnoremap <C-s>2 2gt
-" nnoremap <C-s>3 3gt
-" nnoremap <C-s>4 4gt
-" nnoremap <C-s>5 5gt
-" nnoremap <C-s>6 6gt
-" nnoremap <C-s>t :tabnew<CR>
-"
-" tnoremap <C-s>1 <C-\><C-n>1gt
-" tnoremap <C-s>2 <C-\><C-n>2gt
-" tnoremap <C-s>3 <C-\><C-n>3gt
-" tnoremap <C-s>4 <C-\><C-n>4gt
-" tnoremap <C-s>5 <C-\><C-n>5gt
-" tnoremap <C-s>6 <C-\><C-n>6gt
-" tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
+nnoremap <C-s>1 1gt
+nnoremap <C-s>2 2gt
+nnoremap <C-s>3 3gt
+nnoremap <C-s>4 4gt
+nnoremap <C-s>5 5gt
+nnoremap <C-s>6 6gt
+nnoremap <C-s>t :tabnew<CR>
+
+tnoremap <C-s>1 <C-\><C-n>1gt
+tnoremap <C-s>2 <C-\><C-n>2gt
+tnoremap <C-s>3 <C-\><C-n>3gt
+tnoremap <C-s>4 <C-\><C-n>4gt
+tnoremap <C-s>5 <C-\><C-n>5gt
+tnoremap <C-s>6 <C-\><C-n>6gt
+tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
 
 " === Neovim terminal mappings for easy navigation ===
 augroup neoterm
@@ -740,6 +740,7 @@ nnoremap <C-s>- :sp<CR>:term<CR>i
 nnoremap <C-s>\ :vsp<CR>:term<CR>i
 nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
 nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
+nnoremap <C-s>c :tabnew<CR>:term<CR>
 
 " === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
