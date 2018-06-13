@@ -86,16 +86,11 @@ call plug#end()
 let s:darwin = has('mac')
 
 set autoread " Automatically read file if it has been changed outside of vim
+set background=dark " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-if strftime("%H") < 15
-  set background=light " Use colors that look good on a light background
-  colorscheme gruvbox
-else
-  set background=dark " Use colors that look good on a dark background
-  colorscheme necromancer
-endif
+colorscheme necromancer
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
@@ -530,11 +525,7 @@ if !exists('g:gui_oni')
     autocmd User ALELint call lightline#update()
   augroup END
 
-  if strftime("%H") < 15
-    let g:lightline.colorscheme = 'gruvbox'
-  else
-    let g:lightline.colorscheme = 'sourcerer'
-  endif
+  let g:lightline.colorscheme = 'sourcerer'
 endif
 
 " === matchup ===
