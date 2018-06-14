@@ -137,8 +137,8 @@ set relativenumber " Show the line number relative to the line with the cursor i
 augroup numbers
   autocmd!
   " === Toggle relative line number for yanking, i.e. :6y ===
-  autocmd CmdlineEnter * set norelativenumber | redraw
-  autocmd CmdlineLeave * set relativenumber
+  " autocmd CmdlineEnter * set norelativenumber | redraw
+  " autocmd CmdlineLeave * set relativenumber
   " === Get the best of both worlds with set number and relativenumber ===
   autocmd InsertEnter * :set number norelativenumber
   autocmd InsertLeave * :set relativenumber
@@ -545,7 +545,7 @@ imap <F5> <plug>(MUcompleteCR)
 " make it work with rhubarb
 augroup rhumu
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
-augroup end
+augroup END
 
 " make it work with peakaboo in insert mode
 let g:peekaboo_ins_prefix = '<c-x>'

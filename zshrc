@@ -46,6 +46,7 @@ _load_settings "$HOME/.zsh/configs"
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+export NODEJS_CHECK_SIGNATURES=no
 
 # Include dasht in $PATH.
 [ -d "${HOME}/dasht/bin" ] && PATH="${PATH}:${HOME}/dasht/bin"
