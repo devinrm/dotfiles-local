@@ -8,7 +8,6 @@ set -e
 )
 
 yarn add --dev babel-preset-env ;
-# yarn add --dev babel-preset-react ;
 yarn add --dev babel-preset-stage-2
 yarn add --dev eslint-config-prettier ;
 yarn add --dev eslint-plugin-flow ;
