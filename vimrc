@@ -61,9 +61,7 @@ Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/chrisbra/Colorizer'
-if !exists('g:gui_oni')
-  Plug 'https://github.com/itchyny/lightline.vim'
-endif
+Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/radenling/vim-dispatch-neovim'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
@@ -402,131 +400,128 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " === lightline.vim ===
-if !exists('g:gui_oni')
-  " sourcer lightline colorscheme
-  let s:base03 =  [ '#151513', 233 ]
-  let s:base02 =  [ '#282828', 0   ]
-  let s:base01 =  [ '#4e4e43', 239 ]
-  let s:base00 =  [ '#666656', 242 ]
-  let s:base0 =   [ '#808070', 244 ]
-  let s:base1 =   [ '#282828', 246 ]
-  let s:base2 =   [ '#a8a897', 248 ]
-  let s:base3 =   [ '#e8e8d3', 253 ]
-  let s:yellow =  [ '#ebc168', 11  ]
-  let s:orange =  [ '#cc8800', 3   ]
-  let s:red =     [ '#7271a1', 5   ]
-  let s:magenta = [ '#8181A6', 13  ]
-  let s:cyan =    [ '#87ceeb', 12  ]
-  let s:green =   [ '#7A7A57', 3   ]
+let s:base03 =  [ '#151513', 233 ]
+let s:base02 =  [ '#282828', 0   ]
+let s:base01 =  [ '#4e4e43', 239 ]
+let s:base00 =  [ '#666656', 242 ]
+let s:base0 =   [ '#808070', 244 ]
+let s:base1 =   [ '#282828', 246 ]
+let s:base2 =   [ '#a8a897', 248 ]
+let s:base3 =   [ '#e8e8d3', 253 ]
+let s:yellow =  [ '#ebc168', 11  ]
+let s:orange =  [ '#cc8800', 3   ]
+let s:red =     [ '#3a3a3a', 5   ]
+let s:magenta = [ '#8181A6', 13  ]
+let s:cyan =    [ '#4e4e4e', 12  ]
+let s:green =   [ '#7A7A57', 3   ]
 
-  let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-  let s:p.normal.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
-  let s:p.normal.right = [ [ s:base2, s:base01 ], [ s:base2, s:base01 ] ]
-  let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
-  let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
-  let s:p.insert.left = [ [ s:base02, s:cyan ], [ s:base3, s:base01 ] ]
-  let s:p.replace.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
-  let s:p.visual.left = [ [ s:base02, s:yellow ], [ s:base3, s:base01 ] ]
-  let s:p.normal.middle = [ [ s:base0, s:base02 ] ]
-  let s:p.inactive.middle = [ [ s:base00, s:base02 ] ]
-  let s:p.tabline.left = [ [ s:base3, s:base00 ] ]
-  let s:p.tabline.tabsel = [ [ s:base3, s:base02 ] ]
-  let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
-  let s:p.tabline.right = copy(s:p.normal.right)
-  let s:p.normal.error = [ [ s:base02, s:orange ] ]
-  let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
-  let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
+let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+let s:p.normal.left = [ [ s:base3, s:red ], [ s:base3, s:base01 ] ]
+let s:p.normal.right = [ [ s:base2, s:base01 ], [ s:base2, s:base01 ] ]
+let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
+let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
+let s:p.insert.left = [ [ s:base3, s:cyan ], [ s:base3, s:base01 ] ]
+let s:p.replace.left = [ [ s:base3, s:red ], [ s:base3, s:base01 ] ]
+let s:p.visual.left = [ [ s:base3, s:yellow ], [ s:base3, s:base01 ] ]
+let s:p.normal.middle = [ [ s:base0, s:base02 ] ]
+let s:p.inactive.middle = [ [ s:base00, s:base02 ] ]
+let s:p.tabline.left = [ [ s:base3, s:base00 ] ]
+let s:p.tabline.tabsel = [ [ s:base3, s:base02 ] ]
+let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
+let s:p.tabline.right = copy(s:p.normal.right)
+let s:p.normal.error = [ [ s:base02, s:orange ] ]
+let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
+let g:lightline#colorscheme#sourcerer#palette = lightline#colorscheme#flatten(s:p)
 
-  let g:lightline = {
-        \ 'active': {
-        \   'left': [ [ 'filename' ],
-        \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
-        \   'right': [ [ 'percent', 'lineinfo' ],
-        \              [ 'fileencoding', 'filetype' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightMod',
-        \   'readonly': 'LightRO',
-        \   'gitbranch': 'LightGit',
-        \   'filename': 'LightName',
-        \   'filetype': 'LightType',
-        \   'fileencoding': 'LightEncoding',
-        \   'mode': 'LightMode',
-        \   'gitgutter': 'MyGitGutter',
-        \ },
-        \ 'component_expand': {
-        \   'linter': 'LightErrors',
-        \ },
-        \ 'component_type': {
-        \   'readonly': 'error',
-        \   'linter': 'error'
-        \ },
-        \ 'separator': { 'left': '▉▊▋▌', 'right': '▌▋▊▉' },
-        \ 'subseparator': { 'left': '▎', 'right': '▎' }
-        \ }
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'filename' ],
+      \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
+      \   'right': [ [ 'percent', 'lineinfo' ],
+      \              [ 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'LightMod',
+      \   'readonly': 'LightRO',
+      \   'gitbranch': 'LightGit',
+      \   'filename': 'LightName',
+      \   'filetype': 'LightType',
+      \   'fileencoding': 'LightEncoding',
+      \   'mode': 'LightMode',
+      \   'gitgutter': 'MyGitGutter',
+      \ },
+      \ 'component_expand': {
+      \   'linter': 'LightErrors',
+      \ },
+      \ 'component_type': {
+      \   'readonly': 'error',
+      \   'linter': 'error'
+      \ },
+      \ 'separator': { 'left': '▉▊▋▌', 'right': '▌▋▊▉' },
+      \ 'subseparator': { 'left': '▎', 'right': '▎' }
+      \ }
 
-  function! LightMod() abort
-    return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
-  endfunction
+function! LightMod() abort
+  return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
+endfunction
 
-  function! LightRO() abort
-    return &filetype !~? &readonly ? '' : '• '
-  endfunction
+function! LightRO() abort
+  return &filetype !~? &readonly ? '' : '• '
+endfunction
 
-  function! LightGit() abort
-    return exists('*fugitive#head') ? fugitive#head() : ''
-  endfunction
+function! LightGit() abort
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
 
-  function! LightName() abort
-    let l:name = expand('%:p:.')
-    if l:name =~? 'Dirvish'
-      return ''
+function! LightName() abort
+  let l:name = expand('%:p:.')
+  if l:name =~? 'Dirvish'
+    return ''
+  endif
+  return ('' !=? LightRO() ? LightRO() : LightMod()) .
+        \ ('' !=? expand('%:p:.') ? expand('%:p:.') : '[No Name]')
+endfunction
+
+function! LightType() abort
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
+endfunction
+
+function! LightEncoding() abort
+  return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
+endfunction
+
+function! LightErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
+endfunction
+
+function! MyGitGutter() abort
+  if ! exists('*GitGutterGetHunkSummary')
+        \ || ! get(g:, 'gitgutter_enabled', 0)
+        \ || winwidth('.') <= 90
+    return ''
+  endif
+  let l:symbols = [
+        \ g:gitgutter_sign_added . '',
+        \ g:gitgutter_sign_modified . '',
+        \ g:gitgutter_sign_removed . ''
+        \ ]
+  let l:hunks = GitGutterGetHunkSummary()
+  let l:ret = []
+  for l:i in [0, 1, 2]
+    if l:hunks[l:i] > 0
+      call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
     endif
-    return ('' !=? LightRO() ? LightRO() : LightMod()) .
-          \ ('' !=? expand('%:p:.') ? expand('%:p:.') : '[No Name]')
-  endfunction
+  endfor
+  return join(l:ret, ' ')
+endfunction
 
-  function! LightType() abort
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
-  endfunction
+augroup alestatus
+  au!
+  autocmd User ALELint call lightline#update()
+augroup END
 
-  function! LightEncoding() abort
-    return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
-  endfunction
-
-  function! LightErrors() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
-  endfunction
-
-  function! MyGitGutter() abort
-    if ! exists('*GitGutterGetHunkSummary')
-          \ || ! get(g:, 'gitgutter_enabled', 0)
-          \ || winwidth('.') <= 90
-      return ''
-    endif
-    let l:symbols = [
-          \ g:gitgutter_sign_added . '',
-          \ g:gitgutter_sign_modified . '',
-          \ g:gitgutter_sign_removed . ''
-          \ ]
-    let l:hunks = GitGutterGetHunkSummary()
-    let l:ret = []
-    for l:i in [0, 1, 2]
-      if l:hunks[l:i] > 0
-        call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
-      endif
-    endfor
-    return join(l:ret, ' ')
-  endfunction
-
-  augroup alestatus
-    au!
-    autocmd User ALELint call lightline#update()
-  augroup END
-
-  let g:lightline.colorscheme = 'sourcerer'
-endif
+let g:lightline.colorscheme = 'sourcerer'
 
 " === matchup ===
 let g:matchup_matchparen_deferred = 1
@@ -605,14 +600,12 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 
 " === vim-tmux-navigator ===
-if !exists('g:gui_oni')
-  nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
-  nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
-  nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
-  nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-  let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
-  let g:tmux_navigator_save_on_switch = 2 " Save on switch
-endif
+" nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+" nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
+" nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
+" nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+" let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
+" let g:tmux_navigator_save_on_switch = 2 " Save on switch
 
 " === vimwiki ===
 let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
