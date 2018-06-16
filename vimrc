@@ -62,8 +62,8 @@ endif
 " === other ===
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
+Plug 'https://github.com/chrisbra/Colorizer'
 Plug 'https://github.com/itchyny/lightline.vim'
-Plug 'https://github.com/lilydjwg/colorizer'
 Plug 'https://github.com/radenling/vim-dispatch-neovim'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
@@ -254,7 +254,7 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
 " === colorizer ===
-let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml'
+let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml,vim'
 
 " === vim-cool ===
 let g:CoolTotalMatches = 1
