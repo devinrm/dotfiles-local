@@ -55,7 +55,9 @@ Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/vimwiki/vimwiki'
 
 " === move ===
-Plug 'https://github.com/christoomey/vim-tmux-navigator'
+if exists('$TMUX')
+  Plug 'https://github.com/christoomey/vim-tmux-navigator'
+endif
 
 " === other ===
 Plug 'https://github.com/AndrewRadev/switch.vim'
@@ -600,12 +602,14 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 
 " === vim-tmux-navigator ===
-" nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
-" nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
-" nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
-" nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-" let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
-" let g:tmux_navigator_save_on_switch = 2 " Save on switch
+if exists('$TMUX')
+  nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+  nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
+  nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
+  nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+  let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
+  let g:tmux_navigator_save_on_switch = 2 " Save on switch
+endif
 
 " === vimwiki ===
 let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
@@ -688,22 +692,32 @@ nnoremap <Leader>d odebugger;<esc>^
 " === Open .html pages from vim in browser ===
 nnoremap <Leader>h :!open '%'<CR>
 
-" === tab mappings to match tmux
-nnoremap <C-s>1 1gt
-nnoremap <C-s>2 2gt
-nnoremap <C-s>3 3gt
-nnoremap <C-s>4 4gt
-nnoremap <C-s>5 5gt
-nnoremap <C-s>6 6gt
-nnoremap <C-s>t :tabnew<CR>
+" === Move to windows ===
+if !exists('$TMUX')
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+endif
 
-tnoremap <C-s>1 <C-\><C-n>1gt
-tnoremap <C-s>2 <C-\><C-n>2gt
-tnoremap <C-s>3 <C-\><C-n>3gt
-tnoremap <C-s>4 <C-\><C-n>4gt
-tnoremap <C-s>5 <C-\><C-n>5gt
-tnoremap <C-s>6 <C-\><C-n>6gt
-tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
+" === tab mappings to match tmux
+if !exists('$TMUX')
+  nnoremap <C-s>1 1gt
+  nnoremap <C-s>2 2gt
+  nnoremap <C-s>3 3gt
+  nnoremap <C-s>4 4gt
+  nnoremap <C-s>5 5gt
+  nnoremap <C-s>6 6gt
+  nnoremap <C-s>t :tabnew<CR>
+
+  tnoremap <C-s>1 <C-\><C-n>1gt
+  tnoremap <C-s>2 <C-\><C-n>2gt
+  tnoremap <C-s>3 <C-\><C-n>3gt
+  tnoremap <C-s>4 <C-\><C-n>4gt
+  tnoremap <C-s>5 <C-\><C-n>5gt
+  tnoremap <C-s>6 <C-\><C-n>6gt
+  tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
+endif
 
 " === Neovim terminal mappings for easy navigation ===
 augroup neoterm
@@ -717,14 +731,16 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " and exit properly
 tnoremap <Esc><Esc> <C-\><C-n>
 tnoremap <C-r> <C-r><C-r>
-tnoremap <C-s><C-l> clear<CR>
-tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>i
-tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>i
-nnoremap <C-s>- :sp<CR>:term<CR>i
-nnoremap <C-s>\ :vsp<CR>:term<CR>i
-nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
-nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
-nnoremap <C-s>c :tabnew<CR>:term<CR>
+if !exists('$TMUX')
+  tnoremap <C-s><C-l> clear<CR>
+  tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>i
+  tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>i
+  nnoremap <C-s>- :sp<CR>:term<CR>i
+  nnoremap <C-s>\ :vsp<CR>:term<CR>i
+  nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
+  nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
+  nnoremap <C-s>c :tabnew<CR>:term<CR>
+endif
 
 " === Indent the whole file ===
 nnoremap <Leader>i mmgg=G`m
