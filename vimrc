@@ -532,9 +532,12 @@ let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'path']
 
-" this is necessary for overriding mucomplete mappingss
+" this is necessary for overriding mucomplete mappings
 imap <F4> <plug>(MUcompletePopupCancel)
-imap <CR> <plug>(MUcompleteCR)
+
+" make it work with vim-closer
+imap <Plug>MyCR <Plug>CloserClose<Plug>(MUcompleteCR)
+imap <CR> <Plug>MyCR
 
 " make it work with rhubarb
 augroup rhumu
@@ -666,7 +669,7 @@ xnoremap <C-a> ^
 xnoremap <C-e> $
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <C-n> <Down>
+" inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
