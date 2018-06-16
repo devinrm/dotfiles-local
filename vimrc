@@ -146,7 +146,7 @@ augroup END
 set ruler " show the cursor position all the time
 augroup SaveOnFocusLost
   autocmd!
-  autocmd FocusLost * :wa
+  au FocusLost * silent! wa
 augroup END
 set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
@@ -254,7 +254,7 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
 " === colorizer ===
-let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml,vim'
+let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml,vim,javascript.jsx'
 
 " === vim-cool ===
 let g:CoolTotalMatches = 1
@@ -534,7 +534,7 @@ let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'pat
 
 " this is necessary for overriding mucomplete mappingss
 imap <F4> <plug>(MUcompletePopupCancel)
-imap <F5> <plug>(MUcompleteCR)
+imap <CR> <plug>(MUcompleteCR)
 
 " make it work with rhubarb
 augroup rhumu
@@ -555,6 +555,7 @@ augroup end
 filetype plugin on
 set completeopt+=noselect,noinsert,menuone
 set completeopt-=i,t,preview
+set noinfercase
 set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
@@ -579,7 +580,7 @@ let g:sneak#s_next = 1
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 
-nmap cc <Plug>Sneak_s
+nmap s <Plug>Sneak_s
 nmap CC <Plug>Sneak_S
 
 " === tern_for_vim ===
