@@ -22,6 +22,7 @@ Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/VincentCordobes/vim-translate'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/othree/html5.vim'
+Plug 'https://github.com/matze/vim-move'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -219,11 +220,11 @@ let g:ale_fixers = {
       \ }
 
 " use stylelint and eslint within jsx
-" augroup FiletypeGroup
-"     autocmd!
-"     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-" augroup END
-" let g:ale_linter_aliases = {'jsx': 'css'}
+augroup FiletypeGroup
+  autocmd!
+  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+let g:ale_linter_aliases = {'jsx': 'css'}
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
@@ -240,8 +241,8 @@ let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
 if g:colors_name ==# 'necromancer'
-  highlight ALEWarningSign ctermbg=237 guibg='#282828' guifg='#d98800'
-  highlight ALEErrorSign ctermbg=237 guibg='#282828' guifg='#d98800'
+  highlight ALEWarningSign ctermbg=237 guibg='#282828' guifg='#7271a1'
+  highlight ALEErrorSign ctermbg=237 guibg='#282828' guifg='#7271a1'
   highlight LineNr ctermbg=0 guibg='#282828'
   highlight Normal guibg='#282828'
 endif
@@ -410,7 +411,7 @@ let s:gray_tint_three  =  [ '#808070', 244 ]
 let s:gray_tint_two    =  [ '#666656', 242 ]
 let s:green            =  [ '#7A7A57', 3   ]
 let s:light_gray       =  [ '#4e4e4e', 12  ]
-let s:orange           =  [ '#cc8800', 3   ]
+let s:purple           =  [ '#7271a1', 3   ]
 let s:pink             =  [ '#a64a5b', 11  ]
 let s:white            =  [ '#e8e8d3', 253 ]
 
@@ -428,7 +429,7 @@ let s:p.tabline.left = [ [ s:white, s:gray_tint_two ] ]
 let s:p.tabline.tabsel = [ [ s:white, s:background_black ] ]
 let s:p.tabline.middle = [ [ s:gray_tint_one, s:background_black ] ]
 let s:p.tabline.right = copy(s:p.normal.right)
-let s:p.normal.error = [ [ s:background_black, s:orange ] ]
+let s:p.normal.error = [ [ s:background_black, s:purple ] ]
 let s:p.normal.warning = [ [ s:pink, s:gray_tint_one ] ]
 let g:lightline#colorscheme#minimalist#palette = lightline#colorscheme#flatten(s:p)
 
@@ -533,18 +534,16 @@ let g:mucomplete#chains = {}
 let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'path']
 
 " this is necessary for overriding mucomplete mappings
-imap <F4> <plug>(MUcompletePopupCancel)
+imap <NOOP> <plug>(MUcompletePopupCancel)
 
-" make it work with vim-closer && vim-endwise
+" make it work with vim-closer && vim-endwise, rhubarb, and peakaboo
 imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
 imap <CR> <Plug>MyCR
 
-" make it work with rhubarb
 augroup rhumu
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
 augroup END
 
-" make it work with peakaboo in insert mode
 let g:peekaboo_ins_prefix = '<c-x>'
 
 " === omnicompletion ===
@@ -763,41 +762,22 @@ nnoremap k gk
 
 " === Mappings to move lines. Symbols represent 'alt' because macs are insane ===
 " 'j' = '∆' and 'k' = '˚'
-" Note: this only works in neovim
-if s:darwin
-  nnoremap ˚ :m -2<CR>==
-  nnoremap ∆ :m +<CR>==
-  inoremap ˚ <Esc>:m -2<CR>==gi
-  inoremap ∆ <Esc>:m +<CR>==gi
-  vnoremap ˚ :m '>-2<CR>gv=gv
-  vnoremap ∆ :m '<+<CR>gv=gv
-endif
-" For Linux
-nnoremap <A-k> :m -2<CR>==
-nnoremap <A-j> :m +<CR>==
-inoremap <A-k> <Esc>:m -2<CR>==gi
-inoremap <A-j> <Esc>:m +<CR>==gi
-vnoremap <A-k> :m '>-2<CR>gv=gv
-vnoremap <A-j> :m '<+<CR>gv=gv
-
-" === Use h, j, k, l to navigate panes
-" function! WinMove(key)
-"   let t:curwin = winnr()
-"   exec 'wincmd '.a:key
-"   if (t:curwin == winnr())
-"     if (match(a:key,'[jk]'))
-"       wincmd v
-"     else
-"       wincmd s
-"     endif
-"     exec 'wincmd '.a:key
-"   endif
-" endfunction
-"
-" nnoremap <silent> <C-h> :call WinMove('h')<cr>
-" nnoremap <silent> <C-j> :call WinMove('j')<cr>
-" nnoremap <silent> <C-k> :call WinMove('k')<cr>
-" nnoremap <silent> <C-l> :call WinMove('l')<cr>
+" NOTE: this only works in neovim
+" if s:darwin
+"   nnoremap ˚ :m -2<CR>==
+"   nnoremap ∆ :m +<CR>==
+"   inoremap ˚ <Esc>:m -2<CR>==gi
+"   inoremap ∆ <Esc>:m +<CR>==gi
+"   vnoremap ˚ :m '>-2<CR>gv=gv
+"   vnoremap ∆ :m '<+<CR>gv=gv
+" endif
+" " For Linux
+" nnoremap <A-k> :m -2<CR>==
+" nnoremap <A-j> :m +<CR>==
+" inoremap <A-k> <Esc>:m -2<CR>==gi
+" inoremap <A-j> <Esc>:m +<CR>==gi
+" vnoremap <A-k> :m '>-2<CR>gv=gv
+" vnoremap <A-j> :m '<+<CR>gv=gv
 
 " === Make esc more user friendly ===
 inoremap jk <Esc><Esc>
