@@ -1,6 +1,0 @@
-:set core.editor /usr/local/bin/nvim
-
-:echo
-status
-:echo
-log --oneline -n 1
