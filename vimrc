@@ -535,8 +535,8 @@ let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'pat
 " this is necessary for overriding mucomplete mappings
 imap <F4> <plug>(MUcompletePopupCancel)
 
-" make it work with vim-closer
-imap <Plug>MyCR <Plug>CloserClose<Plug>(MUcompleteCR)
+" make it work with vim-closer && vim-endwise
+imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
 imap <CR> <Plug>MyCR
 
 " make it work with rhubarb
