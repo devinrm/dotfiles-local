@@ -14,7 +14,6 @@ alias rm="rm -i"
 alias v="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
 alias vi="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
 alias vim="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
-alias nvim="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
 alias img="kitty icat"
 
 # Bundler
