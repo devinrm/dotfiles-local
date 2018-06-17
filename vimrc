@@ -548,7 +548,7 @@ let g:peekaboo_ins_prefix = '<c-x>'
 
 " === neovim-remote ===
 if has('nvim')
-  let $VISUAL = 'nvr -cc split --remote-wait'
+  let $VISUAL = 'nvr -cc vsplit --remote-wait'
 endif
 
 " === omnicompletion ===
@@ -744,7 +744,7 @@ if !exists('$TMUX')
   nnoremap <C-s>\ :vsp<CR>:term<CR>i
   nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
   nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
-  nnoremap <C-s>c :tabnew<CR>:term<CR>
+  nnoremap <C-s>c :tabnew<CR>:term<CR>i
 endif
 
 " === Indent the whole file ===
