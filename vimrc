@@ -546,6 +546,11 @@ augroup END
 
 let g:peekaboo_ins_prefix = '<c-x>'
 
+" === neovim-remote ===
+if has('nvim')
+  let $VISUAL = 'nvr -cc split --remote-wait'
+endif
+
 " === omnicompletion ===
 augroup omnifuncs
   au!
