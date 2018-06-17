@@ -23,6 +23,7 @@ Plug 'https://github.com/VincentCordobes/vim-translate'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/matze/vim-move'
+Plug 'https://github.com/kassio/neoterm'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
