@@ -549,7 +549,7 @@ let g:peekaboo_ins_prefix = '<c-x>'
 
 " === neovim-remote ===
 if has('nvim')
-  let $VISUAL = 'nvr -cc vsplit --remote-wait'
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
 " === omnicompletion ===
