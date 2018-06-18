@@ -537,12 +537,13 @@ let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'pat
 " this is necessary for overriding mucomplete mappings
 imap <NOOP> <plug>(MUcompletePopupCancel)
 
-" make it work with vim-closer && vim-endwise, rhubarb, and peakaboo
+" make it work with vim-closer && vim-endwise, rhubarb, neovim-remote, and peakaboo
 imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
 imap <CR> <Plug>MyCR
 
 augroup rhumu
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
+  autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
 augroup END
 
 let g:peekaboo_ins_prefix = '<c-x>'
