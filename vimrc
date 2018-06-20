@@ -275,7 +275,7 @@ augroup END
 " You can pass rg arguments like so: :Rg -F components -g '*jsx'
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.(<q-args>), 1,
+      \   'rg --column --line-number --no-heading --smart-case --color=always '.(<q-args>), 1,
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
@@ -301,23 +301,6 @@ nnoremap gr :Rg <C-R><C-W><CR>
 command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap ; :Fg<CR>
 
-" Search neighboring files
-function! s:fzf_neighbouring_files() abort
-  let l:current_file =expand('%')
-  let l:cwd = fnamemodify(l:current_file, ':p:h')
-  let l:command = 'ag -g "" -f ' . l:cwd . ' --depth 0'
-
-  call fzf#run({
-        \ 'source': l:command,
-        \ 'sink':   'e',
-        \ 'options': '-m -x +s',
-        \ 'window':  'enew' })
-endfunction
-
-command! FZFNeigh call s:fzf_neighbouring_files()
-nnoremap ' :FZFNeigh<CR>
-
-" let g:fzf_tags_command = 'ctags -R'
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
 xmap <Leader><tab> <plug>(fzf-maps-x)
@@ -329,10 +312,6 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
-" Complete from open tmux panes (from @junegunn)
-inoremap <expr> <C-x><C-i> fzf#complete('tmuxwords.rb --all-but-current --scroll 499 --min 5')
-inoremap <expr> <C-x><C-k> fzf#complete('cat /usr/share/dict/words')
 
 " TODO: work on this:
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
