@@ -1,4 +1,6 @@
 ```vim
+After creating a file and directory with `:e` save it:
+:!mkdir -p %:h
 
 global search and replace
 :Ag --js function
