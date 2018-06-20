@@ -6,24 +6,16 @@
 call plug#begin('~/.vim/bundle')
 
 " === colorscheme(s) ===
-Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
 Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/morhetz/gruvbox'
 
 " === completion ===
 Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/lifepillar/vim-mucomplete'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ternjs/tern_for_vim'
 
 " === experiments ===
-Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/romainl/vim-cool'
-Plug 'https://github.com/VincentCordobes/vim-translate'
-Plug 'https://github.com/ludovicchabant/vim-gutentags'
-Plug 'https://github.com/othree/html5.vim'
-Plug 'https://github.com/matze/vim-move'
-Plug 'https://github.com/kassio/neoterm'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -36,6 +28,7 @@ Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.vim'
 Plug 'https://github.com/Keithbsmiley/rspec.vim'
 Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/vim-ruby/vim-ruby'
@@ -48,12 +41,10 @@ Plug 'https://github.com/derekprior/vim-trimmer'
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/justinmk/vim-highlightedyank'
 Plug 'https://github.com/justinmk/vim-sneak'
-Plug 'https://github.com/pbrisbin/vim-mkdir'
+Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
-Plug 'https://github.com/tomtom/tcomment_vim'
+Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/tpope/vim-endwise'
-Plug 'https://github.com/tpope/vim-eunuch'
-Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/vimwiki/vimwiki'
 
 " === move ===
@@ -76,7 +67,7 @@ Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --al
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-peekaboo'
 Plug 'https://github.com/junegunn/vim-pseudocl'
-Plug 'https://github.com/justinmk/vim-dirvish'
+Plug 'https://github.com/romainl/vim-cool'
 
 call plug#end()
 
@@ -117,7 +108,7 @@ if has('nvim')
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
-" let g:node_host_prog = $HOME.'/.asdf/shims/neovim-node-host'
+let g:node_host_prog = $HOME.'/.asdf/shims/neovim-node-host'
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
 let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
@@ -135,21 +126,7 @@ set nowritebackup " Don't make a backup before overwriting a file.
 set number " Turn on line numbers
 set numberwidth=1 " Minimal number of columns to use for the line number.
 set redrawtime=1000 " Stop highlighting if it takes more than a second
-set relativenumber " Show the line number relative to the line with the cursor in front of each line.
-augroup numbers
-  autocmd!
-  " === Toggle relative line number for yanking, i.e. :6y ===
-  " autocmd CmdlineEnter * set norelativenumber | redraw
-  " autocmd CmdlineLeave * set relativenumber
-  " === Get the best of both worlds with set number and relativenumber ===
-  autocmd InsertEnter * :set number norelativenumber
-  autocmd InsertLeave * :set relativenumber
-augroup END
 set ruler " show the cursor position all the time
-augroup SaveOnFocusLost
-  autocmd!
-  au FocusLost * silent! wa
-augroup END
 set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
@@ -159,7 +136,6 @@ set showcmd " display incomplete commands
 set showtabline=2
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
 set smartcase " overrides ignorecase if pattern contains upcase
-" set spell
 set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where words are added for the |zg| and |zw| commands.
 set spelllang=en_us " Set region to US English
 set splitbelow " When on, splitting a window will put the new window below the current one.
@@ -264,17 +240,6 @@ let g:CoolTotalMatches = 1
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
 
-" === dirvish ===
-let g:loaded_netrwPlugin = 1
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-augroup dirvishfugitive
-  autocmd FileType dirvish call fugitive#detect(@%)
-augroup END
-nnoremap _ :Sexplore %<CR>
-nnoremap - :Vexplore %<CR> :vertical resize 35<CR>
-
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
 
@@ -285,10 +250,6 @@ nnoremap <C-t> :wa<CR>:Tags<CR>
 nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
-
-" neovim fzf window
-" let g:fzf_layout = { 'window': '20split enew' }
-" let $FZF_DEFAULT_OPTS .= ' --no-height'
 
 " match fzf colors to colorscheme
 let g:fzf_colors =
@@ -333,7 +294,7 @@ augroup END
 " Call :Rg
 nnoremap \ :Rg<SPACE>
 " grep the word under the cursor
-:nnoremap gr :Rg <C-R><C-W><CR>
+nnoremap gr :Rg <C-R><C-W><CR>
 
 " Press ; and then start typing to fzf search the whole project for a word or
 " string
@@ -401,7 +362,7 @@ vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 let g:javascript_plugin_flow = 1
 
 " === vim-jsx ===
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:jsx_ext_required = 0
 
 " === lightline.vim ===
 let s:background_black =  [ '#282828', 0   ]
@@ -476,7 +437,7 @@ endfunction
 
 function! LightName() abort
   let l:name = expand('%:p:.')
-  if l:name =~? 'Dirvish'
+  if l:name =~? 'NetrwTreeListing'
     return ''
   endif
   return ('' !=? LightRO() ? LightRO() : LightMod()) .
@@ -548,6 +509,14 @@ augroup END
 
 let g:peekaboo_ins_prefix = '<c-x>'
 
+" === netrw ===
+let g:netrw_browse_split = 4
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+let g:netrw_dirhistmax = 0
+
 " === omnicompletion ===
 augroup omnifuncs
   au!
@@ -563,19 +532,6 @@ set noinfercase
 set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
-
-" === rainbow_levels ===
-let g:rainbow_levels = [
-    \{'ctermfg': 84,  'guifg': '#50fa7b'},
-    \{'ctermfg': 117, 'guifg': '#8be9fd'},
-    \{'ctermfg': 61,  'guifg': '#6272a4'},
-    \{'ctermfg': 212, 'guifg': '#ff79c6'},
-    \{'ctermfg': 203, 'guifg': '#ffb86c'},
-    \{'ctermfg': 228, 'guifg': '#f1fa8c'},
-    \{'ctermfg': 15,  'guifg': '#f8f8f2'},
-    \{'ctermfg': 231, 'guifg': '#525563'}]
-
-nnoremap , :RainbowLevelsToggle<cr>
 
 " === vim-sneak ===
 let g:sneak#label = 1
@@ -628,6 +584,9 @@ command! RegClear for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 " === Switch between the last two files ===
 nnoremap <leader><leader> <c-^>
 
+" === have 0 go to the beginning of the word instead ===
+nnoremap 0 ^
+
 " === automatically rebalance windows on vim resize ===
 augroup resize
   autocmd VimResized * :wincmd =
@@ -640,59 +599,14 @@ nnoremap <Leader>= :wincmd =<CR>
 " === Get dot command repeatability in visual mode (from @geoffharcourt) ===
 xnoremap . :normal.<CR>
 
-" === Comment/un-comment like Sublime (from @geoffharcourt) ===
-nmap <C-\> :TComment<CR>
-vmap <C-\> :TComment<CR>
-
-" === Make a new line above or below in normal mode ===
-nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
-
-" === Use C-Space to Esc out of any mode (from @christoomey) ===
-nnoremap <C-Space> <Esc>:noh<CR>
-vnoremap <C-Space> <Esc>gV
-onoremap <C-Space> <Esc>
-cnoremap <C-Space> <C-c>
-inoremap <C-Space> <Esc>`^
-if s:darwin
-  " oTerminal sees <C-@> as <C-space> WTF, but ok
-  nnoremap <C-@> <Esc>:noh<CR>
-  vnoremap <C-@> <Esc>gV
-  onoremap <C-@> <Esc>
-  cnoremap <C-@> <C-c>
-  inoremap <C-@> <Esc>`^
-endif
-
-" === Emacs-like. Experimental, breaks things you might be using. ===
-nnoremap <C-a> ^
-nnoremap <C-e> $
-xnoremap <C-a> ^
-xnoremap <C-e> $
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-" inoremap <C-n> <Down>
-inoremap <C-p> <Up>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-k> <C-o>D
-
 " === Require pry ===
 nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
-
-" === map <ctrl>c to quit ===
-nnoremap <C-c> :x<CR>
-
-" === Copy the entire buffer into the system register (from @R00k) ===
-nnoremap <Leader>c mmggVG"*y`m
 
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
-
-" === Open .html pages from vim in browser ===
-nnoremap <Leader>h :!open '%'<CR>
 
 " === Move to windows ===
 if !exists('$TMUX')
@@ -722,9 +636,6 @@ if !exists('$TMUX')
 endif
 
 " === Neovim terminal mappings for easy navigation ===
-augroup neoterm
-  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-augroup END
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
@@ -744,9 +655,6 @@ if !exists('$TMUX')
   nnoremap <C-s>c :tabnew<CR>:term<CR>i
 endif
 
-" === Indent the whole file ===
-nnoremap <Leader>i mmgg=G`m
-
 " === import I18n in React files ===
 function! ImportI18n()
   call append(0, "import I18n from 'i18n-js';")
@@ -761,31 +669,6 @@ nnoremap <Leader>8 :call ImportI18n()<CR>
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
-
-" === Mappings to move lines. Symbols represent 'alt' because macs are insane ===
-" 'j' = '∆' and 'k' = '˚'
-" NOTE: this only works in neovim
-" if s:darwin
-"   nnoremap ˚ :m -2<CR>==
-"   nnoremap ∆ :m +<CR>==
-"   inoremap ˚ <Esc>:m -2<CR>==gi
-"   inoremap ∆ <Esc>:m +<CR>==gi
-"   vnoremap ˚ :m '>-2<CR>gv=gv
-"   vnoremap ∆ :m '<+<CR>gv=gv
-" endif
-" " For Linux
-" nnoremap <A-k> :m -2<CR>==
-" nnoremap <A-j> :m +<CR>==
-" inoremap <A-k> <Esc>:m -2<CR>==gi
-" inoremap <A-j> <Esc>:m +<CR>==gi
-" vnoremap <A-k> :m '>-2<CR>gv=gv
-" vnoremap <A-j> :m '<+<CR>gv=gv
-
-" === Make esc more user friendly ===
-inoremap jk <Esc><Esc>
-
-" === paste flow when I need it ===
-nnoremap <Leader>fl O// @flow<Esc>^
 
 " === sed it up ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
@@ -813,14 +696,11 @@ function! ImportReact()
 endfunction
 nnoremap <Leader>9 :call ImportReact()<CR>
 
-" === Source (reload) your vimrc ===
-command! ReloadVimrc source $MYVIMRC
-
 " === Make it easier to run ruby files inside vim ===
 nnoremap <Leader>rb :10sp<CR>:te ruby -w %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
-nnoremap <Leader>sc :split db/schema.rb<CR>
+nnoremap <Leader>sc :vsplit db/schema.rb<CR>
 
 " === `sort` case-insensitive ===
 nmap :sort :sort i
@@ -836,12 +716,8 @@ function! <SID>SynStack() abort
   echo map(synstack(line('.'), col('.')), "synIDattr(v:val, 'name')")
 endfunc
 
-" === map visual-block to v ===
-nnoremap v <c-v>e
-
 " === Pre-populate a split command with the current directory ===
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
-nnoremap <Leader>vn :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
@@ -849,23 +725,9 @@ nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
 " === Run vimscript functions ===
 nnoremap <Leader>x :exec getline(".")<CR>
 
-" === Yank to end of line instead of whole line (from @geoffharcourt) ===
-nnoremap Y y$
-
-" === Make yank behave like yank should ===
-vnoremap <expr>y "my\"" . v:register . "y`y"
-
 " === Buffer prev/next ===
 nnoremap <C-x> :bnext<CR>
 nnoremap <C-z> :bprev<CR>
-
-" === Open folds easily ===
-nnoremap <Leader>z za
-
-" === Get z commands in visual mode
-xnoremap zz :normal zz<CR>
-xnoremap zt :normal zt<CR>
-xnoremap zb :normal zb<CR>
 
 " === nvim :terminal colors ===
 let g:terminal_color_0  = '#25272c'
