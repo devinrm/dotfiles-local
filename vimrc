@@ -676,14 +676,6 @@ nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 " === Make it easier to run js files inside vim ===
 nnoremap <Leader>js :10sp<CR>:te node %<CR>
 
-" === open and close location list ===
-nnoremap <Leader>o :lopen<CR>
-nnoremap <Leader>oo :lclose<CR>
-
-" === open and close quickfix ===
-nnoremap <Leader>q :copen<CR>
-nnoremap <Leader>qq :cclose<CR>
-
 " === qq to record, Q to replay (recursive map due to peekaboo) ===
 nmap Q @q
 
