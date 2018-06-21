@@ -76,8 +76,6 @@ call plug#end()
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-let s:darwin = has('mac')
-
 set autoread " Automatically read file if it has been changed outside of vim
 set background=dark " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
