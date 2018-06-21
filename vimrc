@@ -67,6 +67,7 @@ Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --al
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-peekaboo'
 Plug 'https://github.com/junegunn/vim-pseudocl'
+Plug 'https://github.com/justinmk/vim-dirvish'
 Plug 'https://github.com/romainl/vim-cool'
 
 call plug#end()
@@ -115,7 +116,6 @@ let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 set matchtime=0 " Speed up escape after (){} chars
-set mouse=a " Turn mouse on
 set nobackup " Don't make a backup before overwriting a file
 set nofoldenable " Leave open all folds
 set nojoinspaces " Insert one space after a '.', '?' and '!' with a join command.
@@ -239,6 +239,18 @@ let g:CoolTotalMatches = 1
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
+
+" === dirvish ===
+let g:loaded_netrwPlugin = 1
+command! -nargs=? -complete=dir Explore Dirvish <args>
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+augroup dirvishfugitive
+  autocmd FileType dirvish call fugitive#detect(@%)
+augroup END
+nnoremap _ :Sexplore %<CR>
+nnoremap - :Vexplore %<CR> :vertical resize 35<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -559,12 +571,6 @@ command! RegClear for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|
-
-" === Switch between the last two files ===
-nnoremap <leader><leader> <c-^>
-
-" === have 0 go to the beginning of the word instead ===
-nnoremap 0 ^
 
 " === automatically rebalance windows on vim resize ===
 augroup resize
