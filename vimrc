@@ -67,7 +67,6 @@ Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --al
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-peekaboo'
 Plug 'https://github.com/junegunn/vim-pseudocl'
-Plug 'https://github.com/justinmk/vim-dirvish'
 Plug 'https://github.com/romainl/vim-cool'
 
 call plug#end()
@@ -243,18 +242,6 @@ let g:CoolTotalMatches = 1
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
-
-" === dirvish ===
-" let g:loaded_netrwPlugin = 1
-" command! -nargs=? -complete=dir Explore Dirvish <args>
-" command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-" command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-" nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-" augroup dirvishfugitive
-"   autocmd FileType dirvish call fugitive#detect(@%)
-" augroup END
-" nnoremap _ :Sexplore %<CR>
-" nnoremap - :Vexplore %<CR> :vertical resize 35<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
