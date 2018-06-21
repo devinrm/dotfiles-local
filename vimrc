@@ -109,7 +109,6 @@ if has('nvim')
 endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 set laststatus=2 " Always display the status line
-let g:node_host_prog = $HOME.'/.asdf/shims/neovim-node-host'
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
 let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
@@ -169,6 +168,11 @@ augroup ItalicComments
   autocmd!
   autocmd ColorScheme * highlight Comment gui=italic
   autocmd ColorScheme * highlight Comment cterm=italic
+augroup END
+
+augroup NoTerminalNumbers
+  au TermOpen * setlocal listchars= nonumber norelativenumber
+  au TermOpen * startinsert
 augroup END
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
@@ -241,16 +245,16 @@ let g:CoolTotalMatches = 1
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
 
 " === dirvish ===
-let g:loaded_netrwPlugin = 1
-command! -nargs=? -complete=dir Explore Dirvish <args>
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
-augroup dirvishfugitive
-  autocmd FileType dirvish call fugitive#detect(@%)
-augroup END
-nnoremap _ :Sexplore %<CR>
-nnoremap - :Vexplore %<CR> :vertical resize 35<CR>
+" let g:loaded_netrwPlugin = 1
+" command! -nargs=? -complete=dir Explore Dirvish <args>
+" command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+" command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+" nnoremap gx :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+" augroup dirvishfugitive
+"   autocmd FileType dirvish call fugitive#detect(@%)
+" augroup END
+" nnoremap _ :Sexplore %<CR>
+" nnoremap - :Vexplore %<CR> :vertical resize 35<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -631,13 +635,13 @@ tnoremap <Esc><Esc> <C-\><C-n>
 tnoremap <C-r> <C-r><C-r>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>i
-  tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>i
-  nnoremap <C-s>- :sp<CR>:term<CR>i
-  nnoremap <C-s>\ :vsp<CR>:term<CR>i
-  nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
-  nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
-  nnoremap <C-s>c :tabnew<CR>:term<CR>i
+  tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>
+  tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>
+  nnoremap <C-s>- :sp<CR>:term<CR>
+  nnoremap <C-s>\ :vsp<CR>:term<CR>
+  nnoremap <C-s>g :vsp<CR>:term<CR> dot<CR>
+  nnoremap <C-s>h :tabnew<CR>:term<CR> htop<CR>
+  nnoremap <C-s>c :tabnew<CR>:term<CR>
 endif
 
 " === import I18n in React files ===
