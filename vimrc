@@ -76,7 +76,6 @@ call plug#end()
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-set autoread " Automatically read file if it has been changed outside of vim
 set background=dark " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
@@ -169,7 +168,6 @@ augroup END
 
 augroup NoTerminalNumbers
   au TermOpen * setlocal listchars= nonumber norelativenumber
-  au TermOpen * startinsert
 augroup END
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
@@ -620,13 +618,13 @@ tnoremap <Esc><Esc> <C-\><C-n>
 tnoremap <C-r> <C-r><C-r>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>
-  tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>
-  nnoremap <C-s>- :sp<CR>:term<CR>
-  nnoremap <C-s>\ :vsp<CR>:term<CR>
-  nnoremap <C-s>g :vsp<CR>:term<CR> dot<CR>
-  nnoremap <C-s>h :tabnew<CR>:term<CR> htop<CR>
-  nnoremap <C-s>c :tabnew<CR>:term<CR>
+  tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>i
+  tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>i
+  nnoremap <C-s>- :sp<CR>:term<CR>i
+  nnoremap <C-s>\ :vsp<CR>:term<CR>i
+  nnoremap <C-s>c :tabnew<CR>:term<CR>i
+  nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
+  nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
 endif
 
 " === import I18n in React files ===
