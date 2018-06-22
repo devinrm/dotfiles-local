@@ -627,13 +627,13 @@ tnoremap <A-[> <Esc>
 tnoremap <C-r> <C-r><C-r>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp<CR>:term<CR>i
-  tnoremap <C-s>\ <C-\><C-n>:vsp<CR>:term<CR>i
-  nnoremap <C-s>- :sp<CR>:term<CR>i
-  nnoremap <C-s>\ :vsp<CR>:term<CR>i
-  nnoremap <C-s>c :tabnew<CR>:term<CR>i
-  nnoremap <C-s>g :vsp<CR>:term<CR>i dot<CR>
-  nnoremap <C-s>h :tabnew<CR>:term<CR>i htop<CR>
+  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>i
+  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>i
+  nnoremap <C-s>- :sp term:///bin/zsh<CR>i
+  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>i
+  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>i
+  nnoremap <C-s>g :vsp term:///bin/zsh<CR>i cd $HOME/dotfiles<CR>
+  nnoremap <C-s>h :tabnew term://htop<CR>
 endif
 
 " === import I18n in React files ===
