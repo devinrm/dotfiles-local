@@ -166,10 +166,6 @@ augroup ItalicComments
   autocmd ColorScheme * highlight Comment cterm=italic
 augroup END
 
-augroup NoTerminalNumbers
-  au TermOpen * setlocal listchars= nonumber norelativenumber
-augroup END
-
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
 " ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
@@ -457,7 +453,7 @@ function! MyGitGutter() abort
 endfunction
 
 augroup alestatus
-  au!
+  autocmd!
   autocmd User ALELint call lightline#update()
 augroup END
 
@@ -481,6 +477,7 @@ imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
 imap <CR> <Plug>MyCR
 
 augroup rhumu
+  autocmd!
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
   autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
 augroup END
@@ -497,7 +494,7 @@ let g:netrw_dirhistmax = 0
 
 " === omnicompletion ===
 augroup omnifuncs
-  au!
+  autocmd!
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
@@ -561,6 +558,7 @@ command! RegClear for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 
 " === automatically rebalance windows on vim resize ===
 augroup resize
+  autocmd!
   autocmd VimResized * :wincmd =
 augroup END
 
@@ -607,14 +605,25 @@ if !exists('$TMUX')
   tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
 endif
 
-" === Neovim terminal mappings for easy navigation ===
+" === Neovim terminal mappings ===
+augroup TerminalNumbers
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+
+augroup TerminalExitStatus
+  autocmd!
+  autocmd TermClose * call feedkeys("\<CR>")
+augroup END
+
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 " This allows you to nest nvim sessions such as in git commits and still save
 " and exit properly
-tnoremap <Esc><Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <A-[> <Esc>
 tnoremap <C-r> <C-r><C-r>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
