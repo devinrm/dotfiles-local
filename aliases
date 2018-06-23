@@ -41,13 +41,6 @@ alias wuzz="$GOPATH/bin/wuzz"
 alias moon="curl wttr.in/Moon"
 alias weather="curl http://wttr\.in/washington"
 
-# Code notes
-alias cg="cat ~/dotfiles/laptop/vim_notes/git.md"
-alias cpr="cat ~/dotfiles/laptop/vim_notes/pry.md"
-alias cr="cat ~/dotfiles/laptop/vim_notes/ruby_ref.md"
-alias ct="cat ~/dotfiles/laptop/vim_notes/readline.md"
-alias cv="cat ~/dotfiles/laptop/vim_notes/vim.md"
-
 # Ruby and Rails
 alias be="bundle exec"
 alias ber="bundle exec rspec"
