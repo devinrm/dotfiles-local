@@ -616,6 +616,11 @@ augroup TerminalExitStatus
   autocmd TermClose * call feedkeys("\<CR>")
 augroup END
 
+augroup TerminalInsert
+  autocmd!
+  autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert|
+augroup END
+
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
@@ -627,12 +632,12 @@ tnoremap <A-[> <Esc>
 tnoremap <C-r> <C-r><C-r>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>i
-  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>i
-  nnoremap <C-s>- :sp term:///bin/zsh<CR>i
-  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>i
-  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>i
-  nnoremap <C-s>g :vsp term:///bin/zsh<CR>i cd $HOME/dotfiles<CR>
+  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
+  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
+  nnoremap <C-s>- :sp term:///bin/zsh<CR>
+  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
+  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
+  nnoremap <C-s>g :vsp term:///bin/zsh<CR> cd $HOME/dotfiles<CR>
   nnoremap <C-s>h :tabnew term://htop<CR>
 endif
 
