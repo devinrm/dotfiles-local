@@ -296,6 +296,21 @@ nnoremap gr :Rg <C-R><C-W><CR>
 command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap ; :Fg<CR>
 
+" Search neighboring files
+function! s:fzf_neighbouring_files() abort
+  let l:current_file =expand('%')
+  let l:cwd = fnamemodify(l:current_file, ':p:h')
+  let l:command = 'ag -g "" -f ' . l:cwd . ' --depth 0'
+
+  call fzf#run({
+        \ 'source': l:command,
+        \ 'sink':   'e',
+        \ 'options': '-m -x +s',
+        \ 'window':  'enew' })
+endfunction
+
+command! Neigh call s:fzf_neighbouring_files()
+
 " Mapping selecting mappings
 nmap <Leader><tab> <plug>(fzf-maps-n)
 xmap <Leader><tab> <plug>(fzf-maps-x)
