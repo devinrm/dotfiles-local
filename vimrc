@@ -44,6 +44,7 @@ Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
+Plug 'https://github.com/tomtom/tcomment_vim'
 Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/vimwiki/vimwiki'
 
@@ -186,7 +187,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
       \ 'css': ['stylelint'],
-      \ 'javascript': ['prettier'],
+      \ 'javascript': ['eslint'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint']
       \ }
@@ -342,6 +343,10 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_signs = 0
+augroup LeGit
+  autocmd!
+  autocmd BufWritePost * GitGutter
+augroup END
 
 " === vim-i18n ===
 vmap <Leader>z :call I18nTranslateString()<CR>
@@ -447,7 +452,7 @@ function! LightErrors() abort
 endfunction
 
 function! MyGitGutter() abort
-  if ! exists('*GitGutterGetHunkSummary')
+  if !exists('*GitGutterGetHunkSummary')
         \ || ! get(g:, 'gitgutter_enabled', 0)
         \ || winwidth('.') <= 90
     return ''
@@ -532,6 +537,10 @@ nmap F <Plug>Sneak_F
 
 nmap s <Plug>Sneak_s
 nmap CC <Plug>Sneak_S
+
+" === tcommment ===
+nnoremap <C-\> :TComment<CR>
+vnoremap <C-\> :TComment<CR>
 
 " === tern_for_vim ===
 let g:tern#command = ['tern']

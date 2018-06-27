@@ -1,4 +1,35 @@
 ```html
+Content type	name attribute	                                          autocomplete attribute
+Name	        name fname mname lname                                    name (full name)
+                                                                        given-name (first name)
+                                                                        additional-name (middle name)
+                                                                        family-name (last name)
+
+Email	       email	                                                     email
+
+Address	     address city region province state zip zip2 postal country  For one address input:
+                                                                         street-address
+                                                                         For two address inputs:
+                                                                         address-line1
+                                                                         address-line2
+                                                                         address-level1 (state or province)
+                                                                         address-level2 (city)
+                                                                         postal-code (zip code)
+                                                                         country
+
+Phone	      phone mobile country-code area-code exchange suffix ext	     tel
+
+Credit Card	ccname cardnumber cvc ccmonth ccyear exp-date card-type	     cc-name
+                                                                         cc-number
+                                                                         cc-csc
+                                                                         cc-exp-month
+                                                                         cc-exp-year
+                                                                         cc-exp
+                                                                         cc-type
+
+Usernames	  username	                                                   username
+Passwords	  password	                                                   current-password (for sign-in forms)
+                                                                         new-password (for sign-up and password-change forms)
 <!DOCTYPE html>
 
 Elements are designators that define the structure and content of objects within
