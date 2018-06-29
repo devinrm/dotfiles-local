@@ -564,8 +564,8 @@ if exists('$TMUX')
   nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
   nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
   nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-  let g:tmux_navigator_no_mappings = 1 " do nay let the plugin set the mappings
-  let g:tmux_navigator_save_on_switch = 2 " Save on switch
+  let g:tmux_navigator_no_mappings = 1
+  let g:tmux_navigator_save_on_switch = 2
 endif
 
 " === vimwiki ===
