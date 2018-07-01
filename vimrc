@@ -300,7 +300,7 @@ nnoremap ; :Fg<CR>
 " Search neighboring files
 function! s:fzf_neighbouring_files() abort
   let l:current_file =expand('%')
-  let l:cwd = fnamemodify(l:current_file, ':p:h')
+  let l:cwd = fnamemodify(l:current_file, ':h')
   let l:command = 'ag -g "" -f ' . l:cwd . ' --depth 0'
 
   call fzf#run({
