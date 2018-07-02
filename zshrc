@@ -1,4 +1,4 @@
-export KITTY_CONFIG_DIRECTORY="$HOME/.config/kitty"
+export KITTY_CONFIG_DIRECTORY="$HOME/dotfiles/config/kitty"
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
