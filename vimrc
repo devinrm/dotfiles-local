@@ -82,6 +82,7 @@ set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 colorscheme necromancer
+set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
@@ -212,13 +213,6 @@ let g:ale_sign_error = '•'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-
-if g:colors_name ==# 'necromancer'
-  highlight ALEWarningSign ctermbg=237 guibg='#282828' guifg='#7271a1'
-  highlight ALEErrorSign ctermbg=237 guibg='#282828' guifg='#7271a1'
-  highlight LineNr ctermbg=0 guibg='#282828'
-  highlight Normal guibg='#282828'
-endif
 
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
@@ -359,36 +353,6 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " === lightline.vim ===
-let s:background_black =  [ '#282828', 0   ]
-let s:dark_gray        =  [ '#3a3a3a', 5   ]
-let s:gray_tint_four   =  [ '#a8a897', 248 ]
-let s:gray_tint_one    =  [ '#4e4e43', 239 ]
-let s:gray_tint_three  =  [ '#808070', 244 ]
-let s:gray_tint_two    =  [ '#666656', 242 ]
-let s:green            =  [ '#7A7A57', 3   ]
-let s:light_gray       =  [ '#4e4e4e', 12  ]
-let s:purple           =  [ '#7271a1', 3   ]
-let s:pink             =  [ '#a64a5b', 11  ]
-let s:white            =  [ '#e8e8d3', 253 ]
-
-let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left = [ [ s:white, s:dark_gray ], [ s:white, s:gray_tint_one ] ]
-let s:p.normal.right = [ [ s:gray_tint_four, s:gray_tint_one ], [ s:gray_tint_four, s:gray_tint_one ] ]
-let s:p.inactive.right = [ [ s:background_black, s:gray_tint_two ], [ s:gray_tint_three, s:background_black ] ]
-let s:p.inactive.left =  [ [ s:gray_tint_three, s:background_black ], [ s:gray_tint_two, s:background_black ] ]
-let s:p.insert.left = [ [ s:white, s:green ], [ s:white, s:gray_tint_one ] ]
-let s:p.replace.left = [ [ s:white, s:dark_gray ], [ s:white, s:gray_tint_one ] ]
-let s:p.visual.left = [ [ s:white, s:pink ], [ s:white, s:gray_tint_one ] ]
-let s:p.normal.middle = [ [ s:gray_tint_three, s:background_black ] ]
-let s:p.inactive.middle = [ [ s:gray_tint_two, s:background_black ] ]
-let s:p.tabline.left = [ [ s:white, s:gray_tint_two ] ]
-let s:p.tabline.tabsel = [ [ s:white, s:background_black ] ]
-let s:p.tabline.middle = [ [ s:gray_tint_one, s:background_black ] ]
-let s:p.tabline.right = copy(s:p.normal.right)
-let s:p.normal.error = [ [ s:background_black, s:purple ] ]
-let s:p.normal.warning = [ [ s:pink, s:gray_tint_one ] ]
-let g:lightline#colorscheme#minimalist#palette = lightline#colorscheme#flatten(s:p)
-
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'filename' ],
@@ -477,7 +441,7 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup END
 
-let g:lightline.colorscheme = 'minimalist'
+let g:lightline.colorscheme = 'necromancer'
 
 " === matchup ===
 let g:matchup_matchparen_deferred = 1
@@ -653,7 +617,6 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " and exit properly
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
-tnoremap <C-r> <C-r><C-r>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
   tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
