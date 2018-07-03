@@ -533,9 +533,6 @@ endif
 let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
                        \ 'syntax': 'markdown', 'ext': '.md'}]
 
-" === clear all registers ===
-command! RegClear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -661,10 +658,6 @@ nnoremap <Leader>rb :10sp<CR>:te ruby -w %<CR>
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :vsplit db/schema.rb<CR>
 
-" === `sort` case-insensitive ===
-nmap :sort :sort i
-vmap :sort :sort i
-
 " === Show syntax highlighting groups for word under cursor, useful for editing
 " colorschemes (from @drewneil) ===
 nnoremap <Leader>syn :call <SID>SynStack()<CR>
@@ -680,9 +673,6 @@ nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
-
-" === Run vimscript functions ===
-nnoremap <Leader>x :exec getline(".")<CR>
 
 " === Buffer prev/next ===
 nnoremap <C-x> :bnext<CR>
