@@ -66,7 +66,6 @@ Plug 'https://github.com/tpope/vim-dispatch'
 " === search ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/junegunn/vim-peekaboo'
 Plug 'https://github.com/junegunn/vim-pseudocl'
 Plug 'https://github.com/romainl/vim-cool'
 
@@ -456,7 +455,7 @@ let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'pat
 " this is necessary for overriding mucomplete mappings
 imap <NOOP> <plug>(MUcompletePopupCancel)
 
-" make it work with vim-closer && vim-endwise, rhubarb, neovim-remote, and peakaboo
+" make it work with vim-closer && vim-endwise, rhubarb, neovim-remote
 imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
 imap <CR> <Plug>MyCR
 
@@ -465,8 +464,6 @@ augroup rhumu
   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
   autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
 augroup END
-
-let g:peekaboo_ins_prefix = '<c-x>'
 
 " === netrw ===
 let g:netrw_browse_split = 4
@@ -648,9 +645,6 @@ nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
 nnoremap <Leader>js :10sp<CR>:te node %<CR>
-
-" === qq to record, Q to replay (recursive map due to peekaboo) ===
-nmap Q @q
 
 " === import react boilerplate ===
 function! ImportReact()
