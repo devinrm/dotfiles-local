@@ -618,20 +618,9 @@ if !exists('$TMUX')
   nnoremap <C-s>- :sp term:///bin/zsh<CR>
   nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
-  nnoremap <C-s>g :vsp term:///bin/zsh<CR> cd $HOME/dotfiles<CR>
+  nnoremap <C-s>d :vsp term:///bin/zsh<CR>$HOME/dotfiles<CR>
   nnoremap <C-s>h :tabnew term://htop<CR>
 endif
-
-" === import I18n in React files ===
-function! ImportI18n()
-  call append(0, "import I18n from 'i18n-js';")
-  call append(1, '')
-  call append(2, "import translations from 'utils/translations';")
-  call append(3, '')
-  call append(4, 'I18n.locale = window.locale;')
-  call append(5, 'I18n.translations = translations;')
-endfunction
-nnoremap <Leader>8 :call ImportI18n()<CR>
 
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
@@ -641,19 +630,10 @@ nnoremap k gk
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
-nnoremap <Leader>js :10sp<CR>:te node %<CR>
-
-" === import react boilerplate ===
-function! ImportReact()
-  call append(0, "import PropTypes from 'prop-types';")
-  call append(1, "import React from 'react';")
-  call append(2, '')
-  call append(3, 'const { Component } = react;')
-endfunction
-nnoremap <Leader>9 :call ImportReact()<CR>
+nnoremap <Leader>js :10sp term:///bin/zsh<CR> node %<CR>
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>rb :10sp<CR>:te ruby -w %<CR>
+nnoremap <Leader>rb :10sp term:///bin/zsh<CR> ruby -w %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :vsplit db/schema.rb<CR>
