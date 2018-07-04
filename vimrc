@@ -178,7 +178,7 @@ augroup END
 let g:ale_linters = {
       \ 'css': ['scsslint'],
       \ 'erb': ['erubi'],
-      \ 'html': ['eslint', 'tidy', 'htmlhint', 'write-good', 'alex'],
+      \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
@@ -189,7 +189,8 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
       \ 'css': ['stylelint'],
-      \ 'javascript': ['eslint'],
+      \ 'javascript': ['prettier-eslint'],
+      \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint']
       \ }
@@ -207,7 +208,7 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_enabled': 0},
       \}
 
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
+let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'

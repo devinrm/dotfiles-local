@@ -25,6 +25,7 @@ npm i -g javascript-typescript-langserver ;
 npm i -g neovim ;
 npm i -g npm ;
 npm i -g prettier ;
+npm i -g prettier-eslint ;
 npm i -g pure-prompt ;
 npm i -g snyk ;
 npm i -g stylelint ;
