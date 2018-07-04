@@ -183,14 +183,14 @@ Style/GlobalVars:
 Style/GuardClause:
   Description: 'Check for conditionals that can be replaced with guard clauses'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals'
-  Enabled: false
+  Enabled: true
 
 Style/IfUnlessModifier:
   Description: >-
                  Favor modifier if/unless usage when you have a
                  single-line body.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#if-as-a-modifier'
-  Enabled: false
+  Enabled: true
 
 Style/IfWithSemicolon:
   Description: 'Do not use if x; .... Use the ternary operator instead.'
@@ -204,7 +204,7 @@ Style/InlineComment:
 Style/Lambda:
   Description: 'Use the new lambda literal syntax for single-line blocks.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#lambda-multi-line'
-  Enabled: false
+  Enabled: true
 
 Style/LambdaCall:
   Description: 'Use lambda.call(...) instead of lambda.(...).'
@@ -260,7 +260,7 @@ Style/Next:
 Style/NilComparison:
   Description: 'Prefer x.nil? to x == nil.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
-  Enabled: false
+  Enabled: true
 
 Style/Not:
   Description: 'Use ! instead of not.'
@@ -582,21 +582,21 @@ Performance/CaseWhenSplat:
   Description: >-
                   Place `when` conditions that use splat at the end
                   of the list of `when` branches.
-  Enabled: false
+  Enabled: true
 
 Performance/Count:
   Description: >-
                   Use `count` instead of `select...size`, `reject...size`,
                   `select...count`, `reject...count`, `select...length`,
                   and `reject...length`.
-  Enabled: false
+  Enabled: true
 
 Performance/Detect:
   Description: >-
                   Use `detect` instead of `select.first`, `find_all.first`,
                   `select.last`, and `find_all.last`.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerabledetect-vs-enumerableselectfirst-code'
-  Enabled: false
+  Enabled: true
 
 Performance/FlatMap:
   Description: >-
@@ -604,26 +604,26 @@ Performance/FlatMap:
                   instead of `Enumerable#map...Array#flatten(1)`
                   or `Enumberable#collect..Array#flatten(1)`
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablemaparrayflatten-vs-enumerableflat_map-code'
-  Enabled: false
+  Enabled: true
 
 Performance/ReverseEach:
   Description: 'Use `reverse_each` instead of `reverse.each`.'
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code'
-  Enabled: false
+  Enabled: true
 
 Performance/Sample:
   Description: >-
                   Use `sample` instead of `shuffle.first`,
                   `shuffle.last`, and `shuffle[Fixnum]`.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#arrayshufflefirst-vs-arraysample-code'
-  Enabled: false
+  Enabled: true
 
 Performance/Size:
   Description: >-
                   Use `size` instead of `count` for counting
                   the number of elements in `Array` and `Hash`.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#arraycount-vs-arraysize-code'
-  Enabled: false
+  Enabled: true
 
 Performance/StringReplacement:
   Description: >-
@@ -631,52 +631,52 @@ Performance/StringReplacement:
                   number of characters. Use `delete` instead of `gsub` when
                   you are deleting characters.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code'
-  Enabled: false
+  Enabled: true
 
 # Rails
 
 Rails/ActionFilter:
   Description: 'Enforces consistent use of action filter methods.'
-  Enabled: false
+  Enabled: true
 
 Rails/Date:
   Description: >-
                   Checks the correct usage of date aware methods,
                   such as Date.today, Date.current etc.
-  Enabled: false
+  Enabled: true
 
 Rails/FindBy:
   Description: 'Prefer find_by over where.first.'
-  Enabled: false
+  Enabled: true
 
 Rails/FindEach:
   Description: 'Prefer all.find_each over all.find.'
-  Enabled: false
+  Enabled: true
 
 Rails/HasAndBelongsToMany:
   Description: 'Prefer has_many :through to has_and_belongs_to_many.'
-  Enabled: false
+  Enabled: true
 
 Rails/Output:
   Description: 'Checks for calls to puts, print, etc.'
-  Enabled: false
+  Enabled: true
 
 Rails/ReadWriteAttribute:
   Description: >-
                  Checks for read_attribute(:attr) and
                  write_attribute(:attr, val).
-  Enabled: false
+  Enabled: true
 
 Rails/ScopeArgs:
   Description: 'Checks the arguments of ActiveRecord scopes.'
-  Enabled: false
+  Enabled: true
 
 Rails/TimeZone:
   Description: 'Checks the correct usage of time zone aware methods.'
   StyleGuide: 'https://github.com/bbatsov/rails-style-guide#time'
   Reference: 'http://danilenko.org/2012/7/6/rails_timezones'
-  Enabled: false
+  Enabled: true
 
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
-  Enabled: false
+  Enabled: true
