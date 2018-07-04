@@ -123,6 +123,7 @@ set nowrap " Don't wrap lines longer than the width of the window
 set nowritebackup " Don't make a backup before overwriting a file.
 set number " Turn on line numbers
 set numberwidth=1 " Minimal number of columns to use for the line number.
+set path+=**
 set redrawtime=1000 " Stop highlighting if it takes more than a second
 set ruler " show the cursor position all the time
 set scrolloff=3 " show 5 lines above and below cursor
