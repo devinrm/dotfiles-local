@@ -26,6 +26,7 @@ npm i -g neovim ;
 npm i -g npm ;
 npm i -g prettier ;
 npm i -g prettier-eslint ;
+npm i -g prettier-eslint-cli ;
 npm i -g pure-prompt ;
 npm i -g snyk ;
 npm i -g stylelint ;
