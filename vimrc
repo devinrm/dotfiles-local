@@ -39,7 +39,9 @@ Plug 'https://github.com/w0rp/ale'
 " === make editing nicer ===
 Plug 'https://github.com/derekprior/vim-trimmer'
 Plug 'https://github.com/janko-m/vim-test'
-Plug 'https://github.com/justinmk/vim-highlightedyank'
+if has('nvim')
+  Plug 'https://github.com/justinmk/vim-highlightedyank'
+endif
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
@@ -551,6 +553,9 @@ nnoremap <Leader>= :wincmd =<CR>
 " === Get dot command repeatability in visual mode (from @geoffharcourt) ===
 xnoremap . :normal.<CR>
 
+" === Make previewing registers a little easier ===
+nnoremap @ :reg<CR>
+
 " === Require pry ===
 nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
 
@@ -588,20 +593,22 @@ if !exists('$TMUX')
 endif
 
 " === Neovim terminal mappings ===
-augroup TerminalNumbers
-  autocmd!
-  autocmd TermOpen * setlocal nonumber norelativenumber
-augroup END
+if has('nvim')
+  augroup TerminalNumbers
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+  augroup END
 
-augroup TerminalExitStatus
-  autocmd!
-  autocmd TermClose * call feedkeys("\<CR>")
-augroup END
+  augroup TerminalExitStatus
+    autocmd!
+    autocmd TermClose * call feedkeys("\<CR>")
+  augroup END
 
-augroup TerminalInsert
-  autocmd!
-  autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert|
-augroup END
+  augroup TerminalInsert
+    autocmd!
+    autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert| endif
+  augroup END
+endif
 
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
