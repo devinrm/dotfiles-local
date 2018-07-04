@@ -3,7 +3,7 @@
 " ||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-call plug#begin('~/.vim/bundle')
+call plug#begin('$HOME/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
@@ -66,7 +66,7 @@ Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-dispatch'
 
 " === search ===
-Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-pseudocl'
 Plug 'https://github.com/romainl/vim-cool'
@@ -532,7 +532,7 @@ if exists('$TMUX')
 endif
 
 " === vimwiki ===
-let g:vimwiki_list = [{'path': '~/dotfiles/laptop/vim_notes/',
+let g:vimwiki_list = [{'path': '$HOME/dotfiles/laptop/vim_notes/',
                        \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "  ____ ____ ____ ____
@@ -659,7 +659,7 @@ endfunc
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " === Open vimrc in new tab ===
-nnoremap <Leader>vi :tabe ~/dotfiles/vimrc<CR>
+nnoremap <Leader>vi :tabe $HOME/dotfiles/vimrc<CR>
 
 " === Buffer prev/next ===
 nnoremap <C-x> :bnext<CR>
