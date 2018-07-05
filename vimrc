@@ -42,7 +42,6 @@ Plug 'https://github.com/janko-m/vim-test'
 if has('nvim')
   Plug 'https://github.com/justinmk/vim-highlightedyank'
 endif
-Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
@@ -492,16 +491,6 @@ set noinfercase
 set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
-
-" === vim-sneak ===
-let g:sneak#label = 1
-let g:sneak#s_next = 1
-
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-
-nmap s <Plug>Sneak_s
-nmap CC <Plug>Sneak_S
 
 " === tcommment ===
 nnoremap <C-\> :TComment<CR>
