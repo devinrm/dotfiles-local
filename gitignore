@@ -22,3 +22,4 @@ yarn-error.log
 /public/packs-test
 /node_modules
 work.vim
+.erb-lint.yml

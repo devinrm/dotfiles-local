@@ -237,7 +237,6 @@ nnoremap <Leader>g :Git<SPACE>
 
 " === fzf.vim ===
 nnoremap <C-p> :wa<CR>:Files<CR>
-nnoremap <C-b> :wa<CR>:Buffers<CR>
 nnoremap <C-t> :wa<CR>:Tags<CR>
 nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
