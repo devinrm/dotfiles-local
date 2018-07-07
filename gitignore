@@ -23,3 +23,4 @@ yarn-error.log
 /node_modules
 work.vim
 .erb-lint.yml
+zshrc.local
