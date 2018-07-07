@@ -282,7 +282,6 @@ augroup ag_commands_with_fzf
   autocmd! VimEnter * command! -nargs=* -complete=file Ag :call s:fzf_ag_raw(<q-args>)
 augroup END
 
-" Call :Rg
 nnoremap \ :Rg<SPACE>
 " grep the word under the cursor
 nnoremap gr :Rg <C-R><C-W><CR>
@@ -318,19 +317,6 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
-" TODO: work on this:
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
-    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
-    \ fzf#wrap({'dir': expand('%:p:h')}))
-
-" Better command history with q:
-command! CmdHist call fzf#vim#command_history({'right': '40'})
-nnoremap q: :CmdHist<CR>
-
-" Better search history
-command! QHist call fzf#vim#search_history({'right': '40'})
-nnoremap q/ :QHist<CR>
 
 " === vim-gitgutter ===
 let g:gitgutter_max_signs = 1500
