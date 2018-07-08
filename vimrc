@@ -306,18 +306,6 @@ endfunction
 
 command! Neigh call s:fzf_neighbouring_files()
 
-" Mapping selecting mappings
-nmap <Leader><tab> <plug>(fzf-maps-n)
-xmap <Leader><tab> <plug>(fzf-maps-x)
-omap <Leader><tab> <plug>(fzf-maps-o)
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-" Advanced customization using autoload functions
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
 " === vim-gitgutter ===
 let g:gitgutter_max_signs = 1500
 let g:gitgutter_sign_added = '+'
