@@ -637,10 +637,6 @@ nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe $HOME/dotfiles/vimrc<CR>
 
-" === Buffer prev/next ===
-nnoremap <C-x> :bnext<CR>
-nnoremap <C-z> :bprev<CR>
-
 " === nvim :terminal colors ===
 let g:terminal_color_0  = '#25272c'
 let g:terminal_color_1  = '#ba2a2a'
