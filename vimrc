@@ -47,7 +47,6 @@ Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/tomtom/tcomment_vim'
 Plug 'https://github.com/tpope/vim-endwise'
-Plug 'https://github.com/vimwiki/vimwiki'
 
 " === move ===
 if exists('$TMUX')
@@ -238,6 +237,7 @@ nnoremap <Leader>g :Git<SPACE>
 " === fzf.vim ===
 nnoremap <C-p> :wa<CR>:Files<CR>
 nnoremap <C-t> :wa<CR>:Tags<CR>
+nnoremap <C-b> :wa<CR>:Buffers<CR>
 nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
@@ -495,10 +495,6 @@ if exists('$TMUX')
   let g:tmux_navigator_save_on_switch = 2
 endif
 
-" === vimwiki ===
-let g:vimwiki_list = [{'path': '$HOME/dotfiles/laptop/vim_notes/',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -618,6 +614,10 @@ function! <SID>SynStack() abort
   endif
   echo map(synstack(line('.'), col('.')), "synIDattr(v:val, 'name')")
 endfunc
+
+" === notes ===
+nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/ <CR>
+nnoremap <Leader>wt :vsplit $HOME/dotfiles/laptop/vim_notes/ <CR>
 
 " === Pre-populate a split command with the current directory ===
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>

@@ -1,4 +1,5 @@
 = Notes =
+  * [activerecord](activerecord)
   * [advice](advice)
   * [blog_topics](blog_topics)
   * [capybara](capybara)

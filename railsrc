@@ -1,4 +1,3 @@
---api
 --database=postgresql
 --skip-coffee
 --skip-sprockets
