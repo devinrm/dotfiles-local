@@ -578,6 +578,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " and exit properly
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
+nnoremap <Leader>c :10sp term:///bin/zsh<CR>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
   tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
