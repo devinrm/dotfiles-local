@@ -586,8 +586,6 @@ if !exists('$TMUX')
   nnoremap <C-s>- :sp term:///bin/zsh<CR>
   nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
-  nnoremap <C-s>d :vsp term:///bin/zsh<CR>$HOME/dotfiles<CR>
-  nnoremap <C-s>h :tabnew term://htop<CR>
 endif
 
 " === Move up and down by visible lines if current line is wrapped ===
