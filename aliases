@@ -22,11 +22,11 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # Vim
 alias vimdiff="nvim -d"
-alias linkvim="ln -s ~/.vim ~/.config/nvim"
-alias linkvimrc="ln -s ~/.vimrc ~/.config/nvim/init.vim"
+alias linkvim="ln -s $HOME/.vim $HOME/.config/nvim"
+alias linkvimrc="ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim"
 
 # Reload ZSH
-alias z="source ~/.zshrc"
+alias z="source $HOME/.zshrc"
 
 # Dev Tools
 alias i="irb"
@@ -59,8 +59,8 @@ alias taila="admin tail"
 alias yi="yarn install --ignore-engines"
 alias yb="yarn build-local"
 alias yw="yarn watch"
-alias cra_eslint="~/dotfiles/bin/create-react-app-config.sh"
-alias npm_install="~/dotfiles/bin/npm.sh"
+alias cra_eslint="$HOME/dotfiles/bin/create-react-app-config.sh"
+alias npm_install="$HOME/dotfiles/bin/npm.sh"
 alias unfuck_node="rm -rf node_modules"
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
@@ -113,10 +113,10 @@ alias tl="tmux list-sessions"
 
 alias js="bundle exec jekyll serve & ; open http://127.0.0.1:4000"
 
-alias dot="cd ~/dotfiles"
+alias dot="cd $HOME/dotfiles"
 
 alias wifi-ip="ipconfig getifaddr en0"
 
-alias update="~/dotfiles/bin/update_packages.sh"
+alias update="$HOME/dotfiles/bin/update_packages.sh"
 
-alias pg-start="/$HOME/.asdf/installs/postgres/9.6.7/bin/pg_ctl -D /Users/gandalf/.asdf/installs/postgres/9.6.7/data -l logfile start"
+alias browsh="$HOME/./browsh"
