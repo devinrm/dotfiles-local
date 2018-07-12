@@ -10,7 +10,6 @@ Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/morhetz/gruvbox'
 
 " === completion ===
-Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/lifepillar/vim-mucomplete'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ternjs/tern_for_vim'
@@ -110,6 +109,7 @@ let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
+runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set matchtime=0 " Speed up escape after (){} chars
 set nobackup " Don't make a backup before overwriting a file
 set nofoldenable " Leave open all folds
@@ -417,9 +417,6 @@ augroup END
 
 let g:lightline.colorscheme = 'necromancer'
 
-" === matchup ===
-let g:matchup_matchparen_deferred = 1
-
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#smart_enter = 1
@@ -427,10 +424,8 @@ let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'path']
 
-" this is necessary for overriding mucomplete mappings
-imap <NOOP> <plug>(MUcompletePopupCancel)
-
 " make it work with vim-closer && vim-endwise, rhubarb, neovim-remote
+imap <NOOP> <plug>(MUcompletePopupCancel)
 imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
 imap <CR> <Plug>MyCR
 
