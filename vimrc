@@ -57,6 +57,7 @@ Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/chrisbra/Colorizer'
 Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'https://github.com/radenling/vim-dispatch-neovim'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-dispatch'
@@ -559,7 +560,7 @@ if has('nvim')
 
   augroup TerminalInsert
     autocmd!
-    autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert| endif
+    autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert|
   augroup END
 endif
 
@@ -608,8 +609,7 @@ function! <SID>SynStack() abort
 endfunc
 
 " === notes ===
-nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/ <CR>
-nnoremap <Leader>wt :vsplit $HOME/dotfiles/laptop/vim_notes/ <CR>
+nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/ <CR>:Vex<CR>
 
 " === Pre-populate a split command with the current directory ===
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
