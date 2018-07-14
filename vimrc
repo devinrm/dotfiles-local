@@ -557,11 +557,6 @@ if has('nvim')
     autocmd!
     autocmd TermClose * call feedkeys("\<CR>")
   augroup END
-
-  augroup TerminalInsert
-    autocmd!
-    autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert|
-  augroup END
 endif
 
 tnoremap <C-h> <C-\><C-n><C-w>h
@@ -572,14 +567,14 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " and exit properly
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
-nnoremap <Leader>c :10sp term:///bin/zsh<CR>
+nnoremap <Leader>c :10sp term:///bin/zsh<CR>i
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
-  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
-  nnoremap <C-s>- :sp term:///bin/zsh<CR>
-  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
-  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
+  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>i
+  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>i
+  nnoremap <C-s>- :sp term:///bin/zsh<CR>i
+  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>i
+  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>i
 endif
 
 " === Move up and down by visible lines if current line is wrapped ===
