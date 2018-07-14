@@ -567,12 +567,11 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " and exit properly
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
-nnoremap <Leader>c :10sp term:///bin/zsh<CR>i
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
   tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>i
   tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>i
-  nnoremap <C-s>- :sp term:///bin/zsh<CR>i
+  nnoremap <C-s>- :10sp term:///bin/zsh<CR>i
   nnoremap <C-s>\ :vsp term:///bin/zsh<CR>i
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>i
 endif
@@ -604,7 +603,7 @@ function! <SID>SynStack() abort
 endfunc
 
 " === notes ===
-nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/ <CR>:Vex<CR>
+nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/index.md<CR>:Vex<CR>
 
 " === Pre-populate a split command with the current directory ===
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
