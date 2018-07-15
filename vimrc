@@ -63,6 +63,7 @@ Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-dispatch'
 
 " === search ===
+Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-pseudocl'
