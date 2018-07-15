@@ -220,6 +220,8 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
+inoremap <% <% %><Esc>bi
+inoremap <%= <%= %><Esc>bi
 
 " === colorizer ===
 let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml,vim,javascript.jsx'
@@ -603,7 +605,7 @@ function! <SID>SynStack() abort
 endfunc
 
 " === notes ===
-nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/index.md<CR>:Vex<CR>
+nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/index.md
 
 " === Pre-populate a split command with the current directory ===
 nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
