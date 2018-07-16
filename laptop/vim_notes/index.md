@@ -34,7 +34,6 @@
   - this_js.md
   - tmux.md
   - types.md
-  - vi_keybindngs.md
   - vim.md
   - vim_galore.md
   - writing_code_well.md
