@@ -7,6 +7,7 @@ call plug#begin('$HOME/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
+Plug 'https://github.com/devinrm/stellarized'
 Plug 'https://github.com/morhetz/gruvbox'
 
 " === completion ===
@@ -76,11 +77,14 @@ call plug#end()
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
-set background=dark " Use colors that look good on a dark background
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-colorscheme necromancer
+if has('nvim')
+  set termguicolors " nvim gui colors
+endif
+colorscheme stellarized
+set background=dark " Use colors that look good on a dark background
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -101,9 +105,6 @@ if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 endif
 set lazyredraw
-if has('nvim')
-  set termguicolors " nvim gui colors
-endif
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
 let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
@@ -418,7 +419,7 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup END
 
-let g:lightline.colorscheme = 'necromancer'
+let g:lightline.colorscheme = 'stellarized_dark'
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
@@ -560,6 +561,11 @@ if has('nvim')
     autocmd!
     autocmd TermClose * call feedkeys("\<CR>")
   augroup END
+
+  augroup TerminalInsert
+    autocmd!
+    autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert|
+  augroup END
 endif
 
 tnoremap <C-h> <C-\><C-n><C-w>h
@@ -572,11 +578,11 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>i
-  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>i
-  nnoremap <C-s>- :10sp term:///bin/zsh<CR>i
-  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>i
-  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>i
+  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
+  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
+  nnoremap <C-s>- :10sp term:///bin/zsh<CR>
+  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
+  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
 endif
 
 " === Move up and down by visible lines if current line is wrapped ===
