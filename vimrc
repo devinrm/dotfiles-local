@@ -58,7 +58,6 @@ Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/chrisbra/Colorizer'
 Plug 'https://github.com/itchyny/lightline.vim'
-Plug 'https://github.com/radenling/vim-dispatch-neovim'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-dispatch'
@@ -471,7 +470,15 @@ vnoremap <C-\> :TComment<CR>
 let g:tern#command = ['tern']
 
 " === vim-test ===
-let g:test#strategy = 'dispatch'
+function! NeoSplit(cmd) abort
+  botright copen 10
+  call termopen(a:cmd)
+  au BufDelete <buffer> wincmd p " switch back to last window
+  stopinsert
+endfunction
+
+let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
+let g:test#strategy = 'neosplit'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test
@@ -564,7 +571,7 @@ if has('nvim')
 
   augroup TerminalInsert
     autocmd!
-    autocmd BufEnter,WinEnter * if &buftype == 'terminal' |:startinsert|
+    autocmd BufEnter * if &buftype == 'terminal' |:startinsert| endif
   augroup END
 endif
 
