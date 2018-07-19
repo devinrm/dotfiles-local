@@ -231,6 +231,7 @@ let g:CoolTotalMatches = 1
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
+let g:dasht_results_window = 'botright vnew'
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
