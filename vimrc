@@ -60,7 +60,6 @@ Plug 'https://github.com/chrisbra/Colorizer'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
-Plug 'https://github.com/tpope/vim-dispatch'
 
 " === search ===
 Plug 'https://github.com/andymass/vim-matchup'
