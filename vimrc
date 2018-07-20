@@ -579,10 +579,9 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
-" This allows you to nest nvim sessions such as in git commits and still save
-" and exit properly
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
+
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
   tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
