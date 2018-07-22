@@ -7,8 +7,6 @@ call plug#begin('$HOME/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
-Plug 'https://github.com/devinrm/stellarized'
-Plug 'https://github.com/morhetz/gruvbox'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
@@ -81,7 +79,7 @@ set colorcolumn=+1 " highlight column after 'textwidth'
 if has('nvim')
   set termguicolors " nvim gui colors
 endif
-colorscheme stellarized
+colorscheme necromancer
 set background=dark " Use colors that look good on a dark background
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
@@ -303,10 +301,11 @@ function! s:fzf_neighbouring_files() abort
         \ 'source': l:command,
         \ 'sink':   'e',
         \ 'options': '-m -x +s',
-        \ 'window':  'enew' })
+        \ 'window':  'copen' })
 endfunction
 
-command! Neigh call s:fzf_neighbouring_files()
+nnoremap <Leader>e :Nfiles<CR>
+command! Nfiles call s:fzf_neighbouring_files()
 
 " === vim-gitgutter ===
 let g:gitgutter_max_signs = 1500
@@ -418,7 +417,7 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup END
 
-let g:lightline.colorscheme = 'stellarized_dark'
+let g:lightline.colorscheme = 'necromancer'
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
@@ -586,7 +585,7 @@ if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
   tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
   tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
-  nnoremap <C-s>- :10sp term:///bin/zsh<CR>
+  nnoremap <C-s>- :12sp term:///bin/zsh<CR>
   nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
 endif
