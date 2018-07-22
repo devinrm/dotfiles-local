@@ -304,8 +304,8 @@ function! s:fzf_neighbouring_files() abort
         \ 'window':  'copen' })
 endfunction
 
-nnoremap <Leader>e :Nfiles<CR>
 command! Nfiles call s:fzf_neighbouring_files()
+nnoremap <Leader>e :Nfiles<CR>
 
 " === vim-gitgutter ===
 let g:gitgutter_max_signs = 1500
