@@ -46,11 +46,6 @@ Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/tomtom/tcomment_vim'
 Plug 'https://github.com/tpope/vim-endwise'
 
-" === move ===
-if exists('$TMUX')
-  Plug 'https://github.com/christoomey/vim-tmux-navigator'
-endif
-
 " === other ===
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
@@ -495,16 +490,6 @@ nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 
-" === vim-tmux-navigator ===
-if exists('$TMUX')
-  nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
-  nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
-  nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
-  nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
-  let g:tmux_navigator_no_mappings = 1
-  let g:tmux_navigator_save_on_switch = 2
-endif
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -534,14 +519,6 @@ nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
-
-" === Move to windows ===
-if !exists('$TMUX')
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
-endif
 
 " === tab mappings to match tmux
 if !exists('$TMUX')
@@ -580,10 +557,10 @@ if has('nvim')
   augroup END
 endif
 
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc>
 
