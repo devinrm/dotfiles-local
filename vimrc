@@ -318,6 +318,12 @@ augroup LeGit
   autocmd BufWritePost * GitGutter
 augroup END
 
+" === vim-gutentags ===
+let g:gutentags_ctags_exclude = [
+      \'*.json',
+      \'node_modules/**'
+      \]
+
 " === vim-i18n ===
 vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
