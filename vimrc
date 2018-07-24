@@ -600,10 +600,10 @@ function! <SID>SynStack() abort
 endfunc
 
 " === notes ===
-nnoremap <Leader>ww :tabe $HOME/dotfiles/laptop/vim_notes/index.md
+nnoremap <Leader>ww :tabe <C-r>=expand("$HOME/dotfiles/laptop/vim_notes/")<CR><C-d>
 
 " === Pre-populate a split command with the current directory ===
-nnoremap <Leader>v :new <C-r>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nnoremap <Leader>v :e <C-r>=expand("%:p:h") . "/" <CR><C-d>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe $HOME/dotfiles/vimrc<CR>
