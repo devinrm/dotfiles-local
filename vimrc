@@ -422,15 +422,9 @@ let g:lightline.colorscheme = 'necromancer'
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#smart_enter = 1
 let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'path']
-
-" make it work with vim-closer && vim-endwise, rhubarb, neovim-remote
-imap <NOOP> <plug>(MUcompletePopupCancel)
-imap <Plug>MyCR <Plug>CloserClose<Plug>DiscretionaryEnd<Plug>(MUcompleteCR)
-imap <CR> <Plug>MyCR
 
 augroup rhumu
   autocmd!
