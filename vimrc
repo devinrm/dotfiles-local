@@ -174,7 +174,7 @@ endfunction
 
 function s:TrimExtraLines()
   let l:pos = getpos('.')
-  %s#\($\n\s*\)\+\%$##
+  :silent! %s#\($\n\s*\)\+\%$##
   call setpos('.', l:pos)
 endfunction
 
