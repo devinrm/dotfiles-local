@@ -35,7 +35,6 @@ Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/w0rp/ale'
 
 " === make editing nicer ===
-Plug 'https://github.com/derekprior/vim-trimmer'
 Plug 'https://github.com/janko-m/vim-test'
 if has('nvim')
   Plug 'https://github.com/justinmk/vim-highlightedyank'
@@ -159,6 +158,26 @@ augroup ItalicComments
   autocmd ColorScheme * highlight Comment gui=italic
   autocmd ColorScheme * highlight Comment cterm=italic
 augroup END
+
+" Trim trailing whitespace and extra lines
+augroup vimTrimmer
+  autocmd!
+  autocmd BufWritePre * call s:TrimTrailingWhitespace()
+  autocmd BufWritePre * call s:TrimExtraLines()
+augroup END
+
+function! s:TrimTrailingWhitespace()
+  let l:pos = getpos('.')
+  %s/\s\+$//e
+  call setpos('.', l:pos)
+endfunction
+
+function s:TrimExtraLines()
+  let l:pos = getpos('.')
+  %s#\($\n\s*\)\+\%$##
+  call setpos('.', l:pos)
+endfunction
+
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
