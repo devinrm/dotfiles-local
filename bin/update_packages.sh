@@ -18,3 +18,5 @@ cd ~/.asdf/plugins/python/pyenv/ && git pull && cd -
 dasht-docsets-update
 npm outdated -g --depth=0
 npm update -g
+# this needs to come last in order to work
+pip install 'prompt_toolkit<1.1.0,>=1.0.10'
