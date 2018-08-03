@@ -586,6 +586,24 @@ if !exists('$TMUX')
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
 endif
 
+" === nvim :terminal colors ===
+let g:terminal_color_0  = '#25272c'
+let g:terminal_color_1  = '#ba2a2a'
+let g:terminal_color_2  = '#008542'
+let g:terminal_color_3  = '#eac06e'
+let g:terminal_color_4  = '#7e8aa2'
+let g:terminal_color_5  = '#8d4888'
+let g:terminal_color_6  = '#006596'
+let g:terminal_color_7  = '#53586f'
+let g:terminal_color_8  = '#354151'
+let g:terminal_color_9  = '#c95f5f'
+let g:terminal_color_10 = '#73ba25'
+let g:terminal_color_11 = '#f07d30'
+let g:terminal_color_12 = '#81a3cf'
+let g:terminal_color_13 = '#e35682'
+let g:terminal_color_14 = '#25b8a5'
+let g:terminal_color_15 = '#f6f9fc'
+
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
@@ -620,21 +638,3 @@ nnoremap <Leader>v :e <C-r>=expand("%:p:h") . "/" <CR><C-d>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe $HOME/dotfiles/vimrc<CR>
-
-" === nvim :terminal colors ===
-let g:terminal_color_0  = '#25272c'
-let g:terminal_color_1  = '#ba2a2a'
-let g:terminal_color_2  = '#008542'
-let g:terminal_color_3  = '#eac06e'
-let g:terminal_color_4  = '#7e8aa2'
-let g:terminal_color_5  = '#8d4888'
-let g:terminal_color_6  = '#006596'
-let g:terminal_color_7  = '#53586f'
-let g:terminal_color_8  = '#354151'
-let g:terminal_color_9  = '#c95f5f'
-let g:terminal_color_10 = '#73ba25'
-let g:terminal_color_11 = '#f07d30'
-let g:terminal_color_12 = '#81a3cf'
-let g:terminal_color_13 = '#e35682'
-let g:terminal_color_14 = '#25b8a5'
-let g:terminal_color_15 = '#f6f9fc'
