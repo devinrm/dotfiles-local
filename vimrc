@@ -575,7 +575,7 @@ tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <Esc> <C-\><C-n>
-tnoremap <A-[> <Esc>
+tnoremap <A-[> <Esc><Esc>
 
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
