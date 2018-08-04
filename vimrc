@@ -160,23 +160,23 @@ augroup ItalicComments
 augroup END
 
 " Trim trailing whitespace and extra lines
-augroup vimTrimmer
-  autocmd!
-  autocmd BufWritePre * call s:TrimTrailingWhitespace()
-  autocmd BufWritePre * call s:TrimExtraLines()
-augroup END
-
 function! s:TrimTrailingWhitespace()
   let l:pos = getpos('.')
   %s/\s\+$//e
   call setpos('.', l:pos)
 endfunction
 
-function s:TrimExtraLines()
+function s:TrimBlankLines()
   let l:pos = getpos('.')
   :silent! %s#\($\n\s*\)\+\%$##
   call setpos('.', l:pos)
 endfunction
+
+augroup vimTrimmer
+  autocmd!
+  autocmd BufWritePre * call s:TrimTrailingWhitespace()
+  autocmd BufWritePre * call s:TrimBlankLines()
+augroup END
 
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
@@ -484,7 +484,7 @@ let g:tern#command = ['tern']
 
 " === vim-test ===
 function! NeoSplit(cmd) abort
-  botright copen 10
+  botright copen 12
   call termopen(a:cmd)
   au BufDelete <buffer> wincmd p " switch back to last window
   stopinsert
