@@ -7,7 +7,6 @@ call plug#begin('$HOME/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
-Plug 'https://github.com/nightsense/snow'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
@@ -167,18 +166,17 @@ function! s:TrimTrailingWhitespace()
   call setpos('.', l:pos)
 endfunction
 
-function s:TrimBlankLines()
+function! s:TrimBlankLines()
   let l:pos = getpos('.')
   :silent! %s#\($\n\s*\)\+\%$##
   call setpos('.', l:pos)
 endfunction
 
-augroup vimTrimmer
+augroup vimTrim
   autocmd!
   autocmd BufWritePre * call s:TrimTrailingWhitespace()
   autocmd BufWritePre * call s:TrimBlankLines()
 augroup END
-
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
