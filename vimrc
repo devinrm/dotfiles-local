@@ -7,6 +7,7 @@ call plug#begin('$HOME/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
+Plug 'https://github.com/nightsense/snow'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
@@ -73,8 +74,8 @@ set colorcolumn=+1 " highlight column after 'textwidth'
 if has('nvim')
   set termguicolors " nvim gui colors
 endif
-colorscheme necromancer
 set background=dark " Use colors that look good on a dark background
+colorscheme necromancer
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
