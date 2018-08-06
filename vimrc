@@ -14,6 +14,7 @@ Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ternjs/tern_for_vim'
 
 " === experiments ===
+Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
