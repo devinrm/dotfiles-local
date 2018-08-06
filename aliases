@@ -120,3 +120,5 @@ alias wifi-ip="ipconfig getifaddr en0"
 alias update="$HOME/dotfiles/bin/update_packages.sh"
 
 alias browsh="$HOME/./browsh"
+
+alias doc-up="dasht-docsets-update"

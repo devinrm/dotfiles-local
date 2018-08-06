@@ -15,6 +15,8 @@ Plug 'https://github.com/ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
+Plug 'https://github.com/devinrm/preto'
+Plug 'https://github.com/devinrm/blaquemagick.vim'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
