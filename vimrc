@@ -15,8 +15,7 @@ Plug 'https://github.com/ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
-Plug 'https://github.com/devinrm/preto'
-Plug 'https://github.com/devinrm/blaquemagick.vim'
+Plug 'https://github.com/devinrm/vim-yin-yang'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -77,7 +76,7 @@ if has('nvim')
   set termguicolors " nvim gui colors
 endif
 set background=dark " Use colors that look good on a dark background
-colorscheme necromancer
+colorscheme yin
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -439,7 +438,7 @@ augroup alestatus
   autocmd User ALELint call lightline#update()
 augroup END
 
-let g:lightline.colorscheme = 'necromancer'
+let g:lightline.colorscheme = 'yin'
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
