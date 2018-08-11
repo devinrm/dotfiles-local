@@ -5,10 +5,6 @@ require 'pp'
 require 'rb-readline'
 require 'readline'
 
-if defined?(::Bundler)
-  $LOAD_PATH.concat(Dir.glob(".asdf/install/ruby/2.5.1/lib/ruby/gems/rb-readline-0.5.5/lib"))
-end
-
 if defined?(RbReadline)
   def RbReadline.rl_reverse_search_history(sign, key)
     rl_insert_text  `cat ~/.pry_history | fzf --tac |  tr '\n' ' '`
@@ -33,10 +29,14 @@ env_colors = {
   "production" => color_escape_codes[:red],
 }
 
-if defined? Rails
+def app_name
+  File.basename(Rails.root)
+end
+
+if defined?(Rails)
   Pry.config.prompt = proc do |obj, nest_level, _|
     color = env_colors.fetch(Rails.env, color_escape_codes[:reset])
     colored_environment_name = "#{color}#{Rails.env}#{color_escape_codes[:reset]}"
-    "(#{colored_environment_name}) #{obj}:#{nest_level}> "
+    "[#{app_name}]""(#{colored_environment_name}) #{obj}:#{nest_level}>"
   end
 end

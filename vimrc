@@ -485,10 +485,19 @@ let g:tern#command = ['tern']
 
 " === vim-test ===
 function! NeoSplit(cmd) abort
+  let opts = {'suffix': ' # vim-test'}
+  function! opts.close_terminal()
+    if bufnr(self.suffix) != -1
+      execute 'bdelete!' bufnr(self.suffix)
+    end
+  endfunction
+
+  call opts.close_terminal()
+
   botright 12 new
-  call termopen(a:cmd)
-  au BufDelete <buffer> wincmd p " switch back to last window
-  stopinsert
+  call termopen(a:cmd . opts.suffix, opts)
+
+  wincmd p
 endfunction
 
 let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
