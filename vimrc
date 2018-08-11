@@ -496,7 +496,6 @@ function! NeoSplit(cmd) abort
 
   botright 12 new
   call termopen(a:cmd . opts.suffix, opts)
-
   wincmd p
 endfunction
 
