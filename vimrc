@@ -485,7 +485,7 @@ let g:tern#command = ['tern']
 
 " === vim-test ===
 function! NeoSplit(cmd) abort
-  botright copen 12
+  botright 12 new
   call termopen(a:cmd)
   au BufDelete <buffer> wincmd p " switch back to last window
   stopinsert
