@@ -143,10 +143,10 @@ set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ▎
 set statusline+=%3*\ %p
-set statusline+=%4*\ ▌▋▊▉
-highlight! User1 guifg=#e8e8d3 guibg=#666666 gui=BOLD
-highlight! User2 guifg=#e8e8d3 guibg=#666666
-highlight! User3 guifg=#e8e8d3 guibg=#1c1c1c
+set statusline+=%3*\ ▌▋▊▉
+highlight! User1 guifg=#4e4e4e guibg=#666666 gui=BOLD
+highlight! User2 guifg=#4e4e4e guibg=#666666
+highlight! User3 guifg=#4e4e4e guibg=#1c1c1c
 set synmaxcol=200
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
