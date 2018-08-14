@@ -51,7 +51,6 @@ Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/chrisbra/Colorizer'
-Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 
@@ -81,8 +80,6 @@ set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
-set foldmethod=expr
-set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 set formatprg=par
 set gdefault " Replace all matches on a line instead of just the first
 set grepprg=rg\ --vimgrep\ --no-heading
@@ -96,6 +93,7 @@ set ignorecase " case insensitive pattern matching
 if has('nvim')
   set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
 endif
+set laststatus=2
 set lazyredraw
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
 let g:python_host_prog = $HOME.'/.asdf/shims/python2'
@@ -130,8 +128,26 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add " Name of the word list file where w
 set spelllang=en_us " Set region to US English
 set splitbelow " When on, splitting a window will put the new window below the current one.
 set splitright " When on, splitting a window will put the new window right of the current one.
+syntax on " Turn on syntax highlighting. This must come before statusline
+set statusline=
+set statusline+=%3*\ %L
+set statusline+=\ %*
+set statusline+=%1*\▉▊▋▌
+set statusline+=%1*\ %f\ %*
+set statusline+=%3*\▎
+set statusline+=%3*\ %{StatusGit()}
+set statusline+=%3*\ %{StatusGitGutter()}
+set statusline+=%3*\ ▎
+set statusline+=%3*\ %{StatusErrors()}
+set statusline+=%=
+set statusline+=%3*\ %y%*%*
+set statusline+=%3*\ ▎
+set statusline+=%3*\ %p
+set statusline+=%4*\ ▌▋▊▉
+highlight! User1 guifg=#e8e8d3 guibg=#666666 gui=BOLD
+highlight! User2 guifg=#e8e8d3 guibg=#666666
+highlight! User3 guifg=#e8e8d3 guibg=#1c1c1c
 set synmaxcol=200
-syntax on " Turn on syntax highlighting.
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
@@ -142,6 +158,11 @@ set undoreload=500
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
 set wildmode=list:longest,list:full
+
+"  ____ ____ ____ ____ ____ ____  ____ ____ ___
+" ||f |||u |||n |||c |||t |||i |||o |||n |||s ||
+" ||__|||__|||__|||__|||__|||__|||__|||__|||__||
+" |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
@@ -179,6 +200,37 @@ augroup vimTrim
   autocmd BufWritePre * call s:TrimTrailingWhitespace()
   autocmd BufWritePre * call s:TrimBlankLines()
 augroup END
+
+" === statusline ===
+function! StatusGit() abort
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! StatusErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
+endfunction
+
+function! StatusGitGutter() abort
+  if !exists('*GitGutterGetHunkSummary')
+        \ || ! get(g:, 'gitgutter_enabled', 0)
+        \ || winwidth('.') <= 90
+    return ''
+  endif
+  let l:symbols = [
+        \ g:gitgutter_sign_added . '',
+        \ g:gitgutter_sign_modified . '',
+        \ g:gitgutter_sign_removed . ''
+        \ ]
+  let l:hunks = GitGutterGetHunkSummary()
+  let l:ret = []
+  for l:i in [0, 1, 2]
+    if l:hunks[l:i] > 0
+      call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
+    endif
+  endfor
+  return join(l:ret, ' ')
+endfunction
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
@@ -348,97 +400,6 @@ let g:javascript_plugin_flow = 1
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0
-
-" === lightline.vim ===
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'filename' ],
-      \             [ 'linter',  'gitbranch', 'gitgutter' ] ],
-      \   'right': [ [ 'percent', 'lineinfo' ],
-      \              [ 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'LightMod',
-      \   'readonly': 'LightRO',
-      \   'gitbranch': 'LightGit',
-      \   'filename': 'LightName',
-      \   'filetype': 'LightType',
-      \   'fileencoding': 'LightEncoding',
-      \   'mode': 'LightMode',
-      \   'gitgutter': 'MyGitGutter',
-      \ },
-      \ 'component_expand': {
-      \   'linter': 'LightErrors',
-      \ },
-      \ 'component_type': {
-      \   'readonly': 'error',
-      \   'linter': 'error'
-      \ },
-      \ 'separator': { 'left': '▉▊▋▌', 'right': '▌▋▊▉' },
-      \ 'subseparator': { 'left': '▎', 'right': '▎' }
-      \ }
-
-function! LightMod() abort
-  return &filetype =~? &modified ? '» ' : &modifiable ? '' : ''
-endfunction
-
-function! LightRO() abort
-  return &filetype !~? &readonly ? '' : '• '
-endfunction
-
-function! LightGit() abort
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-function! LightName() abort
-  let l:name = expand('%:p:.')
-  if l:name =~? 'NetrwTreeListing'
-    return ''
-  endif
-  return ('' !=? LightRO() ? LightRO() : LightMod()) .
-        \ ('' !=? expand('%:p:.') ? expand('%:p:.') : '[No Name]')
-endfunction
-
-function! LightType() abort
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : '') : ''
-endfunction
-
-function! LightEncoding() abort
-  return winwidth(0) > 70 ? (strlen(&fileencoding) ? &encoding : &encoding) : ''
-endfunction
-
-function! LightErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
-endfunction
-
-function! MyGitGutter() abort
-  if !exists('*GitGutterGetHunkSummary')
-        \ || ! get(g:, 'gitgutter_enabled', 0)
-        \ || winwidth('.') <= 90
-    return ''
-  endif
-  let l:symbols = [
-        \ g:gitgutter_sign_added . '',
-        \ g:gitgutter_sign_modified . '',
-        \ g:gitgutter_sign_removed . ''
-        \ ]
-  let l:hunks = GitGutterGetHunkSummary()
-  let l:ret = []
-  for l:i in [0, 1, 2]
-    if l:hunks[l:i] > 0
-      call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
-    endif
-  endfor
-  return join(l:ret, ' ')
-endfunction
-
-augroup alestatus
-  autocmd!
-  autocmd User ALELint call lightline#update()
-augroup END
-
-let g:lightline.colorscheme = 'yin'
 
 " === MUcomplete ===
 let g:mucomplete#enable_auto_at_startup = 1
