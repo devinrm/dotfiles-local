@@ -50,7 +50,7 @@ Plug 'https://github.com/tpope/vim-endwise'
 " === other ===
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
-Plug 'https://github.com/chrisbra/Colorizer'
+Plug 'https://github.com/ap/vim-css-color'
 Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 
@@ -287,9 +287,6 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 inoremap <% <% %><Esc>bi
 inoremap <%= <%= %><Esc>bi
-
-" === colorizer ===
-let g:colorizer_auto_filetype='sass,scss,css,html,slim,haml,vim,javascript.jsx'
 
 " === vim-cool ===
 let g:CoolTotalMatches = 1
