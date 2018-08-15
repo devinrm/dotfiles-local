@@ -101,7 +101,7 @@ let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
-runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
+" runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set matchtime=0 " Speed up escape after (){} chars
 set nobackup " Don't make a backup before overwriting a file
 set nofoldenable " Leave open all folds
@@ -142,7 +142,7 @@ set statusline+=%3*\ %{StatusErrors()}
 set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ▎
-set statusline+=%3*\ %p
+set statusline+=%3*\ %P
 set statusline+=%3*\ ▌▋▊▉
 highlight! User1 guifg=#4e4e4e guibg=#666666 gui=BOLD
 highlight! User2 guifg=#4e4e4e guibg=#666666
