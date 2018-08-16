@@ -454,7 +454,8 @@ function! NeoSplit(cmd) abort
 
   botright 12 new
   call termopen(a:cmd . opts.suffix, opts)
-  wincmd p
+  au BufDelete <buffer> wincmd p
+  stopinsert
 endfunction
 
 let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
