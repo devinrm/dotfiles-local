@@ -1,4 +1,26 @@
 ```vim
+gf, <C-W>f, <C-W>gf: jump to the included file under the cursor.
+
+:find, :sfind, :tabfind: jump to the specified included file.
+
+[i: display the first line in the current file or an included file containing the keyword under the cursor.
+
+]i: like above, but start searching after the cursor.
+
+:isearch: like above, but give your own line range and search pattern.
+
+[I, ]I, :ilist: like above, but display all matches.
+
+[<C-I>, ]<C-I>, <C-W>i, :ijump, :isplit: like above, but jump to the match.
+
+<C-X><C-I>: complete keywords from included files.
+
+[d, ]d, :dsearch, [D, ]D, :dlist, [<C-D>, ]<C-D>, <C-W>d, :djump, :dsplit, <C-X><C-D>: like their i equivalents, but for macro definitions.
+
+:checkpath: list missing included files.
+
+helpgrep
+
 After creating a file and directory with `:e` save it:
 :!mkdir -p %:h
 
