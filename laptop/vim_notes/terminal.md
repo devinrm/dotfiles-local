@@ -4,7 +4,7 @@ In general it's not advisable to use `kill -9` for the following reasons:
   it doesn't give the process a chance to cleanly...
 
   1. shut down socket connections
-  2. clean up tmep files
+  2. clean up tmp files
   3. inform its children that it's going away
   4. reset its terminal characteristics
 

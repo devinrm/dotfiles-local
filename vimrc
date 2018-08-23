@@ -7,6 +7,7 @@ call plug#begin('$HOME/.vim/bundle')
 
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
+Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
@@ -15,7 +16,8 @@ Plug 'https://github.com/ternjs/tern_for_vim'
 
 " === experiments ===
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
-Plug 'https://github.com/devinrm/vim-yin-yang'
+Plug 'https://github.com/tweekmonster/startuptime.vim'
+Plug 'https://github.com/tpope/vim-commentary'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -44,18 +46,15 @@ endif
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-Plug 'https://github.com/tomtom/tcomment_vim'
 Plug 'https://github.com/tpope/vim-endwise'
 
 " === other ===
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/ap/vim-css-color'
-Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 
 " === search ===
-Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-pseudocl'
@@ -75,7 +74,7 @@ if has('nvim')
   set termguicolors " nvim gui colors
 endif
 set background=dark " Use colors that look good on a dark background
-colorscheme yin
+colorscheme grey
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -101,7 +100,7 @@ let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
 let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
-" runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
+runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set matchtime=0 " Speed up escape after (){} chars
 set nobackup " Don't make a backup before overwriting a file
 set nofoldenable " Leave open all folds
@@ -288,6 +287,10 @@ let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 inoremap <% <% %><Esc>bi
 inoremap <%= <%= %><Esc>bi
 
+" === commmentary ===
+nnoremap <C-\> :Commentary<CR>
+vnoremap <C-\> :Commentary<CR>
+
 " === vim-cool ===
 let g:CoolTotalMatches = 1
 
@@ -434,10 +437,6 @@ set omnifunc=syntaxcomplete#Complete
 set pumheight=5
 set shortmess+=c
 
-" === tcommment ===
-nnoremap <C-\> :TComment<CR>
-vnoremap <C-\> :TComment<CR>
-
 " === tern_for_vim ===
 let g:tern#command = ['tern']
 
@@ -470,6 +469,7 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
+nnoremap <silent> <leader>r :12sp term:///bin/zsh<CR>rake<CR>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -554,24 +554,6 @@ if !exists('$TMUX')
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
 endif
 
-" === nvim :terminal colors ===
-let g:terminal_color_0  = '#25272c'
-let g:terminal_color_1  = '#ba2a2a'
-let g:terminal_color_2  = '#008542'
-let g:terminal_color_3  = '#eac06e'
-let g:terminal_color_4  = '#7e8aa2'
-let g:terminal_color_5  = '#8d4888'
-let g:terminal_color_6  = '#006596'
-let g:terminal_color_7  = '#53586f'
-let g:terminal_color_8  = '#354151'
-let g:terminal_color_9  = '#c95f5f'
-let g:terminal_color_10 = '#73ba25'
-let g:terminal_color_11 = '#f07d30'
-let g:terminal_color_12 = '#81a3cf'
-let g:terminal_color_13 = '#e35682'
-let g:terminal_color_14 = '#25b8a5'
-let g:terminal_color_15 = '#f6f9fc'
-
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
 nnoremap k gk
@@ -580,10 +562,10 @@ nnoremap k gk
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
-nnoremap <Leader>js :10sp term:///bin/zsh<CR> node %<CR>
+nnoremap <Leader>js :12sp term:///bin/zsh<CR> node %<CR>
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>rb :10sp term:///bin/zsh<CR> ruby -w %<CR>
+nnoremap <Leader>rb :12sp term:///bin/zsh<CR> ruby -w %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :vsplit db/schema.rb<CR>
