@@ -13,11 +13,17 @@ Plug 'https://github.com/devinrm/the-grey'
 Plug 'https://github.com/lifepillar/vim-mucomplete'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ternjs/tern_for_vim'
+Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
-Plug 'https://github.com/tpope/vim-commentary'
+
+" === find ===
+Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/vim-pseudocl'
+Plug 'https://github.com/romainl/vim-cool'
 
 " === git ===
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -26,39 +32,28 @@ Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-rhubarb'
 
 " === language plugins ===
+Plug 'https://github.com/Keithbsmiley/rspec.vim'
 Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.vim'
-Plug 'https://github.com/Keithbsmiley/rspec.vim'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 
-" === linting ===
-Plug 'https://github.com/w0rp/ale'
-
-" === make editing nicer ===
-Plug 'https://github.com/janko-m/vim-test'
+" === other ===
 if has('nvim')
   Plug 'https://github.com/justinmk/vim-highlightedyank'
 endif
+Plug 'https://github.com/alvan/vim-closetag'
+Plug 'https://github.com/ap/vim-css-color'
+Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-Plug 'https://github.com/tpope/vim-endwise'
-
-" === other ===
-Plug 'https://github.com/AndrewRadev/switch.vim'
-Plug 'https://github.com/alvan/vim-closetag'
-Plug 'https://github.com/ap/vim-css-color'
 Plug 'https://github.com/sunaku/vim-dasht'
-
-" === search ===
-Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
-Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/junegunn/vim-pseudocl'
-Plug 'https://github.com/romainl/vim-cool'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-endwise'
 
 call plug#end()
 
@@ -143,9 +138,6 @@ set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ▎
 set statusline+=%3*\ %P
 set statusline+=%3*\ ▌▋▊▉
-highlight! User1 guifg=#4e4e4e guibg=#666666 gui=BOLD
-highlight! User2 guifg=#4e4e4e guibg=#666666
-highlight! User3 guifg=#4e4e4e guibg=#1c1c1c
 set synmaxcol=200
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
@@ -470,6 +462,8 @@ nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 nnoremap <silent> <leader>r :12sp term:///bin/zsh<CR>rake<CR>
+
+" command -nargs=+ Run :cexpr system('<args>') | copen
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
