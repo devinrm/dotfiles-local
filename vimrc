@@ -46,7 +46,7 @@ if has('nvim')
   Plug 'https://github.com/justinmk/vim-highlightedyank'
 endif
 Plug 'https://github.com/alvan/vim-closetag'
-Plug 'https://github.com/ap/vim-css-color'
+Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/rstacruz/vim-closer'
@@ -414,6 +414,13 @@ let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
 
 " === omnicompletion ===
+filetype plugin on
+set completeopt+=noselect,noinsert,menuone
+set completeopt-=i,t,preview
+set noinfercase
+set pumheight=5
+set shortmess+=c
+
 augroup omnifuncs
   autocmd!
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -421,13 +428,13 @@ augroup omnifuncs
   autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 augroup end
-filetype plugin on
-set completeopt+=noselect,noinsert,menuone
-set completeopt-=i,t,preview
-set noinfercase
-set omnifunc=syntaxcomplete#Complete
-set pumheight=5
-set shortmess+=c
+
+if has("autocmd") && exists("+omnifunc")
+  autocmd Filetype *
+        \ if &omnifunc == "" |
+        \  setlocal omnifunc=syntaxcomplete#Complete |
+        \ endif
+endif
 
 " === tern_for_vim ===
 let g:tern#command = ['tern']
