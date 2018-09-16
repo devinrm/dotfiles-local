@@ -22,7 +22,6 @@ Plug 'https://github.com/tweekmonster/startuptime.vim'
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/junegunn/vim-pseudocl'
 Plug 'https://github.com/romainl/vim-cool'
 
 " === git ===
@@ -32,14 +31,12 @@ Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-rhubarb'
 
 " === language plugins ===
-Plug 'https://github.com/Keithbsmiley/rspec.vim'
 Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.vim'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
-Plug 'https://github.com/vim-ruby/vim-ruby'
 
 " === other ===
 if has('nvim')
@@ -436,6 +433,9 @@ if has("autocmd") && exists("+omnifunc")
         \  setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
 endif
+
+" === vim-ruby ===
+let ruby_no_expensive = 1
 
 " === tern_for_vim ===
 let g:tern#command = ['tern']
