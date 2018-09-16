@@ -94,6 +94,7 @@ set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit
 set matchtime=0 " Speed up escape after (){} chars
+set mouse=a " Enable mouse for pair programming
 set nobackup " Don't make a backup before overwriting a file
 set nofoldenable " Leave open all folds
 set nojoinspaces " Insert one space after a '.', '?' and '!' with a join command.
