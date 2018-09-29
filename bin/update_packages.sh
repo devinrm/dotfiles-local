@@ -15,6 +15,5 @@ asdf update ;
 asdf plugin-update --all ;
 # the asdf python maintainer doesn't update pyenv regularly so this is necessary
 cd ~/.asdf/plugins/python/pyenv/ && git pull && cd -
-pip install 'prompt_toolkit<1.1.0,>=1.0.10'
 npm outdated -g --depth=0
 npm update -g
