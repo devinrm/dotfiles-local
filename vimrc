@@ -11,7 +11,6 @@ Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
-Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ternjs/tern_for_vim'
 Plug 'https://github.com/w0rp/ale'
 
@@ -374,12 +373,6 @@ augroup LeGit
   autocmd!
   autocmd BufWritePost * GitGutter
 augroup END
-
-" === vim-gutentags ===
-let g:gutentags_ctags_exclude = [
-      \'*.json',
-      \'node_modules/**'
-      \]
 
 " === vim-i18n ===
 vmap <Leader>z :call I18nTranslateString()<CR>

@@ -1,3 +1,4 @@
+--regex-ruby=/(^|;)[ \t]*(class|module)[ \t]+([A-Z][[:alnum:]_]+(::[A-Z][[:alnum:]_]+)+)/\3/c,class,constant/
 --regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
 --regex-ruby=/^[ \t]*attr_(reader|writer|accessor) (:[a-z0-9_]+, )*:([a-z0-9_]+)/\3/A,attr/
 --langdef=Elixir
@@ -21,6 +22,12 @@
 --exclude=public
 --exclude=packs
 --exclude=packs-test
+--exclude=*.min.js
+--exclude=.git
+--exclude=spec
+--exclude=*.test.js
+--exclude=*.css
+--exclude=*.scss
 
 --langdef=js
 --langmap=js:.js
