@@ -298,6 +298,8 @@ nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
+let g:fzf_layout = { 'window': '15split enew' }
+
 " match fzf colors to colorscheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -357,7 +359,7 @@ function! s:fzf_neighbouring_files() abort
         \ 'source': l:command,
         \ 'sink':   'e',
         \ 'options': '-m -x +s',
-        \ 'window':  'copen' })
+        \ 'window':  'botright 12 new' })
 endfunction
 
 command! Nfiles call s:fzf_neighbouring_files()
