@@ -25,7 +25,8 @@
 --exclude=*.min.js
 --exclude=.git
 --exclude=spec
---exclude=*.test.js
+--exclude=*.test.jsx
+--exclude=*.test.jsx
 --exclude=*.css
 --exclude=*.scss
 
