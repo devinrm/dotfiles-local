@@ -29,6 +29,8 @@
 --exclude=*.test.jsx
 --exclude=*.css
 --exclude=*.scss
+--exclude=*.dtd
+--exclude=*.mod
 
 --langdef=js
 --langmap=js:.js
