@@ -273,8 +273,6 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
-inoremap <% <% %><Esc>bi
-inoremap <%= <%= %><Esc>bi
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -556,7 +554,7 @@ endif
 nnoremap j gj
 nnoremap k gk
 
-" === sed it up ===
+" === %s it up ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
