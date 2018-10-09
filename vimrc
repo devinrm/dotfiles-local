@@ -17,6 +17,7 @@ Plug 'https://github.com/w0rp/ale'
 " === experiments ===
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
+Plug 'https://github.com/GabrieleLippi/ydkjs-vim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -59,7 +60,7 @@ call plug#end()
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 set backspace=2 " Backspace deletes like most programs in insert mode
-set clipboard=unnamedplus " copy paste to system clipboard
+set clipboard^=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 if has('nvim')
   set termguicolors " nvim gui colors
@@ -235,7 +236,8 @@ let g:ale_linters = {
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
       \ 'scss': ['scsslint'],
       \ 'text': ['vale', 'write-good', 'alex'],
-      \ 'vim': ['vint']
+      \ 'vim': ['vint'],
+      \ 'yml': ['yamllint']
       \ }
 
 let g:ale_fixers = {
