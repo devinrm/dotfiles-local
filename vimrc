@@ -8,6 +8,7 @@ call plug#begin('$HOME/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
+Plug 'https://github.com/rakr/vim-one'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
@@ -221,6 +222,28 @@ function! StatusGitGutter() abort
   return join(l:ret, ' ')
 endfunction
 
+" === quake terminal ===
+let s:term_buf = 0
+let s:term_win = 0
+function! TermToggle(height)
+  if win_gotoid(s:term_win)
+    hide
+  else
+    new terminal
+    exec "resize ".a:height
+    try
+      exec "buffer ".s:term_buf
+      exec "bd terminal"
+    catch
+      call termopen($SHELL, {"detach": 0})
+      let s:term_buf = bufnr("")
+      setlocal nonu nornu scl=no nocul
+    endtry
+    startinsert!
+    let s:term_win = win_getid()
+  endif
+endfunction
+
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
 " ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
@@ -233,7 +256,7 @@ let g:ale_linters = {
       \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
+      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman', 'solargraph'],
       \ 'scss': ['scsslint'],
       \ 'text': ['vale', 'write-good', 'alex'],
       \ 'vim': ['vint'],
@@ -542,6 +565,10 @@ tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc><Esc>
+
+nnoremap <silent><A-m> :call TermToggle(12)<CR>
+inoremap <silent><A-m> <Esc>:call TermToggle(12)<CR>
+tnoremap <silent><A-m> <C-\><C-n>:call TermToggle(12)<CR>
 
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
