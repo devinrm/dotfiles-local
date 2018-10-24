@@ -321,7 +321,9 @@ nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
-let g:fzf_layout = { 'window': '15split enew' }
+if has('nvim')
+  let g:fzf_layout = { 'window': '15split enew' }
+endif
 
 " match fzf colors to colorscheme
 let g:fzf_colors =
@@ -566,9 +568,9 @@ tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc><Esc>
 
-nnoremap <silent><A-m> :call TermToggle(12)<CR>
-inoremap <silent><A-m> <Esc>:call TermToggle(12)<CR>
-tnoremap <silent><A-m> <C-\><C-n>:call TermToggle(12)<CR>
+nnoremap <silent><A-m> :call TermToggle(20)<CR>
+inoremap <silent><A-m> <Esc>:call TermToggle(20)<CR>
+tnoremap <silent><A-m> <C-\><C-n>:call TermToggle(20)<CR>
 
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>

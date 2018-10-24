@@ -11,7 +11,7 @@ interactive_editor
 mdl
 mdn_query
 neovim
-redis-stat
+parity
 reek
 rubocop
 rubocop-rspec
