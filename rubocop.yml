@@ -1,4 +1,6 @@
-# require: rubocop-rspec
+---
+require: rubocop-rspec
+
 AllCops:
   Exclude:
     - db/schema.rb
@@ -582,6 +584,13 @@ Performance/CaseWhenSplat:
   Description: >-
                   Place `when` conditions that use splat at the end
                   of the list of `when` branches.
+  Enabled: true
+
+Performance/ChainArrayAllocation:
+  Description: >-
+                  Instead of chaining array methods that allocate new arrays, mutate an
+                  existing array.
+  Reference: 'https://twitter.com/schneems/status/1034123879978029057'
   Enabled: true
 
 Performance/Count:
