@@ -415,7 +415,7 @@ let g:jsx_ext_required = 0
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'dict', 'uspl', 'path']
+let g:mucomplete#chains.default  = ['omni', 'path']
 
 augroup rhumu
   autocmd!
