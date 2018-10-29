@@ -60,6 +60,7 @@ call plug#end()
 " ||__|||__|||__|||__|||__|||__|||__|||__||
 " |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
+set autoread
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard^=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
