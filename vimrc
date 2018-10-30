@@ -231,14 +231,14 @@ function! TermToggle(height)
     hide
   else
     new terminal
-    exec "resize ".a:height
+    exec 'resize '.a:height
     try
-      exec "buffer ".s:term_buf
-      exec "bd terminal"
+      exec 'buffer '.s:term_buf
+      exec 'bd terminal'
     catch
-      call termopen($SHELL, {"detach": 0})
-      let s:term_buf = bufnr("")
-      setlocal nonu nornu scl=no nocul
+      call termopen($SHELL, {'detach': 0})
+      let s:term_buf = bufnr('')
+      setlocal nonumber nornu scl=no nocul
     endtry
     startinsert!
     let s:term_win = win_getid()
@@ -447,13 +447,16 @@ augroup omnifuncs
   autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-augroup end
+augroup END
 
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-        \ if &omnifunc == "" |
-        \  setlocal omnifunc=syntaxcomplete#Complete |
-        \ endif
+if has('autocmd') && exists('+omnifunc')
+  augroup omnicomplete
+    autocmd!
+    autocmd Filetype *
+          \ if &omnifunc == '' |
+          \  setlocal omnifunc=syntaxcomplete#Complete |
+          \ endif
+  augroup END
 endif
 
 " === vim-ruby ===
@@ -475,7 +478,10 @@ function! NeoSplit(cmd) abort
 
   botright 12 new
   call termopen(a:cmd . opts.suffix, opts)
-  au BufDelete <buffer> wincmd p
+  augroup termsplit
+    autocmd!
+    autocmd BufDelete <buffer> wincmd p
+  augroup END
   stopinsert
 endfunction
 
