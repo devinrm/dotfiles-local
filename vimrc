@@ -11,7 +11,7 @@ Plug 'https://github.com/devinrm/the-grey'
 Plug 'https://github.com/rakr/vim-one'
 
 " === completion ===
-Plug 'https://github.com/lifepillar/vim-mucomplete'
+" Plug 'https://github.com/lifepillar/vim-mucomplete'
 Plug 'https://github.com/ternjs/tern_for_vim'
 Plug 'https://github.com/w0rp/ale'
 
@@ -19,6 +19,7 @@ Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/GabrieleLippi/ydkjs-vim'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -300,6 +301,28 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
+" === coc.vim ===
+set hidden
+set cmdheight=2
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Show signature help while editing
+augroup showsignature
+  autocmd!
+  autocmd CursorHoldI * silent! call CocAction('showSignatureHelp')
+augroup END
+
+" Highlight symbol under cursor on CursorHold
+augroup cochighlight
+  autocmd!
+  autocmd CursorHold * silent call CocAction('highlight')
+augroup END
+
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
 vnoremap <C-\> :Commentary<CR>
@@ -413,16 +436,16 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " === MUcomplete ===
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#buffer_relative_paths = 1
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['omni', 'path']
+" let g:mucomplete#enable_auto_at_startup = 1
+" let g:mucomplete#buffer_relative_paths = 1
+" let g:mucomplete#chains = {}
+" let g:mucomplete#chains.default  = ['omni', 'path']
 
-augroup rhumu
-  autocmd!
-  autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
-  autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
-augroup END
+" augroup rhumu
+"   autocmd!
+"   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
+"   autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
+" augroup END
 
 " === netrw ===
 let g:netrw_browse_split = 4
