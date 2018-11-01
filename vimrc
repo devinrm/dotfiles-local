@@ -8,7 +8,6 @@ call plug#begin('$HOME/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
-Plug 'https://github.com/rakr/vim-one'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
