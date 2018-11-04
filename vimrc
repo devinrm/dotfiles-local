@@ -256,7 +256,7 @@ let g:ale_linters = {
       \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
-      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman', 'solargraph'],
+      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['scsslint'],
       \ 'text': ['vale', 'write-good', 'alex'],
       \ 'vim': ['vint'],
