@@ -365,7 +365,7 @@ augroup ag_commands_with_fzf
   autocmd! VimEnter * command! -nargs=* -complete=file Ag :call s:fzf_ag_raw(<q-args>)
 augroup END
 
-nnoremap \ :Rg<SPACE>-F <query> -g '*.<file_extension>'
+nnoremap \ :Rg<SPACE>-F '' -g '*.'
 " grep the word under the cursor
 nnoremap gr :Rg <C-R><C-W><CR>
 
@@ -415,7 +415,7 @@ let g:jsx_ext_required = 0
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#buffer_relative_paths = 1
 let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['omni', 'path']
+let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'keyp', 'path']
 
 augroup rhumu
   autocmd!
