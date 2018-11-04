@@ -1,0 +1,17 @@
+---
+inherit_from: .rubocop.yml
+
+AllCops:
+  Include:
+    - '**/*.erb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/AlignHash:
+  Enabled: false
+Layout/AlignParameters:
+  Enabled: false
+Layout/IndentationWidth:
+  Enabled: false
+Layout/TrailingBlankLines:
+  Enabled: false

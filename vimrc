@@ -252,7 +252,7 @@ endfunction
 " === ale ===
 let g:ale_linters = {
       \ 'css': ['scsslint'],
-      \ 'erb': ['erubi'],
+      \ 'erb': ['erubi', 'ruumba'],
       \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
