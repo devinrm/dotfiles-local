@@ -373,7 +373,7 @@ nnoremap gr :Rg <C-R><C-W><CR>
 " Press ; and then start typing to fzf search the whole project for a word or
 " string
 command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
-nnoremap ; :Fg<CR>
+nnoremap <Leader>; :Fg<CR>
 
 " Search neighboring files
 function! s:fzf_neighbouring_files() abort
