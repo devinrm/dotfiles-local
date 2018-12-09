@@ -32,7 +32,7 @@ Plug 'https://github.com/tpope/vim-rhubarb'
 
 " === language plugins ===
 Plug 'https://github.com/hail2u/vim-css3-syntax'
-Plug 'https://github.com/iamcco/markdown-preview.vim'
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
@@ -521,6 +521,7 @@ xnoremap . :normal.<CR>
 
 " === Make previewing registers a little easier ===
 nnoremap @ :reg<CR>
+nnoremap " :reg<CR>
 
 " === Require pry ===
 nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
