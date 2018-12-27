@@ -115,6 +115,8 @@ alias js="bundle exec jekyll serve & ; open http://127.0.0.1:4000"
 
 alias dot="cd $HOME/dotfiles"
 
+alias work="cd $HOME/work/commonlit"
+
 alias wifi-ip="ipconfig getifaddr en0"
 
 alias update="$HOME/dotfiles/bin/update_packages.sh"

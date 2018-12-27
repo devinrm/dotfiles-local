@@ -259,8 +259,7 @@ let g:ale_linters = {
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['scsslint'],
       \ 'text': ['vale', 'write-good', 'alex'],
-      \ 'vim': ['vint'],
-      \ 'yml': ['yamllint']
+      \ 'vim': ['vint']
       \ }
 
 let g:ale_fixers = {

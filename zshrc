@@ -45,6 +45,12 @@ _load_settings "$HOME/.zsh/configs"
 [ -d "/usr/local/bin" ] && PATH="/usr/local/bin:${PATH}"
 [ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
+# openssl
+PATH="/usr/local/opt/openssl/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
