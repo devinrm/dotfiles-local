@@ -34,7 +34,7 @@ npm i -g stylelint ;
 npm i -g stylelint-config-standard ;
 npm i -g stylelint-config-styled-components ;
 npm i -g stylelint-processor-styled-components ;
-npm i -g tern ;
+npm i -g tern@0.22.3 ;
 npm i -g tern-jsx ;
 npm i -g tldr ;
 npm i -g write-good ;
