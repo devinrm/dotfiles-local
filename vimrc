@@ -374,22 +374,6 @@ nnoremap gr :Rg <C-R><C-W><CR>
 command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <Leader>; :Fg<CR>
 
-" Search neighboring files
-function! s:fzf_neighbouring_files() abort
-  let l:current_file =expand('%')
-  let l:cwd = fnamemodify(l:current_file, ':h')
-  let l:command = 'ag -g "" -f ' . l:cwd . ' --depth 0'
-
-  call fzf#run({
-        \ 'source': l:command,
-        \ 'sink':   'e',
-        \ 'options': '-m -x +s',
-        \ 'window':  'botright 12 new' })
-endfunction
-
-command! Nfiles call s:fzf_neighbouring_files()
-nnoremap <Leader>e :Nfiles<CR>
-
 " === vim-gitgutter ===
 let g:gitgutter_max_signs = 1500
 let g:gitgutter_sign_added = '+'
@@ -400,10 +384,6 @@ augroup LeGit
   autocmd!
   autocmd BufWritePost * GitGutter
 augroup END
-
-" === vim-i18n ===
-vmap <Leader>z :call I18nTranslateString()<CR>
-vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 " === vim-javascript ===
 let g:javascript_plugin_flow = 1
@@ -618,7 +598,7 @@ endfunc
 nnoremap <Leader>ww :tabe <C-r>=expand("$HOME/dotfiles/laptop/vim_notes/")<CR><C-d>
 
 " === Pre-populate a split command with the current directory ===
-nnoremap <Leader>v :e <C-r>=expand("%:p:h") . "/" <CR><C-d>
+nnoremap <Leader>e :e <C-r>=expand("%:p:h") . "/" <CR><C-d>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe $HOME/dotfiles/vimrc<CR>
