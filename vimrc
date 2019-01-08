@@ -284,6 +284,8 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_enabled': 0},
       \}
 
+
+let g:ale_virtualtext_cursor = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
@@ -295,6 +297,12 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
+
+hi ALEVirtualTextError guifg=#a63038
+hi ALEVirtualTextWarning guifg=#a63038
+hi ALEVirtualTextInfo guifg=#a63038
+hi ALEVirtualTextStyleError guifg=#a63038
+hi ALEVirtualTextStyleWarning guifg=#a63038
 
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
