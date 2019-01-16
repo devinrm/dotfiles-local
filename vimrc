@@ -18,6 +18,8 @@ Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/GabrieleLippi/ydkjs-vim'
+" Plug 'https://github.com/stefanoverna/vim-i18n'
+" Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -112,7 +114,6 @@ set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
 set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
-set shortmess=a
 set showcmd " display incomplete commands
 set showtabline=2
 set signcolumn=yes " Leave signcolumn enabled otherwise it's a little jarring
@@ -252,7 +253,7 @@ endfunction
 " === ale ===
 let g:ale_linters = {
       \ 'css': ['scsslint'],
-      \ 'erb': ['erubi', 'ruumba'],
+      \ 'erb': ['erubi'],
       \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
       \ 'javascript': ['flow', 'eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
@@ -298,14 +299,51 @@ nnoremap <Leader>f :ALEFix<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
-hi ALEVirtualTextError guifg=#a63038
-hi ALEVirtualTextWarning guifg=#a63038
-hi ALEVirtualTextInfo guifg=#a63038
-hi ALEVirtualTextStyleError guifg=#a63038
-hi ALEVirtualTextStyleWarning guifg=#a63038
-
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
+
+" " === coc.nvim ===
+" " if hidden not set, TextEdit might fail.
+" set hidden
+
+" " Smaller updatetime for CursorHold & CursorHoldI
+" set updatetime=300
+
+" " don't give |ins-completion-menu| messages.
+" set shortmess+=c
+
+" " Use tab for trigger completion with characters ahead and navigate.
+" " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+" " Use <c-space> for trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" " Use `[c` and `]c` for navigate diagnostics
+" nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" " Remap keys for gotos
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+
+" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+" vmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" " Remap for do codeAction of current line
+" nmap <leader>ac  <Plug>(coc-codeaction)
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -392,6 +430,9 @@ augroup LeGit
   autocmd!
   autocmd BufWritePost * GitGutter
 augroup END
+
+" === vim-i18n ===
+vmap <Leader>z :call I18nTranslateString()<CR>
 
 " === vim-javascript ===
 let g:javascript_plugin_flow = 1
@@ -508,7 +549,6 @@ xnoremap . :normal.<CR>
 
 " === Make previewing registers a little easier ===
 nnoremap @ :reg<CR>
-nnoremap " :reg<CR>
 
 " === Require pry ===
 nnoremap <Leader>b orequire "pry"; binding.pry<esc>^

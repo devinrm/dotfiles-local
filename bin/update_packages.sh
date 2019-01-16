@@ -4,7 +4,6 @@ set -e
 
 brew update && brew upgrade ;
 brew cleanup ;
-brew prune ;
 gem update ;
 gem update --system ;
 gem pristine bundler ;
