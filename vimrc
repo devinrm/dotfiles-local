@@ -8,6 +8,7 @@ call plug#begin('$HOME/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
+Plug 'https://github.com/devinrm/the-other'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
@@ -15,10 +16,6 @@ Plug 'https://github.com/ternjs/tern_for_vim'
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
-Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
-Plug 'https://github.com/tweekmonster/startuptime.vim'
-Plug 'https://github.com/GabrieleLippi/ydkjs-vim'
-" Plug 'https://github.com/stefanoverna/vim-i18n'
 " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " === find ===
@@ -48,11 +45,14 @@ Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
+Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
+" Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
+Plug 'https://github.com/tweekmonster/startuptime.vim'
 
 call plug#end()
 
@@ -69,7 +69,7 @@ if has('nvim')
   set termguicolors " nvim gui colors
 endif
 set background=dark " Use colors that look good on a dark background
-colorscheme grey
+colorscheme other
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -107,7 +107,9 @@ set nowrap " Don't wrap lines longer than the width of the window
 set nowritebackup " Don't make a backup before overwriting a file.
 set number " Turn on line numbers
 set numberwidth=1 " Minimal number of columns to use for the line number.
-set path+=**
+set path+=.,,
+set path+=.,app/javascript,node_modules
+set suffixesadd=.js,.jsx
 set redrawtime=1000 " Stop highlighting if it takes more than a second
 set ruler " show the cursor position all the time
 set scrolloff=3 " show 5 lines above and below cursor
@@ -611,7 +613,7 @@ if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
   tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
   tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
-  nnoremap <C-s>- :12sp term:///bin/zsh<CR>
+  nnoremap <C-s>- :20sp term:///bin/zsh<CR>
   nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
   nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
 endif

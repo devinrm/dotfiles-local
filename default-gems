@@ -18,6 +18,7 @@ rubocop
 rubocop-rspec
 ruumba
 sqlint
+test-prof
 wirble
 scss_lint
 solargraph
