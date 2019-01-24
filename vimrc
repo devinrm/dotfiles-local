@@ -529,8 +529,6 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 nnoremap <silent> <leader>r :12sp term:///bin/zsh<CR>rake<CR>
 
-" command -nargs=+ Run :cexpr system('<args>') | copen
-
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
 " ||__|||__|||__|||__||
@@ -648,7 +646,7 @@ endfunc
 nnoremap <Leader>ww :tabe <C-r>=expand("$HOME/dotfiles/laptop/vim_notes/")<CR><C-d>
 
 " === Pre-populate a split command with the current directory ===
-nnoremap <Leader>e :e <C-r>=expand("%:p:h") . "/" <CR><C-d>
+nnoremap <Leader>e :vsp <C-r>=expand("%:p:h") . "/" <CR><C-d>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe $HOME/dotfiles/vimrc<CR>
