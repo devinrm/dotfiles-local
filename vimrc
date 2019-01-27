@@ -274,19 +274,11 @@ let g:ale_fixers = {
       \ 'scss': ['stylelint']
       \ }
 
-" use stylelint and eslint within jsx
-" augroup FiletypeGroup
-"   autocmd!
-"   au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-" augroup END
-" let g:ale_linter_aliases = {'jsx': 'css'}
-
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
       \ '\.min\.css$': {'ale_enabled': 0},
       \ '\.min\.js$': {'ale_enabled': 0},
       \}
-
 
 let g:ale_virtualtext_cursor = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
@@ -620,7 +612,7 @@ endif
 nnoremap j gj
 nnoremap k gk
 
-" === %s it up ===
+" === add current word under cursor to :%s ===
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
