@@ -1,4 +1,5 @@
 export KITTY_CONFIG_DIRECTORY="$HOME/dotfiles/config/kitty"
+export RUBY_BUILD="20190130"
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
