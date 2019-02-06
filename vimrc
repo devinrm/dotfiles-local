@@ -271,7 +271,8 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier-eslint'],
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
-      \ 'scss': ['stylelint']
+      \ 'scss': ['stylelint'],
+      \ 'sh': ['shfmt']
       \ }
 
 " Do not lint or fix minified files.
@@ -539,9 +540,6 @@ nnoremap <Leader>= :wincmd =<CR>
 " === Get dot command repeatability in visual mode (from @geoffharcourt) ===
 xnoremap . :normal.<CR>
 
-" === Make previewing registers a little easier ===
-nnoremap @ :reg<CR>
-
 " === Require pry ===
 nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
 
@@ -553,21 +551,21 @@ nnoremap <Leader>d odebugger;<esc>^
 
 " === tab mappings to match tmux
 if !exists('$TMUX')
-  nnoremap <C-s>1 1gt
-  nnoremap <C-s>2 2gt
-  nnoremap <C-s>3 3gt
-  nnoremap <C-s>4 4gt
-  nnoremap <C-s>5 5gt
-  nnoremap <C-s>6 6gt
-  nnoremap <C-s>t :tabnew<CR>
+  nnoremap <C-w>1 1gt
+  nnoremap <C-w>2 2gt
+  nnoremap <C-w>3 3gt
+  nnoremap <C-w>4 4gt
+  nnoremap <C-w>5 5gt
+  nnoremap <C-w>6 6gt
+  nnoremap <C-w>t :tabnew<CR>
 
-  tnoremap <C-s>1 <C-\><C-n>1gt
-  tnoremap <C-s>2 <C-\><C-n>2gt
-  tnoremap <C-s>3 <C-\><C-n>3gt
-  tnoremap <C-s>4 <C-\><C-n>4gt
-  tnoremap <C-s>5 <C-\><C-n>5gt
-  tnoremap <C-s>6 <C-\><C-n>6gt
-  tnoremap <C-s>t <C-\><C-n>:tabnew<CR>
+  tnoremap <C-w>1 <C-\><C-n>1gt
+  tnoremap <C-w>2 <C-\><C-n>2gt
+  tnoremap <C-w>3 <C-\><C-n>3gt
+  tnoremap <C-w>4 <C-\><C-n>4gt
+  tnoremap <C-w>5 <C-\><C-n>5gt
+  tnoremap <C-w>6 <C-\><C-n>6gt
+  tnoremap <C-w>t <C-\><C-n>:tabnew<CR>
 endif
 
 " === Neovim terminal mappings ===
@@ -601,11 +599,11 @@ tnoremap <silent><A-m> <C-\><C-n>:call TermToggle(20)<CR>
 
 if !exists('$TMUX')
   tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-s>- <C-\><C-n>:sp term:///bin/zsh<CR>
-  tnoremap <C-s>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
-  nnoremap <C-s>- :20sp term:///bin/zsh<CR>
-  nnoremap <C-s>\ :vsp term:///bin/zsh<CR>
-  nnoremap <C-s>c :tabnew term:///bin/zsh<CR>
+  tnoremap <C-w>- <C-\><C-n>:sp term:///bin/zsh<CR>
+  tnoremap <C-w>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
+  nnoremap <C-w>- :20sp term:///bin/zsh<CR>
+  nnoremap <C-w>\ :vsp term:///bin/zsh<CR>
+  nnoremap <C-w>c :tabnew term:///bin/zsh<CR>
 endif
 
 " === Move up and down by visible lines if current line is wrapped ===
