@@ -13,13 +13,10 @@ npm i -g babel-eslint ;
 npm i -g create-react-app ;
 npm i -g diff-so-fancy
 npm i -g eslint-config-prettier ;
-npm i -g eslint-plugin-flow ;
-npm i -g eslint-plugin-flowtype ;
 npm i -g eslint-plugin-jsx-a11y ;
 npm i -g eslint-plugin-no-unsanitized ;
 npm i -g eslint-plugin-prettier ;
 npm i -g eslint-plugin-react ;
-npm i -g flow-bin ;
 npm i -g heroku-cli ;
 npm i -g htmlhint ;
 npm i -g javascript-typescript-langserver ;
@@ -37,4 +34,6 @@ npm i -g stylelint-processor-styled-components ;
 npm i -g tern@0.22.3 ;
 npm i -g tern-jsx ;
 npm i -g tldr ;
+npm i -g @typescript-eslint/eslint-plugin
+npm i -g @typescript-eslint/parser
 npm i -g write-good ;

@@ -17,6 +17,7 @@ Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'https://github.com/leafgarland/typescript-vim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -69,7 +70,7 @@ if has('nvim')
   set termguicolors " nvim gui colors
 endif
 set background=dark " Use colors that look good on a dark background
-colorscheme other
+colorscheme grey
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -614,10 +615,13 @@ nnoremap k gk
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
-nnoremap <Leader>js :12sp term:///bin/zsh<CR> node %<CR>
+nnoremap <Leader>js :12sp<CR>:te node %<CR>
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>rb :12sp term:///bin/zsh<CR> ruby -w %<CR>
+nnoremap <Leader>rb :12sp<CR>:te ruby -w %<CR>
+
+" === Make it easier to run typescript files inside vim ===
+nnoremap <Leader>c :12sp<CR>:te tsc %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :vsplit db/schema.rb<CR>

@@ -3,15 +3,16 @@
     "airbnb",
     "prettier",
     "prettier/react",
-    "plugin:flowtype/recommended",
-    "plugin:no-unsanitized/DOM"
+    "prettier/@typescript-eslint",
+    "plugin:no-unsanitized/DOM",
+    "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
-    "flowtype",
     "prettier",
-    "no-unsanitized"
+    "no-unsanitized",
+    "@typescript-eslint"
   ],
-  "parser": "babel-eslint",
+  "parser": ["babel-eslint", "@typescript-eslint/parser"],
   "parserOptions": {
     "ecmaVersion": 2016,
     "sourceType": "module",
