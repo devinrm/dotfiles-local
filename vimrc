@@ -258,7 +258,7 @@ let g:ale_linters = {
       \ 'css': ['scsslint'],
       \ 'erb': ['erubi'],
       \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
-      \ 'javascript': ['flow', 'eslint'],
+      \ 'javascript': ['eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['scsslint'],
@@ -273,7 +273,8 @@ let g:ale_fixers = {
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
-      \ 'sh': ['shfmt']
+      \ 'sh': ['shfmt'],
+      \ 'typescript': ['prettier']
       \ }
 
 " Do not lint or fix minified files.
@@ -283,7 +284,7 @@ let g:ale_pattern_options = {
       \}
 
 let g:ale_virtualtext_cursor = 1
-let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --parser flow --arrow-parens always'
+let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 80 --parser typescript --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
@@ -429,9 +430,6 @@ augroup END
 
 " === vim-i18n ===
 vmap <Leader>z :call I18nTranslateString()<CR>
-
-" === vim-javascript ===
-let g:javascript_plugin_flow = 1
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0
