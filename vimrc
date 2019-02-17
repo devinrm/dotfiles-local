@@ -283,6 +283,7 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_enabled': 0},
       \}
 
+let g:ale_completion_enabled = 1
 let g:ale_virtualtext_cursor = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 80 --parser typescript --arrow-parens always'
 let g:ale_set_quickfix = 0
