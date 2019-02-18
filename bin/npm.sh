@@ -34,6 +34,6 @@ npm i -g stylelint-processor-styled-components ;
 npm i -g tern@0.22.3 ;
 npm i -g tern-jsx ;
 npm i -g tldr ;
-npm i -g @typescript-eslint/eslint-plugin
-npm i -g @typescript-eslint/parser
+npm i -g tslint ;
+npm i -g tslint-microsoft-contrib ;
 npm i -g write-good ;
