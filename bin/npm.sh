@@ -17,6 +17,7 @@ npm i -g eslint-plugin-jsx-a11y ;
 npm i -g eslint-plugin-no-unsanitized ;
 npm i -g eslint-plugin-prettier ;
 npm i -g eslint-plugin-react ;
+npm i -g fast-cli ;
 npm i -g heroku-cli ;
 npm i -g htmlhint ;
 npm i -g javascript-typescript-langserver ;

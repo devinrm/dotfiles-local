@@ -70,7 +70,7 @@ if has('nvim')
   set termguicolors " nvim gui colors
 endif
 set background=dark " Use colors that look good on a dark background
-colorscheme necromancer
+colorscheme grey
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.

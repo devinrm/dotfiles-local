@@ -10,9 +10,9 @@ alias ln="ln -v"
 alias ls="ls -FGh"
 alias mkdir="mkdir -p"
 alias mv="mv -iv"
-alias nvim="$HOME/./nvim-osx64/bin/nvim"
+alias nvim="$HOME/tools/./nvim/bin/nvim"
 alias rm="rm -i"
-alias v="$HOME/./nvim-osx64/bin/nvim"
+alias v="$HOME/tools/./nvim/bin/nvim"
 alias img="kitty icat"
 
 # Bundler
