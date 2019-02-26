@@ -70,7 +70,7 @@ if has('nvim')
   set termguicolors " nvim gui colors
 endif
 set background=dark " Use colors that look good on a dark background
-colorscheme grey
+colorscheme other
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -549,24 +549,22 @@ nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 " === add debugger anywhere ===
 nnoremap <Leader>d odebugger;<esc>^
 
-" === tab mappings to match tmux
-if !exists('$TMUX')
-  nnoremap <C-w>1 1gt
-  nnoremap <C-w>2 2gt
-  nnoremap <C-w>3 3gt
-  nnoremap <C-w>4 4gt
-  nnoremap <C-w>5 5gt
-  nnoremap <C-w>6 6gt
-  nnoremap <C-w>t :tabnew<CR>
+" === tab mappings ===
+nnoremap <C-w>1 1gt
+nnoremap <C-w>2 2gt
+nnoremap <C-w>3 3gt
+nnoremap <C-w>4 4gt
+nnoremap <C-w>5 5gt
+nnoremap <C-w>6 6gt
+nnoremap <C-w>t :tabnew<CR>
 
-  tnoremap <C-w>1 <C-\><C-n>1gt
-  tnoremap <C-w>2 <C-\><C-n>2gt
-  tnoremap <C-w>3 <C-\><C-n>3gt
-  tnoremap <C-w>4 <C-\><C-n>4gt
-  tnoremap <C-w>5 <C-\><C-n>5gt
-  tnoremap <C-w>6 <C-\><C-n>6gt
-  tnoremap <C-w>t <C-\><C-n>:tabnew<CR>
-endif
+tnoremap <C-w>1 <C-\><C-n>1gt
+tnoremap <C-w>2 <C-\><C-n>2gt
+tnoremap <C-w>3 <C-\><C-n>3gt
+tnoremap <C-w>4 <C-\><C-n>4gt
+tnoremap <C-w>5 <C-\><C-n>5gt
+tnoremap <C-w>6 <C-\><C-n>6gt
+tnoremap <C-w>t <C-\><C-n>:tabnew<CR>
 
 " === Neovim terminal mappings ===
 if has('nvim')
@@ -597,14 +595,11 @@ nnoremap <silent><A-m> :call TermToggle(20)<CR>
 inoremap <silent><A-m> <Esc>:call TermToggle(20)<CR>
 tnoremap <silent><A-m> <C-\><C-n>:call TermToggle(20)<CR>
 
-if !exists('$TMUX')
-  tnoremap <C-s><C-l> clear<CR>
-  tnoremap <C-w>- <C-\><C-n>:sp term:///bin/zsh<CR>
-  tnoremap <C-w>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
-  nnoremap <C-w>- :20sp term:///bin/zsh<CR>
-  nnoremap <C-w>\ :vsp term:///bin/zsh<CR>
-  nnoremap <C-w>c :tabnew term:///bin/zsh<CR>
-endif
+tnoremap <C-w>- <C-\><C-n>:sp term:///bin/zsh<CR>
+tnoremap <C-w>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
+nnoremap <C-w>- :20sp term:///bin/zsh<CR>
+nnoremap <C-w>\ :vsp term:///bin/zsh<CR>
+nnoremap <C-w>c :tabnew term:///bin/zsh<CR>
 
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
