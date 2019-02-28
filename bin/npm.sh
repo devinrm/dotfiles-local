@@ -2,16 +2,12 @@
 
 set -e
 
-(
-  export PKG=eslint-config-airbnb;
-  npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install -g "$PKG@latest"
-)
-
 npm i -g alex ;
 npm i -g babel-cli ;
 npm i -g babel-eslint ;
 npm i -g create-react-app ;
 npm i -g diff-so-fancy
+npx install-peerdeps --dev eslint-config-airbnb
 npm i -g eslint-config-prettier ;
 npm i -g eslint-plugin-jsx-a11y ;
 npm i -g eslint-plugin-no-unsanitized ;
@@ -23,6 +19,7 @@ npm i -g htmlhint ;
 npm i -g javascript-typescript-langserver ;
 npm i -g neovim ;
 npm i -g npm ;
+npm i -g npmf ;
 npm i -g prettier ;
 npm i -g prettier-eslint ;
 npm i -g prettier-eslint-cli ;

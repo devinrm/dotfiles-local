@@ -540,14 +540,27 @@ nnoremap <Leader>= :wincmd =<CR>
 " === Get dot command repeatability in visual mode (from @geoffharcourt) ===
 xnoremap . :normal.<CR>
 
-" === Require pry ===
-nnoremap <Leader>b orequire "pry"; binding.pry<esc>^
+" === debugging ===
+let g:loaded_pry = 1
+let g:debug_map = {
+      \ 'ruby' : "require 'pry'; binding.pry",
+      \ 'javascript' : 'debugger;',
+      \ 'javascript.jsx' : 'debugger;',
+      \}
+
+function! InsertDebug()
+  if has_key(g:debug_map, &filetype)
+    let text = get(g:debug_map, &filetype)
+    call feedkeys('o', 'i')
+    call feedkeys(text)
+    call feedkeys("\<Esc>")
+  endif
+endfunction
+
+nnoremap <Leader>d :call InsertDebug()<CR>
 
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
-
-" === add debugger anywhere ===
-nnoremap <Leader>d odebugger;<esc>^
 
 " === tab mappings ===
 nnoremap <C-w>1 1gt
