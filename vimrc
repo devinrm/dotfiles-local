@@ -562,23 +562,6 @@ nnoremap <Leader>d :call InsertDebug()<CR>
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
-" === tab mappings ===
-nnoremap <C-w>1 1gt
-nnoremap <C-w>2 2gt
-nnoremap <C-w>3 3gt
-nnoremap <C-w>4 4gt
-nnoremap <C-w>5 5gt
-nnoremap <C-w>6 6gt
-nnoremap <C-w>t :tabnew<CR>
-
-tnoremap <C-w>1 <C-\><C-n>1gt
-tnoremap <C-w>2 <C-\><C-n>2gt
-tnoremap <C-w>3 <C-\><C-n>3gt
-tnoremap <C-w>4 <C-\><C-n>4gt
-tnoremap <C-w>5 <C-\><C-n>5gt
-tnoremap <C-w>6 <C-\><C-n>6gt
-tnoremap <C-w>t <C-\><C-n>:tabnew<CR>
-
 " === Neovim terminal mappings ===
 if has('nvim')
   augroup TerminalNumbers
