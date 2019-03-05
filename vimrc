@@ -88,9 +88,6 @@ endif
 set laststatus=2
 set lazyredraw
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
-let g:python_host_prog = $HOME.'/.asdf/shims/python2'
-let g:python3_host_prog = $HOME.'/.asdf/shims/python3'
-let g:ruby_host_prog = $HOME.'/.asdf/shims/neovim-ruby-host'
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 let g:mapleader = ' ' " Set Leader key to <Space> bar
 runtime! macros/matchit.vim " Extended matching with '%'. See :help matchit

@@ -16,9 +16,7 @@ rails_best_practices
 reek
 rubocop
 rubocop-rspec
-ruumba
 sqlint
 test-prof
 wirble
 scss_lint
-solargraph
