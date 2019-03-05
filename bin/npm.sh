@@ -2,7 +2,6 @@
 
 set -e
 
-npm i -g alex ;
 npm i -g babel-cli ;
 npm i -g babel-eslint ;
 npm i -g create-react-app ;
@@ -34,4 +33,3 @@ npm i -g tern-jsx ;
 npm i -g tldr ;
 npm i -g tslint ;
 npm i -g tslint-microsoft-contrib ;
-npm i -g write-good ;

@@ -18,6 +18,7 @@ Plug 'https://github.com/w0rp/ale'
 " === experiments ===
 " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/tpope/vim-dispatch'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -48,8 +49,6 @@ Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/rstacruz/vim-closer'
-Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-" Plug 'https://github.com/stefanoverna/vim-i18n'
 Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
@@ -66,11 +65,9 @@ set autoread
 set backspace=2 " Backspace deletes like most programs in insert mode
 set clipboard^=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
-if has('nvim')
-  set termguicolors " nvim gui colors
-endif
+set termguicolors " nvim gui colors
 set background=dark " Use colors that look good on a dark background
-colorscheme other
+colorscheme grey
 set cursorline
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
@@ -226,28 +223,6 @@ function! StatusGitGutter() abort
   return join(l:ret, ' ')
 endfunction
 
-" === quake terminal ===
-let s:term_buf = 0
-let s:term_win = 0
-function! TermToggle(height)
-  if win_gotoid(s:term_win)
-    hide
-  else
-    new terminal
-    exec 'resize '.a:height
-    try
-      exec 'buffer '.s:term_buf
-      exec 'bd terminal'
-    catch
-      call termopen($SHELL, {'detach': 0})
-      let s:term_buf = bufnr('')
-      setlocal nonumber nornu scl=no nocul
-    endtry
-    startinsert!
-    let s:term_win = win_getid()
-  endif
-endfunction
-
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
 " ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
@@ -257,12 +232,11 @@ endfunction
 let g:ale_linters = {
       \ 'css': ['scsslint'],
       \ 'erb': ['erubi'],
-      \ 'html': ['tidy', 'htmlhint', 'write-good', 'alex'],
+      \ 'html': ['tidy', 'htmlhint'],
       \ 'javascript': ['eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['scsslint'],
-      \ 'text': ['vale', 'write-good', 'alex'],
       \ 'vim': ['vint']
       \ }
 
@@ -365,10 +339,6 @@ nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
-if has('nvim')
-  let g:fzf_layout = { 'window': '15split enew' }
-endif
-
 " match fzf colors to colorscheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -384,11 +354,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
-augroup fzfstatus
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
-augroup END
 
 " You can pass rg arguments like so: :Rg -F components -g '*jsx'
 command! -bang -nargs=* Rg
@@ -428,9 +393,6 @@ augroup LeGit
   autocmd!
   autocmd BufWritePost * GitGutter
 augroup END
-
-" === vim-i18n ===
-vmap <Leader>z :call I18nTranslateString()<CR>
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0
@@ -489,27 +451,7 @@ let ruby_no_expensive = 1
 let g:tern#command = ['tern']
 
 " === vim-test ===
-function! NeoSplit(cmd) abort
-  let opts = {'suffix': ' # vim-test'}
-  function! opts.close_terminal()
-    if bufnr(self.suffix) != -1
-      execute 'bdelete!' bufnr(self.suffix)
-    end
-  endfunction
-
-  call opts.close_terminal()
-
-  botright 12 new
-  call termopen(a:cmd . opts.suffix, opts)
-  augroup termsplit
-    autocmd!
-    autocmd BufDelete <buffer> wincmd p
-  augroup END
-  stopinsert
-endfunction
-
-let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
-let g:test#strategy = 'neosplit'
+let g:test#strategy = 'dispatch'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test
@@ -520,7 +462,7 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
-nnoremap <silent> <leader>r :12sp term:///bin/zsh<CR>rake<CR>
+nnoremap <silent> <leader>r :12sp <CR>:terminal<CR>rake<CR>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -562,7 +504,7 @@ nnoremap <Leader>d :call InsertDebug()<CR>
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
-" === Neovim terminal mappings ===
+" === terminal mappings ===
 if has('nvim')
   augroup TerminalNumbers
     autocmd!
@@ -587,15 +529,11 @@ tnoremap <C-w>l <C-\><C-n><C-w>l
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-[> <Esc><Esc>
 
-nnoremap <silent><A-m> :call TermToggle(20)<CR>
-inoremap <silent><A-m> <Esc>:call TermToggle(20)<CR>
-tnoremap <silent><A-m> <C-\><C-n>:call TermToggle(20)<CR>
-
-tnoremap <C-w>- <C-\><C-n>:sp term:///bin/zsh<CR>
-tnoremap <C-w>\ <C-\><C-n>:vsp term:///bin/zsh<CR>
-nnoremap <C-w>- :20sp term:///bin/zsh<CR>
-nnoremap <C-w>\ :vsp term:///bin/zsh<CR>
-nnoremap <C-w>c :tabnew term:///bin/zsh<CR>
+tnoremap <C-w>- <C-\><C-n>:sp<CR>:terminal<CR>
+tnoremap <C-w>\ <C-\><C-n>:vsp<CR>:terminal<CR>
+nnoremap <C-w>- :20sp<CR>:terminal<CR>
+nnoremap <C-w>\ :vsp<CR>:terminal<CR>
+nnoremap <C-w>c :tabnew<CR>:terminal<CR>
 
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
@@ -605,13 +543,13 @@ nnoremap k gk
 nnoremap <Leader>n :%s/\(<c-r>=expand("<cword>")<CR>\)/
 
 " === Make it easier to run js files inside vim ===
-nnoremap <Leader>js :12sp<CR>:te node %<CR>
+nnoremap <Leader>js :12sp<CR>:terminal node %<CR>
 
 " === Make it easier to run ruby files inside vim ===
-nnoremap <Leader>rb :12sp<CR>:te ruby -w %<CR>
+nnoremap <Leader>rb :12sp<CR>:terminal ruby -w %<CR>
 
 " === Make it easier to run typescript files inside vim ===
-nnoremap <Leader>c :12sp<CR>:te tsc %<CR>
+nnoremap <Leader>c :12sp<CR>:terminal tsc %<CR>
 
 " === Edit the db/schema.rb Rails file in a split ===
 nnoremap <Leader>sc :vsplit db/schema.rb<CR>

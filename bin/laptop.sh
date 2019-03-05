@@ -227,7 +227,6 @@ universal-ctags
 unixodbc
 unrar
 utf8proc
-vale
 vte
 wavpack
 webp
