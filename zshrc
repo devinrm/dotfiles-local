@@ -84,6 +84,9 @@ eval "$(rbenv init -)"
 # pyenv
 eval "$(pyenv init -)"
 
+# n (nodejs)
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 

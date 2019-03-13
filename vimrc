@@ -12,13 +12,13 @@ Plug 'https://github.com/devinrm/the-other'
 
 " === completion ===
 Plug 'https://github.com/lifepillar/vim-mucomplete'
-Plug 'https://github.com/ternjs/tern_for_vim'
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 " Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/tpope/vim-dispatch'
+Plug 'https://github.com/radenling/vim-dispatch-neovim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -49,6 +49,7 @@ Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/rstacruz/vim-closer'
+Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
@@ -227,13 +228,13 @@ endfunction
 
 " === ale ===
 let g:ale_linters = {
-      \ 'css': ['scsslint'],
+      \ 'css': ['stylelint'],
       \ 'erb': ['erubi'],
       \ 'html': ['tidy', 'htmlhint'],
       \ 'javascript': ['eslint'],
       \ 'jsx': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
-      \ 'scss': ['scsslint'],
+      \ 'scss': ['stylelint'],
       \ 'vim': ['vint']
       \ }
 
@@ -256,7 +257,7 @@ let g:ale_pattern_options = {
 
 let g:ale_completion_enabled = 1
 let g:ale_virtualtext_cursor = 1
-let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 80 --arrow-parens always'
+let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
@@ -444,9 +445,6 @@ endif
 " === vim-ruby ===
 let ruby_no_expensive = 1
 
-" === tern_for_vim ===
-let g:tern#command = ['tern']
-
 " === vim-test ===
 let g:test#strategy = 'dispatch'
 let g:test#runner_commands = ['Jest', 'RSpec']
@@ -482,7 +480,7 @@ xnoremap . :normal.<CR>
 " === debugging ===
 let g:loaded_pry = 1
 let g:debug_map = {
-      \ 'ruby' : "require 'pry'; binding.pry",
+      \ 'ruby' : 'require "pry"; binding.pry',
       \ 'javascript' : 'debugger;',
       \ 'javascript.jsx' : 'debugger;',
       \}
@@ -511,11 +509,6 @@ if has('nvim')
   augroup TerminalExitStatus
     autocmd!
     autocmd TermClose * call feedkeys("\<CR>")
-  augroup END
-
-  augroup TerminalInsert
-    autocmd!
-    autocmd BufEnter * if &buftype == 'terminal' |:startinsert| endif
   augroup END
 endif
 
