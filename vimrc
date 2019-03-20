@@ -8,14 +8,13 @@ call plug#begin('$HOME/.vim/bundle')
 " === colorscheme(s) ===
 Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
-Plug 'https://github.com/devinrm/the-other'
 
 " === completion ===
-Plug 'https://github.com/lifepillar/vim-mucomplete'
+" Plug 'https://github.com/lifepillar/vim-mucomplete'
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
-" Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'https://github.com/neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/radenling/vim-dispatch-neovim'
@@ -246,7 +245,8 @@ let g:ale_fixers = {
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
       \ 'sh': ['shfmt'],
-      \ 'typescript': ['prettier']
+      \ 'typescript': ['prettier'],
+      \ 'yaml': ['prettier']
       \ }
 
 " Do not lint or fix minified files.
@@ -255,8 +255,8 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_enabled': 0},
       \}
 
-let g:ale_completion_enabled = 1
-let g:ale_virtualtext_cursor = 1
+" let g:ale_completion_enabled = 1
+" let g:ale_virtualtext_cursor = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
@@ -272,48 +272,49 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 " === vim-closetag ===
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
-" " === coc.nvim ===
-" " if hidden not set, TextEdit might fail.
-" set hidden
+" === coc.nvim ===
+hi default CocUnderline cterm=bold gui=bold
+" if hidden not set, TextEdit might fail.
+set hidden
 
-" " Smaller updatetime for CursorHold & CursorHoldI
-" set updatetime=300
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
 
-" " don't give |ins-completion-menu| messages.
-" set shortmess+=c
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
-" " Use tab for trigger completion with characters ahead and navigate.
-" " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" " Use <c-space> for trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" " Use `[c` and `]c` for navigate diagnostics
-" nmap <silent> [c <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" " Remap keys for gotos
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-" vmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" " Remap for do codeAction of current line
-" nmap <leader>ac  <Plug>(coc-codeaction)
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -396,16 +397,16 @@ augroup END
 let g:jsx_ext_required = 0
 
 " === MUcomplete ===
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#buffer_relative_paths = 1
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'keyp', 'path']
+" let g:mucomplete#enable_auto_at_startup = 1
+" let g:mucomplete#buffer_relative_paths = 1
+" let g:mucomplete#chains = {}
+" let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'keyp', 'path']
 
-augroup rhumu
-  autocmd!
-  autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
-  autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
-augroup END
+" augroup rhumu
+"   autocmd!
+"   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
+"   autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
+" augroup END
 
 " === netrw ===
 let g:netrw_browse_split = 4
