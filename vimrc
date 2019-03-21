@@ -10,7 +10,6 @@ Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
-" Plug 'https://github.com/lifepillar/vim-mucomplete'
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
@@ -395,18 +394,6 @@ augroup END
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0
-
-" === MUcomplete ===
-" let g:mucomplete#enable_auto_at_startup = 1
-" let g:mucomplete#buffer_relative_paths = 1
-" let g:mucomplete#chains = {}
-" let g:mucomplete#chains.default  = ['omni', 'tags', 'keyn', 'keyp', 'path']
-
-" augroup rhumu
-"   autocmd!
-"   autocmd BufEnter * if &ft ==# 'gitcommit' | MUcompleteAutoOff | endif
-"   autocmd BufLeave * if &ft ==# 'gitcommit' | MUcompleteAutoOn | endif
-" augroup END
 
 " === netrw ===
 let g:netrw_browse_split = 4
