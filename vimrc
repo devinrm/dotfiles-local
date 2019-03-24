@@ -10,13 +10,11 @@ Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
+Plug 'https://github.com/neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
-Plug 'https://github.com/neoclide/coc.nvim', { 'do': 'yarn install' }
-Plug 'https://github.com/leafgarland/typescript-vim'
-Plug 'https://github.com/tpope/vim-dispatch'
-Plug 'https://github.com/radenling/vim-dispatch-neovim'
+Plug 'https://github.com/RRethy/vim-illuminate'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -32,6 +30,7 @@ Plug 'https://github.com/tpope/vim-rhubarb'
 " === language plugins ===
 Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
@@ -46,10 +45,12 @@ Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
+Plug 'https://github.com/radenling/vim-dispatch-neovim'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 
@@ -391,6 +392,10 @@ augroup LeGit
   autocmd!
   autocmd BufWritePost * GitGutter
 augroup END
+
+" === vim-illuminate ===
+let g:Illuminate_delay = 50
+highlight link illuminatedWord Visual
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0
