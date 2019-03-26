@@ -1,3 +1,5 @@
+"  IF USING THIS VIMRC PLEASE INSTALL THESE PACKAGES TO ENABLE ALL FEATURES: https://github.com/devinrm/dotfiles/blob/master/bin/vim_setup.sh
+"  :CocConfig settinfs can be found here: https://github.com/devinrm/dotfiles/blob/master/coc-settings.json
 "  ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n |||s ||
 " ||__|||__|||__|||__|||__|||__|||__||
