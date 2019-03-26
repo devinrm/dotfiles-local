@@ -255,8 +255,6 @@ let g:ale_pattern_options = {
       \ '\.min\.js$': {'ale_enabled': 0},
       \}
 
-" let g:ale_completion_enabled = 1
-" let g:ale_virtualtext_cursor = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --arrow-parens always'
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
@@ -273,7 +271,11 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
 
 " === coc.nvim ===
+" highlight groups
 hi default CocUnderline cterm=bold gui=bold
+hi CocErrorSign guifg=#ff8700
+hi CocInfoSign  guifg=#87ceeb
+
 " if hidden not set, TextEdit might fail.
 set hidden
 
@@ -375,7 +377,7 @@ augroup END
 
 nnoremap \ :Rg<SPACE>-F '' -g '*.'
 " grep the word under the cursor
-nnoremap gr :Rg <C-R><C-W><CR>
+nnoremap <Leader>rg :Rg <C-R><C-W><CR>
 
 " Press ; and then start typing to fzf search the whole project for a word or
 " string
