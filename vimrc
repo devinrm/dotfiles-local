@@ -379,7 +379,7 @@ augroup END
 
 nnoremap \ :Rg<SPACE>-F '' -g '*.'
 " grep the word under the cursor
-nnoremap <Leader>rg :Rg <C-R><C-W><CR>
+nnoremap <Leader>gr :Rg <C-R><C-W><CR>
 
 " Press ; and then start typing to fzf search the whole project for a word or
 " string
@@ -399,7 +399,7 @@ augroup END
 
 " === vim-illuminate ===
 let g:Illuminate_delay = 50
-highlight link illuminatedWord Visual
+hi illuminatedWord guibg=#2c323c gui=NONE
 
 " === vim-jsx ===
 let g:jsx_ext_required = 0
