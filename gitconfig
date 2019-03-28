@@ -19,8 +19,9 @@
   aa = add --patch
   branch = branch -vv
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
-  car = commit --amend --no-edit
-  ci = commit -v
+  c = commit
+  can = commit --amend --no-edit
+  cv = commit -v
   cm = commit -m
   co = checkout
   dt = difftool --no-symlinks --dir-diff

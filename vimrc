@@ -106,6 +106,7 @@ set number " Turn on line numbers
 set numberwidth=1 " Minimal number of columns to use for the line number.
 set path+=.,,
 set path+=.,app/javascript,node_modules
+set pumblend=20
 set suffixesadd=.js,.jsx
 set redrawtime=1000 " Stop highlighting if it takes more than a second
 set ruler " show the cursor position all the time
