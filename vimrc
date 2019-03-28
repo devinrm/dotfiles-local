@@ -308,7 +308,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -369,7 +368,7 @@ augroup END
 
 nnoremap \ :Rg<SPACE>-F '' -g '*.'
 " grep the word under the cursor
-nnoremap <Leader>gr :Rg <C-R><C-W><CR>
+nnoremap gr :Rg <C-R><C-W><CR>
 
 " Press ; and then start typing to fzf search the whole project for a word or
 " string
