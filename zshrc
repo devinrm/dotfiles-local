@@ -86,6 +86,7 @@ eval "$(pyenv init -)"
 
 # n (nodejs)
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+export NODE_OPTIONS="--max-old-space-size=2048"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
