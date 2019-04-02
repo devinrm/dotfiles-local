@@ -21,6 +21,7 @@ yarn-error.log
 /public/packs
 /public/packs-test
 /node_modules
+node_modules/
 work.vim
 .erb-lint.yml
 zshrc.local
