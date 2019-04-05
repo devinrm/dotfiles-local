@@ -1,5 +1,3 @@
-"  IF USING THIS VIMRC PLEASE INSTALL THESE PACKAGES TO ENABLE ALL FEATURES: https://github.com/devinrm/dotfiles/blob/master/bin/vim_setup.sh
-"  :CocConfig settings can be found here: https://github.com/devinrm/dotfiles/blob/master/coc-settings.json
 "  ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n |||s ||
 " ||__|||__|||__|||__|||__|||__|||__||
@@ -17,6 +15,7 @@ Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
+Plug 'https://gitlab.com/Lenovsky/nuake'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -401,6 +400,13 @@ let g:netrw_liststyle = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
+
+" === nuake ===
+let g:nuake_position = 'top'
+
+nnoremap <A-m> :Nuake<CR>
+inoremap <A-m> <C-\><C-n>:Nuake<CR>
+tnoremap <A-m> <C-\><C-n>:Nuake<CR>
 
 " === omnicompletion ===
 filetype plugin on
