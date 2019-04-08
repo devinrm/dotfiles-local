@@ -33,6 +33,7 @@ Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/peitalin/vim-jsx-typescript'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
@@ -106,7 +107,7 @@ set number " Turn on line numbers
 set numberwidth=1 " Minimal number of columns to use for the line number.
 set path+=.,,
 set path+=.,app/javascript,node_modules
-set suffixesadd=.js,.jsx
+set suffixesadd=.js,.jsx,.ts,.tsx
 set redrawtime=1000 " Stop highlighting if it takes more than a second
 set ruler " show the cursor position all the time
 set scrolloff=3 " show 5 lines above and below cursor
