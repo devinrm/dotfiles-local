@@ -32,8 +32,7 @@ Plug 'https://github.com/tpope/vim-rhubarb'
 Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/leafgarland/typescript-vim'
-Plug 'https://github.com/mxw/vim-jsx'
-Plug 'https://github.com/peitalin/vim-jsx-typescript'
+Plug 'https://github.com/maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
@@ -248,7 +247,7 @@ let g:ale_fixers = {
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
       \ 'sh': ['shfmt'],
-      \ 'typescript': ['prettier'],
+      \ 'typescript': ['tslint', 'prettier'],
       \ 'yaml': ['prettier']
       \ }
 
@@ -390,9 +389,6 @@ augroup END
 let g:Illuminate_delay = 50
 hi illuminatedWord guibg=#2c323c gui=NONE
 
-" === vim-jsx ===
-let g:jsx_ext_required = 0
-
 " === netrw ===
 let g:netrw_browse_split = 4
 let g:netrw_preview = 1
@@ -476,6 +472,8 @@ let g:debug_map = {
       \ 'ruby' : 'require "pry"; binding.pry',
       \ 'javascript' : 'debugger;',
       \ 'javascript.jsx' : 'debugger;',
+      \ 'typescript' : 'debugger;',
+      \ 'typescript.tsx' : 'debugger;',
       \}
 
 function! InsertDebug()
