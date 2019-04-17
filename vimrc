@@ -242,7 +242,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'css': ['stylelint'],
       \ 'html': ['prettier'],
-      \ 'javascript': ['prettier-eslint'],
+      \ 'javascript': ['prettier', 'eslint'],
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
@@ -265,7 +265,8 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-nnoremap <Leader>f :ALEFix<CR>
+
+nmap <silent><Leader>f <Plug>(ale_fix)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
