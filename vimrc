@@ -471,9 +471,7 @@ let g:loaded_pry = 1
 let g:debug_map = {
       \ 'ruby' : 'require "pry"; binding.pry',
       \ 'javascript' : 'debugger;',
-      \ 'javascript.jsx' : 'debugger;',
-      \ 'typescript' : 'debugger;',
-      \ 'typescript.tsx' : 'debugger;',
+      \ 'typescript' : 'debugger;'
       \}
 
 function! InsertDebug()
