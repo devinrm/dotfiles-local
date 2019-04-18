@@ -33,6 +33,7 @@ Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/maxmellon/vim-jsx-pretty'
+Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
@@ -264,7 +265,6 @@ let g:ale_sign_error = '•'
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
-
 
 nmap <silent><Leader>f <Plug>(ale_fix)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
