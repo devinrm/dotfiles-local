@@ -271,7 +271,7 @@ nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === vim-closetag ===
-let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js'
+let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js,*.tsx,*.ts'
 
 " === coc.nvim ===
 " highlight groups
