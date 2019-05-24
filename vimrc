@@ -10,12 +10,13 @@ Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
-Plug 'https://github.com/neoclide/coc.nvim', { 'do': 'yarn install' }
+Plug 'https://github.com/neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://gitlab.com/Lenovsky/nuake'
+Plug 'https://github.com/christoomey/vim-conflicted'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -133,6 +134,7 @@ set statusline+=%3*\ %{StatusGit()}
 set statusline+=%3*\ %{StatusGitGutter()}
 set statusline+=%3*\ ▎
 set statusline+=%3*\ %{StatusErrors()}
+set statusline+=%3*\ %{ConflictedVersion()}
 set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ▎
@@ -308,6 +310,17 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+
+" Use `gh` to show documentation in preview window
+noremap <silent> gh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>

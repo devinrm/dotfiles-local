@@ -16,6 +16,7 @@ rails_best_practices
 reek
 rubocop
 rubocop-rspec
+rubocop-performance
 sqlint
 test-prof
 wirble
