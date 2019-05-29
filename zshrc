@@ -54,6 +54,9 @@ _load_settings "$HOME/.zsh/configs"
 # $GOPATH
 export GOPATH=$HOME/go
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob \!.git'
