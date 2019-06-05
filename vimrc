@@ -17,6 +17,7 @@ Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://gitlab.com/Lenovsky/nuake'
 Plug 'https://github.com/christoomey/vim-conflicted'
+Plug 'https://github.com/rhysd/git-messenger.vim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -486,7 +487,9 @@ let g:loaded_pry = 1
 let g:debug_map = {
       \ 'ruby' : 'require "pry"; binding.pry',
       \ 'javascript' : 'debugger;',
-      \ 'typescript' : 'debugger;'
+      \ 'typescript' : 'debugger;',
+      \ 'javascript.tsx' : 'debugger;',
+      \ 'typescript.tsx' : 'debugger;'
       \}
 
 function! InsertDebug()
