@@ -31,7 +31,4 @@ npm i -g stylelint-config-standard ;
 npm i -g tldr ;
 npm i -g typescript ;
 npm i -g typescript-tslint-plugin ;
-npm i -g tslint ;
-npm i -g tslint-config-prettier ;
-npm i -g tslint-react ;
 npm i -g ts-node

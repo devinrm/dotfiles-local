@@ -10,12 +10,11 @@ Plug 'https://github.com/devinrm/necromancer.vim'
 Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
-Plug 'https://github.com/neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
-Plug 'https://gitlab.com/Lenovsky/nuake'
 Plug 'https://github.com/christoomey/vim-conflicted'
 Plug 'https://github.com/rhysd/git-messenger.vim'
 
@@ -252,7 +251,7 @@ let g:ale_fixers = {
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
       \ 'sh': ['shfmt'],
-      \ 'typescript': ['tslint', 'prettier'],
+      \ 'typescript': ['prettier', 'tslint'],
       \ 'yaml': ['prettier']
       \ }
 
@@ -263,6 +262,7 @@ let g:ale_pattern_options = {
       \}
 
 let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma all --print-width 100 --arrow-parens always'
+let g:ale_disable_lsp = 1
 let g:ale_set_quickfix = 0
 let g:ale_sign_warning = '•'
 let g:ale_sign_error = '•'
@@ -346,6 +346,10 @@ nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
+if has('nvim')
+  let g:fzf_layout = { 'window': '20new' }
+endif
+
 " match fzf colors to colorscheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -413,13 +417,6 @@ let g:netrw_liststyle = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
-
-" === nuake ===
-let g:nuake_position = 'top'
-
-nnoremap <A-m> :Nuake<CR>
-inoremap <A-m> <C-\><C-n>:Nuake<CR>
-tnoremap <A-m> <C-\><C-n>:Nuake<CR>
 
 " === omnicompletion ===
 filetype plugin on
