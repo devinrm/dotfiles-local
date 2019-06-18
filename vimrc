@@ -15,7 +15,6 @@ Plug 'https://github.com/w0rp/ale'
 
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
-Plug 'https://github.com/christoomey/vim-conflicted'
 Plug 'https://github.com/rhysd/git-messenger.vim'
 
 " === find ===
@@ -135,7 +134,6 @@ set statusline+=%3*\ %{StatusGit()}
 set statusline+=%3*\ %{StatusGitGutter()}
 set statusline+=%3*\ ▎
 set statusline+=%3*\ %{StatusErrors()}
-set statusline+=%3*\ %{ConflictedVersion()}
 set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ▎

@@ -1,5 +1,8 @@
 export KITTY_CONFIG_DIRECTORY="$HOME/dotfiles/config/kitty"
 
+# antibody
+source ~/.zsh_plugins.sh
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
