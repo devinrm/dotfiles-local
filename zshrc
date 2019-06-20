@@ -54,12 +54,6 @@ _load_settings "$HOME/.zsh/configs"
 # Include dasht in $MANPATH.
 [ -d "${HOME}/dasht/man" ] && MANPATH="${HOME}/dasht/man:$MANPATH"
 
-# $GOPATH
-export GOPATH=$HOME/go
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob \!.git'
@@ -93,13 +87,13 @@ eval "$(rbenv init -)"
 # pyenv
 eval "$(pyenv init -)"
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-
-# n (nodejs)
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
-export NODE_OPTIONS="--max-old-space-size=2048"
+export NODEJS_CHECK_SIGNATURES=no
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
