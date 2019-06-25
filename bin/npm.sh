@@ -6,7 +6,6 @@ npm i -g babel-cli ;
 npm i -g babel-eslint ;
 npm i -g create-react-app ;
 npm i -g diff-so-fancy
-npx install-peerdeps --dev eslint-config-airbnb
 npm i -g eslint-config-prettier ;
 npm i -g eslint-plugin-jsx-a11y ;
 npm i -g eslint-plugin-no-unsanitized ;
