@@ -17,6 +17,7 @@ reek
 rubocop
 rubocop-rspec
 rubocop-performance
+solargraph
 sqlint
 test-prof
 wirble
