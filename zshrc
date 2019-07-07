@@ -81,12 +81,6 @@ eval "$(hub alias -s)"
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# rbenv
-eval "$(rbenv init -)"
-
-# pyenv
-eval "$(pyenv init -)"
-
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
