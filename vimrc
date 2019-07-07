@@ -16,6 +16,7 @@ Plug 'https://github.com/w0rp/ale'
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/rhysd/git-messenger.vim'
+Plug 'https://github.com/romainl/vim-devdocs'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -329,8 +330,11 @@ xnoremap <C-\> :Commentary<CR>
 " === vim-cool ===
 let g:CoolTotalMatches = 1
 
+" === devdocs ===
+nnoremap <leader>k :DD<CR>
+
 " === dasht ===
-nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')], '!')<CR>
+nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')])<CR>
 let g:dasht_results_window = 'botright vnew'
 
 " === fugitive ===
@@ -345,7 +349,7 @@ nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
 
 if has('nvim')
-  let g:fzf_layout = { 'window': '20new' }
+  let g:fzf_layout = { 'window': '40new' }
 endif
 
 " match fzf colors to colorscheme
