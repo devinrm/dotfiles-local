@@ -26,3 +26,6 @@ work.vim
 .erb-lint.yml
 zshrc.local
 Procfile.devin
+passenger.3000.pid
+passenger.3000.pid.log
+passenger.3000.pid.lock
