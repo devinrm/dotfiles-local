@@ -450,7 +450,7 @@ endif
 let ruby_no_expensive = 1
 
 " === vim-test ===
-let g:test#strategy = 'dispatch'
+let g:test#strategy = 'kitty'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test

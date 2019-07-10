@@ -1,4 +1,5 @@
 export KITTY_CONFIG_DIRECTORY="$HOME/dotfiles/config/kitty"
+export KITTY_LISTEN_ON=/tmp/mykitty
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do

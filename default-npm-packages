@@ -8,7 +8,7 @@ eslint-plugin-no-unsanitized
 eslint-plugin-prettier
 eslint-plugin-react
 fast-cli
-heroku-cli
+heroku
 htmlhint
 javascript-typescript-langserver
 neovim
