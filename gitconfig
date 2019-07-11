@@ -33,7 +33,7 @@
   mg = merge
   mup = !git checkout master && git pull && git checkout -
   pf = push --force-with-lease
-  ph = push -u origin head
+  ph = push -u origin HEAD
   pr = hub pull-request
   reb = rebase -i -
   rename = branch -m

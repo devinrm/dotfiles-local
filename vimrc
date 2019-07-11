@@ -397,11 +397,11 @@ command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 nnoremap <Leader>; :Fg<CR>
 
 " === vim-gitgutter ===
+let g:gitgutter_signs = 0
 let g:gitgutter_max_signs = 1500
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
-let g:gitgutter_signs = 0
 augroup LeGit
   autocmd!
   autocmd BufWritePost * GitGutter
