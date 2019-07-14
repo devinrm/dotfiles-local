@@ -15,6 +15,8 @@ alias v="nvim"
 alias img="kitty icat"
 alias sk="kitty -o allow_remote_control=yes --listen-on unix:/tmp/mykitty"
 alias set_kitty_to_default="sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ~/.local/kitty.app/bin/kitty 50"
+alias kssh="kitty +kitten ssh"
+alias calc="genius"
 
 # Bundler
 alias b="bundle"
