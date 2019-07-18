@@ -16,7 +16,7 @@ Plug 'https://github.com/w0rp/ale'
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/rhysd/git-messenger.vim'
-Plug 'https://github.com/romainl/vim-devdocs'
+Plug 'https://github.com/rhysd/devdocs.vim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -331,7 +331,7 @@ xnoremap <C-\> :Commentary<CR>
 let g:CoolTotalMatches = 1
 
 " === devdocs ===
-nnoremap <leader>k :DD<CR>
+nmap <leader>k <Plug>(devdocs-under-cursor)
 
 " === dasht ===
 nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')])<CR>
