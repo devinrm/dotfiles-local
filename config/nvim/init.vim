@@ -73,6 +73,7 @@ set termguicolors " nvim gui colors
 set background=dark " Use colors that look good on a dark background
 colorscheme grey
 set cursorline
+let s:darwin = has('mac')
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
@@ -114,6 +115,9 @@ set redrawtime=1000 " Stop highlighting if it takes more than a second
 set ruler " show the cursor position all the time
 set scrolloff=3 " show 5 lines above and below cursor
 scriptencoding utf-8 " Specify the character encoding used in the script.
+if s:darwin
+  set shell=/usr/local/bin/zsh
+endif
 set shiftround " Round indent to multiple of 'shiftwidth'.
 set shiftwidth=2 " Returns the effective value of 'shiftwidth'
 set showcmd " display incomplete commands
