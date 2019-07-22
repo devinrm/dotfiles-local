@@ -49,7 +49,6 @@ Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
-Plug 'https://github.com/radenling/vim-dispatch-neovim'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/sunaku/vim-dasht'
