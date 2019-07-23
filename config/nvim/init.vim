@@ -452,6 +452,9 @@ let ruby_no_expensive = 1
 let g:test#strategy = 'vimux'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
+" === vimux ===
+nnoremap <Leader>q :VimuxCloseRunner<CR>
+
 " update jest snapshots with vim-test
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
 
