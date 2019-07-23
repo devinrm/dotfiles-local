@@ -17,6 +17,7 @@ Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/rhysd/git-messenger.vim'
 Plug 'https://github.com/rhysd/devdocs.vim'
+Plug 'https://github.com/benmills/vimux'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -130,7 +131,7 @@ syntax on " Turn on syntax highlighting. This must come before statusline
 set statusline=
 set statusline+=%3*\ %L
 set statusline+=\ %*
-set statusline+=%1*\▉▊▋▌
+set statusline+=%1*\█▓░
 set statusline+=%1*\ %f\ %*
 set statusline+=%3*\▎
 set statusline+=%3*\ %{StatusGit()}
@@ -141,7 +142,7 @@ set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ▎
 set statusline+=%3*\ %P
-set statusline+=%3*\ ▌▋▊▉
+set statusline+=%3*\ █▓░
 set synmaxcol=200
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
 set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
@@ -448,7 +449,7 @@ endif
 let ruby_no_expensive = 1
 
 " === vim-test ===
-let g:test#strategy = 'dispatch'
+let g:test#strategy = 'vimux'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test
