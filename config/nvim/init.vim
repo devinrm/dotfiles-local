@@ -51,7 +51,6 @@ Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-Plug 'https://github.com/sunaku/vim-dasht'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/tpope/vim-endwise'
@@ -334,11 +333,7 @@ xnoremap <C-\> :Commentary<CR>
 let g:CoolTotalMatches = 1
 
 " === devdocs ===
-nmap <leader>k <Plug>(devdocs-under-cursor)
-
-" === dasht ===
-nnoremap <silent> K :call Dasht([expand('<cword>'), expand('<cWORD>')])<CR>
-let g:dasht_results_window = 'botright vnew'
+nmap <silent> K <Plug>(devdocs-under-cursor)
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
