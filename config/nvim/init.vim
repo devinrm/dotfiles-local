@@ -410,6 +410,9 @@ augroup END
 let g:Illuminate_delay = 50
 hi illuminatedWord guibg=#2c323c gui=NONE
 
+" === vim-move ===
+let g:move_key_modifier = 'C'
+
 " === netrw ===
 let g:netrw_browse_split = 4
 let g:netrw_preview = 1
