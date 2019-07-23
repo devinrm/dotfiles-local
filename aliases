@@ -12,10 +12,6 @@ alias mkdir="mkdir -p"
 alias mv="mv -iv"
 alias rm="rm -i"
 alias v="nvim"
-alias img="kitty icat"
-alias sk="kitty -o allow_remote_control=yes --listen-on unix:/tmp/mykitty"
-alias set_kitty_to_default="sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ~/.local/kitty.app/bin/kitty 50"
-alias kssh="kitty +kitten ssh"
 alias calc="genius"
 
 # Bundler
@@ -106,9 +102,6 @@ alias st="git status"
 alias stu="git stash -u"
 alias uncommit="git reset --soft HEAD^"
 alias unstage="git reset"
-
-# kittens
-alias d="kitty +kitten diff"
 
 # random
 alias gh="open https://github.com/devinrm"

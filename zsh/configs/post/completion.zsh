@@ -13,7 +13,4 @@ fi;
 # which causes a conflict.
 compdef -d mcd
 
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

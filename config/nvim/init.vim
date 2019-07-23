@@ -133,14 +133,14 @@ set statusline+=%3*\ %L
 set statusline+=\ %*
 set statusline+=%1*\█▓░
 set statusline+=%1*\ %f\ %*
-set statusline+=%3*\▎
+set statusline+=%3*\░
 set statusline+=%3*\ %{StatusGit()}
 set statusline+=%3*\ %{StatusGitGutter()}
-set statusline+=%3*\ ▎
+set statusline+=%3*\ ░
 set statusline+=%3*\ %{StatusErrors()}
 set statusline+=%=
 set statusline+=%3*\ %y%*%*
-set statusline+=%3*\ ▎
+set statusline+=%3*\ ░
 set statusline+=%3*\ %P
 set statusline+=%3*\ █▓░
 set synmaxcol=200
