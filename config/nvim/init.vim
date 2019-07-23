@@ -521,18 +521,18 @@ if has('nvim')
   augroup END
 endif
 
-tnoremap <C-w>h <C-\><C-n><C-w>h
-tnoremap <C-w>j <C-\><C-n><C-w>j
-tnoremap <C-w>k <C-\><C-n><C-w>k
-tnoremap <C-w>l <C-\><C-n><C-w>l
-tnoremap <Esc> <C-\><C-n>
-tnoremap <A-[> <Esc><Esc>
+" tnoremap <C-w>h <C-\><C-n><C-w>h
+" tnoremap <C-w>j <C-\><C-n><C-w>j
+" tnoremap <C-w>k <C-\><C-n><C-w>k
+" tnoremap <C-w>l <C-\><C-n><C-w>l
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap <A-[> <Esc><Esc>
 
-tnoremap <C-w>- <C-\><C-n>:sp<CR>:terminal<CR>
-tnoremap <C-w>\ <C-\><C-n>:vsp<CR>:terminal<CR>
-nnoremap <C-w>- :20sp<CR>:terminal<CR>
-nnoremap <C-w>\ :vsp<CR>:terminal<CR>
-nnoremap <C-w>c :tabnew<CR>:terminal<CR>
+" tnoremap <C-w>- <C-\><C-n>:sp<CR>:terminal<CR>
+" tnoremap <C-w>\ <C-\><C-n>:vsp<CR>:terminal<CR>
+" nnoremap <C-w>- :20sp<CR>:terminal<CR>
+" nnoremap <C-w>\ :vsp<CR>:terminal<CR>
+" nnoremap <C-w>c :tabnew<CR>:terminal<CR>
 
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
