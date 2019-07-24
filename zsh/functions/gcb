@@ -5,18 +5,18 @@ local _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=a
 # gcob - checkout git commit with previews
 gcob() {
   local commit
-  commit=$( glNoGraph |
-    fzf --no-sort --reverse --tiebreak=index --no-multi \
+    commit=$( glNoGraph |
+        fzf --no-sort --reverse --tiebreak=index --no-multi \
         --ansi --preview $_viewGitLogLine ) &&
-  git checkout $(echo "$commit" | sed "s/ .*//")
+    git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
 # gcb - git commit browser with previews
 gcb() {
-    glNoGraph |
-        fzf --no-sort --reverse --tiebreak=index --no-multi \
-            --ansi --preview $_viewGitLogLine \
-                --header "enter to view, alt-y to copy hash" \
-                --bind "enter:execute:$_viewGitLogLine   | less -R" \
-                --bind "alt-y:execute:$_gitLogLineToHash | xclip"
+  glNoGraph |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+    --ansi --preview $_viewGitLogLine \
+    --header "enter to view, alt-y to copy hash" \
+    --bind "enter:execute:$_viewGitLogLine   | less -R" \
+    --bind "alt-y:execute:$_gitLogLineToHash | xsel"
 }
