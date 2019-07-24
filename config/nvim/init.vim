@@ -18,6 +18,7 @@ Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/rhysd/git-messenger.vim'
 Plug 'https://github.com/rhysd/devdocs.vim'
 Plug 'https://github.com/benmills/vimux'
+Plug 'https://github.com/roxma/vim-tmux-clipboard'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
