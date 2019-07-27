@@ -12,6 +12,7 @@ alias mkdir="mkdir -p"
 alias mv="mv -iv"
 alias rm="rm -i"
 alias v="nvim"
+alias n="nvim"
 alias calc="genius"
 
 # Bundler
