@@ -11,7 +11,7 @@ Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://github.com/w0rp/ale'
+Plug 'https://github.com/dense-analysis/ale'
 
 " === experiments ===
 Plug 'https://github.com/RRethy/vim-illuminate'
