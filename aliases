@@ -105,8 +105,6 @@ alias uncommit="git reset --soft HEAD^"
 alias unstage="git reset"
 
 # random
-alias gh="open https://github.com/devinrm"
-
 alias colours='for code in {000..255}; do print -P -- "$code: %F{$code}Test%f"; done'
 
 alias tl="tmux list-sessions"
@@ -120,9 +118,3 @@ alias work="cd $HOME/work/commonlit"
 alias wifi-ip="ipconfig getifaddr en0"
 
 alias update="$HOME/dotfiles/bin/update_packages.sh"
-
-alias browsh="$HOME/./browsh"
-
-alias doc-up="dasht-docsets-update"
-
-# alias gotop="gotop-cjbassi"
