@@ -125,4 +125,4 @@ alias browsh="$HOME/./browsh"
 
 alias doc-up="dasht-docsets-update"
 
-alias gotop="gotop-cjbassi"
+# alias gotop="gotop-cjbassi"

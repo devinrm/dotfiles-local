@@ -48,7 +48,6 @@ endif
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
-Plug 'https://github.com/matze/vim-move'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
@@ -408,9 +407,6 @@ augroup END
 " === vim-illuminate ===
 let g:Illuminate_delay = 50
 hi illuminatedWord guibg=#2c323c gui=NONE
-
-" === vim-move ===
-let g:move_key_modifier = 'C'
 
 " === netrw ===
 let g:netrw_browse_split = 4
