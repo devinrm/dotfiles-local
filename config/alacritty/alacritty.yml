@@ -204,14 +204,14 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x808080'
-    red:     '0x808080'
-    green:   '0x808080'
-    yellow:  '0x808080'
-    blue:    '0x808080'
-    magenta: '0x808080'
-    cyan:    '0x808080'
-    white:   '0x808080'
+    black:   '0x8f6cad'
+    red:     '0x8f6cad'
+    green:   '0x8f6cad'
+    yellow:  '0x8f6cad'
+    blue:    '0x8f6cad'
+    magenta: '0x8f6cad'
+    cyan:    '0x8f6cad'
+    white:   '0x8f6cad'
 
   # Bright colors
   bright:
