@@ -18,6 +18,7 @@ Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/rhysd/git-messenger.vim'
 Plug 'https://github.com/rhysd/devdocs.vim'
 Plug 'https://github.com/benmills/vimux'
+Plug 'https://github.com/voldikss/vim-floaterm'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -333,6 +334,13 @@ let g:CoolTotalMatches = 1
 
 " === devdocs ===
 nmap <silent> K <Plug>(devdocs-under-cursor)
+
+" === floaterm ===
+noremap  <silent> <expr><F12> &buftype =='terminal' ?
+      \ "\<C-\><C-n>:FloatermToggle\<CR>" :
+      \ "\<Esc>:FloatermToggle\<CR>i<C-u>"
+noremap! <silent> <F12> <Esc>:FloatermToggle<CR>i
+tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
