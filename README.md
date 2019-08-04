@@ -1,9 +1,6 @@
 ## Dotfiles
 -----------
 
-*I don't recommend copying my dotfiles wholesale. Cherry-pick from them so you
-can learn about what each configuration does.*
-
 Install
 -------
 
