@@ -21,6 +21,9 @@ sudo dnf install vdpauinfo libva-vdpau-driver libva-utils
 # Alacritty terminal
 sudo dnf copr enable -y pschyska/alacritty
 sudo dnf install -y alacritty
+# Paper icon theme
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo
+sudo dnf install paper-icon-theme
 # arc-theme
 sudo dnf install -y arc-theme
 # seahorse
