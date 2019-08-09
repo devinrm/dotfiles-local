@@ -18,6 +18,10 @@ sudo dnf groupupdate -y core
 # Alacritty terminal
 sudo dnf copr enable -y pschyska/alacritty
 sudo dnf install -y alacritty
+# seahorse
+sudo dnf install -y seahorse seahorse-nautilus
+# Chromium
+sudo dnf install -y chromium
 # Ag
 sudo dnf install -y the_silver_searcher
 # ripgrep
@@ -26,39 +30,54 @@ sudo dnf install -y ripgrep
 sudo dnf copr enable -y agriffis/neovim-nightly
 sudo dnf install -y neovim python{2,3}-neovim
 # git/hub
-sudo dnf install -y git
 sudo dnf install -y hub
 # fzf
 sudo dnf install -y fzf
 # rcm
 sudo dnf install -y rcm
+# gnome-tweaks
+sudo dnf install -y gnome-tweaks
+# thunderbird
+sudo dnf install -y thunderbird
+# bat
+sudo dnf install -y bat
+# transmission
+sudo dnf install -y transmission
+# asdf dependencies
+sudo dnf install -y \
+  make automake autoconf readline-devel \
+  ncurses-devel openssl-devel libyaml-devel \
+  libxslt-devel libffi-devel libtool unixODBC-devel \
+  unzip curl gcc zlib-devel bzip2 bzip2-devel readline-devel \
+  sqlite sqlite-devel tk-devel
 # IBM Plex Mono
 curl -s https://api.github.com/repos/IBM/plex/releases/latest \
   | grep "browser_download_url.*OpenType.\zip" \
   | cut -d '"' -f 4 \
   | wget -qi -
 unzip OpenType.zip
-mv OpenType/IBM-Plex-Mono ~/.fonts
-# bat
-sudo dnf install -y bat
-# snap
-sudo dnf install -y snapd
+mv OpenType/IBM-Plex-Mono/ IBM-Plex-Sans/ IBM-Plex-Serif/ ~/.fonts/
+rm -rf OpenType OpenType.zip
 # tmux (Press prefix + I (capital i, as in Install) to fetch the plugin)
-sudo dnf install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
+# zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+sudo mv zsh-syntax-highlighting /usr/local/share/
 # vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # asdf-vm
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
-sudo dnf install -y \
-  automake autoconf readline-devel \
-  ncurses-devel openssl-devel libyaml-devel \
-  libxslt-devel libffi-devel libtool unixODBC-devel \
-  unzip curl
 source $HOME/.zshrc
 asdf-update
 asdf plugin-add ruby
 asdf plugin-add nodejs
 asdf plugin-add python
+
+# notes:
+# update grub for laptop suspend
+# sudo nvim /etc/sysconfig/grub
+# acpi_osi=! acpi_osi='Windows 2009'
+# sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
