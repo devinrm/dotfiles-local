@@ -21,6 +21,8 @@ sudo dnf install vdpauinfo libva-vdpau-driver libva-utils
 # Alacritty terminal
 sudo dnf copr enable -y pschyska/alacritty
 sudo dnf install -y alacritty
+# arc-theme
+sudo dnf install -y arc-theme
 # seahorse
 sudo dnf install -y seahorse seahorse-nautilus
 # Chromium
