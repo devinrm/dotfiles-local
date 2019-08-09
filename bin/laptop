@@ -15,6 +15,9 @@ sudo dnf install -y \
 sudo dnf groupupdate -y core
 
 # Packages
+# nvidia
+sudo dnf install -y xorg-x11-drv-nvidia akmod-nvidia xorg-x11-drv-nvidia-cuda
+sudo dnf install vdpauinfo libva-vdpau-driver libva-utils
 # Alacritty terminal
 sudo dnf copr enable -y pschyska/alacritty
 sudo dnf install -y alacritty
