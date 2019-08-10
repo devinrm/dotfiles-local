@@ -15,7 +15,7 @@ sudo dnf install -y \
 sudo dnf groupupdate -y core
 
 # Packages
-# nvidia
+# nvidia https://rpmfusion.org/Howto/NVIDIA
 sudo dnf install -y xorg-x11-drv-nvidia akmod-nvidia xorg-x11-drv-nvidia-cuda
 sudo dnf install -y vdpauinfo libva-vdpau-driver libva-utils
 # Alacritty terminal
