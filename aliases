@@ -12,7 +12,7 @@ alias mkdir="mkdir -p"
 alias mv="mv -iv"
 alias rm="rm -i"
 alias v="nvim"
-alias n="nvim"
+alias n="$HOME/./nvim.appimage"
 alias calc="genius"
 
 # Bundler

@@ -55,6 +55,8 @@ sudo dnf install -y bat
 sudo dnf install -y transmission
 # htop
 sudo dnf install -y htop
+# tor browser
+sudo dnf install -y torbrowser-launcher
 # asdf dependencies
 sudo dnf install -y \
   make automake autoconf readline-devel \
