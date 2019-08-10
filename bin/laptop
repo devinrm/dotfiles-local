@@ -17,15 +17,17 @@ sudo dnf groupupdate -y core
 # Packages
 # nvidia
 sudo dnf install -y xorg-x11-drv-nvidia akmod-nvidia xorg-x11-drv-nvidia-cuda
-sudo dnf install vdpauinfo libva-vdpau-driver libva-utils
+sudo dnf install -y vdpauinfo libva-vdpau-driver libva-utils
 # Alacritty terminal
 sudo dnf copr enable -y pschyska/alacritty
 sudo dnf install -y alacritty
 # Paper icon theme
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo
-sudo dnf install paper-icon-theme
+sudo dnf install -y paper-icon-theme
 # arc-theme
 sudo dnf install -y arc-theme
+# vlc
+sudo dnf install -y vlc
 # seahorse
 sudo dnf install -y seahorse seahorse-nautilus
 # Chromium
