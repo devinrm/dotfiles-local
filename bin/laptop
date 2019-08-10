@@ -53,6 +53,8 @@ sudo dnf install -y thunderbird
 sudo dnf install -y bat
 # transmission
 sudo dnf install -y transmission
+# htop
+sudo dnf install -y htop
 # asdf dependencies
 sudo dnf install -y \
   make automake autoconf readline-devel \
