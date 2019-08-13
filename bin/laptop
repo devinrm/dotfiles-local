@@ -20,9 +20,8 @@ sudo dnf install -y xorg-x11-drv-nvidia akmod-nvidia xorg-x11-drv-nvidia-cuda
 sudo dnf install -y vdpauinfo libva-vdpau-driver libva-utils
 # steam
 sudo dnf install -y steam
-# Alacritty terminal
-sudo dnf copr enable -y pschyska/alacritty
-sudo dnf install -y alacritty
+# tilix
+sudo dnf install -y tilix
 # Paper icon theme
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo
 sudo dnf install -y paper-icon-theme
