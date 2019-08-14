@@ -24,6 +24,8 @@ sudo dnf install -y steam
 sudo dnf install -y neofetch
 # tilix
 sudo dnf install -y tilix
+# cheat
+sudo dnf install -y cheat
 # Paper icon theme
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo
 sudo dnf install -y paper-icon-theme
