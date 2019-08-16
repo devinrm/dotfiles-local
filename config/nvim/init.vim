@@ -14,10 +14,6 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/dense-analysis/ale'
 
 " === experiments ===
-Plug 'https://github.com/RRethy/vim-illuminate'
-Plug 'https://github.com/rhysd/git-messenger.vim'
-Plug 'https://github.com/rhysd/devdocs.vim'
-Plug 'https://github.com/benmills/vimux'
 Plug 'https://github.com/voldikss/vim-floaterm'
 
 " === find ===
@@ -46,13 +42,16 @@ Plug 'https://github.com/rust-lang/rust.vim'
 if has('nvim')
   Plug 'https://github.com/justinmk/vim-highlightedyank'
 endif
+Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
+Plug 'https://github.com/rhysd/devdocs.vim'
 Plug 'https://github.com/rstacruz/vim-closer'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 
@@ -455,11 +454,8 @@ endif
 let ruby_no_expensive = 1
 
 " === vim-test ===
-let g:test#strategy = 'vimux'
+let g:test#strategy = 'dispatch'
 let g:test#runner_commands = ['Jest', 'RSpec']
-
-" === vimux ===
-nnoremap <Leader>q :VimuxCloseRunner<CR>
 
 " update jest snapshots with vim-test
 nnoremap <Leader>u :Jest <C-r>=escape(expand("%"), ' ') . ' ' . '--updateSnapshot'<CR><CR>
