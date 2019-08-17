@@ -39,8 +39,6 @@ sudo postgresql-setup --initdb --unit postgresql
 sudo systemctl enable postgresql
 sudo systemctl start postgresql
 # then run sudo -u postgres -i
-# vlc
-sudo dnf install -y vlc
 # seahorse
 sudo dnf install -y seahorse seahorse-nautilus
 # Chromium
