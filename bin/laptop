@@ -34,7 +34,7 @@ sudo dnf install -y paper-icon-theme
 # arc-theme
 sudo dnf install -y arc-theme
 # postgresql https://fedoraproject.org/wiki/PostgreSQL
-sudo dnf install -y postgresql-server postgresql-contrib
+sudo dnf install -y postgresql-server postgresql-contrib libpq-devel
 sudo postgresql-setup --initdb --unit postgresql
 sudo systemctl enable postgresql
 sudo systemctl start postgresql
