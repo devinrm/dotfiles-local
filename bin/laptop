@@ -18,6 +18,7 @@ sudo dnf groupupdate -y core
 # nvidia https://rpmfusion.org/Howto/NVIDIA
 sudo dnf install -y xorg-x11-drv-nvidia akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-cuda-libs
 sudo dnf install -y vdpauinfo libva-vdpau-driver libva-utils
+sudo dnf install -y vulkan
 # Brave
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
