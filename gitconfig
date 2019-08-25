@@ -37,6 +37,7 @@
   pr = hub pull-request
   reb = rebase -i -
   rename = branch -m
+  rl = log --walk-reflogs --date=iso
   sha = rev-parse --short HEAD
   sla = log --oneline --decorate --graph --all
   st = status
