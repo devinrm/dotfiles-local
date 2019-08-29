@@ -324,6 +324,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
 xnoremap <C-\> :Commentary<CR>
