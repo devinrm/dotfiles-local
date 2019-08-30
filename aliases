@@ -38,7 +38,7 @@ alias wuzz="$GOPATH/bin/wuzz"
 
 # Weather and the moon, man
 alias moon="curl wttr.in/Moon"
-alias weather="curl http://wttr\.in/washington"
+alias weather="curl http://v2\.wttr\.in/washington"
 
 # Ruby and Rails
 alias be="bundle exec"
