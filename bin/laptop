@@ -38,6 +38,8 @@ sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/ho
 sudo dnf install -y paper-icon-theme
 # arc-theme
 sudo dnf install -y arc-theme
+# gcc
+sudo dnf install gcc-c++
 # postgresql https://fedoraproject.org/wiki/PostgreSQL
 # sudo -u postgres -i
 # ALTER USER username CREATEDB superuser;
