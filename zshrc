@@ -45,12 +45,6 @@ _load_settings "$HOME/.zsh/configs"
 [ -d "/usr/local/bin" ] && PATH="/usr/local/bin:${PATH}"
 [ -d "${HOME}/bin" ] && PATH="${HOME}/bin:${PATH}"
 
-# Include dasht in $PATH.
-[ -d "${HOME}/dasht/bin" ] && PATH="${PATH}:${HOME}/dasht/bin"
-
-# Include dasht in $MANPATH.
-[ -d "${HOME}/dasht/man" ] && MANPATH="${HOME}/dasht/man:$MANPATH"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob \!.git'
