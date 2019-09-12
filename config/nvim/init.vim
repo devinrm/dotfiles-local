@@ -68,6 +68,7 @@ set clipboard^=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 set termguicolors " nvim gui colors
 set background=dark " Use colors that look good on a dark background
+set backupcopy=yes
 colorscheme grey
 set cursorline
 let s:darwin = has('mac')
