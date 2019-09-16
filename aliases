@@ -11,8 +11,8 @@ alias ls="ls -FGh"
 alias mkdir="mkdir -p"
 alias mv="mv -iv"
 alias rm="rm -i"
-alias v="nvim"
-alias n="$HOME/./nvim/bin/nvim"
+alias v="$HOME/bin/./nvim/bin/nvim"
+alias n="$HOME/bin/./nvim/bin/nvim"
 alias calc="genius"
 
 # Bundler
