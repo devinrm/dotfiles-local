@@ -75,6 +75,10 @@ sudo dnf install -y transmission
 sudo dnf install -y htop
 # tor browser
 sudo dnf install -y torbrowser-launcher
+# firefox dependencies
+sudo dnf groupupdate -y multimedia
+sudo dnf install -y gstreamer1-libav gstreamer1-plugins-ugly unrar \
+  compat-ffmpeg28 ffmpeg-libs
 # asdf dependencies
 sudo dnf install -y \
   make automake autoconf readline-devel \
