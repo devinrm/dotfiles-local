@@ -151,6 +151,7 @@ set undolevels=500
 set undoreload=500
 set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
+set wildoptions=pum
 set wildmode=list:longest,list:full
 
 "  ____ ____ ____ ____ ____ ____  ____ ____ ___
@@ -237,7 +238,7 @@ let g:ale_linters = {
       \ 'erb': ['erubi'],
       \ 'html': ['tidy', 'htmlhint'],
       \ 'javascript': ['eslint'],
-      \ 'jsx': ['stylelint', 'eslint'],
+      \ 'javascriptreact': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'vim': ['vint']
