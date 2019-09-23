@@ -4,5 +4,7 @@
   "diagnostic.infoSign": "•",
   "diagnostic.hintSign": "•",
   "codeLens.enable": false,
-  "javascript.preferences.quoteStyle": "single"
+  "javascript.preferences.quoteStyle": "single",
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true
 }

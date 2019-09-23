@@ -136,6 +136,8 @@ set statusline+=%3*\ %{StatusGit()}
 set statusline+=%3*\ %{StatusGitGutter()}
 set statusline+=%3*\ ░
 set statusline+=%3*\ %{StatusErrors()}
+set statusline+=%3*\ ░
+set statusline+=%3*\ %{StatusDiagnostic()}
 set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ░
@@ -227,6 +229,19 @@ function! StatusGitGutter() abort
   return join(l:ret, ' ')
 endfunction
 
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+endfunction
+
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
 " ||p |||l |||u |||g |||i |||n || ||s |||e |||t |||t |||i |||n |||g |||s ||
 " ||__|||__|||__|||__|||__|||__|| ||__|||__|||__|||__|||__|||__|||__|||__||
@@ -241,6 +256,8 @@ let g:ale_linters = {
       \ 'javascriptreact': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
+      \ 'typescript': ['tslint'],
+      \ 'tsx': ['stylelint', 'tslint'],
       \ 'vim': ['vint']
       \ }
 
@@ -308,6 +325,9 @@ endfunction
 
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Show all diagnostics
+nnoremap <silent> <space>m  :<C-u>CocList diagnostics<cr>
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
