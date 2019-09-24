@@ -256,8 +256,6 @@ let g:ale_linters = {
       \ 'javascriptreact': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
-      \ 'typescript': ['tslint'],
-      \ 'tsx': ['stylelint', 'tslint'],
       \ 'vim': ['vint']
       \ }
 
