@@ -263,6 +263,7 @@ let g:ale_fixers = {
       \ 'css': ['stylelint'],
       \ 'html': ['prettier'],
       \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascriptreact': ['prettier', 'eslint'],
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
