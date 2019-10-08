@@ -362,6 +362,7 @@ noremap  <silent> <expr><F12> &buftype =='terminal' ?
       \ "\<Esc>:FloatermToggle\<CR>i<C-u>"
 noremap! <silent> <F12> <Esc>:FloatermToggle<CR>i
 tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_position = 'bottomleft'
 
 " === fugitive ===
 nnoremap <Leader>g :Git<SPACE>
@@ -513,7 +514,7 @@ let g:debug_map = {
       \ 'ruby' : 'require "pry"; binding.pry',
       \ 'javascript' : 'debugger;',
       \ 'typescript' : 'debugger;',
-      \ 'javascript.tsx' : 'debugger;',
+      \ 'javascriptreact' : 'debugger;',
       \ 'typescript.tsx' : 'debugger;'
       \}
 
