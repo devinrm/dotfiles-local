@@ -30,7 +30,7 @@ Plug 'https://github.com/tpope/vim-rhubarb'
 " === language plugins ===
 Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'https://github.com/leafgarland/typescript-vim'
+" Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 Plug 'https://github.com/othree/html5.vim'
@@ -51,7 +51,6 @@ Plug 'https://github.com/rhysd/devdocs.vim'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 
@@ -477,7 +476,24 @@ endif
 let ruby_no_expensive = 1
 
 " === vim-test ===
-let g:test#strategy = 'dispatch'
+function! NeoSplit(cmd) abort
+  let opts = {'suffix': ' # vim-test'}
+  function! opts.close_terminal()
+    if bufnr(self.suffix) != -1
+      execute 'bdelete!' bufnr(self.suffix)
+    end
+  endfunction
+
+  call opts.close_terminal()
+
+  botright 12 new
+  call termopen(a:cmd . opts.suffix, opts)
+  au BufDelete <buffer> wincmd p
+  stopinsert
+endfunction
+
+let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
+let g:test#strategy = 'neosplit'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test
