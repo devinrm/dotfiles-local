@@ -344,6 +344,7 @@ function! s:show_documentation()
 endfunction
 
 nmap <leader>qf  <Plug>(coc-fix-current)
+nnoremap <silent> <leader>r :CocRestart<CR><CR>
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -504,7 +505,6 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
-nnoremap <silent> <leader>r :12sp <CR>:terminal<CR>rake<CR>
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
