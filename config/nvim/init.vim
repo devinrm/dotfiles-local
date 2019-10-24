@@ -14,7 +14,6 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/dense-analysis/ale'
 
 " === experiments ===
-Plug 'https://github.com/voldikss/vim-floaterm'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -46,10 +45,7 @@ Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
-Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/rhysd/devdocs.vim'
-Plug 'https://github.com/jiangmiao/auto-pairs'
-Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
@@ -73,6 +69,7 @@ let s:darwin = has('mac')
 set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
+filetype plugin on
 set formatprg=par
 set gdefault " Replace all matches on a line instead of just the first
 set grepprg=rg\ --vimgrep\ --no-heading
@@ -247,19 +244,16 @@ endfunction
 " |/__\|/__\|/__\|/__\|/__\|/__\| |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === ale ===
-let g:ale_linters = {
-      \ 'css': ['stylelint'],
-      \ 'erb': ['erubi'],
-      \ 'html': ['tidy', 'htmlhint'],
-      \ 'javascript': ['eslint'],
-      \ 'typescript': ['eslint'],
-      \ 'javascriptreact': ['stylelint', 'eslint'],
-      \ 'typescriptreact': ['stylelint', 'eslint'],
-      \ 'typescript.tsx': ['stylelint', 'eslint'],
-      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
-      \ 'scss': ['stylelint'],
-      \ 'vim': ['vint']
-      \ }
+" let g:ale_linters = {
+"       \ 'css': ['stylelint'],
+"       \ 'erb': ['erubi'],
+"       \ 'html': ['tidy', 'htmlhint'],
+"       \ 'javascript': ['eslint'],
+"       \ 'javascriptreact': ['stylelint', 'eslint'],
+"       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
+"       \ 'scss': ['stylelint'],
+"       \ 'vim': ['vint']
+"       \ }
 
 let g:ale_fixers = {
       \ 'css': ['stylelint'],
@@ -361,17 +355,6 @@ let g:CoolTotalMatches = 1
 " === devdocs ===
 nmap <silent> K <Plug>(devdocs-under-cursor)
 
-" === floaterm ===
-noremap  <silent> <expr><F12> &buftype =='terminal' ?
-      \ "\<C-\><C-n>:FloatermToggle\<CR>" :
-      \ "\<Esc>:FloatermToggle\<CR>i<C-u>"
-noremap! <silent> <F12> <Esc>:FloatermToggle<CR>i
-tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
-let g:floaterm_position = 'bottomleft'
-
-" === fugitive ===
-nnoremap <Leader>g :Git<SPACE>
-
 " === fzf.vim ===
 nnoremap <C-p> :wa<CR>:Files<CR>
 nnoremap <C-t> :wa<CR>:Tags<CR>
@@ -453,30 +436,29 @@ let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
 
 " === omnicompletion ===
-filetype plugin on
-set completeopt+=noselect,noinsert,menuone
-set completeopt-=i,t,preview
-set noinfercase
-set pumheight=5
-set shortmess+=c
+" set completeopt+=noselect,noinsert,menuone
+" set completeopt-=i,t,preview
+" set noinfercase
+" set pumheight=5
+" set shortmess+=c
 
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-augroup END
+" augroup omnifuncs
+"   autocmd!
+"   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"   autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
+"   autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
+"   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" augroup END
 
-if has('autocmd') && exists('+omnifunc')
-  augroup omnicomplete
-    autocmd!
-    autocmd Filetype *
-          \ if &omnifunc == '' |
-          \  setlocal omnifunc=syntaxcomplete#Complete |
-          \ endif
-  augroup END
-endif
+" if has('autocmd') && exists('+omnifunc')
+"   augroup omnicomplete
+"     autocmd!
+"     autocmd Filetype *
+"           \ if &omnifunc == '' |
+"           \  setlocal omnifunc=syntaxcomplete#Complete |
+"           \ endif
+"   augroup END
+" endif
 
 " === vim-ruby ===
 let ruby_no_expensive = 1
@@ -526,9 +508,6 @@ augroup END
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <Leader>= :wincmd =<CR>
 
-" === Get dot command repeatability in visual mode (from @geoffharcourt) ===
-xnoremap . :normal.<CR>
-
 " === debugging ===
 let g:loaded_pry = 1
 let g:debug_map = {
@@ -536,7 +515,7 @@ let g:debug_map = {
       \ 'javascript' : 'debugger;',
       \ 'typescript' : 'debugger;',
       \ 'javascriptreact' : 'debugger;',
-      \ 'typescript.tsx' : 'debugger;'
+      \ 'typescriptreact' : 'debugger;'
       \}
 
 function! InsertDebug()
@@ -566,18 +545,18 @@ if has('nvim')
   augroup END
 endif
 
-" tnoremap <C-w>h <C-\><C-n><C-w>h
-" tnoremap <C-w>j <C-\><C-n><C-w>j
-" tnoremap <C-w>k <C-\><C-n><C-w>k
-" tnoremap <C-w>l <C-\><C-n><C-w>l
-" tnoremap <Esc> <C-\><C-n>
-" tnoremap <A-[> <Esc><Esc>
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l
+tnoremap <Esc> <C-\><C-n>
+tnoremap <A-[> <Esc><Esc>
 
-" tnoremap <C-w>- <C-\><C-n>:sp<CR>:terminal<CR>
-" tnoremap <C-w>\ <C-\><C-n>:vsp<CR>:terminal<CR>
-" nnoremap <C-w>- :20sp<CR>:terminal<CR>
-" nnoremap <C-w>\ :vsp<CR>:terminal<CR>
-" nnoremap <C-w>c :tabnew<CR>:terminal<CR>
+tnoremap <C-w>- <C-\><C-n>:sp<CR>:terminal<CR>
+tnoremap <C-w>\ <C-\><C-n>:vsp<CR>:terminal<CR>
+nnoremap <C-w>- :20sp<CR>:terminal<CR>
+nnoremap <C-w>\ :vsp<CR>:terminal<CR>
+nnoremap <C-w>c :tabnew<CR>:terminal<CR>
 
 " === Move up and down by visible lines if current line is wrapped ===
 nnoremap j gj
