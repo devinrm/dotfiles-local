@@ -30,9 +30,9 @@ Plug 'https://github.com/tpope/vim-rhubarb'
 " === language plugins ===
 Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
+Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
@@ -252,7 +252,10 @@ let g:ale_linters = {
       \ 'erb': ['erubi'],
       \ 'html': ['tidy', 'htmlhint'],
       \ 'javascript': ['eslint'],
+      \ 'typescript': ['eslint'],
       \ 'javascriptreact': ['stylelint', 'eslint'],
+      \ 'typescriptreact': ['stylelint', 'eslint'],
+      \ 'typescript.tsx': ['stylelint', 'eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'vim': ['vint']
@@ -263,11 +266,13 @@ let g:ale_fixers = {
       \ 'html': ['prettier'],
       \ 'javascript': ['prettier', 'eslint'],
       \ 'javascriptreact': ['prettier', 'eslint'],
+      \ 'typescriptreact': ['prettier', 'eslint'],
+      \ 'typescript.tsx': ['prettier', 'eslint'],
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
       \ 'sh': ['shfmt'],
-      \ 'typescript': ['prettier', 'tslint'],
+      \ 'typescript': ['prettier', 'eslint'],
       \ 'yaml': ['prettier']
       \ }
 
