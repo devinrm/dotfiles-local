@@ -31,7 +31,6 @@ Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/tpope/vim-rails'
