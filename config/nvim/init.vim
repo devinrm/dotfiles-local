@@ -244,29 +244,30 @@ endfunction
 " |/__\|/__\|/__\|/__\|/__\|/__\| |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 
 " === ale ===
-" let g:ale_linters = {
-"       \ 'css': ['stylelint'],
-"       \ 'erb': ['erubi'],
-"       \ 'html': ['tidy', 'htmlhint'],
-"       \ 'javascript': ['eslint'],
-"       \ 'javascriptreact': ['stylelint', 'eslint'],
-"       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
-"       \ 'scss': ['stylelint'],
-"       \ 'vim': ['vint']
-"       \ }
+let g:ale_linters = {
+      \ 'css': ['stylelint'],
+      \ 'erb': ['erubi'],
+      \ 'html': ['tidy', 'htmlhint'],
+      \ 'javascript': ['eslint'],
+      \ 'javascriptreact': ['stylelint', 'eslint'],
+      \ 'typescript': ['tslint'],
+      \ 'typescriptreact': ['tslint'],
+      \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
+      \ 'scss': ['stylelint'],
+      \ 'vim': ['vint']
+      \ }
 
 let g:ale_fixers = {
       \ 'css': ['stylelint'],
       \ 'html': ['prettier'],
       \ 'javascript': ['prettier', 'eslint'],
       \ 'javascriptreact': ['prettier', 'eslint'],
-      \ 'typescriptreact': ['prettier', 'eslint'],
-      \ 'typescript.tsx': ['prettier', 'eslint'],
+      \ 'typescriptreact': ['prettier', 'tslint'],
+      \ 'typescript': ['prettier', 'tslint'],
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
       \ 'sh': ['shfmt'],
-      \ 'typescript': ['prettier', 'eslint'],
       \ 'yaml': ['prettier']
       \ }
 
@@ -436,11 +437,11 @@ let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
 
 " === omnicompletion ===
-" set completeopt+=noselect,noinsert,menuone
-" set completeopt-=i,t,preview
-" set noinfercase
-" set pumheight=5
-" set shortmess+=c
+set completeopt+=noselect,noinsert,menuone
+set completeopt-=i,t,preview
+set noinfercase
+set pumheight=10
+set shortmess+=c
 
 " augroup omnifuncs
 "   autocmd!
