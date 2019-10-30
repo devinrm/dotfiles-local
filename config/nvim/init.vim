@@ -41,7 +41,6 @@ if has('nvim')
   Plug 'https://github.com/justinmk/vim-highlightedyank'
 endif
 Plug 'https://github.com/RRethy/vim-illuminate'
-Plug 'https://github.com/alvan/vim-closetag'
 Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/rhysd/devdocs.vim'
@@ -288,9 +287,6 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 nmap <silent><Leader>f <Plug>(ale_fix)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
-
-" === vim-closetag ===
-let g:closetag_filenames = '*.html,*.erb,*.jsx,*.js,*.tsx,*.ts'
 
 " === coc.nvim ===
 " highlight groups
