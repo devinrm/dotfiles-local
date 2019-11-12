@@ -32,7 +32,7 @@ Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn i
 Plug 'https://github.com/maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 Plug 'https://github.com/othree/html5.vim'
-Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/yuezk/vim-js'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/rust-lang/rust.vim'
 
@@ -149,6 +149,10 @@ set wildignore+=tmp/** " Ignore stuff that can't be opened
 set wildmenu " Enables a menu at the bottom of the vim window.
 set wildoptions=pum
 set wildmode=list:longest,list:full
+augroup changeTypescriptFileType
+  autocmd!
+  autocmd FileType typescriptreact setl filetype=typescript.tsx
+augroup END
 
 "  ____ ____ ____ ____ ____ ____  ____ ____ ___
 " ||f |||u |||n |||c |||t |||i |||o |||n |||s ||
@@ -250,6 +254,7 @@ let g:ale_linters = {
       \ 'javascriptreact': ['stylelint', 'eslint'],
       \ 'typescript': ['tslint'],
       \ 'typescriptreact': ['tslint'],
+      \ 'typescript.tsx': ['tslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'vim': ['vint']
@@ -262,6 +267,7 @@ let g:ale_fixers = {
       \ 'javascriptreact': ['prettier', 'eslint'],
       \ 'typescriptreact': ['prettier', 'tslint'],
       \ 'typescript': ['prettier', 'tslint'],
+      \ 'typescript.tsx': ['prettier', 'tslint'],
       \ 'json': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'scss': ['stylelint'],
@@ -512,6 +518,7 @@ let g:debug_map = {
       \ 'typescript' : 'debugger;',
       \ 'javascriptreact' : 'debugger;',
       \ 'typescriptreact' : 'debugger;'
+      \ 'typescript.tsx' : 'debugger;'
       \}
 
 function! InsertDebug()
