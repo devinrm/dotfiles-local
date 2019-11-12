@@ -517,7 +517,7 @@ let g:debug_map = {
       \ 'javascript' : 'debugger;',
       \ 'typescript' : 'debugger;',
       \ 'javascriptreact' : 'debugger;',
-      \ 'typescriptreact' : 'debugger;'
+      \ 'typescriptreact' : 'debugger;',
       \ 'typescript.tsx' : 'debugger;'
       \}
 
