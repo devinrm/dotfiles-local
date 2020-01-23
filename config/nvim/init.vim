@@ -69,7 +69,7 @@ set diffopt+=vertical " Start diff mode with vertical splits
 set expandtab " Use the appropriate number of spaces to insert a <Tab>.
 filetype plugin indent on " load indent file for language
 filetype plugin on
-set formatprg=par
+set formatprg=fmt
 set gdefault " Replace all matches on a line instead of just the first
 set grepprg=rg\ --vimgrep\ --no-heading
 set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -407,6 +407,39 @@ nnoremap gr :Rg <C-R><C-W><CR>
 " string
 command! -bang -nargs=* Fg call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <Leader>; :Fg<CR>
+
+function! FloatingFZF(width, height, border_highlight)
+  function! s:create_float(hl, opts)
+    let buf = nvim_create_buf(v:false, v:true)
+    let opts = extend({'relative': 'editor', 'style': 'minimal'}, a:opts)
+    let win = nvim_open_win(buf, v:true, opts)
+    call setwinvar(win, '&winhighlight', 'NormalFloat:'.a:hl)
+    call setwinvar(win, '&colorcolumn', '')
+    return buf
+  endfunction
+
+  " Size and position
+  let width = float2nr(&columns * a:width)
+  let height = float2nr(&lines * a:height)
+  let row = float2nr((&lines - height) / 2)
+  let col = float2nr((&columns - width) / 2)
+
+  " Border
+  let top = '╭' . repeat('─', width - 2) . '╮'
+  let mid = '│' . repeat(' ', width - 2) . '│'
+  let bot = '╰' . repeat('─', width - 2) . '╯'
+  let border = [top] + repeat([mid], height - 2) + [bot]
+
+  " Draw frame
+  let s:frame = s:create_float(a:border_highlight, {'row': row, 'col': col, 'width': width, 'height': height})
+  call nvim_buf_set_lines(s:frame, 0, -1, v:true, border)
+
+  " Draw viewport
+  call s:create_float('Normal', {'row': row + 1, 'col': col + 2, 'width': width - 4, 'height': height - 2})
+  autocmd BufWipeout <buffer> execute 'bwipeout' s:frame
+endfunction
+
+let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.6, "Comment")' }
 
 " === vim-gitgutter ===
 let g:gitgutter_signs = 0
