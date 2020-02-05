@@ -17,7 +17,7 @@ Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 
 " === find ===
-Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/romainl/vim-cool'
 
