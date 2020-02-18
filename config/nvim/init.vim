@@ -504,7 +504,7 @@ function! NeoSplit(cmd) abort
 
   call opts.close_terminal()
 
-  botright 12 new
+  vert new
   call termopen(a:cmd . opts.suffix, opts)
   au BufDelete <buffer> wincmd p
   stopinsert
