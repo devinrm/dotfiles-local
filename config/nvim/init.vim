@@ -15,6 +15,7 @@ Plug 'https://github.com/dense-analysis/ale'
 
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
+Plug 'camspiers/lens.vim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
@@ -285,7 +286,7 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-nmap <silent><Leader>f <Plug>(ale_fix)
+nmap <silent><Leader>fr <Plug>(ale_fix)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
@@ -341,6 +342,7 @@ endfunction
 
 nmap <leader>qf  <Plug>(coc-fix-current)
 nnoremap <silent> <leader>r :CocRestart<CR><CR>
+nnoremap <silent> <leader>f :CocCommand eslint.executeAutofix<CR>
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -533,6 +535,8 @@ augroup resize
   autocmd!
   autocmd VimResized * :wincmd =
 augroup END
+
+inoremap jk <esc>
 
 " === zoom a vim pane, <C-w>= to re-balance ===
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
