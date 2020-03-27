@@ -141,7 +141,7 @@ set statusline+=%3*\ %P
 set statusline+=%3*\ █▓░
 set synmaxcol=200
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
-set textwidth=80 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+set textwidth=100 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
 set undodir=$HOME/.undodir " directory name for undo file.
 set undofile " Automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
