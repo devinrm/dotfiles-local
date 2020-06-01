@@ -628,9 +628,7 @@ nnoremap <Leader>ww :tabe <C-r>=expand("$HOME/dotfiles/laptop/vim_notes/")<CR><C
 
 " === Pre-populate a split command with the current directory ===
 nnoremap <Leader>e :vsp <C-r>=expand("%:p:h") . "/" <CR><C-d>
+nnoremap <Leader>mv :!mv % <C-r>=expand("%:p:h") . "/" <CR><C-d>
 
 " === Open vimrc in new tab ===
 nnoremap <Leader>vi :tabe $MYVIMRC<CR>
-
-" === Add last command to vimrc ===
-command! AddLastCommandToVimrc :call writefile(split(@:,"\\n"),$MYVIMRC, "a")
