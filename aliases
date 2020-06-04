@@ -14,6 +14,7 @@ alias rm="rm -i"
 alias v="nvim"
 alias n="nvim"
 alias calc="genius"
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 # Bundler
 alias b="bundle"
