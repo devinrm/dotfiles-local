@@ -1,4 +1,5 @@
 .DS_Store
+.vscode/
 *.sw[nop]
 .bundle
 .byebug_history
