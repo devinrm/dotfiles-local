@@ -4,7 +4,6 @@ set -e
 
 npm i -g babel-cli ;
 npm i -g babel-eslint ;
-npm i -g create-react-app ;
 npm i -g diff-so-fancy
 npm i -g eslint-config-prettier ;
 npm i -g eslint-plugin-jsx-a11y ;

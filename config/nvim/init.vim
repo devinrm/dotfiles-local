@@ -56,6 +56,7 @@ call plug#end()
 
 set autoread
 set backspace=2 " Backspace deletes like most programs in insert mode
+set backupcopy=yes
 set clipboard^=unnamedplus " copy paste to system clipboard
 set colorcolumn=+1 " highlight column after 'textwidth'
 set termguicolors " nvim gui colors
