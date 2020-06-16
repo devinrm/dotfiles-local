@@ -31,7 +31,7 @@
   glog = log -E -i --grep
   l = log --pretty=colored
   mg = merge
-  mup = !git checkout trunk && git pull && git checkout -
+  tup = !git checkout trunk && git pull && git checkout -
   pf = push --force-with-lease
   ph = push -u origin HEAD
   pr = hub pull-request
