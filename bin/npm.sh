@@ -2,9 +2,8 @@
 
 set -e
 
-npm i -g babel-cli ;
-npm i -g babel-eslint ;
-npm i -g diff-so-fancy
+npm i -g diff-so-fancy ;
+npm i -g eslint ;
 npm i -g eslint-config-prettier ;
 npm i -g eslint-plugin-jsx-a11y ;
 npm i -g eslint-plugin-no-unsanitized ;
@@ -21,11 +20,6 @@ npm i -g prettier ;
 npm i -g prettier-eslint ;
 npm i -g prettier-eslint-cli ;
 npm i -g snyk ;
-npm i -g stylelint ;
-npm i -g stylelint-order ;
-npm i -g stylelint-scss ;
-npm i -g stylelint-config-standard ;
 npm i -g tldr ;
 npm i -g typescript ;
-npm i -g typescript-tslint-plugin ;
 npm i -g ts-node
