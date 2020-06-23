@@ -1,6 +1,4 @@
-babel-cli
-babel-eslint
-create-react-app
+eslint
 diff-so-fancy
 eslint-config-prettier
 eslint-plugin-jsx-a11y
@@ -18,10 +16,6 @@ prettier
 prettier-eslint
 prettier-eslint-cli
 snyk
-stylelint
-stylelint-order
-stylelint-scss
-stylelint-config-standard
 tldr
 typescript
 typescript-tslint-plugin
