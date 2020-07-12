@@ -80,6 +80,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 fpath=(${ASDF_DIR}/completions $fpath)
 export NODEJS_CHECK_SIGNATURES=no
 
+# keychain
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  /usr/bin/keychain --nogui $HOME/.ssh/id_rsa
+  source $HOME/.keychain/MSI-sh
+fi
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
