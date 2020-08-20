@@ -4,3 +4,4 @@
 --skip-sprockets
 --skip-test
 --skip-turbolinks
+--webpacker=react

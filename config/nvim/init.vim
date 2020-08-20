@@ -566,6 +566,20 @@ endfunction
 
 nnoremap <Leader>d :call InsertDebug()<CR>
 
+function! InsertReact()
+    call feedkeys('i')
+    call feedkeys("import ComponentName from 'apps/ComponentName/ComponentName';")
+    call feedkeys("\n")
+    call feedkeys("\n")
+    call feedkeys("import renderComponent from 'utils/reactHelper';")
+    call feedkeys("\n")
+    call feedkeys("\n")
+    call feedkeys("renderComponent(ComponentName, 'ComponentName');")
+    call feedkeys("\<Esc>")
+endfunction
+
+nnoremap <Leader>qq :call InsertReact()<CR>
+
 " === console.log word or function under cursor ===
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
