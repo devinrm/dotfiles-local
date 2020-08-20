@@ -568,13 +568,9 @@ nnoremap <Leader>d :call InsertDebug()<CR>
 
 function! InsertReact()
     call feedkeys('i')
-    call feedkeys("import ComponentName from 'apps/ComponentName/ComponentName';")
+    call feedkeys("import mountComponent from 'utils/reactHelper';")
     call feedkeys("\n")
-    call feedkeys("\n")
-    call feedkeys("import renderComponent from 'utils/reactHelper';")
-    call feedkeys("\n")
-    call feedkeys("\n")
-    call feedkeys("renderComponent(ComponentName, 'ComponentName');")
+    call feedkeys("mountComponent(ComponentName, 'ComponentName');")
     call feedkeys("\<Esc>")
 endfunction
 
