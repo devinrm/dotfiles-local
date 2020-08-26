@@ -21,10 +21,9 @@ if !exists('g:vscode')
   Plug 'https://github.com/devinrm/the-grey'
 
   " === completion ===
-  " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'https://github.com/dense-analysis/ale'
   Plug 'https://github.com/neovim/nvim-lsp'
   Plug 'https://github.com/nvim-lua/completion-nvim'
-  Plug 'https://github.com/dense-analysis/ale'
   Plug 'https://github.com/nvim-lua/diagnostic-nvim'
   Plug 'https://github.com/steelsojka/completion-buffers'
 
@@ -139,8 +138,6 @@ set statusline+=%3*\ %{StatusGitGutter()}
 set statusline+=%3*\ ░
 set statusline+=%3*\ %{StatusErrors()}
 set statusline+=%3*\ ░
-set statusline+=%3*\ %{StatusDiagnostic()}
-set statusline+=%=
 set statusline+=%3*\ %y%*%*
 set statusline+=%3*\ ░
 set statusline+=%3*\ %P
@@ -231,19 +228,6 @@ function! StatusGitGutter() abort
   return join(l:ret, ' ')
 endfunction
 
-function! StatusDiagnostic() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) | return '' | endif
-  let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, 'E' . info['error'])
-  endif
-  if get(info, 'warning', 0)
-    call add(msgs, 'W' . info['warning'])
-  endif
-  return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
-endfunction
-
 augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
@@ -301,59 +285,41 @@ nmap <silent><Leader>fr <Plug>(ale_fix)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
-" === coc.nvim ===
-" highlight groups
-hi default CocUnderline cterm=bold gui=bold
-hi CocErrorSign guifg=#ff8700
-hi CocInfoSign  guifg=#87ceeb
+" === nvim-lsp ===
+lua <<EOF
+  require'nvim_lsp'.tsserver.setup{}
+  require'nvim_lsp'.solargraph.setup{}
+  require'nvim_lsp'.html.setup{}
+  require'nvim_lsp'.cssls.setup{}
+EOF
 
-" if hidden not set, TextEdit might fail.
-set hidden
+" === completion-nvim ===
+augroup enable_completion
+  autocmd BufEnter * lua require'completion'.on_attach()
+augroup END
 
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" don't give |ins-completion-menu| messages.
+set completeopt+=noselect,noinsert,menuone
+" set completeopt-=i,t,preview
+set noinfercase
+set pumheight=10
 set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" diagnostic-nvim
+augroup enable_diagnostics
+  autocmd BufEnter * lua require'diagnostic'.on_attach()
+augroup END
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+let g:diagnostic_enable_virtual_text = 1
 
-" Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Show all diagnostics
-nnoremap <silent> <space>m  :<C-u>CocList diagnostics<cr>
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-
-" Use `gh` to show documentation in preview window
-noremap <silent> gh :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nmap <leader>qf  <Plug>(coc-fix-current)
-nnoremap <silent> <leader>r :CocRestart<CR><CR>
-nnoremap <silent> <leader>f :CocCommand eslint.executeAutofix<CR>
+let g:completion_chain_complete_list = [
+      \{ 'complete_items': ['lsp'] },
+      \{ 'complete_items': ['path'] },
+      \{ 'complete_items': ['buffer'] },
+\]
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -477,31 +443,6 @@ let g:netrw_liststyle = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_dirhistmax = 0
-
-" === omnicompletion ===
-set completeopt+=noselect,noinsert,menuone
-set completeopt-=i,t,preview
-set noinfercase
-set pumheight=10
-set shortmess+=c
-
-" augroup omnifuncs
-"   autocmd!
-"   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"   autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
-"   autocmd FileType javascript.jsx set omnifunc=javascriptcomplete#CompleteJS
-"   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-" augroup END
-
-" if has('autocmd') && exists('+omnifunc')
-"   augroup omnicomplete
-"     autocmd!
-"     autocmd Filetype *
-"           \ if &omnifunc == '' |
-"           \  setlocal omnifunc=syntaxcomplete#Complete |
-"           \ endif
-"   augroup END
-" endif
 
 " === vim-ruby ===
 let ruby_no_expensive = 1
