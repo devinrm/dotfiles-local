@@ -5,7 +5,42 @@
 
 call plug#begin('$HOME/.vim/bundle')
 
-" vscode and nvim
+" === colorscheme(s) ===
+Plug 'https://github.com/devinrm/necromancer.vim'
+Plug 'https://github.com/devinrm/the-grey'
+
+" === completion ===
+Plug 'https://github.com/dense-analysis/ale'
+Plug 'https://github.com/neovim/nvim-lsp'
+Plug 'https://github.com/nvim-lua/completion-nvim'
+Plug 'https://github.com/nvim-lua/diagnostic-nvim'
+Plug 'https://github.com/steelsojka/completion-buffers'
+
+" === experiments ===
+Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
+
+" === find ===
+Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
+Plug 'https://github.com/junegunn/fzf.vim'
+
+" === git ===
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/junegunn/gv.vim'
+
+" === language plugins ===
+Plug 'https://github.com/hail2u/vim-css3-syntax'
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'https://github.com/maxmellon/vim-jsx-pretty'
+Plug 'https://github.com/HerringtonDarkholme/yats.vim'
+Plug 'https://github.com/othree/html5.vim'
+Plug 'https://github.com/yuezk/vim-js'
+Plug 'https://github.com/rust-lang/rust.vim'
+
+" === other ===
+Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
+Plug 'https://github.com/rhysd/devdocs.vim'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/romainl/vim-cool'
@@ -14,45 +49,6 @@ Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/tpope/vim-rhubarb'
 Plug 'https://github.com/tpope/vim-rsi'
-
-if !exists('g:vscode')
-  " === colorscheme(s) ===
-  Plug 'https://github.com/devinrm/necromancer.vim'
-  Plug 'https://github.com/devinrm/the-grey'
-
-  " === completion ===
-  Plug 'https://github.com/dense-analysis/ale'
-  Plug 'https://github.com/neovim/nvim-lsp'
-  Plug 'https://github.com/nvim-lua/completion-nvim'
-  Plug 'https://github.com/nvim-lua/diagnostic-nvim'
-  Plug 'https://github.com/steelsojka/completion-buffers'
-
-  " === experiments ===
-  Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-
-  " === find ===
-  Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
-  Plug 'https://github.com/junegunn/fzf.vim'
-
-  " === git ===
-  Plug 'https://github.com/airblade/vim-gitgutter'
-  Plug 'https://github.com/junegunn/gv.vim'
-
-  " === language plugins ===
-  Plug 'https://github.com/hail2u/vim-css3-syntax'
-  Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-  Plug 'https://github.com/maxmellon/vim-jsx-pretty'
-  Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-  Plug 'https://github.com/othree/html5.vim'
-  Plug 'https://github.com/yuezk/vim-js'
-  Plug 'https://github.com/rust-lang/rust.vim'
-
-  " === other ===
-  Plug 'https://github.com/ap/vim-css-color', { 'for': 'css' }
-  Plug 'https://github.com/rhysd/devdocs.vim'
-  Plug 'https://github.com/tpope/vim-commentary'
-  Plug 'https://github.com/tweekmonster/startuptime.vim'
-endif
 
 call plug#end()
 
@@ -286,12 +282,12 @@ nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === nvim-lsp ===
-lua <<EOF
-  require'nvim_lsp'.tsserver.setup{}
-  require'nvim_lsp'.solargraph.setup{}
-  require'nvim_lsp'.html.setup{}
-  require'nvim_lsp'.cssls.setup{}
-EOF
+augroup enable_lsp
+  autocmd BufEnter * lua require'nvim_lsp'.tsserver.setup{}
+  autocmd BufEnter * lua require'nvim_lsp'.solargraph.setup{}
+  autocmd BufEnter * lua require'nvim_lsp'.html.setup{}
+  autocmd BufEnter * lua require'nvim_lsp'.cssls.setup{}
+augroup END
 
 " === completion-nvim ===
 augroup enable_completion
