@@ -287,27 +287,20 @@ augroup enable_lsp
   autocmd BufEnter * lua require'nvim_lsp'.solargraph.setup{}
   autocmd BufEnter * lua require'nvim_lsp'.html.setup{}
   autocmd BufEnter * lua require'nvim_lsp'.cssls.setup{}
+  autocmd BufEnter * lua require'completion'.on_attach()
+  autocmd BufEnter * lua require'diagnostic'.on_attach()
 augroup END
 
 " === completion-nvim ===
-augroup enable_completion
-  autocmd BufEnter * lua require'completion'.on_attach()
-augroup END
-
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 set completeopt+=noselect,noinsert,menuone
-" set completeopt-=i,t,preview
+set completeopt-=i,t,preview
 set noinfercase
 set pumheight=10
 set shortmess+=c
-
-" diagnostic-nvim
-augroup enable_diagnostics
-  autocmd BufEnter * lua require'diagnostic'.on_attach()
-augroup END
 
 let g:diagnostic_enable_virtual_text = 1
 
