@@ -12,9 +12,8 @@ Plug 'https://github.com/devinrm/the-grey'
 " === completion ===
 Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/neovim/nvim-lsp'
-Plug 'https://github.com/nvim-lua/completion-nvim'
-Plug 'https://github.com/nvim-lua/diagnostic-nvim'
-Plug 'https://github.com/steelsojka/completion-buffers'
+Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'https://github.com/Shougo/deoplete-lsp'
 
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
@@ -282,16 +281,18 @@ nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === nvim-lsp ===
-augroup enable_lsp
-  autocmd BufEnter * lua require'nvim_lsp'.tsserver.setup{}
-  autocmd BufEnter * lua require'nvim_lsp'.solargraph.setup{}
-  autocmd BufEnter * lua require'nvim_lsp'.html.setup{}
-  autocmd BufEnter * lua require'nvim_lsp'.cssls.setup{}
-  autocmd BufEnter * lua require'completion'.on_attach()
-  autocmd BufEnter * lua require'diagnostic'.on_attach()
-augroup END
+lua << END
+  require'nvim_lsp'.tsserver.setup{}
+  require'nvim_lsp'.solargraph.setup{}
+  require'nvim_lsp'.html.setup{}
+  require'nvim_lsp'.cssls.setup{}
+END
 
-" === completion-nvim ===
+nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent>ge <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
+
+" === deoplete ===
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -302,13 +303,7 @@ set noinfercase
 set pumheight=10
 set shortmess+=c
 
-let g:diagnostic_enable_virtual_text = 1
-
-let g:completion_chain_complete_list = [
-      \{ 'complete_items': ['lsp'] },
-      \{ 'complete_items': ['path'] },
-      \{ 'complete_items': ['buffer'] },
-\]
+let g:deoplete#enable_at_startup = 1
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
