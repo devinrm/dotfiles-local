@@ -17,6 +17,7 @@ Plug 'https://github.com/Shougo/deoplete-lsp'
 
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
+" Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
@@ -225,7 +226,7 @@ endfunction
 
 augroup highlight_yank
   autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+  au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=1000, on_visual=false}
 augroup END
 
 "  ____ ____ ____ ____ ____ ____   ____ ____ ____ ____ ____ ____ ____ ____
@@ -238,10 +239,10 @@ let g:ale_linters = {
       \ 'css': ['stylelint'],
       \ 'erb': ['erubi'],
       \ 'html': ['tidy', 'htmlhint'],
-      \ 'javascript': [],
-      \ 'javascriptreact': [],
-      \ 'typescript': [],
-      \ 'typescriptreact': [],
+      \ 'javascript': ['eslint'],
+      \ 'javascriptreact': ['eslint'],
+      \ 'typescript': ['eslint'],
+      \ 'typescriptreact': ['eslint'],
       \ 'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'brakeman'],
       \ 'scss': ['stylelint'],
       \ 'vim': ['vint']
@@ -276,7 +277,7 @@ let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-nmap <silent><Leader>fr <Plug>(ale_fix)
+nmap <silent><Leader>f <Plug>(ale_fix)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
@@ -460,6 +461,14 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
+
+" === treesitter ===
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "all",
+"   highlight = { enable = true }
+" }
+" EOF
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
