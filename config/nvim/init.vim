@@ -407,7 +407,7 @@ let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.6, "Comment")' }
 
 " === vim-gitgutter ===
 let g:gitgutter_signs = 0
-let g:gitgutter_max_signs = 1500
+let g:gitgutter_max_signs = 500
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
@@ -510,7 +510,11 @@ nnoremap <Leader>d :call InsertDebug()<CR>
 
 function! InsertReact()
     call feedkeys('i')
-    call feedkeys("import mountComponent from 'utils/reactHelper';")
+    call feedkeys("import ComponentName from 'apps/ComponentName/ComponentName';")
+    call feedkeys("\n")
+    call feedkeys("\n")
+    call feedkeys("import { mountComponent } from 'utils/reactHelper';")
+    call feedkeys("\n")
     call feedkeys("\n")
     call feedkeys("mountComponent(ComponentName, 'ComponentName');")
     call feedkeys("\<Esc>")
