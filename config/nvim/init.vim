@@ -11,7 +11,7 @@ Plug 'https://github.com/devinrm/the-grey'
 
 " === completion ===
 Plug 'https://github.com/dense-analysis/ale'
-Plug 'https://github.com/neovim/nvim-lsp'
+Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/Shougo/deoplete-lsp'
 
@@ -283,10 +283,10 @@ nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === nvim-lsp ===
 lua << END
-  require'nvim_lsp'.tsserver.setup{}
-  require'nvim_lsp'.solargraph.setup{}
-  require'nvim_lsp'.html.setup{}
-  require'nvim_lsp'.cssls.setup{}
+  require'lspconfig'.tsserver.setup{}
+  require'lspconfig'.solargraph.setup{}
+  require'lspconfig'.html.setup{}
+  require'lspconfig'.cssls.setup{}
 END
 
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
