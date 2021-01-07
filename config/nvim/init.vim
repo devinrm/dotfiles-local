@@ -12,8 +12,9 @@ Plug 'https://github.com/devinrm/the-grey'
 " === completion ===
 Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/neovim/nvim-lspconfig'
-Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'https://github.com/Shougo/deoplete-lsp'
+Plug 'https://github.com/nvim-lua/completion-nvim'
+Plug 'https://github.com/steelsojka/completion-buffers'
+Plug 'https://github.com/kristijanhusak/completion-tags'
 
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
@@ -282,29 +283,36 @@ nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === nvim-lsp ===
-lua << END
-  require'lspconfig'.tsserver.setup{}
-  require'lspconfig'.solargraph.setup{}
-  require'lspconfig'.html.setup{}
-  require'lspconfig'.cssls.setup{}
-END
+lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.solargraph.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach}
 
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent>ge <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
 
-" === deoplete ===
+" === completion-nvim ===
+autocmd BufEnter * lua require'completion'.on_attach()
+au Filetype lua setl omnifunc=v:lua.vim.lsp.omnifunc
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+let g:completion_chain_complete_list = {
+  \ 'default': [
+  \    {'complete_items': ['lsp']},
+  \    {'complete_items': ['buffers']},
+  \    {'complete_items': ['tags']}
+  \  ]}
+let g:completion_matching_smart_case = 1
+
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-set completeopt+=noselect,noinsert,menuone
-set completeopt-=i,t,preview
+set completeopt=menuone,noinsert,noselect
 set noinfercase
 set pumheight=10
 set shortmess+=c
-
-let g:deoplete#enable_at_startup = 1
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -323,10 +331,6 @@ nnoremap <C-b> :wa<CR>:Buffers<CR>
 nnoremap <Leader>p :BLines<CR>
 nnoremap <Leader>gc :wa<CR>:Commits<CR>
 nnoremap <Leader>hi :wa<CR>:History<CR>
-
-if has('nvim')
-  let g:fzf_layout = { 'window': '40new' }
-endif
 
 " match fzf colors to colorscheme
 let g:fzf_colors =
