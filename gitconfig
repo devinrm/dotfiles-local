@@ -88,4 +88,4 @@
 [rebase]
   autosquash = true
 [rerere]
-  enabled = false
+  enabled = true
