@@ -9,6 +9,9 @@ fast-cli
 heroku
 htmlhint
 javascript-typescript-langserver
+typescript-language-server
+vscode-html-languageserver-bin
+vscode-css-languageserver-bin
 neovim
 npm
 npmf
@@ -18,5 +21,4 @@ prettier-eslint-cli
 snyk
 tldr
 typescript
-typescript-tslint-plugin
 ts-node
