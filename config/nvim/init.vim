@@ -296,7 +296,6 @@ nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
 autocmd BufEnter * lua require'completion'.on_attach()
 au Filetype lua setl omnifunc=v:lua.vim.lsp.omnifunc
 
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_chain_complete_list = {
   \ 'default': [
   \    {'complete_items': ['lsp']},
@@ -310,7 +309,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 set completeopt=menuone,noinsert,noselect
-set noinfercase
+set completeopt-=i,t,preview
 set pumheight=10
 set shortmess+=c
 
