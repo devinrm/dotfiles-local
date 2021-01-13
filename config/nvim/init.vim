@@ -14,7 +14,6 @@ Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/nvim-lua/completion-nvim'
 Plug 'https://github.com/steelsojka/completion-buffers'
-Plug 'https://github.com/kristijanhusak/completion-tags'
 
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
@@ -283,6 +282,7 @@ nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " === nvim-lsp ===
+autocmd BufEnter * lua require'completion'.on_attach()
 lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.solargraph.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
@@ -293,14 +293,12 @@ nnoremap <silent>ge <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
 
 " === completion-nvim ===
-autocmd BufEnter * lua require'completion'.on_attach()
 au Filetype lua setl omnifunc=v:lua.vim.lsp.omnifunc
 
 let g:completion_chain_complete_list = {
   \ 'default': [
   \    {'complete_items': ['lsp']},
-  \    {'complete_items': ['buffers']},
-  \    {'complete_items': ['tags']}
+  \    {'complete_items': ['buffers']}
   \  ]}
 let g:completion_matching_smart_case = 1
 
