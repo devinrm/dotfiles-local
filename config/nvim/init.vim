@@ -17,7 +17,8 @@ Plug 'https://github.com/steelsojka/completion-buffers'
 
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
-" Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/voldikss/vim-floaterm'
+Plug 'https://github.com/tpope/vim-dispatch'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
@@ -81,10 +82,8 @@ set hlsearch " highlight search results
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
 set incsearch " do incremental searching
 set ignorecase " case insensitive pattern matching
-if has('nvim')
-  set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
-  set pumblend=20
-endif
+set inccommand=split " this is necessary for using this %s with a quickfix window in nvim
+set pumblend=20
 set laststatus=2
 set lazyredraw
 let g:is_posix=1 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
@@ -140,7 +139,7 @@ set statusline+=%3*\ %P
 set statusline+=%3*\ █▓░
 set synmaxcol=200
 set tabstop=2 " Number of spaces that a <Tab> in the file counts for.
-" set textwidth=100 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+set textwidth=100 " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
 set ttimeout " determine the behavior when part of a key code sequence has been received by the terminal UI.
 set undodir=$HOME/.undodir " directory name for undo file.
 set undofile " Automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
@@ -445,13 +444,14 @@ function! NeoSplit(cmd) abort
   call opts.close_terminal()
 
   split new
+
   call termopen(a:cmd . opts.suffix, opts)
   au BufDelete <buffer> wincmd p
   stopinsert
 endfunction
 
 let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
-let g:test#strategy = 'neosplit'
+let g:test#strategy = 'dispatch'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test
@@ -462,14 +462,6 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
-
-" === treesitter ===
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "all",
-"   highlight = { enable = true }
-" }
-" EOF
 
 "  ____ ____ ____ ____
 " ||m |||a |||p |||s ||
@@ -527,17 +519,15 @@ nnoremap <Leader>qq :call InsertReact()<CR>
 nnoremap <Leader>co ct;console.log(<C-r>")<Esc>
 
 " === terminal mappings ===
-if has('nvim')
-  augroup TerminalNumbers
-    autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
-  augroup END
+augroup TerminalNumbers
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
 
-  augroup TerminalExitStatus
-    autocmd!
-    autocmd TermClose * call feedkeys("\<CR>")
-  augroup END
-endif
+augroup TerminalExitStatus
+  autocmd!
+  autocmd TermClose * call feedkeys("\<CR>")
+augroup END
 
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
