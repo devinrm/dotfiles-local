@@ -19,6 +19,9 @@ Plug 'https://github.com/steelsojka/completion-buffers'
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/tpope/vim-dispatch'
+Plug 'https://github.com/alexaandru/nvim-lspupdate'
+Plug 'https://github.com/glepnir/lspsaga.nvim'
+Plug 'https://github.com/rstacruz/vim-closer'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
@@ -287,9 +290,9 @@ lua require'lspconfig'.solargraph.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach}
 
-nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent>ge <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
 
 " === completion-nvim ===
 au Filetype lua setl omnifunc=v:lua.vim.lsp.omnifunc
@@ -309,6 +312,19 @@ set completeopt=menuone,noinsert,noselect
 set completeopt-=i,t,preview
 set pumheight=10
 set shortmess+=c
+
+" === lspsaga ===
+lua << EOF
+  local saga = require 'lspsaga'
+  saga.init_lsp_saga()
+EOF
+nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+nnoremap <silent>gr <cmd>lua require('lspsaga.rename').rename()<CR>
+nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
+nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+vnoremap <silent><leader>ca <cmd>'<,'>lua require('lspsaga.codeaction').range_code_action()<CR>
 
 " === commmentary ===
 nnoremap <C-\> :Commentary<CR>
@@ -512,7 +528,6 @@ function! InsertReact()
     call feedkeys("mountComponent(ComponentName, 'ComponentName');")
     call feedkeys("\<Esc>")
 endfunction
-
 nnoremap <Leader>qq :call InsertReact()<CR>
 
 " === console.log word or function under cursor ===
