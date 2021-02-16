@@ -21,15 +21,14 @@ Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/alexaandru/nvim-lspupdate'
 Plug 'https://github.com/glepnir/lspsaga.nvim'
-Plug 'https://github.com/rstacruz/vim-closer'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
 Plug 'https://github.com/junegunn/fzf.vim'
 
 " === git ===
-Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/junegunn/gv.vim'
+Plug 'https://github.com/mhinz/vim-signify'
 
 " === language plugins ===
 Plug 'https://github.com/hail2u/vim-css3-syntax'
@@ -48,7 +47,6 @@ Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/RRethy/vim-illuminate'
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/romainl/vim-cool'
-Plug 'https://github.com/tpope/vim-endwise'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/tpope/vim-rhubarb'
@@ -132,7 +130,7 @@ set statusline+=%1*\█▓░
 set statusline+=%1*\ %f\ %*
 set statusline+=%3*\░
 set statusline+=%3*\ %{StatusGit()}
-set statusline+=%3*\ %{StatusGitGutter()}
+set statusline+=%3*\ %{StatusSignify()}
 set statusline+=%3*\ ░
 set statusline+=%3*\ %{StatusErrors()}
 set statusline+=%3*\ ░
@@ -205,25 +203,8 @@ function! StatusErrors() abort
   return l:counts.total == 0 ? '' : printf('• %d', l:counts.total)
 endfunction
 
-function! StatusGitGutter() abort
-  if !exists('*GitGutterGetHunkSummary')
-        \ || ! get(g:, 'gitgutter_enabled', 0)
-        \ || winwidth('.') <= 90
-    return ''
-  endif
-  let l:symbols = [
-        \ g:gitgutter_sign_added . '',
-        \ g:gitgutter_sign_modified . '',
-        \ g:gitgutter_sign_removed . ''
-        \ ]
-  let l:hunks = GitGutterGetHunkSummary()
-  let l:ret = []
-  for l:i in [0, 1, 2]
-    if l:hunks[l:i] > 0
-      call add(l:ret, l:symbols[l:i] . l:hunks[l:i])
-    endif
-  endfor
-  return join(l:ret, ' ')
+function! StatusSignify()
+  return ''. sy#repo#get_stats_decorated()
 endfunction
 
 augroup highlight_yank
@@ -421,17 +402,6 @@ endfunction
 
 let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.6, "Comment")' }
 
-" === vim-gitgutter ===
-let g:gitgutter_signs = 0
-let g:gitgutter_max_signs = 500
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_removed = '-'
-augroup LeGit
-  autocmd!
-  autocmd BufWritePost * GitGutter
-augroup END
-
 " === vim-illuminate ===
 let g:Illuminate_delay = 50
 hi illuminatedWord guibg=#2c323c gui=NONE
@@ -447,6 +417,10 @@ let g:netrw_dirhistmax = 0
 
 " === vim-ruby ===
 let ruby_no_expensive = 1
+
+" === vim-signify ===
+let g:signify_sign_show_text = 0
+set updatetime=100
 
 " === vim-test ===
 function! NeoSplit(cmd) abort
