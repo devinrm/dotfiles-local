@@ -18,7 +18,6 @@ Plug 'https://github.com/steelsojka/completion-buffers'
 " === experiments ===
 Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/voldikss/vim-floaterm'
-Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/alexaandru/nvim-lspupdate'
 Plug 'https://github.com/glepnir/lspsaga.nvim'
 
@@ -441,7 +440,7 @@ function! NeoSplit(cmd) abort
 endfunction
 
 let g:test#custom_strategies = {'neosplit': function('NeoSplit')}
-let g:test#strategy = 'dispatch'
+let g:test#strategy = 'neosplit'
 let g:test#runner_commands = ['Jest', 'RSpec']
 
 " update jest snapshots with vim-test
