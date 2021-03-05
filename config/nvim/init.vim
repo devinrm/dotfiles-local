@@ -20,6 +20,9 @@ Plug 'https://github.com/stefandtw/quickfix-reflector.vim'
 Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'https://github.com/alexaandru/nvim-lspupdate'
 Plug 'https://github.com/glepnir/lspsaga.nvim'
+Plug 'https://github.com/nvim-lua/popup.nvim'
+Plug 'https://github.com/nvim-lua/plenary.nvim'
+Plug 'https://github.com/nvim-telescope/telescope.nvim'
 
 " === find ===
 Plug 'https://github.com/junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --bin' }
@@ -270,9 +273,9 @@ lua require'lspconfig'.solargraph.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach}
 
-" nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent>gd <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent>ge <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>gh <cmd>lua vim.lsp.buf.hover()<CR>
 
 " === completion-nvim ===
 au Filetype lua setl omnifunc=v:lua.vim.lsp.omnifunc
@@ -283,6 +286,7 @@ let g:completion_chain_complete_list = {
   \    {'complete_items': ['buffers']}
   \  ]}
 let g:completion_matching_smart_case = 1
+let g:completion_timer_cycle = 20
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
